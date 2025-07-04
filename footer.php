@@ -1057,7 +1057,7 @@
 
 
 
-  <script src="<?php get_template_directory_uri(); ?>/assets/<?php get_template_directory_uri(); ?>/assets/js/main.min.js"></script>
+  <script src="<?php get_template_directory_uri(); ?>/assets/js/main.min.js"></script>
 <?php wp_footer(); ?>
 </body>
 
