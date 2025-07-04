@@ -379,7 +379,7 @@
               </a>
             </div>
             <a class="header__btn footer__callback" href="#callback">
-              <img src="images/manager-btn.webp" alt="manager-btn">
+              <img src="<?php get_template_directory_uri(); ?>/assets/images/manager-btn.webp" alt="manager-btn">
               <span>Записаться</span>
             </a>
             <a class="footer__btn _main-btn" href="#callback">
@@ -462,7 +462,7 @@
       <div class="popup__left big-popup__left">
         <div class="popup__manager">
           <div class="popup__manager-wrapper">
-            <img class="popup__manager-img" src="images/manager.webp" alt="manager">
+            <img class="popup__manager-img" src="<?php get_template_directory_uri(); ?>/assets/images/manager.webp" alt="manager">
           </div>
           <div class="popup__manager-info">
             <h5 class="popup__manager-name">
@@ -482,7 +482,7 @@
           в течение 5 минут или в удобное<br>
           для вас время
         </p>
-        <img class="popup__left-img" src="images/popup-phone.webp" alt="phone">
+        <img class="popup__left-img" src="<?php get_template_directory_uri(); ?>/assets/images/popup-phone.webp" alt="phone">
       </div>
       <form method="POST" action="#" enctype="multipart/form-data"
         class="popup__form big-popup__form form form-submit _image-wrapper relative">
@@ -615,7 +615,7 @@
     <div class="quiz__inner">
       <div class="quiz__left">
         <div class="quiz__left-wrapper">
-          <img class="quiz__left-img _img" src="images/quiz-left.webp" alt="quiz-left">
+          <img class="quiz__left-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/quiz-left.webp" alt="quiz-left">
         </div>
       </div>
       <form class="quiz-block quiz__form form-submit" action="#" method="POST" enctype="multipart/form-data">
@@ -994,7 +994,7 @@
               </span>
             </label>
           </div>
-          <img class="last-step__img" src="images/quiz-phone.webp" alt="quiz-phone">
+          <img class="last-step__img" src="<?php get_template_directory_uri(); ?>/assets/images/quiz-phone.webp" alt="quiz-phone">
         </div>
       </form>
 
@@ -1057,7 +1057,7 @@
 
 
 
-  <script src="./assets/js/main.min.js"></script>
+  <script src="<?php get_template_directory_uri(); ?>/assets/<?php get_template_directory_uri(); ?>/assets/js/main.min.js"></script>
 <?php wp_footer(); ?>
 </body>
 

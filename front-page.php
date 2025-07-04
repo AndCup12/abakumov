@@ -1,7 +1,7 @@
 <?php get_header(); ?>
   <main class="main">
     <section class="front-block _image-wrapper _section-lg">
-      <img class="front-block__logo" src="images/icons/abacumov-fff.svg" alt="abacumov">
+      <img class="front-block__logo" src="<?php get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
       <div class="container">
         <div class="front-block__top">
           <h1 class="front-block__title _title">
@@ -16,8 +16,8 @@
             Здоровье с эстетикой. В каждом этапе жизни.
           </p>
           <?php echo 'Тестируем совместную работу'; ?>
-          <img class="front-block__yandex" src="images/front-block-yandex.webp" alt="front-block-yandex">
-          <img class="front-block__right" src="images/front-block-2.webp" alt="front-block-2">
+          <img class="front-block__yandex" src="<?php get_template_directory_uri(); ?>/assets/images/front-block-yandex.webp" alt="front-block-yandex">
+          <img class="front-block__right" src="<?php get_template_directory_uri(); ?>/assets/images/front-block-2.webp" alt="front-block-2">
         </div>
         <div class="front-block__btns">
           <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
@@ -49,7 +49,7 @@
           </a>
         </div>
       </div>
-      <img class="front-block__img" src="images/doctors.webp" alt="doctors">
+      <img class="front-block__img" src="<?php get_template_directory_uri(); ?>/assets/images/doctors.webp" alt="doctors">
     </section>
     <section class="comfort">
       <div class="container">
@@ -92,7 +92,7 @@
             <div class="swiper-slide comfort__slide">
               <div class="comfort__item">
                 <div class="comfort__item-wrapper">
-                  <img class="comfort__item-img _img" src="images/comfort-1.webp" alt="comfort-1">
+                  <img class="comfort__item-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/comfort-1.webp" alt="comfort-1">
                 </div>
                 <div class="comfort__item-info">
                   <p class="comfort__item-text">
@@ -105,7 +105,7 @@
             <div class="swiper-slide comfort__slide">
               <div class="comfort__item">
                 <div class="comfort__item-wrapper">
-                  <img class="comfort__item-img _img" src="images/comfort-2.webp" alt="comfort-2">
+                  <img class="comfort__item-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/comfort-2.webp" alt="comfort-2">
                 </div>
                 <div class="comfort__item-info">
                   <p class="comfort__item-text">
@@ -118,7 +118,7 @@
             <div class="swiper-slide comfort__slide">
               <div class="comfort__item">
                 <div class="comfort__item-wrapper">
-                  <img class="comfort__item-img _img" src="images/comfort-3.webp" alt="comfort-3">
+                  <img class="comfort__item-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/comfort-3.webp" alt="comfort-3">
                 </div>
                 <div class="comfort__item-info">
                   <p class="comfort__item-text">
@@ -131,7 +131,7 @@
             <div class="swiper-slide comfort__slide">
               <div class="comfort__item">
                 <div class="comfort__item-wrapper">
-                  <img class="comfort__item-img _img" src="images/comfort-4.webp" alt="comfort-4">
+                  <img class="comfort__item-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/comfort-4.webp" alt="comfort-4">
                 </div>
                 <div class="comfort__item-info">
                   <p class="comfort__item-text">
@@ -181,13 +181,13 @@
         <div class="just-treat__swiper swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide just-treat__slide">
-              <img class="just-treat__item" src="images/just-treat-1.webp" alt="just-treat-1">
+              <img class="just-treat__item" src="<?php get_template_directory_uri(); ?>/assets/images/just-treat-1.webp" alt="just-treat-1">
             </div>
             <div class="swiper-slide just-treat__slide">
-              <img class="just-treat__item" src="images/just-treat-2.webp" alt="just-treat-2">
+              <img class="just-treat__item" src="<?php get_template_directory_uri(); ?>/assets/images/just-treat-2.webp" alt="just-treat-2">
             </div>
             <div class="swiper-slide just-treat__slide">
-              <img class="just-treat__item" src="images/just-treat-3.webp" alt="just-treat-3">
+              <img class="just-treat__item" src="<?php get_template_directory_uri(); ?>/assets/images/just-treat-3.webp" alt="just-treat-3">
             </div>
           </div>
         </div>
@@ -347,7 +347,7 @@
           <div class="ready-programs__elems">
             <div class="ready-programs__elem">
               <div class="ready-programs__elem-wrapper">
-                <img class="ready-programs__elem-img _img" src="images/ready-programs-1.webp" alt="ready-programs-1">
+                <img class="ready-programs__elem-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/ready-programs-1.webp" alt="ready-programs-1">
               </div>
               <div class="ready-programs__elem-info">
                 <h4 class="ready-programs__elem-title">
@@ -367,7 +367,7 @@
             </div>
             <div class="ready-programs__elem">
               <div class="ready-programs__elem-wrapper">
-                <img class="ready-programs__elem-img _img" src="images/ready-programs-2.webp" alt="ready-programs-2">
+                <img class="ready-programs__elem-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/ready-programs-2.webp" alt="ready-programs-2">
               </div>
               <div class="ready-programs__elem-info">
                 <h4 class="ready-programs__elem-title">
@@ -387,7 +387,7 @@
             </div>
             <div class="ready-programs__elem">
               <div class="ready-programs__elem-wrapper">
-                <img class="ready-programs__elem-img _img" src="images/ready-programs-3.webp" alt="ready-programs-3">
+                <img class="ready-programs__elem-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/ready-programs-3.webp" alt="ready-programs-3">
               </div>
               <div class="ready-programs__elem-info">
                 <h4 class="ready-programs__elem-title">
@@ -424,7 +424,7 @@
           <a class="consultation__btn _main-btn" href="#">
             Узнать о врачах подробнее
           </a>
-          <img class="consultation__img" src="images/doctors.webp" alt="doctors">
+          <img class="consultation__img" src="<?php get_template_directory_uri(); ?>/assets/images/doctors.webp" alt="doctors">
         </div>
       </section>
     </div>
@@ -496,7 +496,7 @@
         <div class="services__items">
           <div class="services__item">
             <div class="services__item-wrapper">
-              <img class="services__item-img _img" src="images/services-1.webp" alt="services-1">
+              <img class="services__item-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/services-1.webp" alt="services-1">
             </div>
             <div class="services__item-info">
               <h4 class="services__item-title">
@@ -510,7 +510,7 @@
           </div>
           <div class="services__item">
             <div class="services__item-wrapper">
-              <img class="services__item-img _img" src="images/services-2.webp" alt="services-2">
+              <img class="services__item-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/services-2.webp" alt="services-2">
             </div>
             <div class="services__item-info">
               <h4 class="services__item-title">
@@ -525,7 +525,7 @@
           </div>
           <div class="services__item">
             <div class="services__item-wrapper">
-              <img class="services__item-img _img" src="images/services-3.webp" alt="services-3">
+              <img class="services__item-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/services-3.webp" alt="services-3">
             </div>
             <div class="services__item-info">
               <h4 class="services__item-title">
@@ -839,10 +839,10 @@
         <div class="callback__inner _image-wrapper">
           <div class="callback__left">
             <h2 class="callback__title _title">
-              Премиум- <br>сервис с личным<br> помощником <img src="images/icons/callback-1.svg" alt=""><br>24/7
+              Премиум- <br>сервис с личным<br> помощником <img src="<?php get_template_directory_uri(); ?>/assets/images/icons/callback-1.svg" alt=""><br>24/7
             </h2>
             <div class="callback__info">
-              <img class="callback__info-img" src="images/callback-manager.webp" alt="callback-manager">
+              <img class="callback__info-img" src="<?php get_template_directory_uri(); ?>/assets/images/callback-manager.webp" alt="callback-manager">
               <p class="callback__info-text">
                 Ваш куратор<br> сопровождает<br>
                 на каждом этапе:<br>
@@ -900,7 +900,7 @@
           ценностей и медицинской философии основателя
         </p>
         <a class="video-block__video" href="#" data-fancybox>
-          <img class="video-block__video-img _img" src="images/video-block-1.webp" alt="video-block-1">
+          <img class="video-block__video-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/video-block-1.webp" alt="video-block-1">
           <div class="play">
             <div class="play__inner">
               <svg width="47" height="50" viewBox="0 0 47 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -915,7 +915,7 @@
         <a class="video-block__btn _gray-btn" href="#">
           Узнать о клинике больше
         </a>
-        <img class="video-block__img" src="images/video-block-2.webp" alt="video-block-2">
+        <img class="video-block__img" src="<?php get_template_directory_uri(); ?>/assets/images/video-block-2.webp" alt="video-block-2">
       </div>
     </section>
     <section class="reviews _section-lg">
@@ -947,9 +947,9 @@
           <div class="swiper-wrapper">
             <div class="swiper-slide reviews__slide">
               <div class="reviews__item">
-                <img class="reviews__item-img" src="images/reviews-1.webp" alt="reviews-1">
+                <img class="reviews__item-img" src="<?php get_template_directory_uri(); ?>/assets/images/reviews-1.webp" alt="reviews-1">
                 <a class="reviews__item-wrapper" href="#" data-fancybox>
-                  <img class="reviews__item-video _img" src="images/reviews-1-1.webp" alt="reviews-1-1">
+                  <img class="reviews__item-video _img" src="<?php get_template_directory_uri(); ?>/assets/images/reviews-1-1.webp" alt="reviews-1-1">
                   <div class="play">
                     <div class="play__inner">
                       <svg width="47" height="50" viewBox="0 0 47 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -965,9 +965,9 @@
             </div>
             <div class="swiper-slide reviews__slide">
               <div class="reviews__item">
-                <img class="reviews__item-img" src="images/reviews-2.webp" alt="reviews-2">
+                <img class="reviews__item-img" src="<?php get_template_directory_uri(); ?>/assets/images/reviews-2.webp" alt="reviews-2">
                 <a class="reviews__item-wrapper" href="#" data-fancybox>
-                  <img class="reviews__item-video _img" src="images/reviews-2-1.webp" alt="reviews-2-1">
+                  <img class="reviews__item-video _img" src="<?php get_template_directory_uri(); ?>/assets/images/reviews-2-1.webp" alt="reviews-2-1">
                   <div class="play">
                     <div class="play__inner">
                       <svg width="47" height="50" viewBox="0 0 47 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -983,9 +983,9 @@
             </div>
             <div class="swiper-slide reviews__slide">
               <div class="reviews__item">
-                <img class="reviews__item-img" src="images/reviews-3.webp" alt="reviews-3">
+                <img class="reviews__item-img" src="<?php get_template_directory_uri(); ?>/assets/images/reviews-3.webp" alt="reviews-3">
                 <a class="reviews__item-wrapper" href="#" data-fancybox>
-                  <img class="reviews__item-video _img" src="images/reviews-3-1.webp" alt="reviews-3-1">
+                  <img class="reviews__item-video _img" src="<?php get_template_directory_uri(); ?>/assets/images/reviews-3-1.webp" alt="reviews-3-1">
                   <div class="play">
                     <div class="play__inner">
                       <svg width="47" height="50" viewBox="0 0 47 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1001,9 +1001,9 @@
             </div>
             <div class="swiper-slide reviews__slide">
               <div class="reviews__item">
-                <img class="reviews__item-img" src="images/reviews-4.webp" alt="reviews-4">
+                <img class="reviews__item-img" src="<?php get_template_directory_uri(); ?>/assets/images/reviews-4.webp" alt="reviews-4">
                 <a class="reviews__item-wrapper" href="#" data-fancybox>
-                  <img class="reviews__item-video _img" src="images/reviews-4-1.webp" alt="reviews-4-1">
+                  <img class="reviews__item-video _img" src="<?php get_template_directory_uri(); ?>/assets/images/reviews-4-1.webp" alt="reviews-4-1">
                   <div class="play">
                     <div class="play__inner">
                       <svg width="47" height="50" viewBox="0 0 47 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1040,7 +1040,7 @@
         <div class="contacts__inner">
           <div class="contacts__left">
             <div class="contacts__left-wrapper">
-              <img class="contacts__left-img _img" src="images/contacts-1.webp" alt="contacts-1">
+              <img class="contacts__left-img _img" src="<?php get_template_directory_uri(); ?>/assets/images/contacts-1.webp" alt="contacts-1">
             </div>
           </div>
           <div class="contacts__right">
