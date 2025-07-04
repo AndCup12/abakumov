@@ -1,0 +1,179 @@
+@use '../base/mixins' as mixins;
+
+#checkup-main {
+  .front-block {
+    padding-top: 273px;
+    background-size: cover;
+
+    @include mixins.lg {
+      padding-top: 200px;
+    }
+
+    @include mixins.md {
+      padding-bottom: 60px;
+    }
+
+    &__top {
+      margin-bottom: 61px;
+
+      @include mixins.xl {
+        margin-bottom: 50px;
+      }
+
+      @include mixins.lg {
+        margin-bottom: 40px;
+      }
+
+      @include mixins.md {
+        margin-bottom: 30px;
+      }
+
+      @include mixins.sm {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__right {
+      right: 225px;
+      top: 133px;
+
+      @include mixins.xxl {
+        right: 150px;
+      }
+
+      @include mixins.xl {
+        right: 50px;
+      }
+
+      @include mixins.lg {
+        max-width: 125px;
+        top: 120px;
+        right: 0;
+      }
+    }
+
+    &__btns {
+      gap: 59px;
+
+      @include mixins.md {
+        gap: 15px;
+      }
+
+      @include mixins.sm {
+        flex-direction: column;
+      }
+    }
+
+    &__btn {
+      max-width: 288px;
+
+      @include mixins.md {
+        max-width: 255px;
+      }
+    }
+
+    &__logo {
+      bottom: 0;
+      height: auto;
+    }
+  }
+
+  .services {
+    &__item-text {
+      @include mixins.xxl {
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .ready-programs {
+    padding-bottom: 184px;
+
+    @include mixins.lg {
+      padding-bottom: 80px;
+    }
+  }
+
+  .callback {
+
+
+    &__inner {
+      align-items: end;
+
+      @include mixins.lg {
+        align-items: start;
+
+        .overlay {
+          display: block;
+          background-color: rgba($color: #000000, $alpha: 0.5);
+        }
+      }
+    }
+
+    &__left {
+      @include mixins.lg {
+        flex-direction: column;
+      }
+    }
+
+    &__title {
+      margin-bottom: 0;
+
+      @include mixins.lg {
+        background: none;
+        -webkit-text-fill-color: initial;
+        color: var(--light-color);
+      }
+    }
+
+    &__subtitle {
+      margin-bottom: 145px;
+
+      @include mixins.lg {
+        margin-bottom: 30px;
+      }
+
+      @include mixins.lg {
+        color: var(--light-color);
+      }
+
+      @include mixins.sm {
+        br {
+          display: none;
+        }
+
+        margin-bottom: 15px;
+      }
+    }
+
+    &__info {
+      display: flex;
+      max-width: 318px;
+      gap: 17px;
+      align-items: center;
+      padding: 18px 20px;
+    }
+
+    &__info-text {
+      font-size: 19px;
+
+      @include mixins.xs {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .reviews {
+    margin-top: 120px;
+
+    @include mixins.xl {
+      margin-top: 100px;
+    }
+
+    @include mixins.lg {
+      margin-top: 40px;
+    }
+  }
+}

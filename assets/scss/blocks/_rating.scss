@@ -1,0 +1,343 @@
+@use '../base/mixins' as mixins;
+
+.rating {
+  padding: 120px 0;
+  overflow: hidden;
+
+  @include mixins.xl {
+    padding: 100px 0;
+  }
+
+  @include mixins.lg {
+    padding: 40px 0;
+  }
+
+  &__title {
+    text-align: center;
+    position: relative;
+  }
+
+  &__subtitle {
+    position: relative;
+    text-align: center;
+    margin: 27px 0 68px;
+
+    @include mixins.xl {
+      margin-bottom: 50px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+      margin: 15px 0 30px;
+    }
+
+    @include mixins.sm {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__top-num {
+    position: absolute;
+    font-weight: 600;
+    font-size: 500px;
+    line-height: calc(250/500*100%);
+    color: var(--light-color);
+    opacity: 0.5;
+    top: 150px;
+    right: -100px;
+
+    @include mixins.xl {
+      font-size: 250px;
+      right: -50px;
+    }
+
+    @include mixins.md {
+      display: none;
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 64px;
+
+    @include mixins.xl {
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+      margin-bottom: 30px;
+      flex-direction: column;
+      align-items: start;
+      gap: 15px;
+    }
+
+    @include mixins.sm {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__top-left {
+    @include mixins.xl {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    @include mixins.sm {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+
+  &__top-title {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: calc(34/26*100%);
+    margin-bottom: 20px;
+
+    @include mixins.xxl {
+      font-size: 22px;
+    }
+
+    @include mixins.xl {
+      margin: 0;
+    }
+
+    @include mixins.lg {
+      font-size: 20px;
+    }
+
+    @include mixins.xs {
+      font-size: 18px;
+    }
+
+    img {
+      display: inline-block;
+      transform: translateY(5px);
+    }
+  }
+
+  &__top-img {
+    @include mixins.xl {
+      height: fit-content;
+    }
+  }
+
+  &__elems {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    max-width: 768px;
+
+    @include mixins.xxl {
+      gap: 8px;
+      max-width: 735px;
+    }
+
+    @include mixins.xl {
+      order: 1;
+    }
+
+    @include mixins.md {
+      order: 0;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__elem {
+    background-color: var(--light-color);
+    border-radius: 12px;
+    padding: 12px 14px 14px 18px;
+
+    @include mixins.xxl {
+      padding: 12px;
+    }
+
+    @include mixins.md {
+      min-width: 200px;
+    }
+  }
+
+  &__elems-cursor {
+    @include mixins.lg {
+      display: none;
+    }
+
+    @include mixins.md {
+      display: flex;
+      width: 100%;
+    }
+  }
+
+  &__elem-top {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin-bottom: 7px;
+  }
+
+  &__elem-title {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.2;
+    color: var(--default-color);
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '.';
+      color: #000;
+      font-size: 32px;
+      line-height: 0.1;
+      margin-left: 5px;
+    }
+  }
+
+  &__elem-percent {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.2;
+    color: #33A705;
+  }
+
+  &__elem-text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    color: #7D7E85;
+  }
+
+  &__slide {
+    max-width: 518px;
+
+    @include mixins.lg {
+      max-width: 450px;
+    }
+
+    @include mixins.sm {
+      max-width: 320px;
+    }
+  }
+
+  &__swiper {
+    overflow: visible;
+    margin-bottom: 76px;
+
+    @include mixins.xl {
+        margin-bottom: 50px;
+    }
+    @include mixins.lg {
+        margin-bottom: 40px;
+    }
+    @include mixins.md {
+        margin-bottom: 30px;
+    }
+    @include mixins.sm {
+        margin-bottom: 20px;
+    }
+  }
+
+  &__item {
+    display: block;
+    border-radius: 20px;
+    padding: 15px;
+    background-color: var(--light-color);
+    overflow: hidden;
+  }
+
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 73px;
+
+    @include mixins.xxl {
+      gap: 20px;
+    }
+    @include mixins.lg {
+        grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__link {
+    padding: 34px 42px 34px 38px;
+    background-color: rgba($color: #ffffff, $alpha: 0.5);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include mixins.xxl {
+      padding: 22px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    @include mixins.xs {
+        flex-direction: column;
+    }
+  }
+
+  &__link-center {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    svg {
+      transform: translateY(-2px);
+    }
+  }
+
+  &__link-num {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--default-color);
+  }
+
+  &__link-grade {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+    color: #7D7E85;
+  }
+
+  &__link-right {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    max-width: 190px;
+
+    @include mixins.xl {
+      margin-left: auto;
+    }
+    @include mixins.lg {
+      margin: 0;
+    }
+    @include mixins.md {
+      margin-left: auto;
+    }
+
+    @include mixins.xs {
+        margin: 0;
+    }
+  }
+
+  &__right-text {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 122%;
+    color: var(--default-color);
+  }
+}

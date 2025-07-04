@@ -1,0 +1,41 @@
+@use '../base/mixins' as mixins;
+
+#directions-main {
+  .front-block {
+    padding-bottom: 100px;
+
+    @include mixins.xl {
+      padding-bottom: 80px;
+    }
+
+    @include mixins.md {
+      padding-bottom: 60px;
+    }
+
+    &__items,
+    &__title {
+      margin-bottom: 60px;
+
+      @include mixins.xl {
+        margin-bottom: 50px;
+      }
+
+      @include mixins.lg {
+        margin-bottom: 40px;
+      }
+
+      @include mixins.md {
+        margin-bottom: 30px;
+      }
+
+      @include mixins.sm {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__logo {
+      bottom: 0;
+      height: auto;
+    }
+  }
+}

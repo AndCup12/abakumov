@@ -1,0 +1,198 @@
+@use '../base/mixins' as mixins;
+
+.ready-programs {
+  padding-top: 80px;
+
+  @include mixins.lg {
+    padding-top: 40px;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  &__subtitle {
+    text-align: center;
+    margin-bottom: 53px;
+
+    @include mixins.xl {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 30px;
+    }
+
+    @include mixins.md {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__items-title {
+    font-weight: 500;
+    font-size: 28px;
+    text-align: center;
+    background: linear-gradient(90deg, #2A2C3A 0%, #5F6275 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 48px;
+
+    @include mixins.lg {
+        margin-bottom: 30px;
+        font-size: 26px;
+    }
+
+    @include mixins.md {
+      font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    @include mixins.sm {
+        font-size: 22px;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+
+    @include mixins.xl {
+      gap: 10px;
+    }
+
+    @include mixins.lg {
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 20px;
+    }
+
+    @include mixins.xs {
+        grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__item {
+    background-color: var(--light-color);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 15px 30px 24px;
+  }
+
+  &__item-icon {
+    width: 38px;
+    height: 38px;
+    background-color: var(--icons-bg);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 35px;
+
+    @include mixins.xl {
+        margin-bottom: 20px;
+    }
+  }
+
+  &__item-title {
+    margin-top: auto;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: calc(28/22*100%);
+
+    @include mixins.xl {
+        font-size: 20px;
+    }
+
+    @include mixins.xs {
+        br{display: none;}
+    }
+  }
+
+  &__item-text {
+    margin-top: 11px;
+
+    @include mixins.xs {
+        margin-top: 5px;
+    }
+  }
+
+  &__elems {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      gap: 10px;
+      grid-auto-flow: column;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__elem {
+    background-color: var(--light-color);
+    border-radius: 30px;
+    padding: 22px 22px 40px;
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.lg {
+        width: 320px;
+        padding-bottom: 25px;
+    }
+  }
+
+  &__elem-wrapper {
+    position: relative;
+    padding-bottom: calc(275/401*100%);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  &__elem-info {
+    margin-top: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.lg {
+        margin-top: 15px;
+    }
+  }
+
+  &__elem-title {
+    font-weight: 500;
+    font-size: 23px;
+    line-height: calc(30/23*100%);
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include mixins.lg {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+  }
+
+  &__elem-btn {
+    height: 82px;
+    max-width: 280px;
+    margin: auto auto 0;
+
+    @include mixins.lg {
+        height: 70px;
+    }
+
+    svg {
+      height: 12px;
+      width: 12px;
+    }
+  }
+}

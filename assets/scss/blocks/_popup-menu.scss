@@ -1,0 +1,58 @@
+@use '../base/mixins' as mixins;
+.popup-menu{
+  position: fixed;
+  height: 100vh;
+  overflow-y: scroll;
+  left: 0;
+  z-index: 1;
+  top: 0;
+  background-color: var(--light-color);
+  padding: 20px 40px 20px 20px;
+  display: none;
+}
+
+.burger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  position: relative;
+  background-color: var(--light-color);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-radius: 45px;
+
+  .bar {
+    transition: all .3s ease-in-out;
+    width: 20px;
+    height: 2px;
+    background-color: var(--accent);
+    pointer-events: none;
+  }
+
+  &.active {
+    .bar {
+
+      &:nth-child(1) {
+        rotate: 45deg;
+        transform: translate(6px, 6px);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        rotate: -45deg;
+        transform: translate(5px, -5px);
+      }
+    }
+  }
+
+  @include  mixins.lg {
+    display: flex;
+  }
+}

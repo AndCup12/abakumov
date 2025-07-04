@@ -5,7 +5,7 @@
       <div class="container">
         <div class="front-block__top">
           <h1 class="front-block__title _title">
-            Abakumov Clinic — пространство test
+            Abakumov Clinic — пространство
             медицины будущего
           </h1>
           <p class="front-block__subtitle _subtitle">
