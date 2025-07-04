@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
   <meta content="images/social.png" property="og:image">
   <title>Главная страница</title>
-  <link rel="stylesheet" href="./css/style.min.css">
+  <link rel="stylesheet" href="./assets/css/style.min.css">
 
 	<?php wp_head(); ?>
 </head>

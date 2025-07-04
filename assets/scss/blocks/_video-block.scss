@@ -1,0 +1,138 @@
+@use '../base/mixins' as mixins;
+
+.video-block {
+  padding: 99px 0 83px;
+
+  @include mixins.lg {
+      padding: 40px 0;
+  }
+
+  &__icon {
+    margin: 0 auto 10px;
+    width: fit-content;
+
+    svg {
+      width: 24px;
+      height: 21px;
+
+      path {
+        fill: var(--accent);
+      }
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 19px;
+
+    @include mixins.lg {
+        margin-bottom: 15px;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+    margin-bottom: 42px;
+
+    @include mixins.lg {
+        margin-bottom: 30px;
+    }
+
+    @include mixins.md {
+        margin-bottom: 20px;
+    }
+  }
+
+  &__video {
+    display: block;
+    max-width: 1136px;
+    width: 100%;
+    position: relative;
+    height: 610px;
+    border-radius: 30px;
+    overflow: hidden;
+    margin: 0 auto;
+
+    @include mixins.xl {
+        height: 540px;
+    }
+
+    @include mixins.lg {
+        height: 450px;
+    }
+
+    @include mixins.md {
+        height: 400px;
+    }
+
+    @include mixins.sm {
+        height: 350px;
+    }
+
+    .play__inner{
+      width: 140px;
+      height: 140px;
+
+      @include mixins.xl {
+          width: 100px;
+          height: 100px;
+      }
+
+      @include mixins.sm {
+          width: 64px;
+          height: 64px;
+      }
+
+      svg{
+        width: 43px;
+
+        @include mixins.lg {
+            width: 35px;
+        }
+
+        @include mixins.sm {
+            width: 20px;
+        }
+      }
+    }
+  }
+
+  &__btn{
+    max-width: 324px;
+    margin: 61px auto 0;
+
+    @include mixins.xl {
+        margin-top: 50px;
+    }
+
+    @include mixins.lg {
+        margin-top: 40px;
+    }
+
+    @include mixins.md {
+        margin-top: 30px;
+    }
+    @include mixins.sm {
+        margin-top: 20px;
+    }
+  }
+
+  &__img{
+    position: absolute;
+    bottom: -83px;
+    right: -82px;
+
+    @include mixins.lg {
+        bottom: -40px;
+        max-width: 350px;
+    }
+
+    @include mixins.md {
+        right: -165px;
+    }
+
+    @include mixins.xs {
+        display: none;
+    }
+  }
+}

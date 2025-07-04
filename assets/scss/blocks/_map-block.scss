@@ -1,0 +1,165 @@
+@use '../base/mixins' as mixins;
+
+.map-block {
+  padding-top: 83px;
+
+  @include mixins.lg {
+    padding-top: 40px;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 46px;
+    line-height: calc(54/46*100%);
+    text-align: center;
+    margin-bottom: 50px;
+
+    @include mixins.xl {
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+
+    @include mixins.lg {
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+
+    @include mixins.md {
+      font-size: 24px;
+      margin-bottom: 25px;
+
+      br {
+        display: none;
+      }
+    }
+
+    @include mixins.sm {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+  }
+
+
+
+  &__inner {
+    padding: 118px 0 75px;
+    position: relative;
+    z-index: 1;
+
+    @include mixins.xl {
+      padding: var(--indent) 15px;
+
+      .container {
+        padding: 0;
+      }
+    }
+
+    @include mixins.md {
+      padding: 0 15px;
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
+  }
+
+  &__map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+
+    @include mixins.md {
+      position: static;
+      margin: 0;
+      height: 450px;
+    }
+  }
+
+  &__form {
+    max-width: 407px;
+    width: 100%;
+    border-radius: 25px;
+    background-color: var(--light-color);
+    padding: 28px 40px 46px;
+    position: relative;
+
+    @include mixins.xl {
+      max-width: 400px;
+    }
+
+    @include mixins.md {
+      margin: 0 auto;
+      box-shadow: 0 0 6px #00000040;
+    }
+
+    @include mixins.sm {
+      padding: 25px;
+    }
+  }
+
+  &__form-title {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: calc(34/28*100%);
+    margin-bottom: 10px;
+
+    @include mixins.xl {
+      font-size: 26px;
+    }
+
+    @include mixins.lg {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__form-subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+    margin-bottom: 21px;
+
+    @include mixins.xl {
+      margin-bottom: 20px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 10px;
+    }
+
+    @include mixins.md {
+      font-size: 20px;
+    }
+
+  }
+
+  &__form-inner {
+    display: grid;
+    gap: 14px;
+
+    @include mixins.sm {
+        gap: 10px;
+    }
+  }
+
+  &__form-btn{
+    height: 102px;
+    line-height: calc(24/18*100%);
+
+    @include mixins.sm {
+        height: 65px;
+    }
+  }
+
+  &__form-politic{
+    margin-top: 21px;
+
+    @include mixins.sm {
+        margin-top: 15px;
+    }
+  }
+}

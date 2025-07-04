@@ -1,0 +1,61 @@
+@use '../../node_modules/@fancyapps/ui/dist/fancybox/fancybox';
+@use '../../node_modules/swiper/swiper-bundle';
+
+@use 'base/fonts';
+@use 'base/vars';
+@use 'base/reset';
+@use 'base/containers';
+@use 'base/sticky-footer';
+@use 'base/base';
+@use 'base/titles';
+
+@use 'components/arrow-icon';
+@use 'components/accordion';
+
+
+
+
+@use 'blocks/header';
+@use 'blocks/popup-menu';
+@use 'blocks/front-block';
+@use 'blocks/comfort';
+@use 'blocks/just-treat';
+@use 'blocks/ready-programs';
+@use 'blocks/consultation';
+@use 'blocks/services';
+@use 'blocks/catalog';
+@use 'blocks/callback';
+@use 'blocks/video-block';
+@use 'blocks/reviews';
+@use 'blocks/contacts';
+@use 'blocks/map-block';
+@use 'blocks/checkup-programs';
+@use 'blocks/checkup-is';
+@use 'blocks/checkup-stages';
+@use 'blocks/personal-plan';
+@use 'blocks/checkup-reviews';
+@use 'blocks/rating';
+@use 'blocks/care-comfort';
+@use 'blocks/checkup-question';
+@use 'blocks/quote-block';
+@use 'blocks/when-examination';
+@use 'blocks/examination-reveals';
+@use 'blocks/checkup-schedule';
+@use 'blocks/checkup-compound';
+@use 'blocks/new-level';
+@use 'blocks/checkup-after';
+
+
+@use 'blocks/quiz';
+@use 'blocks/modals';
+
+
+
+
+@use 'blocks/footer';
+
+
+@use 'pages/checkup-main';
+@use 'pages/checkup-single';
+@use 'pages/directions-main';
+

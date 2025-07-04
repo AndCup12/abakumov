@@ -1,0 +1,74 @@
+@use '../base/mixins' as mixins;
+
+.accordion {
+  display: grid;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.accordion-header p {
+  margin: 0;
+}
+
+.open-item {
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s;
+}
+
+.accordion-body {
+  border-radius: 3px;
+  margin: 0;
+  padding: 0;
+  transition: all .1s;
+  transform: rotateX(90deg);
+  opacity: 0;
+  height: 0;
+}
+
+.accordion-item.active {
+  .accordion-header {
+    background-color: var(--accent);
+    color: var(--light-color);
+
+    span {
+      color: var(--light-color);
+    }
+  }
+
+  .accordion-body {
+    transform: rotateX(0deg);
+    opacity: 1;
+    margin: 0;
+    height: auto;
+    padding: 30px 0 45px 40px;
+
+    @include mixins.lg {
+        padding: 20px 0 20px 20px;
+    }
+
+    @include mixins.sm {
+      padding: 10px 20px;
+    }
+  }
+
+  .open-item {
+    transform: rotate(90deg);
+
+    svg path {
+      fill: var(--light-color);
+    }
+  }
+
+}

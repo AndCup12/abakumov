@@ -1,0 +1,191 @@
+@use '../base/mixins' as mixins;
+
+
+// main-styles
+.front-block {
+  background-image: url(../images/front-block.webp);
+  padding: 243px 0 63px;
+  position: relative;
+  margin-top: 20px;
+
+  @include mixins.lg {
+    padding-top: 200px;
+  }
+
+  @include mixins.md {
+    padding-bottom: 0;
+  }
+
+  &__top {
+    position: relative;
+    margin-bottom: 379px;
+
+    @include mixins.xl {
+      margin-bottom: 310px;
+    }
+
+    @include mixins.md {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 28px;
+
+
+    @include mixins.xl {
+      font-size: 54px;
+    }
+
+    @include mixins.lg {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    @include mixins.sm {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+  }
+
+  &__yandex {
+    position: absolute;
+    left: 103px;
+    top: 93px;
+
+    @include mixins.xxl {
+      left: 60px;
+    }
+
+    @include mixins.xl {
+      left: 0;
+      top: 80px;
+    }
+
+    @include mixins.lg {
+      top: 135px;
+    }
+
+    @include mixins.md {
+      position: static;
+      margin: 0 auto;
+      rotate: 4deg;
+    }
+  }
+
+  &__right {
+    position: absolute;
+    right: -56px;
+    top: 56px;
+
+    @include mixins.xl {
+      max-width: 250px;
+    }
+
+    @include mixins.lg {
+      top: 125px;
+    }
+
+    @include mixins.md {
+      display: none;
+    }
+  }
+
+
+  &__btns {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    @include mixins.md {
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    @include mixins.xs {
+      flex-direction: column;
+    }
+  }
+
+  &__btn {
+    max-width: 360px;
+
+    @include mixins.lg {
+      font-size: 12px;
+    }
+
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    @include mixins.md {
+      position: static;
+      transform: none;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    max-width: 108%;
+    transform: translateX(-50%);
+    left: 50%;
+    height: 250px;
+    bottom: 338px;
+  }
+}
+
+
+
+
+// additional styles
+
+.front-block {
+  &__arrow-btn {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: calc(22/18*100%);
+    color: var(--default-color);
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+
+    @include mixins.xxl {
+      gap: 10px;
+    }
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      padding-bottom: 10px;
+      overflow-x: auto;
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding-bottom: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+
+    @include mixins.lg {
+      width: 250px;
+    }
+  }
+}

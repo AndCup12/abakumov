@@ -1,0 +1,106 @@
+@use '../base/mixins' as mixins;
+
+.checkup-after {
+  margin-top: 140px;
+  padding: 100px 0 120px;
+  background-color: #fafafa;
+
+  @include mixins.xl {
+    margin-top: 100px;
+    padding: 100px 0;
+  }
+
+  @include mixins.lg {
+    margin-top: 40px;
+    padding: 40px 0;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 60px;
+
+    @include mixins.xl {
+      margin-bottom: 50px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+      margin: 15px 0 30px;
+    }
+
+    @include mixins.sm {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+
+    @include mixins.xxl {
+      gap: 25px;
+    }
+
+    @include mixins.xl {
+        gap: 10px;
+    }
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      padding-bottom: 10px;
+      overflow-x: auto;
+    }
+  }
+
+  &__item {
+    background-color: var(--light-color);
+    border-radius: 30px;
+    padding: 20px 20px 43px;
+
+    @include mixins.xl {
+        padding: 15px 15px 30px;
+    }
+
+    @include mixins.lg {
+      width: 320px;
+    }
+  }
+
+  &__item-link {
+    position: relative;
+    display: block;
+    padding-bottom: calc(397/396*100%);
+    border-radius: 20px;
+    overflow: hidden;
+
+    .play {
+      &__inner {
+        left: 22px;
+        top: 22px;
+        position: absolute;
+        width: 86px;
+        height: 86px;
+      }
+
+      svg {
+        width: 30px;
+      }
+    }
+  }
+
+  &__item-text {
+    padding: 20px 15px 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+
+    @include mixins.xxl {
+        padding: 20px 0 0;
+        br{display: none;}
+    }
+  }
+}

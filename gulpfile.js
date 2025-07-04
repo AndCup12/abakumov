@@ -13,54 +13,58 @@ const ttf2woff2 = require("gulp-ttf2woff2");
 const scriptsPaths = [
   "node_modules/@fancyapps/ui/dist/fancybox/fancybox.umd.js",
   "node_modules/swiper/swiper-bundle.min.js",
-  "app/js/_src/*.js",
+  "assets/js/_src/*.js",
 ];
 
 function styles() {
-  return src("app/scss/style.scss")
+  return src("assets/scss/style.scss")
     .pipe(autoprefixer({ overrideBrowserslist: ["last 10 version"] }))
     .pipe(concat("style.css"))
     .pipe(scss({ outputStyle: "compressed" }))
-    .pipe(dest("app/css"))
+    .pipe(dest("assets/css"))
     .pipe(browserSync.stream());
 }
 
 function scripts() {
   return src(scriptsPaths)
     .pipe(concat("main.min.js"))
-    .pipe(uglify())
-    .pipe(dest("app/js"))
+    .pipe(
+      uglify({
+        mangle: false,
+      })
+    )
+    .pipe(dest("assets/js"))
     .pipe(browserSync.stream());
 }
 
 function images() {
-  return src("app/images/_src/**/*.*")
-    .pipe(newer("app/images/"))
+  return src("assets/images/_src/**/*.*")
+    .pipe(newer("assets/images/"))
     .pipe(webp())
-    .pipe(dest("app/images/"));
+    .pipe(dest("assets/images/"));
 }
 
 function fonts() {
-  return src("app/fonts/_src/*.*")
+  return src("assets/fonts/_src/*.*")
     .pipe(
       fonter({
-        formats: ["woff", "ttf"],
+        formats: ["woff", "ttf", "otf"],
       })
     )
-    .pipe(src("app/fonts/*.ttf"))
+    .pipe(src("assets/fonts/*.ttf"))
     .pipe(ttf2woff2())
-    .pipe(dest("app/fonts"));
+    .pipe(dest("assets/fonts"));
 }
 
 function watching() {
   browserSync.init({
-    proxy: "http://krimok",
-    host: "krimok",
+    proxy: "http://abakumov",
+    host: "abakumov",
     open: "external",
   });
-  watch(["app/scss/**/*.scss"], styles);
-  watch(["app/images/_src/"], images);
-  watch(["app/js/_src/*.js"], scripts);
+  watch(["assets/scss/**/*.scss"], styles);
+  watch(["assets/images/_src/"], images);
+  watch(["assets/js/_src/*.js"], scripts);
   watch(["*.php"]).on("change", () => {
     browserSync.reload();
   });

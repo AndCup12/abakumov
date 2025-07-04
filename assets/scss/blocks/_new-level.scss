@@ -1,0 +1,153 @@
+@use '../base/mixins' as mixins;
+
+.new-level {
+  padding: 100px 0;
+  position: relative;
+  background-image: url(../images/new-level-bg.webp);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  overflow: hidden;
+
+  @include mixins.lg {
+    padding: 40px 0;
+    background-size: 965px auto;
+  }
+
+  &__logo {
+    position: absolute;
+    max-width: 106%;
+    transform: translateX(-50%);
+    left: 50%;
+    height: 250px;
+    top: 23px;
+  }
+
+
+  &__title {
+    text-align: center;
+    margin-bottom: 46px;
+
+    @include mixins.lg {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+      margin: 15px 0 30px;
+    }
+
+    @include mixins.sm {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__items {
+    margin-top: -20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    @include mixins.lg {
+      margin-top: 0;
+        grid-auto-flow: column;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        gap: 10px;
+    }
+  }
+
+  &__item {
+    min-height: 414px;
+    background-color: #FBFBFB;
+    border-radius: 25px;
+    padding: 40px 20px 35px 40px;
+
+    @include mixins.xxl {
+        padding: 30px 20px 30px 30px;
+    }
+
+    @include mixins.lg {
+        width: 320px;
+    }
+  }
+
+  &__item-icon {
+    width: 52px;
+    min-width: 52px;
+    height: 52px;
+    min-height: 52px;
+    background-color: var(--icons-bg);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 23px;
+
+    @include mixins.xl {
+      margin-bottom: 20px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__item-title {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: calc(30/22*100%);
+
+    @include mixins.xl {
+      font-size: 20px;
+    }
+  }
+
+  &__item-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+    margin-top: 18px;
+
+    span{
+      font-weight: 600;
+    }
+    @include mixins.xxl {
+      br{display: none;}
+    }
+
+    @include mixins.xl {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  }
+
+  &__item-list{
+    margin-top: 6px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 33px;
+    max-width: 340px;
+
+    @include mixins.xl {
+       gap: 0 15px; 
+    }
+  }
+
+  &__item-point{
+    display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: calc(30/19*100%);
+    
+      @include mixins.xl {
+        font-size: 16px;
+      }
+    
+      svg {
+       min-width: 8px;
+        path {
+        fill: var(--accent);
+      }
+      }
+  }
+}

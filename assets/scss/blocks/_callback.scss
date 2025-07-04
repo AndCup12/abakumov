@@ -1,0 +1,257 @@
+@use '../base/mixins' as mixins;
+
+.callback {
+  margin-top: 120px;
+
+  @include mixins.xl {
+    margin-top: 100px;
+  }
+
+  @include mixins.lg {
+    margin-top: 40px;
+  }
+
+  &__inner {
+    border-radius: 30px;
+    overflow: hidden;
+    background-image: url(../images/callback-bg.webp);
+    padding: 70px 82px 74px;
+    display: flex;
+    justify-content: space-between;
+
+    @include mixins.xxl {
+      padding: 60px;
+    }
+
+    @include mixins.xl {
+      padding: 50px;
+    }
+
+    @include mixins.lg {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    @include mixins.md {
+      padding: 40px;
+    }
+
+    @include mixins.sm {
+      padding: 30px;
+    }
+
+    @include mixins.xs {
+      padding: 20px;
+    }
+  }
+
+  &__title {
+    font-size: 62px;
+    line-height: calc(62/64*100%);
+    margin-bottom: 60px;
+
+    @include mixins.xxl {
+      font-size: 56px;
+      margin-bottom: 50px;
+    }
+
+    @include mixins.xl {
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
+
+    @include mixins.lg {
+      font-size: 34px;
+      margin-bottom: 30px;
+    }
+
+    @include mixins.md {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: var(--light-color);
+      background: none;
+      -webkit-text-fill-color: initial;
+    }
+
+    img {
+      display: inline-block;
+
+      @include mixins.lg {
+        height: 30px;
+      }
+
+      @include mixins.md {
+        margin: 0 5px;
+      }
+    }
+  }
+
+  &__left {
+    @include mixins.lg {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include mixins.md {
+      flex-direction: column;
+    }
+  }
+
+  &__info {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(50px);
+    border-radius: 25px;
+    padding: 24px 10px 29px 32px;
+    max-width: 280px;
+
+    @include mixins.md {
+      max-width: none;
+      padding: 20px;
+      display: flex;
+      gap: 15px;
+    }
+  }
+
+  &__info-img {
+    height: fit-content;
+  }
+
+  &__info-text {
+    margin-top: 13px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(26/20*100%);
+    color: var(--subtitle);
+
+    @include mixins.md {
+      margin-top: 0;
+    }
+
+    @include mixins.sm {
+      font-size: 16px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__form {
+    max-width: 448px;
+    width: 100%;
+    background-color: var(--light-color);
+    border-radius: 25px;
+    padding: 45px 47px 56px 49px;
+    height: fit-content;
+
+    @include mixins.lg {
+      padding: 30px;
+    }
+
+    @include mixins.sm {
+      padding: 20px;
+    }
+  }
+
+  &__form-title {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: calc(34/28*100%);
+    background: linear-gradient(90deg, #2F313F 0%, #5E6174 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 14px;
+
+    @include mixins.lg {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    @include mixins.sm {
+      font-size: 24px;
+    }
+
+    @include mixins.xs {
+      font-size: 22px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+
+  &__form-subtitle {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: calc(28/20*100%);
+    margin-bottom: 26px;
+
+    @include mixins.lg {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    @include mixins.sm {
+      font-size: 16px;
+    }
+
+    @include mixins.xs {
+      br {
+        display: none;
+      }
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  &__form-inputs {
+    display: grid;
+    gap: 14px;
+
+    @include mixins.lg {
+      gap: 10px;
+    }
+  }
+
+  &__form-politic {
+    margin-top: 21px;
+
+    @include mixins.lg {
+      margin-top: 15px;
+    }
+  }
+
+}
+
+
+.callback {
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: calc(34/24*100%);
+    color: var(--accent);
+    margin-top: 29px;
+
+    @include mixins.xl {
+      margin-top: 20px;
+      font-size: 22px;
+    }
+
+    @include mixins.lg {
+      margin-top: 15px;
+    }
+
+    @include mixins.md {
+      margin-top: 10px;
+      font-size: 20px;
+    }
+
+    @include mixins.sm {
+        font-size: 18px;
+    }
+  }
+}

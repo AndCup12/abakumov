@@ -1,0 +1,109 @@
+@use '../base/mixins' as mixins;
+
+.personal-plan {
+  padding-top: 120px;
+
+  @include mixins.xl {
+    padding-top: 100px;
+  }
+
+  @include mixins.lg {
+    padding-top: 40px;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 70px;
+
+    @include mixins.xl {
+      margin-bottom: 50px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+      margin-bottom: 30px;
+    }
+
+    @include mixins.sm {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__img {
+    margin: 0 auto;
+    position: relative;
+    top: -70px;
+
+    @include mixins.xl {
+        top: -50px;
+      }
+    
+      @include mixins.lg {
+        top: -40px;
+      }
+    
+      @include mixins.md {
+        top: -30px;
+      }
+    
+      @include mixins.sm {
+        top: -20px;
+      }
+  }
+
+  &__info {
+    position: absolute;
+    right: 65px;
+    top: 0;
+    padding: 20px 15px 26px 30px;
+    background-color: #927D76;
+    border-radius: 20px;
+
+    @include mixins.md {
+        padding: 20px;
+        right: 0;
+    }
+  }
+
+  &__info-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+    color: var(--light-color);
+    margin-top: 6px;
+
+    @include mixins.sm {
+        font-size: 18px;
+    }
+  }
+
+  &__right-img {
+    top: 150px;
+    right: 0;
+    position: absolute;
+
+    @include mixins.xl {
+        width: 200px;
+    }
+
+    @include mixins.lg {
+        width: 150px;
+    }
+
+    @include mixins.md {
+        width: 100px;
+    }
+
+    @include mixins.sm {
+        top: 130px;
+    }
+
+    @include mixins.xs {
+        width: 65px;
+        top: 100px;
+    }
+  }
+}

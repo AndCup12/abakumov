@@ -1,0 +1,53 @@
+/* Контейнеры */
+@use './mixins' as mixins;
+
+
+.container {
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  max-width: calc(var(--container-width) + var(--container-padding) * 2);
+  width: 100%;
+}
+.container-lg {
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  max-width: calc(var(--container-lg-width) + var(--container-padding) * 2);
+  width: 100%;
+}
+
+@include mixins.xxl {
+
+  .container {
+    max-width: 1200px;
+  }
+
+}
+@include mixins.xl {
+
+  .container {
+    max-width: 970px;
+  }
+
+}
+
+@include mixins.lg {
+
+  .container {
+    max-width: 750px;
+  }
+}
+
+@include mixins.md {
+
+  .container {
+    max-width: 540px;
+    padding-inline: 15px;
+  }
+}
+
+@include mixins.sm {
+
+  .container {
+    max-width: 100%;
+  }
+}

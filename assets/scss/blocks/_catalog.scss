@@ -1,0 +1,135 @@
+@use '../base/mixins' as mixins;
+
+.catalog {
+  margin-top: 105px;
+  padding: 88px 0 127px;
+  background-color: #FAFAFA;
+
+  @include mixins.xl {
+    padding-bottom: 100px;
+  }
+
+  @include mixins.lg {
+    margin-top: 40px;
+    padding: 40px 0;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include mixins.lg {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+    margin-bottom: 55px;
+
+    @include mixins.xl {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 30px;
+    }
+
+    @include mixins.md {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    @include mixins.xl {
+      gap: 10px;
+    }
+
+    @include mixins.lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mixins.md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mixins.xs {
+      grid-template-columns: repeat(1, 1fr);
+
+    }
+  }
+
+  &__item {
+    background-color: var(--light-color);
+    border-radius: 20px;
+    padding: 20px 30px;
+
+    @include mixins.xl {
+      padding: 20px;
+    }
+
+    @include mixins.sm {
+      padding: 15px;
+      border-radius: 6px;
+    }
+
+  }
+
+  &__item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 5px;
+  }
+
+  &__item-num {
+    margin-top: 5px;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1;
+    color: #C8CEDB;
+  }
+
+  &__item-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #FAFAFA;
+    transform: translate(15px, -5px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+
+    @include mixins.xl {
+      transform: translate(5px, -5px);
+    }
+
+    svg {
+      rotate: 180deg;
+
+      path {
+        fill: var(--default-color);
+      }
+    }
+  }
+
+  &__item-title {
+    font-weight: 500;
+    line-height: calc(26/20*100%);
+    color: var(--default-color);
+
+    @include mixins.sm {
+      font-size: 16px;
+    }
+
+    @include mixins.xs {
+        font-size: 18px;
+    }
+  }
+}

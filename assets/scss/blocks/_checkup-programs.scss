@@ -1,0 +1,254 @@
+@use '../base/mixins' as mixins;
+
+.checkup-programs {
+  &__program {
+    padding: 72px 0 200px;
+    margin-top: -75px;
+    position: relative;
+
+    &:last-child {
+      padding-bottom: 114px;
+    }
+
+    @include mixins.lg {
+      padding: 40px 0 80px;
+      margin-top: -40px;
+
+      &:last-child {
+        padding-bottom: 40px;
+      }
+    }
+
+    &:nth-child(odd) {
+      background-color: #F7F7F7;
+    }
+
+    &:nth-child(even) {
+      background-color: #FBFBFB;
+    }
+
+  }
+
+  &__top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+
+    @include mixins.lg {
+      gap: 10px;
+    }
+  }
+
+  &__top--noimg {
+    margin-top: 28px;
+    padding-bottom: 50px;
+  }
+
+  &__top-title {
+    font-weight: 500;
+    font-size: 52px;
+    line-height: calc(78/52*100%);
+    position: relative;
+
+    @include mixins.xl {
+      font-size: 40px;
+    }
+
+    @include mixins.lg {
+      font-size: 32px;
+      line-height: 1.2;
+    }
+
+    @include mixins.md {
+      font-size: 28px;
+    }
+
+    @include mixins.sm {
+      font-size: 24px;
+    }
+  }
+
+  &__top-wrapper {
+    border-radius: 20px;
+    width: 180px;
+    height: 130px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__top-text {
+    position: absolute;
+    font-weight: 500;
+    font-size: 220px;
+    line-height: 1;
+    color: var(--light-color);
+    opacity: 0.5;
+    right: 0;
+    top: -50px;
+
+    @include mixins.xxl {
+      top: auto;
+      font-size: 185px;
+    }
+
+    @include mixins.xl {
+      font-size: 150px;
+    }
+
+    @include mixins.lg {
+      font-size: 110px;
+      bottom: 0;
+    }
+
+    @include mixins.md {
+      font-size: 75px;
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: 20px;
+
+    @include mixins.sm {
+      gap: 10px;
+    }
+  }
+
+  &__item {
+    background-color: var(--light-color);
+    border-radius: 20px;
+    padding: 30px 50px 30px 43px;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+
+    @include mixins.md {
+      padding: 30px;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    @include mixins.xs {
+      padding: 20px;
+      gap: 10px;
+    }
+  }
+
+  &__item-left {
+    display: flex;
+    gap: 55px;
+
+    @include mixins.xxl {
+      gap: 25px;
+    }
+
+    @include mixins.xs {
+      gap: 15px;
+    }
+  }
+
+  &__item-step {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1;
+    color: #C8CEDB;
+    margin-top: 6px;
+  }
+
+  &__item-title {
+    position: relative;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: calc(30/22*100%);
+    color: var(--default-color);
+
+    @include mixins.md {
+        br{display: none;}
+    }
+
+    @include mixins.sm {
+      font-size: 20px;
+    }
+  }
+
+  &__item-descr {
+    position: absolute;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: calc(22/16*100%);
+    text-align: center;
+    color: var(--light-color);
+    height: 42px;
+    padding: 10px 16px;
+    background-color: #C2CBDD;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    right: 0;
+    top: 50%;
+    transform: translateX(calc(100% + 77px)) translateY(-50%);
+
+    @include mixins.xxl {
+      transform: none;
+      position: static;
+      width: fit-content;
+      margin: 5px auto 0;
+    }
+
+    &.premium {
+      background-color: #927D76;
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  &__item-right {
+    max-width: 575px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include mixins.xxl {
+      max-width: 500px;
+    }
+
+    @include mixins.xl {
+      flex-direction: column;
+      gap: 15px;
+      max-width: 242px;
+    }
+
+    @include mixins.md {
+      margin: 0 auto;
+    }
+  }
+
+  &__item-link {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: calc(24/18*100%);
+    color: var(--default-color);
+
+    p {
+      background-color: #FAFAFA;
+    }
+  }
+
+  &__item-btn {
+    max-width: 242px;
+    height: 70px;
+    font-size: 16px;
+  }
+
+}

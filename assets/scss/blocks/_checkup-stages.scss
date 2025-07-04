@@ -1,0 +1,165 @@
+@use '../base/mixins' as mixins;
+
+.checkup-stages {
+  margin-top: 130px;
+  padding-top: 88px;
+  background-image: url(../images/checkup-stages-bg.webp);
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  @include mixins.xl {
+    margin-top: 100px;
+  }
+
+  @include mixins.lg {
+    margin-top: 40px;
+    padding-top: 40px;
+    background-size: auto 400px;
+  }
+
+  &__title {
+    margin-bottom: 225px;
+
+    @include mixins.xxl {
+        margin-bottom: 150px;
+    }
+
+    @include mixins.xl {
+        margin-bottom: 50px;
+    }
+
+    @include mixins.lg {
+        margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+        margin-bottom: 30px;
+        br{display: block;}
+    }
+
+    @include mixins.sm {
+        margin-bottom: 20px;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    @include mixins.lg {
+        grid-auto-flow: column;
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+  }
+
+  &__item {
+    background-color: #FBFBFB;
+    border-radius: 25px;
+    position: relative;
+    padding: 40px 40px 50px;
+    @include mixins.xl {
+        padding: 30px;
+    }
+
+    @include mixins.lg {
+        width: 320px;
+    }
+
+  }
+
+  &__item-icon {
+    width: 52px;
+    min-width: 52px;
+    height: 52px;
+    min-height: 52px;
+    background-color: var(--icons-bg);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 33px;
+
+    @include mixins.xl {
+        margin-bottom: 20px;
+    }
+  }
+
+  &__item-title {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: calc(30/22*100%);
+
+    @include mixins.xl {
+        font-size: 20px;
+    }
+  }
+
+  &__item-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+    margin-top: 18px;
+
+    @include mixins.xl {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+  }
+
+  &__item-subtitle {
+    margin-top: 25px;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: calc(28/19*100%);
+
+    @include mixins.xl {
+        font-size: 18px;
+        margin-top: 12px;
+    }
+  }
+
+  &__item-list {
+    margin-top: 6px;
+    position: relative;
+  }
+
+  &__item-point {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: calc(30/19*100%);
+
+    @include mixins.xl {
+        font-size: 18px;
+    }
+
+    svg path {
+      fill: var(--accent);
+    }
+  }
+
+  &__item-stage {
+    font-weight: 700;
+    font-size: 160px;
+    color: var(--light-color);
+    opacity: 0.7;
+    line-height: 0.6;
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+  }
+
+  &__item-step {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: calc(18/16*100%);
+    color: #DADADA;
+    right: 34px;
+    bottom: 28px;
+    position: absolute;
+  }
+}

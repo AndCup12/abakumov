@@ -179,6 +179,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 add_action('wp_enqueue_scripts', 'gulp_files');
 
 function gulp_files(){
-  wp_enqueue_style('all-styles-css', get_template_directory_uri().'/app/css/style.css');
-  wp_enqueue_script('all-scripts-js', get_template_directory_uri().'/app/js/main.min.js');
+  wp_enqueue_style('all-styles-css', get_template_directory_uri().'/assets/css/style.css');
+  wp_enqueue_script('all-scripts-js', get_template_directory_uri().'/assets/js/main.min.js');
 }

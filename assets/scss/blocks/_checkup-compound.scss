@@ -1,0 +1,275 @@
+@use '../base/mixins' as mixins;
+
+.checkup-compound {
+  padding-top: 120px;
+
+  @include mixins.xl {
+    padding-top: 100px;
+  }
+
+  @include mixins.lg {
+    padding-top: 40px;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 80px;
+
+    @include mixins.xxl {
+      margin-bottom: 60px;
+    }
+
+    @include mixins.xl {
+      margin-bottom: 50px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+      margin-bottom: 30px;
+    }
+
+    @include mixins.sm {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    gap: 100px;
+
+    @include mixins.xxl {
+      gap: 40px;
+    }
+
+    @include mixins.xl {
+      gap: 20px;
+    }
+  }
+
+  &__right {
+    max-width: 451px;
+    width: 100%;
+    height: fit-content;
+
+    @include mixins.lg {
+        display: none;
+    }
+  }
+
+  &__right-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: calc(740/451*100%);
+    border-radius: 25px;
+    overflow: hidden;
+  }
+
+  &__right-content {
+    position: absolute;
+    bottom: 44px;
+    left: 47px;
+  }
+
+  &__right-name {
+    background-color: var(--light-color);
+    border-radius: 15px;
+    padding: 10px 26px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+    width: fit-content;
+
+    @include mixins.xxl {
+      font-size: 18px;
+      padding: 10px;
+    }
+  }
+
+  &__right-info {
+    background-color: #927D76;
+    border-radius: 15px;
+    padding: 20px 20px 15px 30px;
+    color: var(--light-color);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: calc(24/18*100%);
+    max-width: 275px;
+
+    @include mixins.xxl {
+      padding: 15px;
+    }
+  }
+
+  &__right-exp {
+    font-weight: 600;
+    margin-top: 10px;
+
+    @include mixins.xxl {
+      margin-top: 5px;
+    }
+  }
+
+  &__left {
+    height: fit-content;
+    display: grid;
+    gap: 15px;
+    max-width: 847px;
+
+    @include mixins.xxl {
+      max-width: 750px;
+    }
+
+    @include mixins.xl {
+      max-width: 620px;
+    }
+
+    @include mixins.lg {
+        max-width: none;
+    }
+  }
+
+  &__item-header {
+    background-color: #FBFBFB;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 40px 50px 40px 40px;
+
+    @include mixins.lg {
+        padding: 30px;
+    }
+
+    @include mixins.xs {
+        padding: 20px;
+    }
+  }
+
+  &__item-left {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+
+    @include mixins.lg {
+        gap: 25px;
+    }
+
+    @include mixins.xs {
+        gap: 15px;
+    }
+  }
+
+  &__item-step {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: calc(20/16*100%);
+    text-align: right;
+    color: #927D76;
+  }
+
+  &__item-icon {
+    svg {
+      width: 11px;
+      height: 11px;
+
+      path {
+        fill: var(--default-color);
+      }
+    }
+  }
+
+  &__item-point {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: calc(30/19*100%);
+    display: flex;
+    align-items: start;
+    gap: 14px;
+
+    @include mixins.xs {
+        font-size: 16px;
+        gap: 10px;
+    }
+
+    svg {
+      margin-top: 13px;
+      width: 8px;
+      min-width: 8px;
+
+      path {
+        fill: var(--accent);
+      }
+    }
+  }
+
+  &__item-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mixins.md {
+        align-items: start;
+    }
+
+    @include mixins.sm {
+        flex-direction: column;
+        gap: 15px;
+    }
+  }
+
+  &__item-name {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: calc(25/19*100%);
+
+    @include mixins.xs {
+        font-size: 18px;
+    }
+  }
+
+  &__item-right {
+    display: flex;
+    align-items: center;
+    gap: 67px;
+    max-width: 370px;
+    width: 100%;
+
+    @include mixins.xl {
+        gap: 20px;
+        max-width: 325px;
+    }
+
+    @include mixins.md {
+        flex-direction: column;
+        text-align: center;
+        max-width: 200px;
+        gap: 10px;
+    }
+
+    @include mixins.sm {
+        max-width: none;
+        flex-direction: row;
+    }
+  }
+
+  &__item-price {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: calc(25/22*100%);
+    width: -webkit-fill-available;
+  }
+
+  &__item-btn {
+    max-width: 202px;
+    min-width: 202px;
+    height: 70px;
+    font-size: 17px;
+    background-color: var(--accent);
+
+    @include mixins.md {
+        height: 55px;
+    }
+  }
+}
