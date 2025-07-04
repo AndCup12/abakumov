@@ -5,9 +5,13 @@
       <div class="container">
         <div class="front-block__top">
           <h1 class="front-block__title _title">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus tempora consequuntur recusandae vel nesciunt velit qui repellat? Est, accusamus sit sapiente rerum vel officia blanditiis possimus eos optio odio qui.
             Abakumov Clinic — пространство
             медицины будущего
           </h1>
+          <p class="test">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi officiis quibusdam quo doloribus, atque debitis exercitationem cupiditate nemo quia vitae distinctio adipisci accusamus, tenetur voluptates vero aspernatur corporis est quisquam?
+          </p>
           <p class="front-block__subtitle _subtitle">
             Здоровье с эстетикой. В каждом этапе жизни
           </p>
