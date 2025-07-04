@@ -11,7 +11,6 @@
           <p class="front-block__subtitle _subtitle">
             Здоровье с эстетикой. В каждом этапе жизни.
           </p>
-          <?php echo 'Тестируем совместную работу'; ?>
           <img class="front-block__yandex" src="<?php echo get_template_directory_uri(); ?>/assets/images/front-block-yandex.webp" alt="front-block-yandex">
           <img class="front-block__right" src="<?php echo get_template_directory_uri(); ?>/assets/images/front-block-2.webp" alt="front-block-2">
         </div>
