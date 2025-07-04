@@ -9,7 +9,7 @@
             медицины будущего
           </h1>
           <p class="front-block__subtitle _subtitle">
-            Здоровье с эстетикой. В каждом этапе жизни
+            Здоровье с эстетикой. В каждом этапе жизни.
           </p>
           <img class="front-block__yandex" src="images/front-block-yandex.webp" alt="front-block-yandex">
           <img class="front-block__right" src="images/front-block-2.webp" alt="front-block-2">
