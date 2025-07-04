@@ -13,7 +13,7 @@
             <?php echo "test";?>
           </p>
           <p class="front-block__subtitle _subtitle">
-            Здоровье с эстетикой. В каждом этапе жизни
+            Здоровье с эстетикой. В каждом этапе жизни.
           </p>
           <?php echo 'Тестируем совместную работу'; ?>
           <img class="front-block__yandex" src="images/front-block-yandex.webp" alt="front-block-yandex">
