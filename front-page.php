@@ -1,4 +1,4 @@
-<?php wp_header(); ?>
+<?php get_header(); ?>
   <main class="main">
     <section class="front-block _image-wrapper _section-lg">
       <img class="front-block__logo" src="images/icons/abacumov-fff.svg" alt="abacumov">
