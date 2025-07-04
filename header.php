@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="<?php get_template_directory_uri(); ?>/assets/images/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon.png" type="image/x-icon">
   <meta content="images/social.png" property="og:image">
   <title>Главная страница</title>
-  <link rel="stylesheet" href="<?php get_template_directory_uri(); ?>/assets/css/style.min.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.min.css">
 
 	<?php wp_head(); ?>
 </head>
@@ -102,7 +102,7 @@
 
             </a>
             <a class="header__map" href="https://yandex.ru/maps/-/CHcs6XPF" target="_blank">
-              <img class="header__map-img" src="<?php get_template_directory_uri(); ?>/assets/images/map-point.webp" alt="map-point">
+              <img class="header__map-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/map-point.webp" alt="map-point">
               <p class="header__map-text">
                 <span>Адрес клиники:</span>
                 г. Москва, ул. 1-я Бородинская д.3
@@ -134,7 +134,7 @@
               </a>
             </div>
             <a class="header__btn" href="#callback">
-              <img src="<?php get_template_directory_uri(); ?>/assets/images/manager-btn.webp" alt="manager-btn">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/manager-btn.webp" alt="manager-btn">
               <span>Записаться</span>
             </a>
           </div>
@@ -259,7 +259,7 @@
             </li>
           </ul>
           <a class="header__map header__menu-map" href="https://yandex.ru/maps/-/CHcs6XPF" target="_blank">
-            <img class="header__map-img" src="<?php get_template_directory_uri(); ?>/assets/images/map-point.webp" alt="map-point">
+            <img class="header__map-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/map-point.webp" alt="map-point">
             <p class="header__map-text">
               <span>Адрес клиники:</span>
               г. Москва, ул. 1-я Бородинская д.3
