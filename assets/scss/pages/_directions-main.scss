@@ -175,4 +175,16 @@
       }
     }
   }
+
+  .reviews{
+    margin-top: 120px;
+
+    @include mixins.xl {
+        margin-top: 100px;
+    }
+
+    @include mixins.lg {
+        margin-top: 40px;
+    }
+  }
 }
