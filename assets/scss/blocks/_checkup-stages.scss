@@ -1,5 +1,6 @@
 @use '../base/mixins' as mixins;
 
+// main-styles
 .checkup-stages {
   margin-top: 130px;
   padding-top: 88px;
@@ -21,24 +22,27 @@
     margin-bottom: 225px;
 
     @include mixins.xxl {
-        margin-bottom: 150px;
+      margin-bottom: 150px;
     }
 
     @include mixins.xl {
-        margin-bottom: 50px;
+      margin-bottom: 50px;
     }
 
     @include mixins.lg {
-        margin-bottom: 40px;
+      margin-bottom: 40px;
     }
 
     @include mixins.md {
-        margin-bottom: 30px;
-        br{display: block;}
+      margin-bottom: 30px;
+
+      br {
+        display: block;
+      }
     }
 
     @include mixins.sm {
-        margin-bottom: 20px;
+      margin-bottom: 20px;
     }
   }
 
@@ -47,10 +51,10 @@
     grid-template-columns: repeat(3, 1fr);
 
     @include mixins.lg {
-        grid-auto-flow: column;
-        gap: 10px;
-        overflow-x: auto;
-        padding-bottom: 10px;
+      grid-auto-flow: column;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
     }
   }
 
@@ -59,12 +63,13 @@
     border-radius: 25px;
     position: relative;
     padding: 40px 40px 50px;
+
     @include mixins.xl {
-        padding: 30px;
+      padding: 30px;
     }
 
     @include mixins.lg {
-        width: 320px;
+      width: 320px;
     }
 
   }
@@ -82,7 +87,7 @@
     margin-bottom: 33px;
 
     @include mixins.xl {
-        margin-bottom: 20px;
+      margin-bottom: 20px;
     }
   }
 
@@ -92,7 +97,7 @@
     line-height: calc(30/22*100%);
 
     @include mixins.xl {
-        font-size: 20px;
+      font-size: 20px;
     }
   }
 
@@ -103,8 +108,8 @@
     margin-top: 18px;
 
     @include mixins.xl {
-        font-size: 18px;
-        margin-top: 10px;
+      font-size: 18px;
+      margin-top: 10px;
     }
   }
 
@@ -115,8 +120,8 @@
     line-height: calc(28/19*100%);
 
     @include mixins.xl {
-        font-size: 18px;
-        margin-top: 12px;
+      font-size: 18px;
+      margin-top: 12px;
     }
   }
 
@@ -134,7 +139,7 @@
     line-height: calc(30/19*100%);
 
     @include mixins.xl {
-        font-size: 18px;
+      font-size: 18px;
     }
 
     svg path {
@@ -161,5 +166,106 @@
     right: 34px;
     bottom: 28px;
     position: absolute;
+  }
+}
+
+
+
+// additional styles
+
+.checkup-stages {
+  &__elems {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
+
+    @include mixins.xxl {
+      gap: 10px;
+    }
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__elem {
+    display: block;
+    border: 1px solid #EFEFEF;
+    border-radius: 20px;
+    padding: 30px;
+    background-color: var(--light-color);
+    padding-right: 22px;
+
+    @include mixins.xl {
+      padding: 25px;
+      padding-right: 15px;
+    }
+
+    @include mixins.lg {
+      width: 320px;
+    }
+  }
+
+  &__elem-top {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+    margin-bottom: 32px;
+
+    @include mixins.xl {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__elem-num {
+    width: 52px;
+    min-width: 52px;
+    height: 52px;
+    min-height: 52px;
+    background-color: var(--icons-bg);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1;
+    color: var(--light-color);
+
+  }
+
+  &__elem-icon {
+    opacity: 0.4;
+    width: 17px;
+    rotate: 180deg;
+
+    svg path {
+      fill: #C8CEDB;
+    }
+  }
+
+  &__elem-title {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: calc(30/22*100%);
+
+    @include mixins.xl {
+      font-size: 20px;
+    }
+  }
+
+  &__elem-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+    margin-top: 18px;
+
+    @include mixins.xl {
+      font-size: 18px;
+      margin-top: 10px;
+    }
   }
 }

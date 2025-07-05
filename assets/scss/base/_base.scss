@@ -67,6 +67,8 @@ a {
 
 ._white-text {
   color: var(--light-color);
+  background: none !important;
+    -webkit-text-fill-color: initial !important;
 }
 
 .logo {
