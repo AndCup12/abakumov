@@ -101,6 +101,199 @@ get_header();
       </div>
     </div>
   </section>
+  <section class="catalog _section-lg">
+    <div class="container">
+      <h2 class="catalog__title _title">
+        Только доказательная<br>
+        медицина
+      </h2>
+      <p class="catalog__subtitle _subtitle">
+        Проводим лечение по современным международным протоколам,<br> одобренным медицинскими сообществами
+      </p>
+      <div class="catalog__items">
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">01</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Аллергология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">02</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Гастроэнтерология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">03</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Гематология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">04</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Гинекология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">05</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Дерматология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">06</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Диетология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">07</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Кардиология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">08</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Косметология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">09</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Маммология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">10</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Неврология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">11</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Онкология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">12</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Оториноларингология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">13</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Пульмонология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">14</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Терапия</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">15</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">УЗИ</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">16</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Урология</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">17</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Физиотерапия</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">18</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Фониатрия</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">19</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Функциональная диагностика</h4>
+        </a>
+        <a href="#" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num">20</span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title">Эндокринология</h4>
+        </a>
+      </div>
+    </div>
+  </section>
 
 </main>
 
