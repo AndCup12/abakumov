@@ -176,13 +176,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-// add_action('wp_enqueue_scripts', 'gulp_files');
-
-// function gulp_files(){
-//   wp_enqueue_style('all-styles-css', get_template_directory_uri().'/assets/css/style.css');
-//   wp_enqueue_script('all-scripts-js', get_template_directory_uri().'/assets/js/main.min.js');
-// }
-
 function gulp_files() {
   $theme_uri = get_template_directory_uri();
 
