@@ -1,11 +1,4 @@
 <?php
-
-/**
- * Template Name: Направления-main
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
 get_header();
 ?>
 
