@@ -9,7 +9,11 @@
 get_header();
 ?>
 <main class="main" id="checkup-single">
-      <section class="front-block _image-wrapper _section-lg">
+
+      <?php renderBlocksSingleCheckup(); ?>
+
+      <!-- Первый блок -->
+      <!-- <section class="front-block _image-wrapper _section-lg">
         <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
         <div class="container">
           <div class="front-block__inner">
@@ -48,7 +52,9 @@ get_header();
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
+
+      <!-- Преимущества -->
       <section class="services">
         <div class="container">
           <div class="cursor @@class">
@@ -162,7 +168,9 @@ get_header();
           </div>
         </div>
       </section>
+
       <div class="wrapper-bg _section-lg">
+        <!-- Зачем проходить <направление> -->
         <section class="checkup-question">
           <div class="container">
             <h2 class="checkup-question__title _title">
@@ -260,7 +268,10 @@ get_header();
             </div>
           </div>
         </section>
+
       </div>
+
+      <!-- Врач с цитатами -->
       <section class="quote-block">
         <div class="container">
           <div class="quote-block__content relative">
@@ -298,6 +309,8 @@ get_header();
           </div>
         </div>
       </section>
+
+      <!-- Блок с видео -->
       <section class="video-block">
         <div class="container relative">
           <h2 class="video-block__title _title">
@@ -323,7 +336,10 @@ get_header();
           <img class="video-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-2.webp" alt="video-block-2">
         </div>
       </section>
+
       <div class="wrapper-gray _section-lg">
+
+        <!-- Когда стоит пройти обследование -->
         <section class="when-examination">
           <div class="container">
             <h2 class="when-examination__title _title">
@@ -529,6 +545,8 @@ get_header();
             </div>
           </div>
         </section>
+
+        <!-- Врач с цитатами без отступа -->
         <section class="quote-block space-null">
           <div class="container">
             <div class="quote-block__content relative">
@@ -564,6 +582,8 @@ get_header();
             </div>
           </div>
         </section>
+
+        <!-- Что может выявить -->
         <section class="examination-reveals">
           <div class="container">
             <h2 class="examination-reveals__title _title">
@@ -765,7 +785,10 @@ get_header();
             </div>
           </div>
         </section>
+
       </div>
+
+      <!-- Этапы прохождения -->
       <section class="checkup-stages _section-lg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/checkup-stages-bg-2.webp);">
         <div class="container">
           <h2 class="checkup-stages__title _title">
@@ -983,6 +1006,8 @@ get_header();
           </div>
         </div>
       </section>
+
+      <!-- Персональный план -->
       <section class="personal-plan">
         <div class="container">
           <h2 class="personal-plan__title _title">
@@ -1013,6 +1038,8 @@ get_header();
           </div>
         </div>
       </section>
+
+      <!-- Форма обратной связи (1 вариант) -->
       <section class="callback ">
         <div class="container">
           <div class="callback__inner _image-wrapper relative">
@@ -1053,6 +1080,8 @@ get_header();
           </div>
         </div>
       </section>
+
+      <!-- График прохождения  -->
       <section class="checkup-schedule">
         <div class="container">
           <h2 class="checkup-schedule__title _title">
@@ -1169,6 +1198,8 @@ get_header();
           </div>
         </div>
       </section>
+
+      <!-- Состав чекапа -->
       <section class="checkup-compound">
         <div class="container">
           <h2 class="checkup-compound__title _title">
@@ -1496,7 +1527,10 @@ get_header();
           </div>
         </div>
       </section>
+
       <div class="wrapper-bg _section-lg">
+
+        <!-- Медицина нового уровня -->
         <section class="new-level">
           <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
           <div class="container relative">
@@ -1764,7 +1798,10 @@ get_header();
             </div>
           </div>
         </section>
+
       </div>
+
+      <!-- Блок отзывов (изображения вытянутые) -->
       <section class="checkup-reviews _section-lg">
         <div class="container">
           <div class="checkup-reviews__top">
@@ -1827,6 +1864,8 @@ get_header();
           </div>
         </div>
       </section>
+
+      <!-- Видео-отзывы -->
       <section class="checkup-after _section-lg">
         <div class="container">
           <h2 class="checkup-after__title _title">
@@ -1892,7 +1931,10 @@ get_header();
           </div>
         </div>
       </section>
+
       <div class="wrapper-bg _section-lg">
+
+        <!-- Рейтинг клиники -->
         <section class="rating">
           <span class="rating__top-num">
             10
@@ -2237,7 +2279,10 @@ get_header();
             </div>
           </div>
         </section>
+
       </div>
+
+      <!-- Комфорт -->
       <section class="care-comfort">
         <div class="container">
           <h2 class="care-comfort__title _title">
@@ -2343,7 +2388,10 @@ get_header();
           </div>
         </div>
       </section>
+
       <div class="divider"></div>
+
+      <!-- Контакты -->
       <section class="contacts">
         <div class="container">
           <h2 class="contacts__title _title">
@@ -2477,6 +2525,8 @@ get_header();
           </div>
         </div>
       </section>
+
+      <!-- Карта -->
       <section class="map-block">
         <div class="container">
           <h2 class="map-block__title _title">
@@ -2513,6 +2563,8 @@ get_header();
           </div>
         </div>
       </section>
+
     </main>
 
 <?php get_footer(); ?>
+
