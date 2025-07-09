@@ -134,7 +134,6 @@ function renderBlocksSingleCheckup() {
           $img_url = $img['url'];
           $img_alt = $img['alt'];
           $points = [];
-          $points = [];
           if(have_rows('checkupStages_steps')) :
               while(have_rows('checkupStages_steps')) : the_row();
                   $point = [
@@ -165,8 +164,57 @@ function renderBlocksSingleCheckup() {
         case 'checkupSchedule':
           echo checkupSchedule();
           break;
-        case 'checkupCompound';
-          echo checkupCompound();
+        case 'checkupCompound':
+          $title = get_sub_field('checkupCompound_title');
+          $img = get_sub_field('checkupCompound_img');
+          $img_url = $img['url'];
+          $img_alt = $img['alt'];
+          $fio = get_sub_field('checkupCompound_name');
+          $position = get_sub_field('checkupCompound_position');
+          $experience = get_sub_field('checkupCompound_experience'); // Добавил поле для стажа
+          $points = [];
+
+          if(have_rows('checkupCompound_compound')) :
+            while(have_rows('checkupCompound_compound')) : the_row();
+              $point = [
+                'c_name' => get_sub_field('сompound_name'),
+                'c_name_a' => get_sub_field('сompound_name_accord'),
+                'price_a' => get_sub_field('сompound_price_accord'),
+                'list' => []
+              ];
+
+              if(have_rows('compound_list')) :
+                while(have_rows('compound_list')) : the_row();
+                  $point['list'][] = get_sub_field('compound_point');
+                endwhile;
+              endif;
+
+              $points[] = $point;
+            endwhile;
+          endif;
+          echo checkupCompound($title, $img_url, $img_alt, $fio, $position, $experience, $points);
+          break;
+        case 'newLevel':
+          echo newLevel();
+          break;
+        case 'checkupReviews':
+          $title = get_sub_field('checkupReviews_title');
+          echo checkupReviews($title);
+          break;
+        case 'checkupАfter':
+          echo checkupАfter();
+          break;
+        case 'rating':
+          echo rating();
+          break;
+        case 'careComfort':
+          echo careComfort();
+          break;
+        case 'contacts':
+          echo contacts();
+          break;
+        case 'map':
+          echo map();
           break;
         case 'wrapperStart':
           $type = get_sub_field('wrapperStart_variants');
@@ -1014,194 +1062,96 @@ function checkupSchedule(){
 }
 
 // Состав чекапа
-function checkupCompound(){
+function checkupCompound($title, $img_url, $img_alt, $fio, $position, $experience, $points) {
   ob_start(); ?>
 
   <section class="checkup-compound">
     <div class="container">
       <h2 class="checkup-compound__title _title">
-        Состав чек-апа
+        <?php echo esc_html($title); ?>
       </h2>
       <div class="checkup-compound__inner">
         <div class="checkup-compound__left accordion">
+          <?php
+          $counter = 1;
+          foreach($points as $point) :
+            $num = str_pad($counter, 2, '0', STR_PAD_LEFT);
+          ?>
           <div class="checkup-compound__item accordion-item">
             <div class="checkup-compound__item-header accordion-header">
               <div class="checkup-compound__item-left">
                 <span class="checkup-compound__item-step">
-                  01
+                  <?php echo esc_html($num); ?>
                 </span>
                 <h4 class="checkup-compound__item-title">
-                  Консультации
+                  <?php echo esc_html($point['c_name']); ?>
                 </h4>
               </div>
               <div class="open-item checkup-compound__item-icon">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z"
-                    fill="white" />
-                </svg>
-
-              </div>
-            </div>
-            <div class="checkup-compound__item-body accordion-body">
-              <ul class="checkup-compound__item-list">
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Прием (осмотр, консультация) врача-акушера-гинеколога, к.м.н. первичный</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="checkup-compound__item accordion-item">
-            <div class="checkup-compound__item-header accordion-header">
-              <div class="checkup-compound__item-left">
-                <span class="checkup-compound__item-step">
-                  02
-                </span>
-                <h4 class="checkup-compound__item-title">
-                  УЗИ и диагностика
-                </h4>
-              </div>
-              <div class="open-item checkup-compound__item-icon">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z"
-                    fill="white" />
-                </svg>
-
-              </div>
-            </div>
-            <div class="checkup-compound__item-body accordion-body">
-              <ul class="checkup-compound__item-list">
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Ультразвуковое исследование матки и придатков комплексное
-                    (трансабдоминальное +трансвагинальное)</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Ультразвуковое исследование щитовидной железы и паращитовидных желез</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Ультразвуковое исследование молочных желез</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="checkup-compound__item accordion-item">
-            <div class="checkup-compound__item-header accordion-header">
-              <div class="checkup-compound__item-left">
-                <span class="checkup-compound__item-step">
-                  03
-                </span>
-                <h4 class="checkup-compound__item-title">
-                  Анализы
-                </h4>
-              </div>
-              <div class="open-item checkup-compound__item-icon">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z"
-                    fill="white" />
+                  <path d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z" fill="white"/>
                 </svg>
               </div>
             </div>
-            <div class="checkup-compound__item-body accordion-body">
-              <ul class="checkup-compound__item-list">
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-                  <span>Взятие крови из периферической вены</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-                  <span>Общий анализ крови с лейкоформулой (5-diff), микроскопия + СОЭ + фотофиксация препарата при
-                    выявлении патологии (Кровь с ЭДТА)</span>
-                </li>
-              </ul>
-            </div>
-          </div>
 
-          <div class="checkup-compound__item accordion-item">
-            <div class="checkup-compound__item-header accordion-header">
-              <div class="checkup-compound__item-left">
-                <span class="checkup-compound__item-step">
-                  04
-                </span>
-                <h4 class="checkup-compound__item-title">
-                  Стоимость обследования
-                </h4>
-              </div>
-              <div class="open-item checkup-compound__item-icon">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z"
-                    fill="white" />
-                </svg>
-              </div>
-            </div>
             <div class="checkup-compound__item-body accordion-body">
-              <div class="checkup-compound__item-cost">
-                <h5 class="checkup-compound__item-name">
-                  Check-up «Женское здоровье: <br> нерегулярный менструальный цикл»
-                </h5>
-                <div class="checkup-compound__item-right">
-                  <span class="checkup-compound__item-price">
-                    65 000 ₽
-                  </span>
-                  <a class="checkup-compound__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
+              <?php if(!empty($point['list'])) : ?>
+                <ul class="checkup-compound__item-list">
+                  <?php foreach($point['list'] as $item) : ?>
+                    <li class="checkup-compound__item-point">
+                      <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z" fill="white"/>
+                      </svg>
+                      <span><?php echo esc_html($item); ?></span>
+                    </li>
+                  <?php endforeach; ?>
+                </ul>
+              <?php endif; ?>
+
+              <?php if(!empty($point['price_a']) || !empty($point['c_name_a'])) : ?>
+                <div class="checkup-compound__item-cost">
+                  <?php if(!empty($point['c_name_a'])) : ?>
+                    <h5 class="checkup-compound__item-name">
+                      <?php echo $point['c_name_a']; ?>
+                    </h5>
+                  <?php endif; ?>
+
+                  <div class="checkup-compound__item-right">
+                    <?php if(!empty($point['price_a'])) : ?>
+                      <span class="checkup-compound__item-price">
+                        <?php echo esc_html($point['price_a']); ?> ₽
+                      </span>
+                    <?php endif; ?>
+                    <a class="checkup-compound__item-btn _gray-btn" href="#">
+                      Записаться
+                    </a>
+                  </div>
                 </div>
-              </div>
+              <?php endif; ?>
             </div>
           </div>
-
+          <?php
+          $counter++;
+          endforeach;
+          ?>
         </div>
+
         <div class="checkup-compound__right">
           <div class="checkup-compound__right-wrapper">
-            <img class="checkup-compound__right-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/checkup-compound-1.webp"
-              alt="checkup-compound-1">
+            <img class="checkup-compound__right-img _img" src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>">
             <div class="checkup-compound__right-content">
               <p class="checkup-compound__right-name">
-                Абакумов Олег Александрович
+                <?php echo $fio; ?>
               </p>
               <div class="checkup-compound__right-info">
                 <p class="checkup-compound__right-text">
-                  Терапевт, пульмонолог
-                  Cтатус «Московский врач»
+                  <?php echo $position; ?>
                 </p>
-                <p class="checkup-compound__right-exp">
-                  Стаж 12 лет
-                </p>
+                <?php if(!empty($experience)) : ?>
+                  <p class="checkup-compound__right-exp">
+                    <?php echo $experience; ?>
+                  </p>
+                <?php endif; ?>
               </div>
             </div>
           </div>
@@ -1210,7 +1160,8 @@ function checkupCompound(){
     </div>
   </section>
 
-  <?php return ob_get_clean();
+  <?php
+  return ob_get_clean();
 }
 
 // Медицина нового уровня
@@ -1489,15 +1440,14 @@ function newLevel(){
 }
 
 // Блок отзывов (изображения вытянутые)
-function checkupReviews(){
+function checkupReviews($title){
   ob_start(); ?>
 
   <section class="checkup-reviews _section-lg">
     <div class="container">
       <div class="checkup-reviews__top">
         <h2 class="checkup-reviews__title _title">
-          Более 350 пациентов прошли<br>
-          данный чек-ап в 2025 году
+          <?php echo $title; ?>
         </h2>
         <div class="checkup-reviews__right swiper-navigation">
           <div class="swiper-button-prev swiper-navigation__prev">
