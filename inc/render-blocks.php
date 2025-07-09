@@ -33,7 +33,7 @@ function renderBlocksSingleCheckup() {
       switch ($block_type) {
 
         case 'checkupFrontBlock':
-          $title = 'Заголовок';
+          $title = 'Заголовок'; // Заменить на поле meta_h1
           $subtitle = get_sub_field('checkupFrontBlock_subtitle');
           $img = get_sub_field('checkupFrontBlock_img');
           $img_url = '';
