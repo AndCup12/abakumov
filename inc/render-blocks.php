@@ -3,7 +3,7 @@
 // Функции генерирующие данные типы блоков
 // checkupFrontBlock : Первый блок
 // advatages : Преимущества
-// checkupQuestions : Зачем проходить <направление>
+// checkupQuestions : Зачем проходить 'направление'
 // doctorWithQuotes : Врач с цитатами
 // videoBlock : Блок с видео
 // whenExamination : Когда стоит пройти обследование
@@ -20,6 +20,8 @@
 // careComfort : Комфорт
 // contacts : Контакты
 // map : Карта
+// wrapperStart : Начало обертки
+// wrapperEnd : Конец обертки
 
 // Генерация блоков для шаблона custom-checkup-page
 function renderBlocksSingleCheckup() {
@@ -27,117 +29,152 @@ function renderBlocksSingleCheckup() {
     while (have_rows('blocksSingleCheckup')) {
       the_row();
       $block_type = get_sub_field('block_type');
-
+      // echo $block_type . "\n";
       switch ($block_type) {
+
         case 'checkupFrontBlock':
-          $title = get_field('meta_h1');
+          $title = 'Заголовок';
           $subtitle = get_sub_field('checkupFrontBlock_subtitle');
-          $img = get_sub_field('firstBlock_img');
-          $img_url = esc_url($img['url']);
-          $img_alt = esc_attr($img['alt']);
+          $img = get_sub_field('checkupFrontBlock_img');
+          $img_url = '';
+          $img_alt = '';
+
+          $img_url = isset($img['url']) ? $img['url'] : '';
+          $img_alt = isset($img['alt']) ? $img['alt'] : '';
 
           echo checkupFrontBlock($title, $subtitle, $img_url, $img_alt);
           break;
-        case 'advatages':
+        case 'advantages':
           $advantages = [];
-          if (have_rows('advatages')) {
-            while (have_rows('advatages')) {
+          if (have_rows('advantages')) {
+            while (have_rows('advantages')) {
               the_row();
-              $img = get_sub_field('advatages_img');
+              $img = get_sub_field('advantages_img');
+              $img_url = '';
+              $img_alt = '';
+              $img_url = isset($img['url']) ? $img['url'] : '';
+              $img_alt = isset($img['alt']) ? $img['alt'] : '';
               $advantages[] = [
-                'img_url' => $img ? esc_url($img['url']) : '',
-                'img_alt' => $img ? esc_attr($img['alt']) : '',
-                'title' => get_sub_field('advatages_title'),
-                'text' => get_sub_field('advatages_text')
+                'img_url' => $img_url,
+                'img_alt' => $img_alt,
+                'title' => get_sub_field('advantages_title'),
+                'text' => get_sub_field('advantages_text')
               ];
             }
           }
-          echo advatages($advantages);
+          echo advantages($advantages);
           break;
         case 'checkupQuestions':
-
-          echo checkupQuestions();
+          $title = get_sub_field('checkupQuestions_title');
+          $subtitle = get_sub_field('checkupQuestions_subtitle');
+          $questions = [];
+          if(have_rows('checkupQuestions_points')):
+            while(have_rows('checkupQuestions_points')) : the_row();
+            $questions[] = [
+              'text' => get_sub_field('point')
+            ];
+            endwhile;
+          endif;
+          echo checkupQuestions($title, $subtitle, $questions);
           break;
         case 'doctorWithQuotes':
-
-          echo doctorWithQuotes();
+          $img = get_sub_field('doctorWithQuotes_img');
+          $img_url = '';
+          $img_alt = '';
+          $img_url = isset($img['url']) ? $img['url'] : '';
+          $img_alt = isset($img['alt']) ? $img['alt'] : '';
+          $text = get_sub_field('doctorWithQuotes_quote');
+          $name = get_sub_field('doctorWithQuotes_name');
+          $position = get_sub_field('doctorWithQuotes_position');
+          $exp = get_sub_field('doctorWithQuotes_exp');
+          $space = get_sub_field('doctorWithQuotes_space') == 1 ? 'space-null' : '';
+          echo doctorWithQuotes($img_url, $img_alt, $text, $name, $position, $exp, $space);
           break;
         case 'videoBlock':
-
-          echo videoBlock();
+          $title = get_sub_field('videoBlock_title');
+          $subtitle = get_sub_field('videoBlock_subtitle');
+          $img = get_sub_field('videoBlock_preview');
+          $img_url = '';
+          $img_alt = '';
+          $img_url = isset($img['url']) ? $img['url'] : '';
+          $img_alt = isset($img['alt']) ? $img['alt'] : '';
+          $link = get_sub_field('videoBlock_link');
+          echo videoBlock($title, $subtitle, $img_url, $img_alt, $link);
           break;
         case 'whenExamination':
-
-          echo whenExamination();
+          $title = get_sub_field('whenExamination_title');
+          $points = [];
+          if(have_rows('whenExamination_points')) :
+            while(have_rows('whenExamination_points')) : the_row();
+            $points[] = [
+              'text' => get_sub_field('whenExamination_point')
+            ];
+            endwhile;
+          endif;
+          echo whenExamination($title, $points);
           break;
         case 'examinationReveals':
-
-          echo examinationReveals();
+          $title = get_sub_field('examinationReveals_title');
+          $img = get_sub_field('examinationReveals_img');
+          $img_url = $img['url'];
+          $img_alt = $img['alt'];
+          $points = [];
+          if(have_rows('examinationReveals_points')) :
+            while(have_rows('examinationReveals_points')) : the_row();
+            $points[] = [
+              'text' => get_sub_field('point')
+            ];
+            endwhile;
+          endif;
+          echo examinationReveals($title, $points, $img_url, $img_alt);
           break;
         case 'checkupStages':
+          $title = get_sub_field('checkupStages_title');
+          $img = get_sub_field('checkupStages_img');
+          $img_url = $img['url'];
+          $img_alt = $img['alt'];
+          $points = [];
+          $points = [];
+          if(have_rows('checkupStages_steps')) :
+              while(have_rows('checkupStages_steps')) : the_row();
+                  $point = [
+                      'title' => get_sub_field('title_step'),
+                      'text' => get_sub_field('text_step'),
+                      'list' => []
+                  ];
 
-          echo checkupStages();
+                  if(have_rows('list')) :
+                      while(have_rows('list')) : the_row();
+                          $point['list'][] = get_sub_field('point');
+                      endwhile;
+                  endif;
+
+                  $points[] = $point;
+              endwhile;
+          endif;
+          echo checkupStages($title, $img_url, $img_alt, $points);
           break;
-        case 'personalPlan':
 
+        case 'personalPlan':
           echo personalPlan();
           break;
         case 'callback_1':
-
-          echo callback_1();
+          $title = get_sub_field('callback_1_title');
+          echo callback_1($title);
           break;
         case 'checkupSchedule':
-
           echo checkupSchedule();
           break;
-        case 'checkupCompound':
-
+        case 'checkupCompound';
           echo checkupCompound();
           break;
-        case 'newLevel':
-
-          echo newLevel();
+        case 'wrapperStart':
+          $type = get_sub_field('wrapperStart_variants');
+          echo wrapperStart($type);
           break;
-        case 'checkupReviews':
-
-          echo checkupReviews();
+        case 'wrapperEnd':
+          echo wrapperEnd();
           break;
-        case 'checkupАfter':
-
-          echo checkupАfter();
-          break;
-        case 'rating':
-
-          echo rating();
-          break;
-        case 'careComfort':
-
-          echo careComfort();
-          break;
-        case 'contacts':
-
-          echo contacts();
-          break;
-        case 'map':
-
-          echo map();
-          break;
-
-
-        case 'list':
-          $items = get_sub_field('list_items');
-          $list_items = array_map(function($item) {
-            $subitems = isset($item['subitems']) && !empty($item['subitems']) ? array_map(function($sub) {
-              return isset($sub['subitem_text']) ? $sub['subitem_text'] : '';
-            }, $item['subitems']) : array();
-            return array(
-              'text' => isset($item['item_text']) ? $item['item_text'] : '', // Всегда возвращаем item_text
-              'subitems' => $subitems, // Возвращаем subitems (пустой массив, если их нет)
-            );
-          }, $items);
-          echo render_list($list_items, get_sub_field('list_type'));
-          break;
-
       }
     }
   }
@@ -188,7 +225,7 @@ function checkupFrontBlock($title, $subtitle, $img_url, $img_alt){
 }
 
 // Преимущества
-function advatages($items) {
+function advantages($items) {
   ob_start(); ?>
 
   <section class="services">
@@ -270,12 +307,12 @@ function advatages($items) {
             </div>
             <div class="services__item-info">
               <?php if (!empty($item['title'])) : ?>
-                <h4 class="services__item-title"><?php echo nl2br(esc_html($item['title'])); ?></h4>
+                <h4 class="services__item-title"><?php echo nl2br($item['title']); ?></h4>
               <?php endif; ?>
               <?php if (!empty($item['text'])) : ?>
-                <p class="services__item-text"><?php echo nl2br(esc_html($item['text'])); ?></p>
+                <p class="services__item-text"><?php echo nl2br($item['text']); ?></p>
               <?php endif; ?>
-              <span class="services__item-num"><?php echo esc_html($num); ?></span>
+              <span class="services__item-num"><?php echo $num; ?></span>
             </div>
           </div>
         <?php
@@ -291,21 +328,19 @@ function advatages($items) {
 }
 
 // Зачем проходить <направление>
-function checkupQuestions(){
+function checkupQuestions($title, $subtitle, $questions){
   ob_start(); ?>
 
-  <div class="wrapper-bg _section-lg">
     <section class="checkup-question">
       <div class="container">
         <h2 class="checkup-question__title _title">
-          Зачем проходить диагностику
-          при нерегулярном цикле?
+          <?php echo $title; ?>
         </h2>
         <p class="checkup-question__subtitle _subtitle">
-          Нерегулярный цикл — <span>это не просто особенность организма,</span><br>
-          а важный сигнал о возможных сбоях, связанных с:
+          <?php echo $subtitle; ?>
         </p>
         <div class="checkup-question__items">
+          <?php foreach ($questions as $question) :?>
           <div class="checkup-question__item">
             <div class="checkup-question__item-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -316,95 +351,27 @@ function checkupQuestions(){
                   d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
                   fill="white" />
               </svg>
-
             </div>
             <h4 class="checkup-question__item-title">
-              гормональной системой
+              <?php echo $question['text'];?>
             </h4>
           </div>
-          <div class="checkup-question__item">
-            <div class="checkup-question__item-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
-                  fill="white" />
-                <path
-                  d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
-                  fill="white" />
-              </svg>
-
-            </div>
-            <h4 class="checkup-question__item-title">
-              щитовидной
-              железой
-            </h4>
-          </div>
-          <div class="checkup-question__item">
-            <div class="checkup-question__item-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
-                  fill="white" />
-                <path
-                  d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
-                  fill="white" />
-              </svg>
-
-            </div>
-            <h4 class="checkup-question__item-title">
-              яичниками
-            </h4>
-          </div>
-          <div class="checkup-question__item">
-            <div class="checkup-question__item-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
-                  fill="white" />
-                <path
-                  d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
-                  fill="white" />
-              </svg>
-
-            </div>
-            <h4 class="checkup-question__item-title">
-              уровнем витаминов
-              и обменом веществ
-            </h4>
-          </div>
-          <div class="checkup-question__item">
-            <div class="checkup-question__item-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
-                  fill="white" />
-                <path
-                  d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
-                  fill="white" />
-              </svg>
-
-            </div>
-            <h4 class="checkup-question__item-title">
-              стрессовой
-              и нервнойрегуляцией
-            </h4>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
-  </div>
 
   <?php return ob_get_clean();
 }
 
 // Врач с цитатами (space-null убирает отступ?)
-function doctorWithQuotes(){
+function doctorWithQuotes($img_url, $img_alt, $text, $name, $position, $exp, $space){
   ob_start(); ?>
 
-  <section class="quote-block space-null">
+  <section class="quote-block <?php echo $space; ?>">
     <div class="container">
       <div class="quote-block__content relative">
-        <img class="quote-block__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/quote-block-women.webp" alt="women">
+            <img class="quote-block__img _img" src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>">
         <div class="overlay"></div>
         <div class="quote-block__inner">
           <div class="quote-block__left">
@@ -416,21 +383,18 @@ function doctorWithQuotes(){
               </svg>
             </div>
             <p class="quote-block__left-text">
-              «Нестабильный цикл —<br>
-              это не про возраст и “так бывает”.<br>
-              Это причина заглянуть глубже<br>
-              и вовремя вернуть телу баланс»
+                <?php echo $text; ?>
             </p>
           </div>
           <div class="quote-block__right">
             <h5 class="quote-block__right-name">
-              Ионичевская Ирина Игоревна
+              <?php echo $name; ?>
             </h5>
             <p class="quote-block__right-text">
-              Терапевт, пульмонолог, гастроэнтеролог,<br> кандидат медицинских наук
+              <?php echo $position; ?>
             </p>
             <p class="quote-block__right-exp">
-              Стаж 15 лет
+              <?php echo $exp; ?>
             </p>
           </div>
         </div>
@@ -442,20 +406,19 @@ function doctorWithQuotes(){
 }
 
 // Блок с видео
-function videoBlock(){
-  ob_clean(); ?>
+function videoBlock($title, $subtitle, $img_url, $img_alt, $link){
+  ob_start(); ?>
 
     <section class="video-block">
       <div class="container relative">
         <h2 class="video-block__title _title">
-          Посмотрите видео о том,
+          <?php echo wp_kses_post($title); ?>
         </h2>
         <p class="video-block__subtitle _subtitle">
-          как выявить гормональные и эндокринные сбои, оценить работу яичников и щитовидной<br>
-          железы, подобрать точный и мягкий путь к восстановлению цикла
+          <?php echo wp_kses_post($subtitle); ?>
         </p>
-        <a class="video-block__video" href="#" data-fancybox>
-          <img class="video-block__video-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-1.webp" alt="video-block-1">
+        <a class="video-block__video" href="<?php echo $link;?>" data-fancybox>
+          <img class="video-block__video-img _img" src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>">
           <div class="play">
             <div class="play__inner">
               <svg width="47" height="50" viewBox="0 0 47 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -471,18 +434,17 @@ function videoBlock(){
       </div>
     </section>
 
-  <?php ob_get_clean();
+  <?php return ob_get_clean();
 }
 
-
 // Когда стоит пройти обследование
-function whenExamination(){
-  ob_clean(); ?>
+function whenExamination($title, $points){
+  ob_start(); ?>
 
   <section class="when-examination">
     <div class="container">
       <h2 class="when-examination__title _title">
-        Когда стоит пройти обследование?
+        <?php echo $title; ?>
       </h2>
       <div class="cursor @@class">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" height="42" width="42">
@@ -548,6 +510,7 @@ function whenExamination(){
         </svg>
       </div>
       <div class="when-examination__items">
+        <?php foreach($points as $point) :?>
         <div class="when-examination__item">
           <div class="when-examination__item-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -564,144 +527,31 @@ function whenExamination(){
 
           </div>
           <h4 class="when-examination__item-title">
-            Менструации приходят<br> <span> нерегулярно </span> или <span>с<br> большими задержками</span>
+            <?php echo $point['text'];?>
           </h4>
         </div>
-        <div class="when-examination__item">
-          <div class="when-examination__item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
-                fill="white" />
-              <path
-                d="M12 13.75C11.59 13.75 11.25 13.41 11.25 13V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V13C12.75 13.41 12.41 13.75 12 13.75Z"
-                fill="white" />
-              <path
-                d="M12 16.9999C11.87 16.9999 11.74 16.9699 11.62 16.9199C11.5 16.8699 11.39 16.7999 11.29 16.7099C11.2 16.6099 11.13 16.5099 11.08 16.3799C11.03 16.2599 11 16.1299 11 15.9999C11 15.8699 11.03 15.7399 11.08 15.6199C11.13 15.4999 11.2 15.3899 11.29 15.2899C11.39 15.1999 11.5 15.1299 11.62 15.0799C11.86 14.9799 12.14 14.9799 12.38 15.0799C12.5 15.1299 12.61 15.1999 12.71 15.2899C12.8 15.3899 12.87 15.4999 12.92 15.6199C12.97 15.7399 13 15.8699 13 15.9999C13 16.1299 12.97 16.2599 12.92 16.3799C12.87 16.5099 12.8 16.6099 12.71 16.7099C12.61 16.7999 12.5 16.8699 12.38 16.9199C12.26 16.9699 12.13 16.9999 12 16.9999Z"
-                fill="white" />
-            </svg>
-
-          </div>
-          <h4 class="when-examination__item-title">
-            Цикл стал <span>короче 21 дня</span><br> или <span>длиннее 35</span>
-          </h4>
-        </div>
-        <div class="when-examination__item">
-          <div class="when-examination__item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
-                fill="white" />
-              <path
-                d="M12 13.75C11.59 13.75 11.25 13.41 11.25 13V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V13C12.75 13.41 12.41 13.75 12 13.75Z"
-                fill="white" />
-              <path
-                d="M12 16.9999C11.87 16.9999 11.74 16.9699 11.62 16.9199C11.5 16.8699 11.39 16.7999 11.29 16.7099C11.2 16.6099 11.13 16.5099 11.08 16.3799C11.03 16.2599 11 16.1299 11 15.9999C11 15.8699 11.03 15.7399 11.08 15.6199C11.13 15.4999 11.2 15.3899 11.29 15.2899C11.39 15.1999 11.5 15.1299 11.62 15.0799C11.86 14.9799 12.14 14.9799 12.38 15.0799C12.5 15.1299 12.61 15.1999 12.71 15.2899C12.8 15.3899 12.87 15.4999 12.92 15.6199C12.97 15.7399 13 15.8699 13 15.9999C13 16.1299 12.97 16.2599 12.92 16.3799C12.87 16.5099 12.8 16.6099 12.71 16.7099C12.61 16.7999 12.5 16.8699 12.38 16.9199C12.26 16.9699 12.13 16.9999 12 16.9999Z"
-                fill="white" />
-            </svg>
-
-          </div>
-          <h4 class="when-examination__item-title">
-            Присутствуют <span>обильные<br> кровотечения</span> или<br> <span>сильные боли</span>
-          </h4>
-        </div>
-        <div class="when-examination__item">
-          <div class="when-examination__item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
-                fill="white" />
-              <path
-                d="M12 13.75C11.59 13.75 11.25 13.41 11.25 13V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V13C12.75 13.41 12.41 13.75 12 13.75Z"
-                fill="white" />
-              <path
-                d="M12 16.9999C11.87 16.9999 11.74 16.9699 11.62 16.9199C11.5 16.8699 11.39 16.7999 11.29 16.7099C11.2 16.6099 11.13 16.5099 11.08 16.3799C11.03 16.2599 11 16.1299 11 15.9999C11 15.8699 11.03 15.7399 11.08 15.6199C11.13 15.4999 11.2 15.3899 11.29 15.2899C11.39 15.1999 11.5 15.1299 11.62 15.0799C11.86 14.9799 12.14 14.9799 12.38 15.0799C12.5 15.1299 12.61 15.1999 12.71 15.2899C12.8 15.3899 12.87 15.4999 12.92 15.6199C12.97 15.7399 13 15.8699 13 15.9999C13 16.1299 12.97 16.2599 12.92 16.3799C12.87 16.5099 12.8 16.6099 12.71 16.7099C12.61 16.7999 12.5 16.8699 12.38 16.9199C12.26 16.9699 12.13 16.9999 12 16.9999Z"
-                fill="white" />
-            </svg>
-
-          </div>
-          <h4 class="when-examination__item-title">
-            <span>Есть перепады настроения</span>,<br> раздражительность,<br> усталость
-          </h4>
-        </div>
-        <div class="when-examination__item">
-          <div class="when-examination__item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
-                fill="white" />
-              <path
-                d="M12 13.75C11.59 13.75 11.25 13.41 11.25 13V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V13C12.75 13.41 12.41 13.75 12 13.75Z"
-                fill="white" />
-              <path
-                d="M12 16.9999C11.87 16.9999 11.74 16.9699 11.62 16.9199C11.5 16.8699 11.39 16.7999 11.29 16.7099C11.2 16.6099 11.13 16.5099 11.08 16.3799C11.03 16.2599 11 16.1299 11 15.9999C11 15.8699 11.03 15.7399 11.08 15.6199C11.13 15.4999 11.2 15.3899 11.29 15.2899C11.39 15.1999 11.5 15.1299 11.62 15.0799C11.86 14.9799 12.14 14.9799 12.38 15.0799C12.5 15.1299 12.61 15.1999 12.71 15.2899C12.8 15.3899 12.87 15.4999 12.92 15.6199C12.97 15.7399 13 15.8699 13 15.9999C13 16.1299 12.97 16.2599 12.92 16.3799C12.87 16.5099 12.8 16.6099 12.71 16.7099C12.61 16.7999 12.5 16.8699 12.38 16.9199C12.26 16.9699 12.13 16.9999 12 16.9999Z"
-                fill="white" />
-            </svg>
-
-          </div>
-          <h4 class="when-examination__item-title">
-            <span>Не получается</span><br> забеременеть
-          </h4>
-        </div>
-        <div class="when-examination__item">
-          <div class="when-examination__item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
-                fill="white" />
-              <path
-                d="M12 13.75C11.59 13.75 11.25 13.41 11.25 13V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V13C12.75 13.41 12.41 13.75 12 13.75Z"
-                fill="white" />
-              <path
-                d="M12 16.9999C11.87 16.9999 11.74 16.9699 11.62 16.9199C11.5 16.8699 11.39 16.7999 11.29 16.7099C11.2 16.6099 11.13 16.5099 11.08 16.3799C11.03 16.2599 11 16.1299 11 15.9999C11 15.8699 11.03 15.7399 11.08 15.6199C11.13 15.4999 11.2 15.3899 11.29 15.2899C11.39 15.1999 11.5 15.1299 11.62 15.0799C11.86 14.9799 12.14 14.9799 12.38 15.0799C12.5 15.1299 12.61 15.1999 12.71 15.2899C12.8 15.3899 12.87 15.4999 12.92 15.6199C12.97 15.7399 13 15.8699 13 15.9999C13 16.1299 12.97 16.2599 12.92 16.3799C12.87 16.5099 12.8 16.6099 12.71 16.7099C12.61 16.7999 12.5 16.8699 12.38 16.9199C12.26 16.9699 12.13 16.9999 12 16.9999Z"
-                fill="white" />
-            </svg>
-
-          </div>
-          <h4 class="when-examination__item-title">
-            <span>Есть склонность</span> к<br> набору веса или акне
-          </h4>
-        </div>
-        <div class="when-examination__item">
-          <div class="when-examination__item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
-                fill="white" />
-              <path
-                d="M12 13.75C11.59 13.75 11.25 13.41 11.25 13V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V13C12.75 13.41 12.41 13.75 12 13.75Z"
-                fill="white" />
-              <path
-                d="M12 16.9999C11.87 16.9999 11.74 16.9699 11.62 16.9199C11.5 16.8699 11.39 16.7999 11.29 16.7099C11.2 16.6099 11.13 16.5099 11.08 16.3799C11.03 16.2599 11 16.1299 11 15.9999C11 15.8699 11.03 15.7399 11.08 15.6199C11.13 15.4999 11.2 15.3899 11.29 15.2899C11.39 15.1999 11.5 15.1299 11.62 15.0799C11.86 14.9799 12.14 14.9799 12.38 15.0799C12.5 15.1299 12.61 15.1999 12.71 15.2899C12.8 15.3899 12.87 15.4999 12.92 15.6199C12.97 15.7399 13 15.8699 13 15.9999C13 16.1299 12.97 16.2599 12.92 16.3799C12.87 16.5099 12.8 16.6099 12.71 16.7099C12.61 16.7999 12.5 16.8699 12.38 16.9199C12.26 16.9699 12.13 16.9999 12 16.9999Z"
-                fill="white" />
-            </svg>
-
-          </div>
-          <h4 class="when-examination__item-title">
-            <span>Подозрения</span> на СПКЯ,<br> гипофункцию щитовидной<br> железы
-          </h4>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
 
-  <?php ob_get_clean();
+  <?php return ob_get_clean();
 }
 
 // Что может выявить
-function examinationReveals(){
+function examinationReveals($title, $points, $img_url, $img_alt){
   ob_start(); ?>
 
   <section class="examination-reveals">
     <div class="container">
       <h2 class="examination-reveals__title _title">
-        Что может выявить обследование?
+        <?php echo $title; ?>
       </h2>
       <div class="examination-reveals__inner">
         <div class="examination-reveals__left">
           <div class="examination-reveals__left-wrapper">
-            <img class="examination-reveals__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/examination-reveals-1.webp"
-              alt="examination-reveals-1">
+            <img class="examination-reveals__left-img _img" src="<?php echo $img_url; ?>"
+              alt="<?php echo $img_alt; ?>">
           </div>
         </div>
         <div class="examination-reveals__right">
@@ -769,6 +619,7 @@ function examinationReveals(){
             </svg>
           </div>
           <div class="examination-reveals__items">
+            <?php foreach($points as $point) :?>
             <div class="examination-reveals__item">
               <div class="examination-reveals__item-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -782,90 +633,10 @@ function examinationReveals(){
 
               </div>
               <h4 class="examination-reveals__item-title">
-                Гормональные нарушения: <br> эстрогены, прогестерон, <br> пролактин, ЛГ, ФСГ
+                <?php echo $point['text'];?>
               </h4>
             </div>
-            <div class="examination-reveals__item">
-              <div class="examination-reveals__item-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
-                    fill="white" />
-                  <path
-                    d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
-                    fill="white" />
-                </svg>
-
-              </div>
-              <h4 class="examination-reveals__item-title">
-                Синдром поликистозных <br> яичников (СПКЯ)
-              </h4>
-            </div>
-            <div class="examination-reveals__item">
-              <div class="examination-reveals__item-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
-                    fill="white" />
-                  <path
-                    d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
-                    fill="white" />
-                </svg>
-
-              </div>
-              <h4 class="examination-reveals__item-title">
-                Дефицит витамина D,<br> B12, фолиевой кислоты,<br> ферритина
-              </h4>
-            </div>
-            <div class="examination-reveals__item">
-              <div class="examination-reveals__item-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
-                    fill="white" />
-                  <path
-                    d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
-                    fill="white" />
-                </svg>
-
-              </div>
-              <h4 class="examination-reveals__item-title">
-                Метаболические<br> нарушения, влияющие<br> на цикл
-              </h4>
-            </div>
-            <div class="examination-reveals__item">
-              <div class="examination-reveals__item-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
-                    fill="white" />
-                  <path
-                    d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
-                    fill="white" />
-                </svg>
-
-              </div>
-              <h4 class="examination-reveals__item-title">
-                Гипо- или гипертиреоз,<br>
-                гиперпролактинемию
-              </h4>
-            </div>
-            <div class="examination-reveals__item">
-              <div class="examination-reveals__item-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
-                    fill="white" />
-                  <path
-                    d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
-                    fill="white" />
-                </svg>
-
-              </div>
-              <h4 class="examination-reveals__item-title">
-                Скрытые воспаления или<br> признаки аутоиммунных<br> процессов
-              </h4>
-            </div>
+            <?php endforeach; ?>
           </div>
           <div class="examination-reveals__right-btns">
             <a class="examination-reveals__btn _gray-btn" href="#" data-fancybox>
@@ -894,19 +665,17 @@ function examinationReveals(){
     </div>
   </section>
 
-  <?php ob_get_clean();
+  <?php return ob_get_clean();
 }
 
 // Этапы прохождения
-function checkupStages(){
-  ob_clean(); ?>
+function checkupStages($title, $img_url, $img_alt, $points){
+  ob_start(); ?>
 
-  <section class="checkup-stages _section-lg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/checkup-stages-bg-2.webp);">
+  <section class="checkup-stages _section-lg" style="background-image: url(<?php echo $img_url; ?>);">
     <div class="container">
       <h2 class="checkup-stages__title _title">
-        Этапы<br>
-        прохождения<br>
-        чек-ап
+        <?php echo $title;?>
       </h2>
       <div class="cursor @@class">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" height="42" width="42">
@@ -971,11 +740,14 @@ function checkupStages(){
           </style>
         </svg>
       </div>
-
       <div class="checkup-stages__items">
+        <?php
+        $counter = 1;
+        foreach($points as $point) :
+        $num = str_pad($counter, 2, '0', STR_PAD_LEFT); ?>
         <div class="checkup-stages__item">
           <span class="checkup-stages__item-stage">
-            01
+            <?php echo $num; ?>
           </span>
           <span class="checkup-stages__item-icon">
             <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -998,74 +770,14 @@ function checkupStages(){
 
           </span>
           <h4 class="checkup-stages__item-title">
-            Консультация терапевта<br> и дерматолога
+            <?php echo $point['title'];?>
           </h4>
           <p class="checkup-stages__item-text">
-            – изучат анамнез и зададут<br> уточняющие вопросы для подбора<br> персонализированной<br>
-            диагностической
-            программы
+            <?php echo $point['text'];?>
           </p>
-          <span class="checkup-stages__item-step">
-            01
-          </span>
-        </div>
-        <div class="checkup-stages__item">
-          <span class="checkup-stages__item-stage">
-            02
-          </span>
-          <span class="checkup-stages__item-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M17.2902 23.0968C17.0844 23.0968 16.8785 23.0209 16.716 22.8584L15.0694 21.2118C14.7552 20.8976 14.7552 20.3776 15.0694 20.0634C15.3835 19.7493 15.9035 19.7493 16.2177 20.0634L17.2902 21.1359L20.0094 18.4168C20.3235 18.1026 20.8435 18.1026 21.1577 18.4168C21.4719 18.7309 21.4719 19.2509 21.1577 19.5651L17.8644 22.8584C17.7019 23.0209 17.496 23.0968 17.2902 23.0968Z"
-                fill="white" />
-              <path
-                d="M13.1735 12.5882C13.141 12.5882 13.1194 12.5882 13.0869 12.5882C13.0327 12.5773 12.9569 12.5773 12.8919 12.5882C9.75021 12.4907 7.37771 10.0207 7.37771 6.9765C7.36688 5.4815 7.95188 4.07317 9.01354 3.0115C10.0752 1.94984 11.4835 1.354 12.9894 1.354C16.0877 1.354 18.6119 3.87817 18.6119 6.9765C18.6119 10.0207 16.2394 12.4798 13.206 12.5882C13.1952 12.5882 13.1844 12.5882 13.1735 12.5882ZM12.9894 2.979C11.9169 2.979 10.9202 3.4015 10.1619 4.149C9.41438 4.90734 9.00271 5.904 9.00271 6.96567C9.00271 9.13234 10.6927 10.8873 12.8485 10.9523C12.9135 10.9415 13.0544 10.9415 13.1952 10.9523C15.3294 10.8548 16.9869 9.11067 16.9869 6.96567C16.9869 4.77734 15.1885 2.979 12.9894 2.979Z"
-                fill="white" />
-              <path
-                d="M12.9894 24.44C10.7794 24.44 8.68854 23.8658 7.10688 22.8042C5.60104 21.7967 4.77771 20.4208 4.77771 18.9367C4.77771 17.4525 5.61188 16.0875 7.10688 15.0908C10.346 12.9242 15.611 12.9242 18.8502 15.0908C19.2185 15.34 19.3269 15.8492 19.0777 16.2175C18.8285 16.5967 18.3194 16.6942 17.951 16.445C15.2535 14.6467 10.7035 14.6467 8.00604 16.445C6.96604 17.1383 6.40271 18.0158 6.40271 18.9367C6.40271 19.8575 6.96604 20.7567 8.00604 21.45C9.31688 22.3275 11.0827 22.8042 12.9785 22.8042C13.4227 22.8042 13.791 23.1725 13.791 23.6167C13.791 24.0608 13.4335 24.44 12.9894 24.44Z"
-                fill="white" />
-            </svg>
-
-          </span>
-          <h4 class="checkup-stages__item-title">
-            Прохождение<br> диагностики
-          </h4>
-          <p class="checkup-stages__item-text">
-            – анализы, УЗИ, инструментальные<br> обследования и профильные<br> специалисты
-          </p>
-          <span class="checkup-stages__item-step">
-            02
-          </span>
-        </div>
-        <div class="checkup-stages__item">
-          <span class="checkup-stages__item-stage">
-            03
-          </span>
-          <span class="checkup-stages__item-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M16.25 24.6457H9.74996C3.86746 24.6457 1.35413 22.1323 1.35413 16.2498V9.74984C1.35413 3.86734 3.86746 1.354 9.74996 1.354H15.1666C15.6108 1.354 15.9791 1.72234 15.9791 2.1665C15.9791 2.61067 15.6108 2.979 15.1666 2.979H9.74996C4.75579 2.979 2.97913 4.75567 2.97913 9.74984V16.2498C2.97913 21.244 4.75579 23.0207 9.74996 23.0207H16.25C21.2441 23.0207 23.0208 21.244 23.0208 16.2498V10.8332C23.0208 10.389 23.3891 10.0207 23.8333 10.0207C24.2775 10.0207 24.6458 10.389 24.6458 10.8332V16.2498C24.6458 22.1323 22.1325 24.6457 16.25 24.6457Z"
-                fill="white" />
-              <path
-                d="M23.8333 11.646H19.5C15.795 11.646 14.3541 10.2052 14.3541 6.50019V2.16686C14.3541 1.84186 14.5491 1.53852 14.8525 1.41936C15.1558 1.28936 15.5025 1.36519 15.7408 1.59269L24.4075 10.2594C24.635 10.4869 24.7108 10.8444 24.5808 11.1477C24.4508 11.451 24.1583 11.646 23.8333 11.646ZM15.9791 4.12769V6.50019C15.9791 9.29519 16.705 10.021 19.5 10.021H21.8725L15.9791 4.12769Z"
-                fill="white" />
-              <path
-                d="M14.0834 14.896H7.58337C7.13921 14.896 6.77087 14.5277 6.77087 14.0835C6.77087 13.6393 7.13921 13.271 7.58337 13.271H14.0834C14.5275 13.271 14.8959 13.6393 14.8959 14.0835C14.8959 14.5277 14.5275 14.896 14.0834 14.896Z"
-                fill="white" />
-              <path
-                d="M11.9167 19.229H7.58337C7.13921 19.229 6.77087 18.8607 6.77087 18.4165C6.77087 17.9723 7.13921 17.604 7.58337 17.604H11.9167C12.3609 17.604 12.7292 17.9723 12.7292 18.4165C12.7292 18.8607 12.3609 19.229 11.9167 19.229Z"
-                fill="white" />
-            </svg>
-
-          </span>
-          <h4 class="checkup-stages__item-title">
-            Анализ результатов<br>
-            и персональные рекомендации
-          </h4>
-          <p class="checkup-stages__item-subtitle">
-            Врачи подробно объяснят:
-          </p>
+          <?php if($point['list']) :?>
           <ul class="checkup-stages__item-list">
+            <?php foreach($point['list'] as $item) :?>
             <li class="checkup-stages__item-point">
               <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -1074,47 +786,17 @@ function checkupStages(){
               </svg>
 
               <span>
-                что происходит в организме
+                <?php echo $item; ?>
               </span>
             </li>
-            <li class="checkup-stages__item-point">
-              <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                  fill="white" />
-              </svg>
-
-              <span>
-                какие риски обнаружены
-              </span>
-            </li>
-            <li class="checkup-stages__item-point">
-              <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                  fill="white" />
-              </svg>
-
-              <span>
-                какие риски исключены
-              </span>
-            </li>
-            <li class="checkup-stages__item-point">
-              <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                  fill="white" />
-              </svg>
-
-              <span>
-                какие шаги нужно предпринять
-              </span>
-            </li>
+            <?php endforeach;?>
           </ul>
+          <?php endif; ?>
           <span class="checkup-stages__item-step">
-            03
+            <?php echo $num; ?>
           </span>
         </div>
+        <?php $counter++; endforeach; ?>
       </div>
     </div>
   </section>
@@ -1124,7 +806,7 @@ function checkupStages(){
 
 // Персональный план
 function personalPlan(){
-  ob_clean(); ?>
+  ob_start(); ?>
 
   <section class="personal-plan">
     <div class="container">
@@ -1161,8 +843,8 @@ function personalPlan(){
 }
 
 // Форма обратной связи (1 вариант)
-function callback_1(){
-  ob_clean(); ?>
+function callback_1($title){
+  ob_start(); ?>
 
   <section class="callback">
     <div class="container">
@@ -1170,8 +852,7 @@ function callback_1(){
         <div class="overlay"></div>
         <div class="callback__left relative">
           <h2 class="callback__title _title">
-            Есть вопросы<br> или хотите<br> записаться<br>
-            по телефону?
+            <?php echo $title; ?>
           </h2>
           <div class="callback__info">
             <img class="callback__info-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/callback-manager.webp" alt="callback-manager">
@@ -1210,7 +891,7 @@ function callback_1(){
 
 // График прохождения
 function checkupSchedule(){
-  ob_clean(); ?>
+  ob_start(); ?>
 
   <section class="checkup-schedule">
     <div class="container">
@@ -1334,7 +1015,7 @@ function checkupSchedule(){
 
 // Состав чекапа
 function checkupCompound(){
-  ob_clean(); ?>
+  ob_start(); ?>
 
   <section class="checkup-compound">
     <div class="container">
@@ -1444,7 +1125,6 @@ function checkupCompound(){
                     d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z"
                     fill="white" />
                 </svg>
-
               </div>
             </div>
             <div class="checkup-compound__item-body accordion-body">
@@ -1455,7 +1135,6 @@ function checkupCompound(){
                       d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
                       fill="white" />
                   </svg>
-
                   <span>Взятие крови из периферической вены</span>
                 </li>
                 <li class="checkup-compound__item-point">
@@ -1464,146 +1143,13 @@ function checkupCompound(){
                       d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
                       fill="white" />
                   </svg>
-
                   <span>Общий анализ крови с лейкоформулой (5-diff), микроскопия + СОЭ + фотофиксация препарата при
                     выявлении патологии (Кровь с ЭДТА)</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Ферритин</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>ЛГ</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>ФСГ</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Макропролактин (Macroprolactin), включает определение пролактина, пролактина мономерного и
-                    макропролактина</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Эстрадиол</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Тестостерон свободный</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>ТТГ</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Т3 свободный</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Т4 свободный</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Биохимия развернутая: Общий белок, Альбумин, Креатинин, Мочевина, Мочевая кислота,
-                    Холестерин
-                    общий, Холестерин -ЛПНП, Холестерин-ЛПВП, Триглицериды, Глюкоза, Билирубин общий, Билирубин
-                    прямой,
-                    АЛТ, АСТ, Альфа-амилаза, Фосфатаза щелочная, Гамма-ГТ, Кальций общий, Магний, Фосфор,
-                    Сывороточное
-                    железо, Амилаза панкреатическая, ЛДГ</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Коагулограмма базовая: АЧТВ, Тромбиновое время, Протромбиновое время, МНО, Фибриноген</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>С-реактивный белок (СРБ, C-Reactive Protein, CRP)</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Прием (осмотр, консультация) врача-акушера-гинеколога к.м.н. повторный</span>
-                </li>
-                <li class="checkup-compound__item-point">
-                  <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                      fill="white" />
-                  </svg>
-
-                  <span>Антимюллеров гормон</span>
                 </li>
               </ul>
             </div>
           </div>
+
           <div class="checkup-compound__item accordion-item">
             <div class="checkup-compound__item-header accordion-header">
               <div class="checkup-compound__item-left">
@@ -1620,7 +1166,6 @@ function checkupCompound(){
                     d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z"
                     fill="white" />
                 </svg>
-
               </div>
             </div>
             <div class="checkup-compound__item-body accordion-body">
@@ -1639,6 +1184,7 @@ function checkupCompound(){
               </div>
             </div>
           </div>
+
         </div>
         <div class="checkup-compound__right">
           <div class="checkup-compound__right-wrapper">
@@ -1669,7 +1215,7 @@ function checkupCompound(){
 
 // Медицина нового уровня
 function newLevel(){
-  ob_clean(); ?>
+  ob_start(); ?>
 
   <section class="new-level">
     <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
@@ -1944,7 +1490,7 @@ function newLevel(){
 
 // Блок отзывов (изображения вытянутые)
 function checkupReviews(){
-  ob_clean(); ?>
+  ob_start(); ?>
 
   <section class="checkup-reviews _section-lg">
     <div class="container">
@@ -2014,7 +1560,7 @@ function checkupReviews(){
 
 // Видео-отзывы
 function checkupАfter(){
-  ob_clean(); ?>
+  ob_start(); ?>
 
   <section class="checkup-after _section-lg">
     <div class="container">
@@ -2087,7 +1633,7 @@ function checkupАfter(){
 
 // Рейтинг клиники
 function rating(){
-  ob_clean(); ?>
+  ob_start(); ?>
 
   <section class="rating">
     <span class="rating__top-num">
@@ -2439,7 +1985,7 @@ function rating(){
 
 // Комфорт
 function careComfort(){
-  ob_clean(); ?>
+  ob_start(); ?>
 
   <section class="care-comfort">
     <div class="container">
@@ -2552,7 +2098,7 @@ function careComfort(){
 
 // Контакты
 function contacts(){
-  ob_clean(); ?>
+  ob_start(); ?>
 
   <section class="contacts">
     <div class="container">
@@ -2693,7 +2239,7 @@ function contacts(){
 
 // Карта
 function map(){
-  ob_clean(); ?>
+  ob_start(); ?>
 
   <section class="map-block">
     <div class="container">
@@ -2735,10 +2281,23 @@ function map(){
   <?php return ob_get_clean();
 }
 
+// Обертка
+function wrapperStart ($type){
+  ob_start(); ?>
+  <div class="wrapper-<?php echo $type?> _section-lg">
+  <?php return ob_get_clean();
+}
+
+// Конец обертки
+function wrapperEnd (){
+  ob_start(); ?>
+  </div>
+  <?php return ob_get_clean();
+}
 
 
 function name(){
-  ob_clean(); ?>
+  ob_start(); ?>
 
   <?php return ob_get_clean();
 }
