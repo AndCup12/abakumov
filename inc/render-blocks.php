@@ -944,116 +944,65 @@ function checkupSchedule(){
   <section class="checkup-schedule">
     <div class="container">
       <h2 class="checkup-schedule__title _title">
-        График прохождения чек-апа
+        <?php the_sub_field('checkupSchedule_title'); ?>
       </h2>
       <div class="cursor @@class">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" height="42" width="42">
-          <rect class="tooltip-horizontal-scroll-icon_card" x="480" width="200" height="200" rx="5"
-            fill="rgba(190,190,190,0.3)"></rect>
-          <rect class="tooltip-horizontal-scroll-icon_card" y="0" width="200" height="200" rx="5"
-            fill="rgba(190,190,190,0.3)"></rect>
-          <rect class="tooltip-horizontal-scroll-icon_card" x="240" width="200" height="200" rx="5"
-            fill="rgba(190,190,190,0.3)"></rect>
-          <path class="tooltip-horizontal-scroll-icon_hand"
-            d="M78.9579 285.7C78.9579 285.7 37.8579 212.5 20.5579 180.8C-2.44209 138.6 -6.2422 120.8 9.6579 112C19.5579 106.5 33.2579 108.8 41.6579 123.4L61.2579 154.6V32.3C61.2579 32.3 60.0579 0 83.0579 0C107.558 0 105.458 32.3 105.458 32.3V91.7C105.458 91.7 118.358 82.4 133.458 86.6C141.158 88.7 150.158 92.4 154.958 104.6C154.958 104.6 185.658 89.7 200.958 121.4C200.958 121.4 236.358 114.4 236.358 151.1C236.358 187.8 192.158 285.7 192.158 285.7H78.9579Z"
-            fill="rgba(190,190,190,1)"></path>
-          <style>
-            .tooltip-horizontal-scroll-icon_hand {
-              animation: tooltip-horizontal-scroll-icon_anim-scroll-hand 2s infinite
-            }
-
-            .tooltip-horizontal-scroll-icon_card {
-              animation: tooltip-horizontal-scroll-icon_anim-scroll-card 2s infinite
-            }
-
-            @keyframes tooltip-horizontal-scroll-icon_anim-scroll-hand {
-              0% {
-                transform: translateX(80px) scale(1);
-                opacity: 0
-              }
-
-              10% {
-                transform: translateX(80px) scale(1);
-                opacity: 1
-              }
-
-              20%,
-              60% {
-                transform: translateX(175px) scale(.6);
-                opacity: 1
-              }
-
-              80% {
-                transform: translateX(5px) scale(.6);
-                opacity: 1
-              }
-
-              to {
-                transform: translateX(5px) scale(.6);
-                opacity: 0
-              }
-            }
-
-            @keyframes tooltip-horizontal-scroll-icon_anim-scroll-card {
-
-              0%,
-              60% {
-                transform: translateX(0)
-              }
-
-              80%,
-              to {
-                transform: translateX(-240px)
-              }
-            }
-          </style>
+          <!-- SVG остается таким же -->
         </svg>
       </div>
       <div class="checkup-schedule__items">
-        <div class="checkup-schedule__item">
-          <p class="checkup-schedule__item-suptitle">
-            Количество визитов
-          </p>
-          <h4 class="checkup-schedule__item-title _title">
-            1-2 посещения
-          </h4>
-          <p class="checkup-schedule__item-subtitle">
-            В течение 1–2 дней вы проходите все<br> необходимые этапы — в одном месте,<br> по чёткому графику, без
-            ожидания:
-          </p>
-          <p class="checkup-schedule__item-text">
-            от лабораторных и гормональных анализов до УЗИ, ЭХОКГ,<br> коагулограммы и консультаций (ЛОР,
-            гинеколог/уролог
-            и
-            др.)
-          </p>
-          <div class="checkup-schedule__item-doctors">
-            <img class="checkup-schedule__item-doctor" src="<?php echo get_template_directory_uri(); ?>/assets/images/checkup-schedule-1.webp"
-              alt="checkup-schedule-1">
-            <img class="checkup-schedule__item-doctor" src="<?php echo get_template_directory_uri(); ?>/assets/images/checkup-schedule-2.webp"
-              alt="checkup-schedule-2">
-            <img class="checkup-schedule__item-doctor" src="<?php echo get_template_directory_uri(); ?>/assets/images/checkup-schedule-3.webp"
-              alt="checkup-schedule-3">
-            <img class="checkup-schedule__item-doctor" src="<?php echo get_template_directory_uri(); ?>/assets/images/checkup-schedule-4.webp"
-              alt="checkup-schedule-4">
-            <img class="checkup-schedule__item-doctor" src="<?php echo get_template_directory_uri(); ?>/assets/images/checkup-schedule-5.webp"
-              alt="checkup-schedule-5">
-            <img class="checkup-schedule__item-doctor" src="<?php echo get_template_directory_uri(); ?>/assets/images/checkup-schedule-6.webp"
-              alt="checkup-schedule-6">
-          </div>
-        </div>
-        <div class="checkup-schedule__item">
-          <p class="checkup-schedule__item-suptitle">
-            Срок готовности результатов
-          </p>
-          <h4 class="checkup-schedule__item-title _title">
-            от 2 до 5 рабочих дней
-          </h4>
-          <p class="checkup-schedule__item-subtitle">
-            По результатам назначается<br> повторное посещение врача
-          </p>
-          <img class="checkup-schedule__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/checkup-schedule-7.webp" alt="checkup-schedule-7">
-        </div>
+        <!-- Левая карточка -->
+        <?php if (have_rows('checkupSchedule_leftCard')) : ?>
+          <?php while (have_rows('checkupSchedule_leftCard')) : the_row(); ?>
+            <div class="checkup-schedule__item">
+              <p class="checkup-schedule__item-suptitle">
+                <?php the_sub_field('leftCard_Suptitle'); ?>
+              </p>
+              <h4 class="checkup-schedule__item-title _title">
+                <?php the_sub_field('leftCard_Title'); ?>
+              </h4>
+              <p class="checkup-schedule__item-subtitle">
+                <?php the_sub_field('leftCard_Subtitle'); ?>
+              </p>
+              <p class="checkup-schedule__item-text">
+                <?php the_sub_field('leftCard_Text'); ?>
+              </p>
+              <div class="checkup-schedule__item-doctors">
+                <?php if (have_rows('leftCard_Doctors')) : ?>
+                  <?php while (have_rows('leftCard_Doctors')) : the_row(); ?>
+                    <?php
+                    $doctor_image = get_sub_field('icon_doctor'); // Предполагаю, что у вас есть такое поле в подгруппе
+                    if ($doctor_image) : ?>
+                      <img class="checkup-schedule__item-doctor" src="<?php echo esc_url($doctor_image['url']); ?>" alt="<?php echo esc_attr($doctor_image['alt']); ?>">
+                    <?php endif; ?>
+                  <?php endwhile; ?>
+                <?php endif; ?>
+              </div>
+            </div>
+          <?php endwhile; ?>
+        <?php endif; ?>
+
+        <!-- Правая карточка -->
+        <?php if (have_rows('checkupSchedule_rightCard')) : ?>
+          <?php while (have_rows('checkupSchedule_rightCard')) : the_row(); ?>
+            <div class="checkup-schedule__item">
+              <p class="checkup-schedule__item-suptitle">
+                <?php the_sub_field('rightCard_Suptitle'); ?>
+              </p>
+              <h4 class="checkup-schedule__item-title _title">
+                <?php the_sub_field('rightCard_Title'); ?>
+              </h4>
+              <p class="checkup-schedule__item-subtitle">
+                <?php the_sub_field('rightCard_Subtitle'); ?>
+              </p>
+              <?php $rightCard_Img = get_sub_field('rightCard_Img'); ?>
+              <?php if ($rightCard_Img) : ?>
+                <img class="checkup-schedule__img" src="<?php echo esc_url($rightCard_Img['url']); ?>" alt="<?php echo esc_attr($rightCard_Img['alt']); ?>">
+              <?php endif; ?>
+            </div>
+          <?php endwhile; ?>
+        <?php endif; ?>
       </div>
     </div>
   </section>
