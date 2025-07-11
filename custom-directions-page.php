@@ -64,46 +64,46 @@ get_header();
       <div class="services__items">
         <div class="services__item">
           <div class="services__item-wrapper">
-            <img class="services__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/services-4.webp" alt="services-4">
+            <img class="services__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/services-6.webp" alt="services-4">
           </div>
+          <span class="services__item-num">01</span>
           <div class="services__item-info">
             <h4 class="services__item-title">
-              Более 30 ключевых анализов —<br> от биохимии до иммуноблота
+              Персональный план<br>
+              лечения:
             </h4>
             <p class="services__item-text">
-              с персональным разбором результатов<br> и составлением плана лечения
+              с учётом симптомов, анализов, образа жизни и целей терапии
             </p>
-            <span class="services__item-num">01</span>
           </div>
         </div>
         <div class="services__item">
           <div class="services__item-wrapper">
-            <img class="services__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/services-2.webp" alt="services-2">
+            <img class="services__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/services-7.webp" alt="services-2">
           </div>
+          <span class="services__item-num">02</span>
           <div class="services__item-info">
             <h4 class="services__item-title">
-              Врачи-эксперты с опытом работы<br>
-              с аутоиммунными заболеваниями
+              Современные<br>
+              методы диагностики:
             </h4>
             <p class="services__item-text">
-              Только доказательные методики<br>
-              и клинические рекомендации
+              используем передовые<br> лабораторные и инструментальные<br> исследования
             </p>
-            <span class="services__item-num">02</span>
           </div>
         </div>
         <div class="services__item">
           <div class="services__item-wrapper">
-            <img class="services__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/services-5.webp" alt="services-5">
+            <img class="services__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/services-2.webp" alt="services-5">
           </div>
+          <span class="services__item-num">03</span>
           <div class="services__item-info">
             <h4 class="services__item-title">
-              Все обследования — за 1–2 визита,<br> по индивидуальному графику
+              Опыт, подкреплённый<br> результатами:
             </h4>
             <p class="services__item-text">
-              Персональный координатор и бесплатный<br> трансфер для пациентов из Москвы и МО
+              каждый врач — специалист с глубокой<br> клинической практикой и научным<br> подходом
             </p>
-            <span class="services__item-num">03</span>
           </div>
         </div>
       </div>
