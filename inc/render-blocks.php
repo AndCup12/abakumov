@@ -32,166 +32,47 @@ function renderBlocksSingleCheckup() {
       $block_type = get_sub_field('block_type');
       // echo $block_type . "\n";
       switch ($block_type) {
-
         case 'checkupFrontBlock':
           echo checkupFrontBlock();
           break;
         case 'advantages':
-          $advantages = [];
-          if (have_rows('advantages')) {
-            while (have_rows('advantages')) {
-              the_row();
-              $img = get_sub_field('advantages_img');
-              $img_url = '';
-              $img_alt = '';
-              $img_url = isset($img['url']) ? $img['url'] : '';
-              $img_alt = isset($img['alt']) ? $img['alt'] : '';
-              $advantages[] = [
-                'img_url' => $img_url,
-                'img_alt' => $img_alt,
-                'title' => get_sub_field('advantages_title'),
-                'text' => get_sub_field('advantages_text')
-              ];
-            }
-          }
-          echo advantages($advantages);
+          echo advantages();
           break;
         case 'checkupQuestions':
-          $title = get_sub_field('checkupQuestions_title');
-          $subtitle = get_sub_field('checkupQuestions_subtitle');
-          $questions = [];
-          if(have_rows('checkupQuestions_points')):
-            while(have_rows('checkupQuestions_points')) : the_row();
-            $questions[] = [
-              'text' => get_sub_field('point')
-            ];
-            endwhile;
-          endif;
-          echo checkupQuestions($title, $subtitle, $questions);
+          echo checkupQuestions();
           break;
         case 'doctorWithQuotes':
-          $img = get_sub_field('doctorWithQuotes_img');
-          $img_url = '';
-          $img_alt = '';
-          $img_url = isset($img['url']) ? $img['url'] : '';
-          $img_alt = isset($img['alt']) ? $img['alt'] : '';
-          $text = get_sub_field('doctorWithQuotes_quote');
-          $name = get_sub_field('doctorWithQuotes_name');
-          $position = get_sub_field('doctorWithQuotes_position');
-          $exp = get_sub_field('doctorWithQuotes_exp');
-          $space = get_sub_field('doctorWithQuotes_space') == 1 ? 'space-null' : '';
-          echo doctorWithQuotes($img_url, $img_alt, $text, $name, $position, $exp, $space);
+          echo doctorWithQuotes();
           break;
         case 'videoBlock':
-          $title = get_sub_field('videoBlock_title');
-          $subtitle = get_sub_field('videoBlock_subtitle');
-          $img = get_sub_field('videoBlock_preview');
-          $img_url = '';
-          $img_alt = '';
-          $img_url = isset($img['url']) ? $img['url'] : '';
-          $img_alt = isset($img['alt']) ? $img['alt'] : '';
-          $link = get_sub_field('videoBlock_link');
-          echo videoBlock($title, $subtitle, $img_url, $img_alt, $link);
+          echo videoBlock();
           break;
         case 'whenExamination':
-          $title = get_sub_field('whenExamination_title');
-          $points = [];
-          if(have_rows('whenExamination_points')) :
-            while(have_rows('whenExamination_points')) : the_row();
-            $points[] = [
-              'text' => get_sub_field('whenExamination_point')
-            ];
-            endwhile;
-          endif;
-          echo whenExamination($title, $points);
+          echo whenExamination();
           break;
         case 'examinationReveals':
-          $title = get_sub_field('examinationReveals_title');
-          $img = get_sub_field('examinationReveals_img');
-          $img_url = $img['url'];
-          $img_alt = $img['alt'];
-          $points = [];
-          if(have_rows('examinationReveals_points')) :
-            while(have_rows('examinationReveals_points')) : the_row();
-            $points[] = [
-              'text' => get_sub_field('point')
-            ];
-            endwhile;
-          endif;
-          echo examinationReveals($title, $points, $img_url, $img_alt);
+          echo examinationReveals();
           break;
         case 'checkupStages':
-          $title = get_sub_field('checkupStages_title');
-          $img = get_sub_field('checkupStages_img');
-          $img_url = $img['url'];
-          $img_alt = $img['alt'];
-          $points = [];
-          if(have_rows('checkupStages_steps')) :
-              while(have_rows('checkupStages_steps')) : the_row();
-                  $point = [
-                      'title' => get_sub_field('title_step'),
-                      'text' => get_sub_field('text_step'),
-                      'list' => []
-                  ];
-
-                  if(have_rows('list')) :
-                      while(have_rows('list')) : the_row();
-                          $point['list'][] = get_sub_field('point');
-                      endwhile;
-                  endif;
-
-                  $points[] = $point;
-              endwhile;
-          endif;
-          echo checkupStages($title, $img_url, $img_alt, $points);
+          echo checkupStages();
           break;
-
         case 'personalPlan':
           echo personalPlan();
           break;
         case 'callback_1':
-          $title = get_sub_field('callback_1_title');
-          echo callback_1($title);
+          echo callback_1();
           break;
         case 'checkupSchedule':
           echo checkupSchedule();
           break;
         case 'checkupCompound':
-          $title = get_sub_field('checkupCompound_title');
-          $img = get_sub_field('checkupCompound_img');
-          $img_url = $img['url'];
-          $img_alt = $img['alt'];
-          $fio = get_sub_field('checkupCompound_name');
-          $position = get_sub_field('checkupCompound_position');
-          $experience = get_sub_field('checkupCompound_experience'); // Добавил поле для стажа
-          $points = [];
-
-          if(have_rows('checkupCompound_compound')) :
-            while(have_rows('checkupCompound_compound')) : the_row();
-              $point = [
-                'c_name' => get_sub_field('сompound_name'),
-                'c_name_a' => get_sub_field('сompound_name_accord'),
-                'price_a' => get_sub_field('сompound_price_accord'),
-                'list' => []
-              ];
-
-              if(have_rows('compound_list')) :
-                while(have_rows('compound_list')) : the_row();
-                  $point['list'][] = get_sub_field('compound_point');
-                endwhile;
-              endif;
-
-              $points[] = $point;
-            endwhile;
-          endif;
-          echo checkupCompound($title, $img_url, $img_alt, $fio, $position, $experience, $points);
+          echo checkupCompound();
           break;
         case 'newLevel':
           echo newLevel();
           break;
         case 'checkupReviews':
-          $title = get_sub_field('checkupReviews_title');
-          echo checkupReviews($title);
+          echo checkupReviews();
           break;
         case 'checkupАfter':
           echo checkupАfter();
@@ -265,6 +146,17 @@ function checkupFrontBlock(){
           </div>
           <?php } ?>
         </div>
+        <?php $links = get_sub_field('checkupFrontBlock_links');
+        if($links) :?>
+        <div class="front-block__links">
+          <?php foreach($links as $post) :
+            setup_postdata($post); ?>
+          <a class="front-block__link" href="<?php the_permalink(); ?>">
+            <span><?php the_title(); ?></span>
+          </a>
+          <?php endforeach; wp_reset_postdata(); ?>
+        </div>
+        <?php endif; ?>
       </div>
     </section>
 
@@ -272,7 +164,7 @@ function checkupFrontBlock(){
 }
 
 // Преимущества
-function advantages($items) {
+function advantages() {
   ob_start(); ?>
 
   <section class="services">
@@ -343,28 +235,32 @@ function advantages($items) {
       <div class="services__items">
         <?php
         $counter = 1;
-        foreach ($items as $item) :
-          $num = str_pad($counter, 2, '0', STR_PAD_LEFT);
+        if (have_rows('advantages')) :
+          while (have_rows('advantages')) :
+            the_row();
+            $num = str_pad($counter, 2, '0', STR_PAD_LEFT);
+            $img = get_sub_field('advantages_img');
         ?>
           <div class="services__item">
             <div class="services__item-wrapper">
-              <?php if (!empty($item['img_url'])) : ?>
-                <img class="services__item-img _img" src="<?php echo esc_url($item['img_url']); ?>" alt="<?php echo esc_attr($item['img_alt']); ?>">
+              <?php if ($img && isset($img['url'])) : ?>
+                <img class="services__item-img _img" src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt'] ?? ''); ?>">
               <?php endif; ?>
             </div>
             <div class="services__item-info">
-              <?php if (!empty($item['title'])) : ?>
-                <h4 class="services__item-title"><?php echo nl2br($item['title']); ?></h4>
+              <?php if (get_sub_field('advantages_title')) : ?>
+                <h4 class="services__item-title"><?php echo nl2br(get_sub_field('advantages_title')); ?></h4>
               <?php endif; ?>
-              <?php if (!empty($item['text'])) : ?>
-                <p class="services__item-text"><?php echo nl2br($item['text']); ?></p>
+              <?php if (get_sub_field('advantages_text')) : ?>
+                <p class="services__item-text"><?php echo nl2br(get_sub_field('advantages_text')); ?></p>
               <?php endif; ?>
               <span class="services__item-num"><?php echo $num; ?></span>
             </div>
           </div>
         <?php
-          $counter++;
-        endforeach;
+            $counter++;
+          endwhile;
+        endif;
         ?>
       </div>
     </div>
@@ -375,19 +271,20 @@ function advantages($items) {
 }
 
 // Зачем проходить <направление>
-function checkupQuestions($title, $subtitle, $questions){
+function checkupQuestions(){
   ob_start(); ?>
 
     <section class="checkup-question">
       <div class="container">
         <h2 class="checkup-question__title _title">
-          <?php echo $title; ?>
+          <?php the_sub_field('checkupQuestions_title'); ?>
         </h2>
         <p class="checkup-question__subtitle _subtitle">
-          <?php echo $subtitle; ?>
+          <?php the_sub_field('checkupQuestions_subtitle'); ?>
         </p>
+        <?php if(have_rows('checkupQuestions_points')) : ?>
         <div class="checkup-question__items">
-          <?php foreach ($questions as $question) :?>
+          <?php while(have_rows('checkupQuestions_points')) : the_row(); ?>
           <div class="checkup-question__item">
             <div class="checkup-question__item-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -400,11 +297,12 @@ function checkupQuestions($title, $subtitle, $questions){
               </svg>
             </div>
             <h4 class="checkup-question__item-title">
-              <?php echo $question['text'];?>
+              <?php the_sub_field('point'); ?>
             </h4>
           </div>
-          <?php endforeach; ?>
+          <?php endwhile; ?>
         </div>
+        <?php endif; ?>
       </div>
     </section>
 
@@ -412,440 +310,464 @@ function checkupQuestions($title, $subtitle, $questions){
 }
 
 // Врач с цитатами (space-null убирает отступ?)
-function doctorWithQuotes($img_url, $img_alt, $text, $name, $position, $exp, $space){
+function doctorWithQuotes(){
   ob_start(); ?>
 
+  <?php
+  $img = get_sub_field('doctorWithQuotes_img');
+  $space = get_sub_field('doctorWithQuotes_space') == 1 ? 'space-null' : '';
+  ?>
+
   <section class="quote-block <?php echo $space; ?>">
-    <div class="container">
-      <div class="quote-block__content relative">
-            <img class="quote-block__img _img" src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>">
-        <div class="overlay"></div>
-        <div class="quote-block__inner">
-          <div class="quote-block__left">
-            <div class="quote-block__left-icon">
-              <svg width="33" height="25" viewBox="0 0 33 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M6.8 12.3C5.06667 12.1667 3.66667 11.6 2.6 10.6C1.53333 9.6 1 8.26666 1 6.6C1 4.73333 1.6 3.3 2.8 2.3C4 1.3 5.5 0.799995 7.3 0.799995C9.5 0.93333 11.0333 1.8 11.9 3.4C12.8333 5 13.3 6.76666 13.3 8.69999C13.3 10.5 13 12.2 12.4 13.8C11.8667 15.3333 11.1333 16.8 10.2 18.2C9.26667 19.6 8.16667 20.8333 6.9 21.9C5.7 22.9667 4.43333 23.7333 3.1 24.2L0.7 20.9C2.03333 19.9667 3.26667 18.7 4.4 17.1C5.6 15.5 6.4 13.9 6.8 12.3ZM25.7 12.3C23.9667 12.1667 22.5667 11.6 21.5 10.6C20.4333 9.6 19.9 8.26666 19.9 6.6C19.9 4.73333 20.5 3.3 21.7 2.3C22.9 1.3 24.4 0.799995 26.2 0.799995C28.4 0.93333 29.9333 1.8 30.8 3.4C31.7333 5 32.2 6.76666 32.2 8.69999C32.2 10.5 31.9 12.2 31.3 13.8C30.7667 15.3333 30.0333 16.8 29.1 18.2C28.1667 19.6 27.0667 20.8333 25.8 21.9C24.6 22.9667 23.3333 23.7333 22 24.2L19.6 20.9C20.9333 19.9667 22.1667 18.7 23.3 17.1C24.5 15.5 25.3 13.9 25.7 12.3Z"
-                  fill="white" />
-              </svg>
+      <div class="container">
+        <div class="quote-block__content relative">
+              <?php if ($img && isset($img['url'])) : ?>
+                  <img class="quote-block__img _img" src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt'] ?? ''); ?>">
+              <?php endif; ?>
+          <div class="overlay"></div>
+          <div class="quote-block__inner">
+            <div class="quote-block__left">
+              <div class="quote-block__left-icon">
+                <svg width="33" height="25" viewBox="0 0 33 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M6.8 12.3C5.06667 12.1667 3.66667 11.6 2.6 10.6C1.53333 9.6 1 8.26666 1 6.6C1 4.73333 1.6 3.3 2.8 2.3C4 1.3 5.5 0.799995 7.3 0.799995C9.5 0.93333 11.0333 1.8 11.9 3.4C12.8333 5 13.3 6.76666 13.3 8.69999C13.3 10.5 13 12.2 12.4 13.8C11.8667 15.3333 11.1333 16.8 10.2 18.2C9.26667 19.6 8.16667 20.8333 6.9 21.9C5.7 22.9667 4.43333 23.7333 3.1 24.2L0.7 20.9C2.03333 19.9667 3.26667 18.7 4.4 17.1C5.6 15.5 6.4 13.9 6.8 12.3ZM25.7 12.3C23.9667 12.1667 22.5667 11.6 21.5 10.6C20.4333 9.6 19.9 8.26666 19.9 6.6C19.9 4.73333 20.5 3.3 21.7 2.3C22.9 1.3 24.4 0.799995 26.2 0.799995C28.4 0.93333 29.9333 1.8 30.8 3.4C31.7333 5 32.2 6.76666 32.2 8.69999C32.2 10.5 31.9 12.2 31.3 13.8C30.7667 15.3333 30.0333 16.8 29.1 18.2C28.1667 19.6 27.0667 20.8333 25.8 21.9C24.6 22.9667 23.3333 23.7333 22 24.2L19.6 20.9C20.9333 19.9667 22.1667 18.7 23.3 17.1C24.5 15.5 25.3 13.9 25.7 12.3Z"
+                    fill="white" />
+                </svg>
+              </div>
+              <p class="quote-block__left-text">
+                  <?php the_sub_field('doctorWithQuotes_quote'); ?>
+              </p>
             </div>
-            <p class="quote-block__left-text">
-                <?php echo $text; ?>
-            </p>
-          </div>
-          <div class="quote-block__right">
-            <h5 class="quote-block__right-name">
-              <?php echo $name; ?>
-            </h5>
-            <p class="quote-block__right-text">
-              <?php echo $position; ?>
-            </p>
-            <p class="quote-block__right-exp">
-              <?php echo $exp; ?>
-            </p>
+            <div class="quote-block__right">
+              <h5 class="quote-block__right-name">
+                <?php the_sub_field('doctorWithQuotes_name'); ?>
+              </h5>
+              <p class="quote-block__right-text">
+                <?php the_sub_field('doctorWithQuotes_position'); ?>
+              </p>
+              <p class="quote-block__right-exp">
+                <?php the_sub_field('doctorWithQuotes_exp'); ?>
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </section>
 
   <?php return ob_get_clean();
 }
 
 // Блок с видео
-function videoBlock($title, $subtitle, $img_url, $img_alt, $link){
+function videoBlock(){
   ob_start(); ?>
 
     <section class="video-block">
-      <div class="container relative">
-        <h2 class="video-block__title _title">
-          <?php echo wp_kses_post($title); ?>
-        </h2>
-        <p class="video-block__subtitle _subtitle">
-          <?php echo wp_kses_post($subtitle); ?>
-        </p>
-        <a class="video-block__video" href="<?php echo $link;?>" data-fancybox>
-          <img class="video-block__video-img _img" src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>">
-          <div class="play">
-            <div class="play__inner">
-              <svg width="47" height="50" viewBox="0 0 47 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M41.4506 21.5916C43.9927 23.1529 43.9927 26.8471 41.4506 28.4084L17.8435 42.908C15.1783 44.545 11.75 42.6273 11.75 39.4996L11.75 10.5004C11.75 7.37267 15.1783 5.45503 17.8435 7.09199L41.4506 21.5916Z"
-                  fill="white" />
-              </svg>
+        <div class="container relative">
+            <h2 class="video-block__title _title">
+                <?php the_sub_field('videoBlock_title'); ?>
+            </h2>
+            <p class="video-block__subtitle _subtitle">
+                <?php the_sub_field('videoBlock_subtitle'); ?>
+            </p>
+            <?php
+            $img = get_sub_field('videoBlock_preview');
+            $link = get_sub_field('videoBlock_link');
+            if ($img && $link) : ?>
+                <a class="video-block__video" href="<?php echo esc_url($link); ?>" data-fancybox>
+                    <img class="video-block__video-img _img"
+                        src="<?php echo esc_url($img['url'] ?? ''); ?>"
+                        alt="<?php echo esc_attr($img['alt'] ?? ''); ?>">
+                    <div class="play">
+                        <div class="play__inner">
+                            <svg width="47" height="50" viewBox="0 0 47 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M41.4506 21.5916C43.9927 23.1529 43.9927 26.8471 41.4506 28.4084L17.8435 42.908C15.1783 44.545 11.75 42.6273 11.75 39.4996L11.75 10.5004C11.75 7.37267 15.1783 5.45503 17.8435 7.09199L41.4506 21.5916Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
 
-            </div>
-          </div>
-        </a>
-        <img class="video-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-2.webp" alt="video-block-2">
-      </div>
+            <img class="video-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-2.webp" alt="video-block-2">
+            <?php endif; ?>
+        </div>
     </section>
 
   <?php return ob_get_clean();
 }
 
 // Когда стоит пройти обследование
-function whenExamination($title, $points){
+function whenExamination(){
   ob_start(); ?>
 
   <section class="when-examination">
-    <div class="container">
-      <h2 class="when-examination__title _title">
-        <?php echo $title; ?>
-      </h2>
-      <div class="cursor @@class">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" height="42" width="42">
-          <rect class="tooltip-horizontal-scroll-icon_card" x="480" width="200" height="200" rx="5"
-            fill="rgba(190,190,190,0.3)"></rect>
-          <rect class="tooltip-horizontal-scroll-icon_card" y="0" width="200" height="200" rx="5"
-            fill="rgba(190,190,190,0.3)"></rect>
-          <rect class="tooltip-horizontal-scroll-icon_card" x="240" width="200" height="200" rx="5"
-            fill="rgba(190,190,190,0.3)"></rect>
-          <path class="tooltip-horizontal-scroll-icon_hand"
-            d="M78.9579 285.7C78.9579 285.7 37.8579 212.5 20.5579 180.8C-2.44209 138.6 -6.2422 120.8 9.6579 112C19.5579 106.5 33.2579 108.8 41.6579 123.4L61.2579 154.6V32.3C61.2579 32.3 60.0579 0 83.0579 0C107.558 0 105.458 32.3 105.458 32.3V91.7C105.458 91.7 118.358 82.4 133.458 86.6C141.158 88.7 150.158 92.4 154.958 104.6C154.958 104.6 185.658 89.7 200.958 121.4C200.958 121.4 236.358 114.4 236.358 151.1C236.358 187.8 192.158 285.7 192.158 285.7H78.9579Z"
-            fill="rgba(190,190,190,1)"></path>
-          <style>
-            .tooltip-horizontal-scroll-icon_hand {
-              animation: tooltip-horizontal-scroll-icon_anim-scroll-hand 2s infinite
-            }
+      <div class="container">
+          <h2 class="when-examination__title _title">
+              <?php the_sub_field('whenExamination_title'); ?>
+          </h2>
+          <div class="cursor @@class">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" height="42" width="42">
+                  <rect class="tooltip-horizontal-scroll-icon_card" x="480" width="200" height="200" rx="5"
+                      fill="rgba(190,190,190,0.3)"></rect>
+                  <rect class="tooltip-horizontal-scroll-icon_card" y="0" width="200" height="200" rx="5"
+                      fill="rgba(190,190,190,0.3)"></rect>
+                  <rect class="tooltip-horizontal-scroll-icon_card" x="240" width="200" height="200" rx="5"
+                      fill="rgba(190,190,190,0.3)"></rect>
+                  <path class="tooltip-horizontal-scroll-icon_hand"
+                      d="M78.9579 285.7C78.9579 285.7 37.8579 212.5 20.5579 180.8C-2.44209 138.6 -6.2422 120.8 9.6579 112C19.5579 106.5 33.2579 108.8 41.6579 123.4L61.2579 154.6V32.3C61.2579 32.3 60.0579 0 83.0579 0C107.558 0 105.458 32.3 105.458 32.3V91.7C105.458 91.7 118.358 82.4 133.458 86.6C141.158 88.7 150.158 92.4 154.958 104.6C154.958 104.6 185.658 89.7 200.958 121.4C200.958 121.4 236.358 114.4 236.358 151.1C236.358 187.8 192.158 285.7 192.158 285.7H78.9579Z"
+                      fill="rgba(190,190,190,1)"></path>
+                  <style>
+                      .tooltip-horizontal-scroll-icon_hand {
+                          animation: tooltip-horizontal-scroll-icon_anim-scroll-hand 2s infinite
+                      }
 
-            .tooltip-horizontal-scroll-icon_card {
-              animation: tooltip-horizontal-scroll-icon_anim-scroll-card 2s infinite
-            }
+                      .tooltip-horizontal-scroll-icon_card {
+                          animation: tooltip-horizontal-scroll-icon_anim-scroll-card 2s infinite
+                      }
 
-            @keyframes tooltip-horizontal-scroll-icon_anim-scroll-hand {
-              0% {
-                transform: translateX(80px) scale(1);
-                opacity: 0
-              }
+                      @keyframes tooltip-horizontal-scroll-icon_anim-scroll-hand {
+                          0% {
+                              transform: translateX(80px) scale(1);
+                              opacity: 0
+                          }
 
-              10% {
-                transform: translateX(80px) scale(1);
-                opacity: 1
-              }
+                          10% {
+                              transform: translateX(80px) scale(1);
+                              opacity: 1
+                          }
 
-              20%,
-              60% {
-                transform: translateX(175px) scale(.6);
-                opacity: 1
-              }
+                          20%,
+                          60% {
+                              transform: translateX(175px) scale(.6);
+                              opacity: 1
+                          }
 
-              80% {
-                transform: translateX(5px) scale(.6);
-                opacity: 1
-              }
+                          80% {
+                              transform: translateX(5px) scale(.6);
+                              opacity: 1
+                          }
 
-              to {
-                transform: translateX(5px) scale(.6);
-                opacity: 0
-              }
-            }
+                          to {
+                              transform: translateX(5px) scale(.6);
+                              opacity: 0
+                          }
+                      }
 
-            @keyframes tooltip-horizontal-scroll-icon_anim-scroll-card {
+                      @keyframes tooltip-horizontal-scroll-icon_anim-scroll-card {
 
-              0%,
-              60% {
-                transform: translateX(0)
-              }
+                          0%,
+                          60% {
+                              transform: translateX(0)
+                          }
 
-              80%,
-              to {
-                transform: translateX(-240px)
-              }
-            }
-          </style>
-        </svg>
-      </div>
-      <div class="when-examination__items">
-        <?php foreach($points as $point) :?>
-        <div class="when-examination__item">
-          <div class="when-examination__item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
-                fill="white" />
-              <path
-                d="M12 13.75C11.59 13.75 11.25 13.41 11.25 13V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V13C12.75 13.41 12.41 13.75 12 13.75Z"
-                fill="white" />
-              <path
-                d="M12 16.9999C11.87 16.9999 11.74 16.9699 11.62 16.9199C11.5 16.8699 11.39 16.7999 11.29 16.7099C11.2 16.6099 11.13 16.5099 11.08 16.3799C11.03 16.2599 11 16.1299 11 15.9999C11 15.8699 11.03 15.7399 11.08 15.6199C11.13 15.4999 11.2 15.3899 11.29 15.2899C11.39 15.1999 11.5 15.1299 11.62 15.0799C11.86 14.9799 12.14 14.9799 12.38 15.0799C12.5 15.1299 12.61 15.1999 12.71 15.2899C12.8 15.3899 12.87 15.4999 12.92 15.6199C12.97 15.7399 13 15.8699 13 15.9999C13 16.1299 12.97 16.2599 12.92 16.3799C12.87 16.5099 12.8 16.6099 12.71 16.7099C12.61 16.7999 12.5 16.8699 12.38 16.9199C12.26 16.9699 12.13 16.9999 12 16.9999Z"
-                fill="white" />
-            </svg>
-
+                          80%,
+                          to {
+                              transform: translateX(-240px)
+                          }
+                      }
+                  </style>
+              </svg>
           </div>
-          <h4 class="when-examination__item-title">
-            <?php echo $point['text'];?>
-          </h4>
-        </div>
-        <?php endforeach; ?>
+          <div class="when-examination__items">
+              <?php if(have_rows('whenExamination_points')) :
+                  while(have_rows('whenExamination_points')) : the_row(); ?>
+                  <div class="when-examination__item">
+                      <div class="when-examination__item-icon">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                  d="M12 22.75C6.07 22.75 1.25 17.93 1.25 12C1.25 6.07 6.07 1.25 12 1.25C17.93 1.25 22.75 6.07 22.75 12C22.75 17.93 17.93 22.75 12 22.75ZM12 2.75C6.9 2.75 2.75 6.9 2.75 12C2.75 17.1 6.9 21.25 12 21.25C17.1 21.25 21.25 17.1 21.25 12C21.25 6.9 17.1 2.75 12 2.75Z"
+                                  fill="white" />
+                              <path
+                                  d="M12 13.75C11.59 13.75 11.25 13.41 11.25 13V8C11.25 7.59 11.59 7.25 12 7.25C12.41 7.25 12.75 7.59 12.75 8V13C12.75 13.41 12.41 13.75 12 13.75Z"
+                                  fill="white" />
+                              <path
+                                  d="M12 16.9999C11.87 16.9999 11.74 16.9699 11.62 16.9199C11.5 16.8699 11.39 16.7999 11.29 16.7099C11.2 16.6099 11.13 16.5099 11.08 16.3799C11.03 16.2599 11 16.1299 11 15.9999C11 15.8699 11.03 15.7399 11.08 15.6199C11.13 15.4999 11.2 15.3899 11.29 15.2899C11.39 15.1999 11.5 15.1299 11.62 15.0799C11.86 14.9799 12.14 14.9799 12.38 15.0799C12.5 15.1299 12.61 15.1999 12.71 15.2899C12.8 15.3899 12.87 15.4999 12.92 15.6199C12.97 15.7399 13 15.8699 13 15.9999C13 16.1299 12.97 16.2599 12.92 16.3799C12.87 16.5099 12.8 16.6099 12.71 16.7099C12.61 16.7999 12.5 16.8699 12.38 16.9199C12.26 16.9699 12.13 16.9999 12 16.9999Z"
+                                  fill="white" />
+                          </svg>
+                      </div>
+                      <h4 class="when-examination__item-title">
+                          <?php the_sub_field('whenExamination_point'); ?>
+                      </h4>
+                  </div>
+                  <?php endwhile;
+              endif; ?>
+          </div>
       </div>
-    </div>
   </section>
 
   <?php return ob_get_clean();
 }
 
 // Что может выявить
-function examinationReveals($title, $points, $img_url, $img_alt){
+function examinationReveals(){
   ob_start(); ?>
 
   <section class="examination-reveals">
-    <div class="container">
-      <h2 class="examination-reveals__title _title">
-        <?php echo $title; ?>
-      </h2>
-      <div class="examination-reveals__inner">
-        <div class="examination-reveals__left">
-          <div class="examination-reveals__left-wrapper">
-            <img class="examination-reveals__left-img _img" src="<?php echo $img_url; ?>"
-              alt="<?php echo $img_alt; ?>">
-          </div>
-        </div>
-        <div class="examination-reveals__right">
-          <div class="cursor @@class">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" height="42" width="42">
-              <rect class="tooltip-horizontal-scroll-icon_card" x="480" width="200" height="200" rx="5"
-                fill="rgba(190,190,190,0.3)"></rect>
-              <rect class="tooltip-horizontal-scroll-icon_card" y="0" width="200" height="200" rx="5"
-                fill="rgba(190,190,190,0.3)"></rect>
-              <rect class="tooltip-horizontal-scroll-icon_card" x="240" width="200" height="200" rx="5"
-                fill="rgba(190,190,190,0.3)"></rect>
-              <path class="tooltip-horizontal-scroll-icon_hand"
-                d="M78.9579 285.7C78.9579 285.7 37.8579 212.5 20.5579 180.8C-2.44209 138.6 -6.2422 120.8 9.6579 112C19.5579 106.5 33.2579 108.8 41.6579 123.4L61.2579 154.6V32.3C61.2579 32.3 60.0579 0 83.0579 0C107.558 0 105.458 32.3 105.458 32.3V91.7C105.458 91.7 118.358 82.4 133.458 86.6C141.158 88.7 150.158 92.4 154.958 104.6C154.958 104.6 185.658 89.7 200.958 121.4C200.958 121.4 236.358 114.4 236.358 151.1C236.358 187.8 192.158 285.7 192.158 285.7H78.9579Z"
-                fill="rgba(190,190,190,1)"></path>
-              <style>
-                .tooltip-horizontal-scroll-icon_hand {
-                  animation: tooltip-horizontal-scroll-icon_anim-scroll-hand 2s infinite
-                }
-
-                .tooltip-horizontal-scroll-icon_card {
-                  animation: tooltip-horizontal-scroll-icon_anim-scroll-card 2s infinite
-                }
-
-                @keyframes tooltip-horizontal-scroll-icon_anim-scroll-hand {
-                  0% {
-                    transform: translateX(80px) scale(1);
-                    opacity: 0
-                  }
-
-                  10% {
-                    transform: translateX(80px) scale(1);
-                    opacity: 1
-                  }
-
-                  20%,
-                  60% {
-                    transform: translateX(175px) scale(.6);
-                    opacity: 1
-                  }
-
-                  80% {
-                    transform: translateX(5px) scale(.6);
-                    opacity: 1
-                  }
-
-                  to {
-                    transform: translateX(5px) scale(.6);
-                    opacity: 0
-                  }
-                }
-
-                @keyframes tooltip-horizontal-scroll-icon_anim-scroll-card {
-
-                  0%,
-                  60% {
-                    transform: translateX(0)
-                  }
-
-                  80%,
-                  to {
-                    transform: translateX(-240px)
-                  }
-                }
-              </style>
-            </svg>
-          </div>
-          <div class="examination-reveals__items">
-            <?php foreach($points as $point) :?>
-            <div class="examination-reveals__item">
-              <div class="examination-reveals__item-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
-                    fill="white" />
-                  <path
-                    d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
-                    fill="white" />
-                </svg>
-
+      <div class="container">
+          <h2 class="examination-reveals__title _title">
+              <?php the_sub_field('examinationReveals_title'); ?>
+          </h2>
+          <div class="examination-reveals__inner">
+              <div class="examination-reveals__left">
+                  <div class="examination-reveals__left-wrapper">
+                      <?php
+                      $img = get_sub_field('examinationReveals_img');
+                      if ($img) : ?>
+                          <img class="examination-reveals__left-img _img"
+                              src="<?php echo esc_url($img['url']); ?>"
+                              alt="<?php echo esc_attr($img['alt']); ?>">
+                      <?php endif; ?>
+                  </div>
               </div>
-              <h4 class="examination-reveals__item-title">
-                <?php echo $point['text'];?>
-              </h4>
-            </div>
-            <?php endforeach; ?>
-          </div>
-          <div class="examination-reveals__right-btns">
-            <a class="examination-reveals__btn _gray-btn" href="#" data-fancybox>
-              <span>Записаться на обследование</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z"
-                  fill="white" />
-              </svg>
+              <div class="examination-reveals__right">
+                  <div class="cursor @@class">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" height="42" width="42">
+                          <rect class="tooltip-horizontal-scroll-icon_card" x="480" width="200" height="200" rx="5"
+                              fill="rgba(190,190,190,0.3)"></rect>
+                          <rect class="tooltip-horizontal-scroll-icon_card" y="0" width="200" height="200" rx="5"
+                              fill="rgba(190,190,190,0.3)"></rect>
+                          <rect class="tooltip-horizontal-scroll-icon_card" x="240" width="200" height="200" rx="5"
+                              fill="rgba(190,190,190,0.3)"></rect>
+                          <path class="tooltip-horizontal-scroll-icon_hand"
+                              d="M78.9579 285.7C78.9579 285.7 37.8579 212.5 20.5579 180.8C-2.44209 138.6 -6.2422 120.8 9.6579 112C19.5579 106.5 33.2579 108.8 41.6579 123.4L61.2579 154.6V32.3C61.2579 32.3 60.0579 0 83.0579 0C107.558 0 105.458 32.3 105.458 32.3V91.7C105.458 91.7 118.358 82.4 133.458 86.6C141.158 88.7 150.158 92.4 154.958 104.6C154.958 104.6 185.658 89.7 200.958 121.4C200.958 121.4 236.358 114.4 236.358 151.1C236.358 187.8 192.158 285.7 192.158 285.7H78.9579Z"
+                              fill="rgba(190,190,190,1)"></path>
+                          <style>
+                              .tooltip-horizontal-scroll-icon_hand {
+                                  animation: tooltip-horizontal-scroll-icon_anim-scroll-hand 2s infinite
+                              }
 
-            </a>
-            <a class="examination-reveals__arrow-btn" href="#">
-              <span class="examination-reveals__btn-icon">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M11.9512 2.04167C10.6341 0.729166 8.87805 0 7.02439 0C3.17073 0 0.0487797 3.11111 0.0487797 6.95139C0.0487797 8.16667 0.390244 9.38194 0.97561 10.4028L0 14L3.70732 13.0278C4.73171 13.5625 5.85366 13.8542 7.02439 13.8542C10.878 13.8542 14 10.7431 14 6.90278C13.9512 5.10417 13.2683 3.35417 11.9512 2.04167ZM10.3902 9.43056C10.2439 9.81944 9.56097 10.2083 9.21951 10.2569C8.92683 10.3056 8.53659 10.3056 8.14634 10.2083C7.90244 10.1111 7.56098 10.0139 7.17073 9.81945C5.41463 9.09028 4.29268 7.34028 4.19512 7.19444C4.09756 7.09722 3.46342 6.27083 3.46342 5.39583C3.46342 4.52083 3.90244 4.13194 4.04878 3.9375C4.19512 3.74306 4.39024 3.74306 4.53658 3.74306C4.63415 3.74306 4.78049 3.74306 4.87805 3.74306C4.97561 3.74306 5.12195 3.69444 5.26829 4.03472C5.41463 4.375 5.7561 5.25 5.80488 5.29861C5.85366 5.39583 5.85366 5.49306 5.80488 5.59028C5.7561 5.6875 5.70731 5.78472 5.60975 5.88194C5.51219 5.97917 5.41463 6.125 5.36585 6.17361C5.26829 6.27083 5.17073 6.36805 5.26829 6.51389C5.36585 6.70833 5.70732 7.24305 6.2439 7.72917C6.92683 8.3125 7.46341 8.50695 7.65854 8.60417C7.85366 8.70139 7.95122 8.65278 8.04878 8.55556C8.14634 8.45833 8.48781 8.06945 8.58537 7.875C8.68293 7.68056 8.82927 7.72917 8.97561 7.77778C9.12195 7.82639 10 8.26389 10.1463 8.36111C10.3415 8.45833 10.439 8.50694 10.4878 8.55556C10.5366 8.70139 10.5366 9.04167 10.3902 9.43056Z"
-                    fill="white" />
-                </svg>
+                              .tooltip-horizontal-scroll-icon_card {
+                                  animation: tooltip-horizontal-scroll-icon_anim-scroll-card 2s infinite
+                              }
 
-              </span>
-              <span>Записаться через WhatsApp</span>
-            </a>
+                              @keyframes tooltip-horizontal-scroll-icon_anim-scroll-hand {
+                                  0% {
+                                      transform: translateX(80px) scale(1);
+                                      opacity: 0
+                                  }
+
+                                  10% {
+                                      transform: translateX(80px) scale(1);
+                                      opacity: 1
+                                  }
+
+                                  20%,
+                                  60% {
+                                      transform: translateX(175px) scale(.6);
+                                      opacity: 1
+                                  }
+
+                                  80% {
+                                      transform: translateX(5px) scale(.6);
+                                      opacity: 1
+                                  }
+
+                                  to {
+                                      transform: translateX(5px) scale(.6);
+                                      opacity: 0
+                                  }
+                              }
+
+                              @keyframes tooltip-horizontal-scroll-icon_anim-scroll-card {
+
+                                  0%,
+                                  60% {
+                                      transform: translateX(0)
+                                  }
+
+                                  80%,
+                                  to {
+                                      transform: translateX(-240px)
+                                  }
+                              }
+                          </style>
+                      </svg>
+                  </div>
+                  <div class="examination-reveals__items">
+                      <?php if(have_rows('examinationReveals_points')) :
+                          while(have_rows('examinationReveals_points')) : the_row(); ?>
+                          <div class="examination-reveals__item">
+                              <div class="examination-reveals__item-icon">
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path
+                                          d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
+                                          fill="white" />
+                                      <path
+                                          d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
+                                          fill="white" />
+                                  </svg>
+                              </div>
+                              <h4 class="examination-reveals__item-title">
+                                  <?php the_sub_field('point'); ?>
+                              </h4>
+                          </div>
+                          <?php endwhile;
+                      endif; ?>
+                  </div>
+                  <div class="examination-reveals__right-btns">
+                      <a class="examination-reveals__btn _gray-btn" href="#" data-fancybox>
+                          <span>Записаться на обследование</span>
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                  d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z"
+                                  fill="white" />
+                          </svg>
+                      </a>
+                      <a class="examination-reveals__arrow-btn" href="#">
+                          <span class="examination-reveals__btn-icon">
+                              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path
+                                      d="M11.9512 2.04167C10.6341 0.729166 8.87805 0 7.02439 0C3.17073 0 0.0487797 3.11111 0.0487797 6.95139C0.0487797 8.16667 0.390244 9.38194 0.97561 10.4028L0 14L3.70732 13.0278C4.73171 13.5625 5.85366 13.8542 7.02439 13.8542C10.878 13.8542 14 10.7431 14 6.90278C13.9512 5.10417 13.2683 3.35417 11.9512 2.04167ZM10.3902 9.43056C10.2439 9.81944 9.56097 10.2083 9.21951 10.2569C8.92683 10.3056 8.53659 10.3056 8.14634 10.2083C7.90244 10.1111 7.56098 10.0139 7.17073 9.81945C5.41463 9.09028 4.29268 7.34028 4.19512 7.19444C4.09756 7.09722 3.46342 6.27083 3.46342 5.39583C3.46342 4.52083 3.90244 4.13194 4.04878 3.9375C4.19512 3.74306 4.39024 3.74306 4.53658 3.74306C4.63415 3.74306 4.78049 3.74306 4.87805 3.74306C4.97561 3.74306 5.12195 3.69444 5.26829 4.03472C5.41463 4.375 5.7561 5.25 5.80488 5.29861C5.85366 5.39583 5.85366 5.49306 5.80488 5.59028C5.7561 5.6875 5.70731 5.78472 5.60975 5.88194C5.51219 5.97917 5.41463 6.125 5.36585 6.17361C5.26829 6.27083 5.17073 6.36805 5.26829 6.51389C5.36585 6.70833 5.70732 7.24305 6.2439 7.72917C6.92683 8.3125 7.46341 8.50695 7.65854 8.60417C7.85366 8.70139 7.95122 8.65278 8.04878 8.55556C8.14634 8.45833 8.48781 8.06945 8.58537 7.875C8.68293 7.68056 8.82927 7.72917 8.97561 7.77778C9.12195 7.82639 10 8.26389 10.1463 8.36111C10.3415 8.45833 10.439 8.50694 10.4878 8.55556C10.5366 8.70139 10.5366 9.04167 10.3902 9.43056Z"
+                                      fill="white" />
+                              </svg>
+                          </span>
+                          <span>Записаться через WhatsApp</span>
+                      </a>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
-    </div>
   </section>
 
   <?php return ob_get_clean();
 }
 
 // Этапы прохождения
-function checkupStages($title, $img_url, $img_alt, $points){
+function checkupStages(){
   ob_start(); ?>
 
-  <section class="checkup-stages _section-lg" style="background-image: url(<?php echo $img_url; ?>);">
-    <div class="container">
-      <h2 class="checkup-stages__title _title">
-        <?php echo $title;?>
-      </h2>
-      <div class="cursor @@class">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" height="42" width="42">
-          <rect class="tooltip-horizontal-scroll-icon_card" x="480" width="200" height="200" rx="5"
-            fill="rgba(190,190,190,0.3)"></rect>
-          <rect class="tooltip-horizontal-scroll-icon_card" y="0" width="200" height="200" rx="5"
-            fill="rgba(190,190,190,0.3)"></rect>
-          <rect class="tooltip-horizontal-scroll-icon_card" x="240" width="200" height="200" rx="5"
-            fill="rgba(190,190,190,0.3)"></rect>
-          <path class="tooltip-horizontal-scroll-icon_hand"
-            d="M78.9579 285.7C78.9579 285.7 37.8579 212.5 20.5579 180.8C-2.44209 138.6 -6.2422 120.8 9.6579 112C19.5579 106.5 33.2579 108.8 41.6579 123.4L61.2579 154.6V32.3C61.2579 32.3 60.0579 0 83.0579 0C107.558 0 105.458 32.3 105.458 32.3V91.7C105.458 91.7 118.358 82.4 133.458 86.6C141.158 88.7 150.158 92.4 154.958 104.6C154.958 104.6 185.658 89.7 200.958 121.4C200.958 121.4 236.358 114.4 236.358 151.1C236.358 187.8 192.158 285.7 192.158 285.7H78.9579Z"
-            fill="rgba(190,190,190,1)"></path>
-          <style>
-            .tooltip-horizontal-scroll-icon_hand {
-              animation: tooltip-horizontal-scroll-icon_anim-scroll-hand 2s infinite
-            }
+  <section class="checkup-stages _section-lg" style="background-image: url(<?php echo esc_url(get_sub_field('checkupStages_img')['url']); ?>);">
+      <div class="container">
+          <h2 class="checkup-stages__title _title">
+              <?php the_sub_field('checkupStages_title'); ?>
+          </h2>
+          <div class="cursor @@class">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" height="42" width="42">
+                  <!-- SVG content remains unchanged -->
+                  <rect class="tooltip-horizontal-scroll-icon_card" x="480" width="200" height="200" rx="5"
+                      fill="rgba(190,190,190,0.3)"></rect>
+                  <rect class="tooltip-horizontal-scroll-icon_card" y="0" width="200" height="200" rx="5"
+                      fill="rgba(190,190,190,0.3)"></rect>
+                  <rect class="tooltip-horizontal-scroll-icon_card" x="240" width="200" height="200" rx="5"
+                      fill="rgba(190,190,190,0.3)"></rect>
+                  <path class="tooltip-horizontal-scroll-icon_hand"
+                      d="M78.9579 285.7C78.9579 285.7 37.8579 212.5 20.5579 180.8C-2.44209 138.6 -6.2422 120.8 9.6579 112C19.5579 106.5 33.2579 108.8 41.6579 123.4L61.2579 154.6V32.3C61.2579 32.3 60.0579 0 83.0579 0C107.558 0 105.458 32.3 105.458 32.3V91.7C105.458 91.7 118.358 82.4 133.458 86.6C141.158 88.7 150.158 92.4 154.958 104.6C154.958 104.6 185.658 89.7 200.958 121.4C200.958 121.4 236.358 114.4 236.358 151.1C236.358 187.8 192.158 285.7 192.158 285.7H78.9579Z"
+                      fill="rgba(190,190,190,1)"></path>
+                  <style>
+                      .tooltip-horizontal-scroll-icon_hand {
+                          animation: tooltip-horizontal-scroll-icon_anim-scroll-hand 2s infinite
+                      }
 
-            .tooltip-horizontal-scroll-icon_card {
-              animation: tooltip-horizontal-scroll-icon_anim-scroll-card 2s infinite
-            }
+                      .tooltip-horizontal-scroll-icon_card {
+                          animation: tooltip-horizontal-scroll-icon_anim-scroll-card 2s infinite
+                      }
 
-            @keyframes tooltip-horizontal-scroll-icon_anim-scroll-hand {
-              0% {
-                transform: translateX(80px) scale(1);
-                opacity: 0
-              }
+                      @keyframes tooltip-horizontal-scroll-icon_anim-scroll-hand {
+                          0% {
+                              transform: translateX(80px) scale(1);
+                              opacity: 0
+                          }
 
-              10% {
-                transform: translateX(80px) scale(1);
-                opacity: 1
-              }
+                          10% {
+                              transform: translateX(80px) scale(1);
+                              opacity: 1
+                          }
 
-              20%,
-              60% {
-                transform: translateX(175px) scale(.6);
-                opacity: 1
-              }
+                          20%,
+                          60% {
+                              transform: translateX(175px) scale(.6);
+                              opacity: 1
+                          }
 
-              80% {
-                transform: translateX(5px) scale(.6);
-                opacity: 1
-              }
+                          80% {
+                              transform: translateX(5px) scale(.6);
+                              opacity: 1
+                          }
 
-              to {
-                transform: translateX(5px) scale(.6);
-                opacity: 0
-              }
-            }
+                          to {
+                              transform: translateX(5px) scale(.6);
+                              opacity: 0
+                          }
+                      }
 
-            @keyframes tooltip-horizontal-scroll-icon_anim-scroll-card {
+                      @keyframes tooltip-horizontal-scroll-icon_anim-scroll-card {
 
-              0%,
-              60% {
-                transform: translateX(0)
-              }
+                          0%,
+                          60% {
+                              transform: translateX(0)
+                          }
 
-              80%,
-              to {
-                transform: translateX(-240px)
-              }
-            }
-          </style>
-        </svg>
-      </div>
-      <div class="checkup-stages__items">
-        <?php
-        $counter = 1;
-        foreach($points as $point) :
-        $num = str_pad($counter, 2, '0', STR_PAD_LEFT); ?>
-        <div class="checkup-stages__item">
-          <span class="checkup-stages__item-stage">
-            <?php echo $num; ?>
-          </span>
-          <span class="checkup-stages__item-icon">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M10.8225 24.6783C10.1725 24.6783 9.55501 24.3533 9.13251 23.7792L7.83253 22.0458C7.83253 22.0567 7.77836 22.0242 7.75669 22.0242H7.35586C3.65086 22.0242 1.35419 21.0167 1.35419 16.0225V11.6892C1.35419 7.12834 4.13837 5.93668 6.47837 5.73084C6.73837 5.69834 7.0417 5.6875 7.35586 5.6875H14.2892C18.2109 5.6875 20.2909 7.76751 20.2909 11.6892V16.0225C20.2909 16.3367 20.28 16.64 20.2367 16.9325C20.0417 19.24 18.85 22.0242 14.2892 22.0242H13.8559L12.5125 23.7792C12.09 24.3533 11.4725 24.6783 10.8225 24.6783ZM7.35586 7.3125C7.1067 7.3125 6.86836 7.32333 6.64086 7.345C4.12753 7.56167 2.97919 8.93751 2.97919 11.6892V16.0225C2.97919 19.7383 4.12753 20.3992 7.35586 20.3992H7.78919C8.27669 20.3992 8.82918 20.67 9.13251 21.06L10.4325 22.8042C10.6709 23.1292 10.9742 23.1292 11.2125 22.8042L12.5125 21.0708C12.8267 20.6483 13.325 20.3992 13.8559 20.3992H14.2892C17.0409 20.3992 18.4167 19.24 18.6225 16.77C18.655 16.51 18.6659 16.2717 18.6659 16.0225V11.6892C18.6659 8.66668 17.3117 7.3125 14.2892 7.3125H7.35586Z"
-                fill="white" />
-              <path
-                d="M10.8228 15.3727C10.2161 15.3727 9.73944 14.8852 9.73944 14.2894C9.73944 13.6936 10.2269 13.2061 10.8228 13.2061C11.4186 13.2061 11.9061 13.6936 11.9061 14.2894C11.9061 14.8852 11.4294 15.3727 10.8228 15.3727Z"
-                fill="white" />
-              <path
-                d="M14.2891 15.3727C13.6824 15.3727 13.2057 14.8852 13.2057 14.2894C13.2057 13.6936 13.6932 13.2061 14.2891 13.2061C14.8849 13.2061 15.3724 13.6936 15.3724 14.2894C15.3724 14.8852 14.8849 15.3727 14.2891 15.3727Z"
-                fill="white" />
-              <path
-                d="M7.36648 15.3727C6.75981 15.3727 6.28314 14.8852 6.28314 14.2894C6.28314 13.6936 6.77064 13.2061 7.36648 13.2061C7.96231 13.2061 8.44981 13.6936 8.44981 14.2894C8.44981 14.8852 7.96231 15.3727 7.36648 15.3727Z"
-                fill="white" />
-              <path
-                d="M19.4352 17.6473C19.2185 17.6473 19.0018 17.5607 18.8502 17.3982C18.6768 17.2248 18.601 16.9757 18.6335 16.7374C18.666 16.5099 18.6768 16.2715 18.6768 16.0223V11.689C18.6768 8.66651 17.3227 7.31234 14.3002 7.31234H7.36682C7.11765 7.31234 6.87935 7.32317 6.65185 7.34484C6.41351 7.37734 6.16433 7.29066 5.991 7.12816C5.81766 6.95482 5.72015 6.71652 5.74182 6.47818C5.93682 4.13818 7.13932 1.354 11.7002 1.354H18.6335C22.5552 1.354 24.6352 3.43401 24.6352 7.35568V11.689C24.6352 16.2498 21.851 17.4415 19.511 17.6473C19.4785 17.6473 19.4568 17.6473 19.4352 17.6473ZM7.49685 5.68734H14.2893C18.211 5.68734 20.291 7.76735 20.291 11.689V15.8815C22.1327 15.4265 22.9993 14.0723 22.9993 11.689V7.35568C22.9993 4.33318 21.6452 2.979 18.6227 2.979H11.6893C9.30601 2.979 7.96268 3.84567 7.49685 5.68734Z"
-                fill="white" />
-            </svg>
-
-          </span>
-          <h4 class="checkup-stages__item-title">
-            <?php echo $point['title'];?>
-          </h4>
-          <p class="checkup-stages__item-text">
-            <?php echo $point['text'];?>
-          </p>
-          <?php if($point['list']) :?>
-          <ul class="checkup-stages__item-list">
-            <?php foreach($point['list'] as $item) :?>
-            <li class="checkup-stages__item-point">
-              <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
-                  fill="white" />
+                          80%,
+                          to {
+                              transform: translateX(-240px)
+                          }
+                      }
+                  </style>
               </svg>
-
-              <span>
-                <?php echo $item; ?>
-              </span>
-            </li>
-            <?php endforeach;?>
-          </ul>
-          <?php endif; ?>
-          <span class="checkup-stages__item-step">
-            <?php echo $num; ?>
-          </span>
-        </div>
-        <?php $counter++; endforeach; ?>
+          </div>
+          <div class="checkup-stages__items">
+              <?php
+              $counter = 1;
+              if(have_rows('checkupStages_steps')) :
+                  while(have_rows('checkupStages_steps')) : the_row();
+                      $num = str_pad($counter, 2, '0', STR_PAD_LEFT);
+              ?>
+              <div class="checkup-stages__item">
+                  <span class="checkup-stages__item-stage">
+                      <?php echo $num; ?>
+                  </span>
+                  <span class="checkup-stages__item-icon">
+                      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                              d="M10.8225 24.6783C10.1725 24.6783 9.55501 24.3533 9.13251 23.7792L7.83253 22.0458C7.83253 22.0567 7.77836 22.0242 7.75669 22.0242H7.35586C3.65086 22.0242 1.35419 21.0167 1.35419 16.0225V11.6892C1.35419 7.12834 4.13837 5.93668 6.47837 5.73084C6.73837 5.69834 7.0417 5.6875 7.35586 5.6875H14.2892C18.2109 5.6875 20.2909 7.76751 20.2909 11.6892V16.0225C20.2909 16.3367 20.28 16.64 20.2367 16.9325C20.0417 19.24 18.85 22.0242 14.2892 22.0242H13.8559L12.5125 23.7792C12.09 24.3533 11.4725 24.6783 10.8225 24.6783ZM7.35586 7.3125C7.1067 7.3125 6.86836 7.32333 6.64086 7.345C4.12753 7.56167 2.97919 8.93751 2.97919 11.6892V16.0225C2.97919 19.7383 4.12753 20.3992 7.35586 20.3992H7.78919C8.27669 20.3992 8.82918 20.67 9.13251 21.06L10.4325 22.8042C10.6709 23.1292 10.9742 23.1292 11.2125 22.8042L12.5125 21.0708C12.8267 20.6483 13.325 20.3992 13.8559 20.3992H14.2892C17.0409 20.3992 18.4167 19.24 18.6225 16.77C18.655 16.51 18.6659 16.2717 18.6659 16.0225V11.6892C18.6659 8.66668 17.3117 7.3125 14.2892 7.3125H7.35586Z"
+                              fill="white" />
+                          <path
+                              d="M10.8228 15.3727C10.2161 15.3727 9.73944 14.8852 9.73944 14.2894C9.73944 13.6936 10.2269 13.2061 10.8228 13.2061C11.4186 13.2061 11.9061 13.6936 11.9061 14.2894C11.9061 14.8852 11.4294 15.3727 10.8228 15.3727Z"
+                              fill="white" />
+                          <path
+                              d="M14.2891 15.3727C13.6824 15.3727 13.2057 14.8852 13.2057 14.2894C13.2057 13.6936 13.6932 13.2061 14.2891 13.2061C14.8849 13.2061 15.3724 13.6936 15.3724 14.2894C15.3724 14.8852 14.8849 15.3727 14.2891 15.3727Z"
+                              fill="white" />
+                          <path
+                              d="M7.36648 15.3727C6.75981 15.3727 6.28314 14.8852 6.28314 14.2894C6.28314 13.6936 6.77064 13.2061 7.36648 13.2061C7.96231 13.2061 8.44981 13.6936 8.44981 14.2894C8.44981 14.8852 7.96231 15.3727 7.36648 15.3727Z"
+                              fill="white" />
+                          <path
+                              d="M19.4352 17.6473C19.2185 17.6473 19.0018 17.5607 18.8502 17.3982C18.6768 17.2248 18.601 16.9757 18.6335 16.7374C18.666 16.5099 18.6768 16.2715 18.6768 16.0223V11.689C18.6768 8.66651 17.3227 7.31234 14.3002 7.31234H7.36682C7.11765 7.31234 6.87935 7.32317 6.65185 7.34484C6.41351 7.37734 6.16433 7.29066 5.991 7.12816C5.81766 6.95482 5.72015 6.71652 5.74182 6.47818C5.93682 4.13818 7.13932 1.354 11.7002 1.354H18.6335C22.5552 1.354 24.6352 3.43401 24.6352 7.35568V11.689C24.6352 16.2498 21.851 17.4415 19.511 17.6473C19.4785 17.6473 19.4568 17.6473 19.4352 17.6473ZM7.49685 5.68734H14.2893C18.211 5.68734 20.291 7.76735 20.291 11.689V15.8815C22.1327 15.4265 22.9993 14.0723 22.9993 11.689V7.35568C22.9993 4.33318 21.6452 2.979 18.6227 2.979H11.6893C9.30601 2.979 7.96268 3.84567 7.49685 5.68734Z"
+                              fill="white" />
+                      </svg>
+                  </span>
+                  <h4 class="checkup-stages__item-title">
+                      <?php the_sub_field('title_step'); ?>
+                  </h4>
+                  <p class="checkup-stages__item-text">
+                      <?php the_sub_field('text_step'); ?>
+                  </p>
+                  <?php if(have_rows('list')) : ?>
+                  <ul class="checkup-stages__item-list">
+                      <?php while(have_rows('list')) : the_row(); ?>
+                      <li class="checkup-stages__item-point">
+                          <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                  d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
+                                  fill="white" />
+                          </svg>
+                          <span>
+                              <?php the_sub_field('point'); ?>
+                          </span>
+                      </li>
+                      <?php endwhile; ?>
+                  </ul>
+                  <?php endif; ?>
+                  <span class="checkup-stages__item-step">
+                      <?php echo $num; ?>
+                  </span>
+              </div>
+              <?php
+                  $counter++;
+                  endwhile;
+              endif;
+              ?>
+          </div>
       </div>
-    </div>
   </section>
 
   <?php return ob_get_clean();
@@ -890,7 +812,7 @@ function personalPlan(){
 }
 
 // Форма обратной связи (1 вариант)
-function callback_1($title){
+function callback_1(){
   ob_start(); ?>
 
   <section class="callback">
@@ -899,7 +821,7 @@ function callback_1($title){
         <div class="overlay"></div>
         <div class="callback__left relative">
           <h2 class="callback__title _title">
-            <?php echo $title; ?>
+            <?php the_sub_field('callback_1_title');?>
           </h2>
           <div class="callback__info">
             <img class="callback__info-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/callback-manager.webp" alt="callback-manager">
@@ -1010,102 +932,110 @@ function checkupSchedule(){
 }
 
 // Состав чекапа
-function checkupCompound($title, $img_url, $img_alt, $fio, $position, $experience, $points) {
+function checkupCompound() {
   ob_start(); ?>
 
   <section class="checkup-compound">
-    <div class="container">
-      <h2 class="checkup-compound__title _title">
-        <?php echo esc_html($title); ?>
-      </h2>
-      <div class="checkup-compound__inner">
-        <div class="checkup-compound__left accordion">
-          <?php
-          $counter = 1;
-          foreach($points as $point) :
-            $num = str_pad($counter, 2, '0', STR_PAD_LEFT);
-          ?>
-          <div class="checkup-compound__item accordion-item">
-            <div class="checkup-compound__item-header accordion-header">
-              <div class="checkup-compound__item-left">
-                <span class="checkup-compound__item-step">
-                  <?php echo esc_html($num); ?>
-                </span>
-                <h4 class="checkup-compound__item-title">
-                  <?php echo esc_html($point['c_name']); ?>
-                </h4>
-              </div>
-              <div class="open-item checkup-compound__item-icon">
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z" fill="white"/>
-                </svg>
-              </div>
-            </div>
+      <div class="container">
+          <h2 class="checkup-compound__title _title">
+              <?php the_sub_field('checkupCompound_title'); ?>
+          </h2>
+          <div class="checkup-compound__inner">
+              <div class="checkup-compound__left accordion">
+                  <?php
+                  $counter = 1;
+                  if(have_rows('checkupCompound_compound')) :
+                      while(have_rows('checkupCompound_compound')) : the_row();
+                          $num = str_pad($counter, 2, '0', STR_PAD_LEFT);
+                  ?>
+                  <div class="checkup-compound__item accordion-item">
+                      <div class="checkup-compound__item-header accordion-header">
+                          <div class="checkup-compound__item-left">
+                              <span class="checkup-compound__item-step">
+                                  <?php echo $num; ?>
+                              </span>
+                              <h4 class="checkup-compound__item-title">
+                                  <?php the_sub_field('сompound_name'); ?>
+                              </h4>
+                          </div>
+                          <div class="open-item checkup-compound__item-icon">
+                              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z" fill="white"/>
+                              </svg>
+                          </div>
+                      </div>
 
-            <div class="checkup-compound__item-body accordion-body">
-              <?php if(!empty($point['list'])) : ?>
-                <ul class="checkup-compound__item-list">
-                  <?php foreach($point['list'] as $item) : ?>
-                    <li class="checkup-compound__item-point">
-                      <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z" fill="white"/>
-                      </svg>
-                      <span><?php echo esc_html($item); ?></span>
-                    </li>
-                  <?php endforeach; ?>
-                </ul>
-              <?php endif; ?>
+                      <div class="checkup-compound__item-body accordion-body">
+                          <?php if(have_rows('compound_list')) : ?>
+                              <ul class="checkup-compound__item-list">
+                                  <?php while(have_rows('compound_list')) : the_row(); ?>
+                                      <li class="checkup-compound__item-point">
+                                          <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z" fill="white"/>
+                                          </svg>
+                                          <span><?php the_sub_field('compound_point'); ?></span>
+                                      </li>
+                                  <?php endwhile; ?>
+                              </ul>
+                          <?php endif; ?>
 
-              <?php if(!empty($point['price_a']) || !empty($point['c_name_a'])) : ?>
-                <div class="checkup-compound__item-cost">
-                  <?php if(!empty($point['c_name_a'])) : ?>
-                    <h5 class="checkup-compound__item-name">
-                      <?php echo $point['c_name_a']; ?>
-                    </h5>
-                  <?php endif; ?>
+                          <?php if(get_sub_field('сompound_price_accord') || get_sub_field('сompound_name_accord')) : ?>
+                              <div class="checkup-compound__item-cost">
+                                  <?php if(get_sub_field('сompound_name_accord')) : ?>
+                                      <h5 class="checkup-compound__item-name">
+                                          <?php the_sub_field('сompound_name_accord'); ?>
+                                      </h5>
+                                  <?php endif; ?>
 
-                  <div class="checkup-compound__item-right">
-                    <?php if(!empty($point['price_a'])) : ?>
-                      <span class="checkup-compound__item-price">
-                        <?php echo esc_html($point['price_a']); ?> ₽
-                      </span>
-                    <?php endif; ?>
-                    <a class="checkup-compound__item-btn _gray-btn" href="#">
-                      Записаться
-                    </a>
+                                  <div class="checkup-compound__item-right">
+                                      <?php if(get_sub_field('сompound_price_accord')) : ?>
+                                          <span class="checkup-compound__item-price">
+                                              <?php the_sub_field('сompound_price_accord'); ?> ₽
+                                          </span>
+                                      <?php endif; ?>
+                                      <a class="checkup-compound__item-btn _gray-btn" href="#">
+                                          Записаться
+                                      </a>
+                                  </div>
+                              </div>
+                          <?php endif; ?>
+                      </div>
                   </div>
-                </div>
-              <?php endif; ?>
-            </div>
-          </div>
-          <?php
-          $counter++;
-          endforeach;
-          ?>
-        </div>
-
-        <div class="checkup-compound__right">
-          <div class="checkup-compound__right-wrapper">
-            <img class="checkup-compound__right-img _img" src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>">
-            <div class="checkup-compound__right-content">
-              <p class="checkup-compound__right-name">
-                <?php echo $fio; ?>
-              </p>
-              <div class="checkup-compound__right-info">
-                <p class="checkup-compound__right-text">
-                  <?php echo $position; ?>
-                </p>
-                <?php if(!empty($experience)) : ?>
-                  <p class="checkup-compound__right-exp">
-                    <?php echo $experience; ?>
-                  </p>
-                <?php endif; ?>
+                  <?php
+                      $counter++;
+                      endwhile;
+                  endif;
+                  ?>
               </div>
-            </div>
+
+              <div class="checkup-compound__right">
+                  <div class="checkup-compound__right-wrapper">
+                      <?php
+                      $img = get_sub_field('checkupCompound_img');
+                      if($img) : ?>
+                          <img class="checkup-compound__right-img _img"
+                              src="<?php echo esc_url($img['url']); ?>"
+                              alt="<?php echo esc_attr($img['alt']); ?>">
+                      <?php endif; ?>
+                      <div class="checkup-compound__right-content">
+                          <p class="checkup-compound__right-name">
+                              <?php the_sub_field('checkupCompound_name'); ?>
+                          </p>
+                          <div class="checkup-compound__right-info">
+                              <p class="checkup-compound__right-text">
+                                  <?php the_sub_field('checkupCompound_position'); ?>
+                              </p>
+                              <?php if(get_sub_field('checkupCompound_experience')) : ?>
+                                  <p class="checkup-compound__right-exp">
+                                      <?php the_sub_field('checkupCompound_experience'); ?>
+                                  </p>
+                              <?php endif; ?>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
-    </div>
   </section>
 
   <?php
@@ -1388,14 +1318,14 @@ function newLevel(){
 }
 
 // Блок отзывов (изображения вытянутые)
-function checkupReviews($title){
+function checkupReviews(){
   ob_start(); ?>
 
   <section class="checkup-reviews _section-lg">
     <div class="container">
       <div class="checkup-reviews__top">
         <h2 class="checkup-reviews__title _title">
-          <?php echo $title; ?>
+          <?php the_sub_field('checkupReviews_title'); ?>
         </h2>
         <div class="checkup-reviews__right swiper-navigation">
           <div class="swiper-button-prev swiper-navigation__prev">
@@ -2182,6 +2112,30 @@ function map(){
 // Заболевание/ расшифровка
 function disease(){
   ob_start(); ?>
+
+  <div class="wrapper-gray space-top">
+    <section class="directions-question">
+      <div class="directions-question__bg">
+        <?php include(get_template_directory() . '/assets/images/icons/av-bg.svg'); ?>
+      </div>
+      <div class="container">
+        <div class="directions-question__inner">
+          <h2 class="directions-question__title _title">
+            Что такое<br>
+            аллергология?
+          </h2>
+          <div class="directions-question__info">
+            <h4 class="directions-question__info-title">
+              Аллергология — раздел медицины,<br> изучающий аллергические реакции<br> организма
+            </h4>
+            <p class="directions-question__info-text">
+              на различные вещества (аллергены) и методы<br> их диагностики, лечения и профилактики
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <?php return ob_get_clean();
 }
