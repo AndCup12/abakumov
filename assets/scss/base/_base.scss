@@ -68,7 +68,7 @@ a {
 ._white-text {
   color: var(--light-color);
   background: none !important;
-    -webkit-text-fill-color: initial !important;
+  -webkit-text-fill-color: initial !important;
 }
 
 .logo {
@@ -497,6 +497,18 @@ a {
   a {
     text-decoration: underline;
     text-underline-offset: 3px;
+  }
+}
+
+.space-top {
+  margin-top: 130px;
+
+  @include mixins.xl {
+    margin-top: 100px;
+  }
+
+  @include mixins.lg {
+    margin-top: 40px;
   }
 }
 

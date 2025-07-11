@@ -1,0 +1,91 @@
+@use '../base/mixins' as mixins;
+
+.directions-question {
+  padding-top: 100px;
+  position: relative;
+
+  @include mixins.lg {
+    padding-top: 40px;
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 50px;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 15px;
+    position: relative;
+
+    @include mixins.lg {
+      flex-direction: column;
+    }
+  }
+
+  &__info {
+    padding: 40px;
+    padding-left: 60px;
+    background-color: var(--light-color);
+    border-radius: 25px;
+    max-width: 670px;
+    width: 100%;
+    color: var(--default-color);
+
+    @include mixins.xl {
+      width: auto;
+    }
+
+    @include mixins.lg {
+      max-width: none;
+      width: 100%;
+
+      br {
+        display: none;
+      }
+    }
+
+    @include mixins.md {
+      padding: 30px;
+    }
+
+    @include mixins.sm {
+      padding: 20px;
+    }
+  }
+
+  &__info-title {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: calc(34/28*100%);
+
+    @include mixins.xl {
+      font-size: 24px;
+    }
+
+    @include mixins.sm {
+      font-size: 22px;
+    }
+  }
+
+  &__info-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+    margin-top: 12px;
+
+    @include mixins.xl {
+      font-size: 18px;
+    }
+
+    @include mixins.sm {
+      font-size: 16px;
+      margin-top: 5px;
+    }
+  }
+
+
+}

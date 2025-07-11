@@ -188,4 +188,58 @@
       width: 250px;
     }
   }
+
+  &__links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    @include mixins.xxl {
+        gap: 15px;
+    }
+
+    @include mixins.xl {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mixins.md {
+        grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: unset;
+    background-color: var(--light-color);
+    border-radius: 20px;
+    padding: 20px 40px;
+    min-height: 95px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: calc(24/18*100%);
+    color: var(--default-color);
+
+    @include mixins.xxl {
+        padding: 20px;
+    }
+
+    @include mixins.xl {
+        height: 100%;
+    }
+
+    @include mixins.md {
+        br{display: none;}
+        min-height: auto;
+    }
+
+    @include mixins.xs {
+        font-size: 16px;
+    }
+  }
 }

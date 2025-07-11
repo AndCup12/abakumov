@@ -44,6 +44,7 @@
 @use 'blocks/checkup-compound';
 @use 'blocks/new-level';
 @use 'blocks/checkup-after';
+@use 'blocks/directions-question';
 
 
 @use 'blocks/quiz';
@@ -58,4 +59,5 @@
 @use 'pages/checkup-main';
 @use 'pages/checkup-single';
 @use 'pages/directions-main';
+@use 'pages/directions-single';
 
