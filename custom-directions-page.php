@@ -131,7 +131,121 @@ get_header();
         </div>
       </div>
     </section>
+    <section class="directions-simptom relative">
+      <div class="container">
+        <h2 class="directions-simptom__title _title">
+          С какими симптомами нужно
+          обратиться к аллергологу?
+        </h2>
+        <div class="cursor">
+          <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+        </div>
+        <div class="directions-simptom__items">
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Постоянный или<br> сезонный насморк,<br> чихание
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Зуд<br>
+              и покраснение глаз
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Кожные высыпания,<br> крапивница
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Одышка, кашель<br> без видимой<br> причин
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Реакции на пищу,<br> лекарства или укусы<br> насекомых
+            </h4>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
+  <section class="directions-callback">
+    <div class="container">
+      <div class="directions-callback__inner _image-wrapper">
+        <img class="directions-callback__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-callback-1.webp" alt="directions-callback-1">
+        <div class="overlay"></div>
+        <h2 class="directions-callback__title _title">
+          Получите<br> консультацию<br>
+          врача по видеосвязи,<br> не выходя из дом
+        </h2>
+        <div class="directions-callback__subtitle">
+          Введите ваш номер телефона в форме ниже и мы выберем<br> удобное время для видео-консультации
+        </div>
+        <form action="#" class="directions-callback__form form-submit" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="from" value="Консультация с терапевтом">
+          <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
+          <div class="directions-callback__form-inputs">
+            <input class="directions-callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <button class="directions-callback__form-btn _gray-btn">
+              Записаться на первичную<br>
+              видео-консультацию
+            </button>
+          </div>
+          <p class="directions-callback__form-politic politic-text">
+            Нажимая на кнопку, вы соглашаетесь с <a href="#politics" data-fancybox>
+              Политикой конфиденциальности
+            </a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="quote-block">
+    <div class="container">
+      <div class="quote-block__content relative">
+        <img class="quote-block__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/quote-block-men.webp" alt="men">
+        <div class="overlay"></div>
+        <div class="quote-block__inner">
+          <div class="quote-block__left">
+            <div class="quote-block__left-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/dots.svg'); ?>
+            </div>
+            <p class="quote-block__left-text">
+              «Аллергия — это не просто<br> дискомфорт. Это сигнал иммунной<br> системы, что в организме нарушен<br> баланс. Моя задача — найти<br> причину и восстановить контроль»
+            </p>
+          </div>
+          <div class="quote-block__right">
+            <h5 class="quote-block__right-name">
+              Анатолий Михайлович Бала
+            </h5>
+            <p class="quote-block__right-text ">
+              Врач аллерголог-иммунолог, кандидат<br> медицинских наук
+            </p>
+            <p class="quote-block__right-exp ">
+              Стаж 16 лет
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <?php get_footer(); ?>

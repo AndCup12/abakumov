@@ -115,4 +115,22 @@
       height: auto;
     }
   }
+
+  .quote-block{
+    margin-top: 80px;
+
+    @include mixins.lg {
+        margin-top: 40px;
+    }
+
+    &__right-text,
+    &__right-exp{
+      color: var(--light-color);
+      color: var(--light-color);
+      
+      @include mixins.lg {
+        color: var(--default-color);
+      }
+    }
+  }
 }

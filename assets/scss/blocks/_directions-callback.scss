@@ -1,0 +1,149 @@
+@use '../base/mixins' as mixins;
+
+.directions-callback {
+  position: relative;
+  margin-top: -415px;
+
+  @include mixins.xl {
+      margin-top: -200px;
+  }
+
+  &__inner {
+    border-radius: 30px;
+    background-image: url(../images/directions-callback.webp);
+    padding: 72px 82px 66px;
+    position: relative;
+
+
+    @include mixins.xxl {
+      padding: 60px;
+    }
+
+    @include mixins.xl {
+      padding: 50px;
+    }
+
+    @include mixins.lg {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    @include mixins.md {
+      padding: 40px;
+
+      .overlay{
+        display: block;
+        background-color: rgba($color: #ffffff, $alpha: 0.5);
+      }
+    }
+
+    @include mixins.sm {
+      padding: 30px;
+    }
+
+    @include mixins.xs {
+      padding: 20px;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    width: 47%;
+  }
+
+  &__title {
+    font-size: 62px;
+    line-height: calc(62/64*100%);
+    margin-bottom: 20px;
+    position: relative;
+
+    @include mixins.xxl {
+      font-size: 56px;
+    }
+
+    @include mixins.xl {
+      font-size: 40px;
+    }
+
+    @include mixins.lg {
+      font-size: 34px;
+    }
+
+    @include mixins.md {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+    margin-bottom: 36px;
+    position: relative;
+
+    @include mixins.lg {
+        max-width: 400px;
+    }
+
+    @include mixins.md {
+        margin-bottom: 20px;
+    }
+
+    @include mixins.sm {
+        margin-bottom: 15px;
+    }
+  }
+
+  &__form {
+    max-width: 790px;
+    padding: 36px 49px 32px;
+    width: 100%;
+    background-color: var(--light-color);
+    border-radius: 25px;
+    position: relative;
+
+    @include mixins.sm {
+        padding: 25px;
+    }
+  }
+
+  &__form-inputs {
+    display: flex;
+    gap: 19px;
+    margin-bottom: 28px;
+
+    @include mixins.md {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    @include mixins.sm {
+        margin-bottom: 15px;
+    }
+  }
+
+  &__form-inp {
+    max-width: 352px;
+
+    @include mixins.sm {
+        max-width: none;
+    }
+  }
+
+  &__form-btn {
+    height: 92px;
+    max-width: 321px;
+
+    @include mixins.md {
+        max-width: none;
+    }
+  }
+
+  &__form-politic {
+    text-align: left;
+  }
+}
