@@ -20,6 +20,7 @@
 // careComfort : Комфорт
 // contacts : Контакты
 // map : Карта
+// disease : Заболевание/ расшифровка
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
 
@@ -219,9 +220,6 @@ function renderBlocksSingleCheckup() {
   }
 }
 
-function renderBlocksSingleDirections(){
-
-}
 
 // Первый блок
 function checkupFrontBlock(){
@@ -2177,6 +2175,13 @@ function map(){
       </div>
     </div>
   </section>
+
+  <?php return ob_get_clean();
+}
+
+// Заболевание/ расшифровка
+function disease(){
+  ob_start(); ?>
 
   <?php return ob_get_clean();
 }
