@@ -109,6 +109,29 @@ get_header();
       </div>
     </div>
   </section>
+  <div class="wrapper-gray space-top">
+    <section class="directions-question">
+      <div class="directions-question__bg">
+        <?php include(get_template_directory() . '/assets/images/icons/av-bg.svg'); ?>
+      </div>
+      <div class="container">
+        <div class="directions-question__inner">
+          <h2 class="directions-question__title _title">
+            Что такое<br>
+            аллергология?
+          </h2>
+          <div class="directions-question__info">
+            <h4 class="directions-question__info-title">
+              Аллергология — раздел медицины,<br> изучающий аллергические реакции<br> организма
+            </h4>
+            <p class="directions-question__info-text">
+              на различные вещества (аллергены) и методы<br> их диагностики, лечения и профилактики
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
 
 <?php get_footer(); ?>
