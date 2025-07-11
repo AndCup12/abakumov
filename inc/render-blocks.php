@@ -33,16 +33,7 @@ function renderBlocksSingleCheckup() {
       switch ($block_type) {
 
         case 'checkupFrontBlock':
-          $title = 'Заголовок'; // Заменить на поле meta_h1
-          $subtitle = get_sub_field('checkupFrontBlock_subtitle');
-          $img = get_sub_field('checkupFrontBlock_img');
-          $img_url = '';
-          $img_alt = '';
-
-          $img_url = isset($img['url']) ? $img['url'] : '';
-          $img_alt = isset($img['alt']) ? $img['alt'] : '';
-
-          echo checkupFrontBlock($title, $subtitle, $img_url, $img_alt);
+          echo checkupFrontBlock();
           break;
         case 'advantages':
           $advantages = [];
@@ -228,8 +219,12 @@ function renderBlocksSingleCheckup() {
   }
 }
 
+function renderBlocksSingleDirections(){
+
+}
+
 // Первый блок
-function checkupFrontBlock($title, $subtitle, $img_url, $img_alt){
+function checkupFrontBlock(){
   ob_start(); ?>
 
     <section class="front-block _image-wrapper _section-lg">
@@ -238,10 +233,10 @@ function checkupFrontBlock($title, $subtitle, $img_url, $img_alt){
         <div class="front-block__inner">
           <div class="front-block__left">
             <h1 class="front-block__title _title">
-              <?php echo $title; ?>
+              <?php the_field('meta_h1'); ?>
             </h1>
             <p class="front-block__subtitle _subtitle">
-              <?php echo $subtitle; ?>
+              <?php the_sub_field('checkupFrontBlock_subtitle'); ?>
             </p>
             <div class="front-block__btns">
               <a class="front-block__btn _main-btn" href="#" data-fancybox>
@@ -260,11 +255,17 @@ function checkupFrontBlock($title, $subtitle, $img_url, $img_alt){
               </a>
             </div>
           </div>
+          <?php if(get_sub_field('checkupFrontBlock_img')) {
+            $img = get_sub_field('checkupFrontBlock_img');
+            $img_url = isset($img['url']) ? $img['url'] : '';
+            $img_alt = isset($img['alt']) ? $img['alt'] : '';
+            ?>
           <div class="front-block__right-item">
             <div class="front-block__right-wrapper">
               <img class="front-block__right-img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
             </div>
           </div>
+          <?php } ?>
         </div>
       </div>
     </section>
