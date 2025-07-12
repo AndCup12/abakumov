@@ -553,6 +553,145 @@ get_header();
       </div>
     </div>
   </section>
+  <section class="callback ">
+    <div class="container">
+      <div class="callback__inner _image-wrapper relative">
+        <div class="overlay"></div>
+        <div class="callback__left relative">
+          <h2 class="callback__title _title">
+            Есть вопросы<br> или хотите<br> записаться<br>
+            по телефону?
+          </h2>
+          <div class="callback__info">
+            <img class="callback__info-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/callback-manager.webp" alt="callback-manager">
+            <p class="callback__info-text">
+              Мы перезвоним вам<br> в течение 7 минут
+            </p>
+          </div>
+        </div>
+        <form class="callback__form form-submit relative" action="#" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="from" value="Есть вопросы или хотите записаться по телефону?">
+          <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
+          <h4 class="callback__form-title">
+            Заполните форму
+          </h4>
+          <p class="callback__form-subtitle">
+            Введите телефон в форме ниже
+          </p>
+          <div class="callback__form-inputs">
+            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <button class="callback__form-btn _gray-btn">
+              Получите консультацию
+            </button>
+          </div>
+          <p class="callback__form-politic politic-text">
+            Нажимая на кнопку, вы соглашаетесь с <a href="#politics" data-fancybox>
+              Политикой конфиденциальности
+            </a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="checkup-stages _section-lg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/checkup-stages-bg-3.webp);">
+    <div class="container">
+      <h2 class="checkup-stages__title _title _white-text">
+        Этапы<br>
+        лечения
+      </h2>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+
+      <div class="checkup-stages__elems">
+        <div class="checkup-stages__elem">
+          <div class="checkup-stages__elem-top">
+            <span class="checkup-stages__elem-num">
+              01
+            </span>
+            <span class="checkup-stages__elem-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </span>
+          </div>
+          <h4 class="checkup-stages__elem-title">
+            Первичная
+            консультация
+          </h4>
+          <p class="checkup-stages__elem-text">
+            сбор анамнеза, осмотр, назначение необходимых исследований
+          </p>
+        </div>
+        <div class="checkup-stages__elem">
+          <div class="checkup-stages__elem-top">
+            <span class="checkup-stages__elem-num">
+              02
+            </span>
+            <span class="checkup-stages__elem-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </span>
+          </div>
+          <h4 class="checkup-stages__elem-title">
+            Прохождение
+            диагностики
+          </h4>
+          <p class="checkup-stages__elem-text">
+            проведение кожных проб, лабораторных анализов
+          </p>
+        </div>
+        <div class="checkup-stages__elem">
+          <div class="checkup-stages__elem-top">
+            <span class="checkup-stages__elem-num">
+              03
+            </span>
+            <span class="checkup-stages__elem-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </span>
+          </div>
+          <h4 class="checkup-stages__elem-title">
+            Разработка
+            плана лечения
+          </h4>
+          <p class="checkup-stages__elem-text">
+            и подбор индивидуальной терапии
+          </p>
+        </div>
+        <div class="checkup-stages__elem">
+          <div class="checkup-stages__elem-top">
+            <span class="checkup-stages__elem-num">
+              04
+            </span>
+            <span class="checkup-stages__elem-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </span>
+          </div>
+          <h4 class="checkup-stages__elem-title">
+            Терапия
+            проведение
+          </h4>
+          <p class="checkup-stages__elem-text">
+            лечения согласно разработанному плану
+          </p>
+        </div>
+        <div class="checkup-stages__elem">
+          <div class="checkup-stages__elem-top">
+            <span class="checkup-stages__elem-num">
+              05
+            </span>
+            <span class="checkup-stages__elem-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </span>
+          </div>
+          <h4 class="checkup-stages__elem-title">
+            Динамическое
+            наблюдение
+          </h4>
+          <p class="checkup-stages__elem-text">
+            оценка эффективности <br>лечения, коррекция при необходимости
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <?php get_footer(); ?>
