@@ -475,6 +475,84 @@ get_header();
       </div>
     </section>
   </div>
+  <section class="directions-methods">
+    <div class="container">
+      <h2 class="directions-methods__title _title">
+        Методы диагностики и лечения
+      </h2>
+      <div class="directions-methods__items">
+        <div class="directions-methods__item">
+          <span class="directions-methods__item-icon">
+            <?php include(get_template_directory() . '/assets/images/icons/directions-methods-1.svg'); ?>
+          </span>
+          <h4 class="directions-methods__item-title _title">
+            Диагностика
+          </h4>
+          <ul class="directions-methods__item-list">
+            <li class="directions-methods__item-point">
+              <span class="directions-methods__item-check">
+                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              </span>
+              <p class="directions-methods__item-text">
+                Кожные пробы (прик-тесты, скарификационные)
+              </p>
+            </li>
+            <li class="directions-methods__item-point">
+              <span class="directions-methods__item-check">
+                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              </span>
+              <p class="directions-methods__item-text">
+                Определение уровня специфических IgE-антител
+              </p>
+            </li>
+            <li class="directions-methods__item-point">
+              <span class="directions-methods__item-check">
+                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              </span>
+              <p class="directions-methods__item-text">
+                Провокационные тесты
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="directions-methods__item">
+          <span class="directions-methods__item-icon">
+            <?php include(get_template_directory() . '/assets/images/icons/directions-methods-2.svg'); ?>
+          </span>
+          <h4 class="directions-methods__item-title _title">
+            Лечение
+          </h4>
+          <ul class="directions-methods__item-list">
+            <li class="directions-methods__item-point">
+              <span class="directions-methods__item-check">
+                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              </span>
+              <p class="directions-methods__item-text">
+                Элиминационная терапия<br>
+                (исключение контакта с аллергеном)
+              </p>
+            </li>
+            <li class="directions-methods__item-point">
+              <span class="directions-methods__item-check">
+                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              </span>
+              <p class="directions-methods__item-text">
+                Фармакотерапия (антигистаминные препараты,<br> кортикостероиды)
+              </p>
+            </li>
+            <li class="directions-methods__item-point">
+              <span class="directions-methods__item-check">
+                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              </span>
+              <p class="directions-methods__item-text">
+                Аллерген-специфическая иммунотерапия (АСИТ)
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <?php get_footer(); ?>
