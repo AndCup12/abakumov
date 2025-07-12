@@ -897,6 +897,300 @@ get_header();
       </div>
     </section>
   </div>
+  <section class="directions-price">
+    <div class="container">
+      <h2 class="directions-price__title _title">
+        Стоимость<br>
+        диагностики и лечения
+      </h2>
+      <div class="directions-price__accordion accordion">
+        <div class="directions-price__item accordion-item">
+          <div class="directions-price__item-header accordion-header">
+            <div class="directions-price__item-left">
+              <span class="directions-price__item-step">
+                01
+              </span>
+              <h4 class="directions-price__item-title">
+                Вакцинация
+              </h4>
+            </div>
+            <div class="open-item directions-price__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+            </div>
+          </div>
+          <div class="directions-price__item-body accordion-body">
+            <div class="directions-price__item-costs">
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Введение лекарственного средства «Пневмовакс 23» 0,5 мл против пневмоккоковой инфекции (внутримышечно)
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    7 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Подкожное введение препарата Омализумаб (Ксолар) 150 мг, включая стоимость препарата
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    60 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (I-ый этап, 7 уколов)
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    21 428 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (II-ой этап, 5 уколов)
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    20 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="directions-price__item accordion-item">
+          <div class="directions-price__item-header accordion-header">
+            <div class="directions-price__item-left">
+              <span class="directions-price__item-step">
+                02
+              </span>
+              <h4 class="directions-price__item-title">
+                Консультации
+              </h4>
+            </div>
+            <div class="open-item directions-price__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+            </div>
+          </div>
+          <div class="directions-price__item-body accordion-body">
+            <div class="directions-price__item-costs">
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Введение лекарственного средства «Пневмовакс 23» 0,5 мл против пневмоккоковой инфекции (внутримышечно)
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    7 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Подкожное введение препарата Омализумаб (Ксолар) 150 мг, включая стоимость препарата
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    60 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (I-ый этап, 7 уколов)
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    21 428 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (II-ой этап, 5 уколов)
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    20 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="directions-price__item accordion-item">
+          <div class="directions-price__item-header accordion-header">
+            <div class="directions-price__item-left">
+              <span class="directions-price__item-step">
+                03
+              </span>
+              <h4 class="directions-price__item-title">
+                Общие манипуляции и процедуры
+              </h4>
+            </div>
+            <div class="open-item directions-price__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+            </div>
+          </div>
+          <div class="directions-price__item-body accordion-body">
+            <div class="directions-price__item-costs">
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Введение лекарственного средства «Пневмовакс 23» 0,5 мл против пневмоккоковой инфекции (внутримышечно)
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    7 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Подкожное введение препарата Омализумаб (Ксолар) 150 мг, включая стоимость препарата
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    60 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (I-ый этап, 7 уколов)
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    21 428 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (II-ой этап, 5 уколов)
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    20 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="directions-price__item accordion-item">
+          <div class="directions-price__item-header accordion-header">
+            <div class="directions-price__item-left">
+              <span class="directions-price__item-step">
+                04
+              </span>
+              <h4 class="directions-price__item-title">
+                Манипуляции хирургические
+              </h4>
+            </div>
+            <div class="open-item directions-price__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+            </div>
+          </div>
+          <div class="directions-price__item-body accordion-body">
+            <div class="directions-price__item-costs">
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Введение лекарственного средства «Пневмовакс 23» 0,5 мл против пневмоккоковой инфекции (внутримышечно)
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    7 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Подкожное введение препарата Омализумаб (Ксолар) 150 мг, включая стоимость препарата
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    60 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (I-ый этап, 7 уколов)
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    21 428 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (II-ой этап, 5 уколов)
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    20 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <?php get_footer(); ?>

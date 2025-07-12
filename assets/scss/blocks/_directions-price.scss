@@ -1,0 +1,198 @@
+@use '../base/mixins' as mixins;
+
+.directions-price {
+  padding-top: 130px;
+
+  @include mixins.xl {
+    padding-top: 100px;
+  }
+
+  @include mixins.lg {
+    padding-top: 40px;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 75px;
+
+    @include mixins.xxl {
+      margin-bottom: 60px;
+    }
+
+    @include mixins.xl {
+      margin-bottom: 50px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+      margin: 15px 0 30px;
+    }
+
+    @include mixins.sm {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__accordion {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: grid;
+    gap: 15px;
+  }
+
+  &__item-header {
+    background-color: #FBFBFB;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 40px 50px 40px 40px;
+
+    @include mixins.lg {
+      padding: 30px;
+    }
+
+    @include mixins.xs {
+      padding: 20px;
+    }
+  }
+
+  &__item-left {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+
+    @include mixins.lg {
+      gap: 25px;
+    }
+
+    @include mixins.xs {
+      gap: 15px;
+    }
+  }
+
+  &__item-step {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: calc(20/16*100%);
+    text-align: right;
+    color: #927D76;
+  }
+
+  &__item-icon {
+    svg {
+      width: 11px;
+      height: 11px;
+
+      path {
+        fill: var(--default-color);
+      }
+    }
+  }
+
+  .accordion-item.active {
+    .accordion-body {
+      padding: 0 0 30px;
+
+      @include mixins.lg {
+        padding: 0 0 15px;
+      }
+    }
+  }
+
+  &__item-costs {
+    display: grid;
+  }
+
+  &__item-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    padding-right: 0;
+    padding-left: 58px;
+    border-bottom: 1px solid #F1F5F7;
+
+    @include mixins.lg {
+      padding: 20px;
+    }
+
+    &:last-child {
+      border: none;
+    }
+
+    @include mixins.md {
+      align-items: start;
+    }
+
+    @include mixins.sm {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+
+  &__item-name {
+    font-weight: 400;
+    font-size: 19px;
+    line-height: calc(25/19*100%);
+
+    @include mixins.xs {
+      font-size: 18px;
+    }
+  }
+
+  &__item-right {
+    display: flex;
+    align-items: center;
+    gap: 67px;
+    max-width: 370px;
+    width: 100%;
+
+    @include mixins.xl {
+      gap: 20px;
+      max-width: 325px;
+    }
+
+    @include mixins.lg {
+      flex-direction: column;
+      text-align: center;
+      max-width: 200px;
+      gap: 10px;
+    }
+
+    @include mixins.sm {
+      max-width: none;
+      flex-direction: row;
+    }
+  }
+
+  &__item-price {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: calc(25/22*100%);
+    width: -webkit-fill-available;
+
+    @include mixins.sm {
+      font-size: 20px;
+    }
+  }
+
+  &__item-btn {
+    max-width: 202px;
+    min-width: 202px;
+    height: 70px;
+    font-size: 17px;
+    background-color: var(--accent);
+
+    @include mixins.md {
+      height: 55px;
+    }
+
+    @include mixins.sm {
+      max-width: 184px;
+      min-width: 184px;
+    }
+  }
+}
