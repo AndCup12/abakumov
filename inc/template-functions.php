@@ -35,3 +35,5 @@ function customthemes_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'customthemes_pingback_header' );
+
+require get_template_directory() . '/inc/render-blocks.php';

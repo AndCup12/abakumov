@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon.png" type="image/x-icon">
-  <meta content="images/social.png" property="og:image">
-  <title>Главная страница</title>
+  <meta content="<?php echo get_template_directory_uri(); ?>/assets/images/social.png" property="og:image">
+  <title><?php the_title(); ?></title>
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
 
   <?php wp_head(); ?>

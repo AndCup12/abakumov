@@ -176,6 +176,54 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+// Разрешаем загрузку WebP и DOCX
+add_filter('upload_mimes', 'allow_webp_docx_upload_mimes');
+function allow_webp_docx_upload_mimes($mimes) {
+    $mimes['webp'] = 'image/webp';
+    $mimes['docx'] = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    return $mimes;
+}
+
+// Исправляем проверку MIME-типов
+add_filter('wp_check_filetype_and_ext', 'fix_webp_docx_filetype', 10, 5);
+function fix_webp_docx_filetype($data, $file, $filename, $mimes, $real_mime) {
+    if (!empty($data['ext']) && !empty($data['type'])) {
+        return $data;
+    }
+
+    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+    // Для WebP
+    if ($ext === 'webp') {
+        if (function_exists('imagecreatefromwebp')) {
+            $data['ext'] = 'webp';
+            $data['type'] = 'image/webp';
+        }
+    }
+
+    // Для DOCX
+    if ($ext === 'docx') {
+        $data['ext'] = 'docx';
+        $data['type'] = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    }
+
+    return $data;
+}
+
+// Включаем создание миниатюр для WebP (если WordPress < 5.8)
+add_filter('file_is_displayable_image', 'enable_webp_display', 10, 2);
+function enable_webp_display($result, $path) {
+    if ($result === false) {
+        $displayable_image_types = array(IMAGETYPE_WEBP);
+        $info = @getimagesize($path);
+        if ($info && in_array($info[2], $displayable_image_types)) {
+            $result = true;
+        }
+    }
+    return $result;
+}
+
 function gulp_files() {
   $theme_uri = get_template_directory_uri();
 
