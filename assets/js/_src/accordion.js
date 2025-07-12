@@ -1,5 +1,5 @@
 const accordionsHeader = document.querySelectorAll(".accordion-header");
-if (accordionsHeader) {
+if (accordionsHeader.length) {
   accordionsHeader.forEach(function (header) {
     header.addEventListener("click", function () {
       const content = this.parentElement;

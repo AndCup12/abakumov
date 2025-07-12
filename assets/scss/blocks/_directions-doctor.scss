@@ -1,0 +1,346 @@
+@use '../base/mixins' as mixins;
+
+.directions-doctor {
+  position: relative;
+  padding: 120px 0 100px;
+
+  @include mixins.xl {
+    padding-top: 100px;
+  }
+
+  @include mixins.lg {
+    padding: 40px 0;
+  }
+
+  &__logo {
+    position: absolute;
+    max-width: 108%;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 0;
+    height: auto;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 72px;
+
+    @include mixins.xxl {
+      margin-bottom: 60px;
+    }
+
+    @include mixins.xl {
+      margin-bottom: 50px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+      margin: 15px 0 30px;
+    }
+
+    @include mixins.sm {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    gap: 90px;
+
+    @include mixins.xxl {
+      gap: 30px;
+    }
+
+    @include mixins.lg {
+        gap: 20px;
+        flex-direction: column;
+    }
+  }
+
+  &__left {
+    max-width: 644px;
+    width: 100%;
+
+    @include mixins.xl {
+      max-width: 365px;
+    }
+
+    @include mixins.lg {
+        max-width: none;
+    }
+  }
+
+  &__left-wrapper {
+    position: relative;
+    padding-bottom: calc(662/644*100%);
+    width: 100%;
+    overflow: hidden;
+    border-radius: 30px;
+
+    @include mixins.lg {
+        padding-bottom: 63%;
+    }
+  }
+
+  &__left-img{
+    @include mixins.lg {
+        object-position: top;
+    }
+  }
+
+  &__right {
+    margin-top: 30px;
+    width: 100%;
+
+    @include mixins.lg {
+        margin-top: 0;
+    }
+  }
+
+  &__right-name {
+    font-weight: 500;
+    font-size: 38px;
+    margin-bottom: 24px;
+
+    @include mixins.xl {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    @include mixins.lg {
+        font-size: 26px;
+    }
+
+    @include mixins.md {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+  }
+
+  &__right-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+    margin-bottom: 10px;
+
+    @include mixins.xl {
+      margin-bottom: 5px;
+    }
+
+    @include mixins.md {
+        font-size: 18px;
+    }
+  }
+
+  &__right-exp {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+    margin-bottom: 42px;
+
+    @include mixins.xxl {
+      margin-bottom: 20px;
+    }
+    @include mixins.md {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+  }
+
+  &__right-subtitle {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: calc(34/26*100%);
+    margin-bottom: 22px;
+
+    @include mixins.xl {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    @include mixins.lg {
+        font-size: 22px;
+    }
+
+    @include mixins.md {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+  }
+
+  &__right-list {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+    margin-bottom: 70px;
+
+    @include mixins.xl {
+        margin-bottom: 40px;
+    }
+    @include mixins.lg {
+        margin-bottom: 30px;
+    }
+
+    @include mixins.md {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    @include mixins.sm {
+        margin-bottom: 15px;
+    }
+  }
+
+  &__right-point {
+    display: flex;
+    gap: 19px;
+    @include mixins.md {
+        gap: 15px;
+    }
+
+    svg {
+      width: 8px;
+      height: 6px;
+      margin-top: 11px;
+
+      path {
+        fill: var(--accent);
+      }
+    }
+  }
+
+  &__right-btns {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+
+    @include mixins.xl {
+      gap: 30px;
+      justify-content: center;
+    }
+
+    @include mixins.lg {
+      gap: 20px;
+    }
+
+    @include mixins.sm {
+      gap: 15px;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__btn {
+    max-width: 329px;
+
+    svg {
+      width: auto;
+      height: auto;
+    }
+
+    @include mixins.lg {
+      max-width: 300px;
+    }
+  }
+
+  &__arrow-btn {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    color: var(--default-color);
+
+    @include mixins.lg {
+      gap: 10px;
+    }
+  }
+
+  &__btn-icon {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--whatsapp-color);
+  }
+
+  &__filters-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 70px;
+
+    @include mixins.xxl {
+        margin-bottom: 60px;
+    }
+
+    @include mixins.xl {
+        margin-bottom: 50px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    @include mixins.lg {
+        margin-bottom: 40px;
+    }
+    @include mixins.md {
+        margin-bottom: 20px;
+    }
+  }
+
+  .filters-btn {
+    max-width: 350px;
+    height: 100%;
+    max-height: 110px;
+    background-color: var(--light-color);
+    border-radius: 20px;
+    padding: 20px 34px;
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    transition: all .3s ease-in-out;
+
+    @include mixins.md {
+        max-width: none;
+        width: 100%;
+        justify-content: center;
+        max-height: 92px;
+    }
+
+    &.active {
+      background-color: var(--accent);
+
+      .filters-btn__text {
+        background: none;
+        -webkit-text-fill-color: initial;
+        color: var(--light-color);
+      }
+    }
+
+    &__img-wrapper {
+      position: relative;
+      height: 70px;
+      min-height: 70px;
+      min-width: 70px;
+      width: 70px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    &__text {
+      font-weight: 500;
+      font-size: 22px;
+      line-height: calc(30/22*100%);
+      transition: all .3s ease-in-out;
+
+      @include mixins.xl {
+          font-size: 18px;
+      }
+    }
+  }
+}

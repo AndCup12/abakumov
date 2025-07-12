@@ -692,6 +692,211 @@ get_header();
       </div>
     </div>
   </section>
+  <div class="wrapper-bg _section-lg">
+    <section class="directions-doctor">
+      <img class="directions-doctor__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
+      <div class="container relative">
+        <h2 class="directions-doctor__title _title">
+          Врач-аллерголог Abakumov Clinic
+        </h2>
+        <div class="filters directions-doctor__filters">
+          <div class="directions-doctor__filters-btns">
+            <div class="directions-doctor__filters-btn filters-btn active" data-filter="one">
+              <div class="filters-btn__img-wrapper">
+                <img class="filters-btn__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-1.webp" alt="">
+              </div>
+              <p class="filters-btn__text _title">
+                Ионичевская
+                Ирина Игоревна
+              </p>
+            </div>
+            <div class="directions-doctor__filters-btn filters-btn" data-filter="two">
+              <div class="filters-btn__img-wrapper">
+                <img class="filters-btn__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-1.webp" alt="">
+              </div>
+              <p class="filters-btn__text _title">
+                Зиннатуллин
+                Марат Радикович
+              </p>
+            </div>
+            <div class="directions-doctor__filters-btn filters-btn" data-filter="three">
+              <div class="filters-btn__img-wrapper">
+                <img class="filters-btn__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-1.webp" alt="">
+              </div>
+              <p class="filters-btn__text _title">
+                Костогрыз
+                Злата Олеговна
+              </p>
+            </div>
+          </div>
+          <div class="directions-doctor__filters-items">
+            <div class="directions-doctor__item filters-item one">
+              <div class="directions-doctor__left">
+                <div class="directions-doctor__left-wrapper">
+                  <img class="directions-doctor__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-1.webp" alt="directions-doctor-1">
+                </div>
+              </div>
+              <div class="directions-doctor__right">
+                <h4 class="directions-doctor__right-name _title">
+                  Анатолий Михайлович Бала
+                </h4>
+                <p class="directions-doctor__right-text">
+                  Врач аллерголог-иммунолог, кандидат медицинских наук
+                </p>
+                <p class="directions-doctor__right-exp">
+                  Стаж 16 лет
+                </p>
+                <h5 class="directions-doctor__right-subtitle _title">
+                  Основные направления,<br>
+                  на которых специализируется врач:
+                </h5>
+                <ul class="directions-doctor__right-list">
+                  <li class="directions-doctor__right-point">
+                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                    <span>
+                      Молекулярная аллергодиагностика
+                    </span>
+                  </li>
+                  <li class="directions-doctor__right-point">
+                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                    <span>
+                      Проведение аллерген-специфической иммунотерапии (АСИТ)
+                    </span>
+                  </li>
+                  <li class="directions-doctor__right-point">
+                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                    <span>
+                      Лечение с использованием генно-инженерных биологических<br> препаратов в области аллергологии и иммунологии
+                    </span>
+                  </li>
+                </ul>
+                <div class="directions-doctor__right-btns">
+                  <a class="directions-doctor__btn _gray-btn" href="#" data-fancybox>
+                    <span>Записаться на прием</span>
+                    <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+                  </a>
+                  <a class="directions-doctor__arrow-btn" href="#">
+                    <span class="directions-doctor__btn-icon">
+                      <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+                    </span>
+                    <span>Записаться через WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="directions-doctor__item filters-item two hidden">
+              <div class="directions-doctor__left">
+                <div class="directions-doctor__left-wrapper">
+                  <img class="directions-doctor__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-2.webp" alt="directions-doctor-1">
+                </div>
+              </div>
+              <div class="directions-doctor__right">
+                <h4 class="directions-doctor__right-name _title">
+                  Анатолий Михайлович Бала
+                </h4>
+                <p class="directions-doctor__right-text">
+                  Врач аллерголог-иммунолог, кандидат медицинских наук
+                </p>
+                <p class="directions-doctor__right-exp">
+                  Стаж 16 лет
+                </p>
+                <h5 class="directions-doctor__right-subtitle _title">
+                  Основные направления,<br>
+                  на которых специализируется врач:
+                </h5>
+                <ul class="directions-doctor__right-list">
+                  <li class="directions-doctor__right-point">
+                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                    <span>
+                      Молекулярная аллергодиагностика
+                    </span>
+                  </li>
+                  <li class="directions-doctor__right-point">
+                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                    <span>
+                      Проведение аллерген-специфической иммунотерапии (АСИТ)
+                    </span>
+                  </li>
+                  <li class="directions-doctor__right-point">
+                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                    <span>
+                      Лечение с использованием генно-инженерных биологических<br> препаратов в области аллергологии и иммунологии
+                    </span>
+                  </li>
+                </ul>
+                <div class="directions-doctor__right-btns">
+                  <a class="directions-doctor__btn _gray-btn" href="#" data-fancybox>
+                    <span>Записаться на прием</span>
+                    <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+                  </a>
+                  <a class="directions-doctor__arrow-btn" href="#">
+                    <span class="directions-doctor__btn-icon">
+                      <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+                    </span>
+                    <span>Записаться через WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="directions-doctor__item filters-item three hidden">
+              <div class="directions-doctor__left">
+                <div class="directions-doctor__left-wrapper">
+                  <img class="directions-doctor__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-1.webp" alt="directions-doctor-1">
+                </div>
+              </div>
+              <div class="directions-doctor__right">
+                <h4 class="directions-doctor__right-name _title">
+                  Анатолий Михайлович Бала
+                </h4>
+                <p class="directions-doctor__right-text">
+                  Врач аллерголог-иммунолог, кандидат медицинских наук
+                </p>
+                <p class="directions-doctor__right-exp">
+                  Стаж 16 лет
+                </p>
+                <h5 class="directions-doctor__right-subtitle _title">
+                  Основные направления,<br>
+                  на которых специализируется врач:
+                </h5>
+                <ul class="directions-doctor__right-list">
+                  <li class="directions-doctor__right-point">
+                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                    <span>
+                      Молекулярная аллергодиагностика
+                    </span>
+                  </li>
+                  <li class="directions-doctor__right-point">
+                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                    <span>
+                      Проведение аллерген-специфической иммунотерапии (АСИТ)
+                    </span>
+                  </li>
+                  <li class="directions-doctor__right-point">
+                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                    <span>
+                      Лечение с использованием генно-инженерных биологических<br> препаратов в области аллергологии и иммунологии
+                    </span>
+                  </li>
+                </ul>
+                <div class="directions-doctor__right-btns">
+                  <a class="directions-doctor__btn _gray-btn" href="#" data-fancybox>
+                    <span>Записаться на прием</span>
+                    <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+                  </a>
+                  <a class="directions-doctor__arrow-btn" href="#">
+                    <span class="directions-doctor__btn-icon">
+                      <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+                    </span>
+                    <span>Записаться через WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
 
 <?php get_footer(); ?>
