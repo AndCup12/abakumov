@@ -858,6 +858,45 @@ function callback_1(){
   <?php return ob_get_clean();
 }
 
+// Форма обратной связи (2 вариант)
+function callback_2(){
+  ob_start(); ?>
+
+  <section class="directions-callback">
+    <div class="container">
+      <div class="directions-callback__inner _image-wrapper">
+        <img class="directions-callback__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-callback-1.webp" alt="directions-callback-1">
+        <div class="overlay"></div>
+        <h2 class="directions-callback__title _title">
+          Получите<br> консультацию<br>
+          врача по видеосвязи,<br> не выходя из дом
+        </h2>
+        <div class="directions-callback__subtitle">
+          Введите ваш номер телефона в форме ниже и мы выберем<br> удобное время для видео-консультации
+        </div>
+        <form action="#" class="directions-callback__form form-submit" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="from" value="Консультация с терапевтом">
+          <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
+          <div class="directions-callback__form-inputs">
+            <input class="directions-callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <button class="directions-callback__form-btn _gray-btn">
+              Записаться на первичную<br>
+              видео-консультацию
+            </button>
+          </div>
+          <p class="directions-callback__form-politic politic-text">
+            Нажимая на кнопку, вы соглашаетесь с <a href="#politics" data-fancybox>
+              Политикой конфиденциальности
+            </a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
 // График прохождения
 function checkupSchedule(){
   ob_start(); ?>
