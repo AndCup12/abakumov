@@ -246,6 +246,235 @@ get_header();
       </div>
     </div>
   </section>
+  <section class="video-block">
+    <div class="container relative">
+      <h2 class="video-block__title _title">
+        Посмотрите видео о том,
+      </h2>
+      <p class="video-block__subtitle _subtitle">
+        как комплексный подход в аллергологии помогает выявить скрытые аллергены,<br>
+        контролировать иммунный ответ и снижать частоту обострений
+      </p>
+      <a class="video-block__video" href="#" data-fancybox>
+        <img class="video-block__video-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-1.webp" alt="video-block-1">
+        <div class="play">
+          <div class="play__inner">
+            <?php include(get_template_directory() . '/assets/images/icons/play.svg'); ?>
+          </div>
+        </div>
+      </a>
+      <img class="video-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-2.webp" alt="video-block-2">
+    </div>
+  </section>
+  <div class="wrapper-gray">
+    <section class="directions-simptom relative space-null">
+      <div class="container">
+        <h2 class="directions-simptom__title _title">
+          Заболевания, подлежащие<br>
+          диагностике и терапии
+        </h2>
+        <div class="cursor">
+          <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+        </div>
+        <div class="directions-simptom__items">
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Аллергический<br> ринит и<br> конъюнктиви
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Бронхиальная<br> астма
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Атопический<br> дерматит, экзема
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Пищевая и<br> лекарственная<br> аллергия
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Крапивница,<br> ангионевротический<br> отек
+            </h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="quote-block">
+      <div class="container">
+        <div class="quote-block__content relative">
+          <img class="quote-block__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/quote-block-men.webp" alt="men">
+          <div class="overlay"></div>
+          <div class="quote-block__inner">
+            <div class="quote-block__left">
+              <div class="quote-block__left-icon">
+                <?php include(get_template_directory() . '/assets/images/icons/dots.svg'); ?>
+              </div>
+              <p class="quote-block__left-text">
+                «Самолечение при аллергии<br> часто приводит к хронизации.<br> Чем раньше начата точная<br> диагностика, тем проще вернуть<br> человеку качество жизни»
+              </p>
+            </div>
+            <div class="quote-block__right">
+              <h5 class="quote-block__right-name">
+                Анатолий Михайлович Бала
+              </h5>
+              <p class="quote-block__right-text ">
+                Врач аллерголог-иммунолог, кандидат<br> медицинских наук
+              </p>
+              <p class="quote-block__right-exp ">
+                Стаж 16 лет
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="examination-reveals">
+      <div class="container">
+        <h2 class="examination-reveals__title _title">
+          С какими симптомами следует<br>
+          записаться к аллергологу?
+        </h2>
+        <div class="examination-reveals__inner">
+          <div class="examination-reveals__left">
+            <div class="examination-reveals__left-wrapper">
+              <img class="examination-reveals__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/examination-reveals-2.webp"
+                alt="examination-reveals-1">
+            </div>
+          </div>
+          <div class="examination-reveals__right">
+            <div class="cursor">
+              <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+            </div>
+            <div class="examination-reveals__items">
+              <div class="examination-reveals__item">
+                <div class="examination-reveals__item-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+                </div>
+                <h4 class="examination-reveals__item-title">
+                  Долгое время сохраняется сухой кашель без признаков инфекции
+                </h4>
+              </div>
+              <div class="examination-reveals__item">
+                <div class="examination-reveals__item-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+                </div>
+                <h4 class="examination-reveals__item-title">
+                  Появляются высыпания, жжение или отёки кожи без ясной причины
+                </h4>
+              </div>
+              <div class="examination-reveals__item">
+                <div class="examination-reveals__item-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+                </div>
+                <h4 class="examination-reveals__item-title">
+                  Глаза чешутся, краснеют, раздражаются от света или пыли
+                </h4>
+              </div>
+              <div class="examination-reveals__item">
+                <div class="examination-reveals__item-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+                </div>
+                <h4 class="examination-reveals__item-title">
+                  Каждую весну или осень возвращается чихание, насморк, зуд в носу
+                </h4>
+              </div>
+              <div class="examination-reveals__item">
+                <div class="examination-reveals__item-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+                </div>
+                <h4 class="examination-reveals__item-title">
+                  Нос заложен,
+                  слизь обильная,
+                  но температуры нет
+                </h4>
+              </div>
+              <div class="examination-reveals__item">
+                <div class="examination-reveals__item-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+                </div>
+                <h4 class="examination-reveals__item-title">
+                  Возникает одышка, затруднённое дыхание, слышны хрип
+                </h4>
+              </div>
+              <div class="examination-reveals__item">
+                <div class="examination-reveals__item-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+                </div>
+                <h4 class="examination-reveals__item-title">
+                  Отёки на губах, веках или языке появляются внезапно
+                </h4>
+              </div>
+              <div class="examination-reveals__item">
+                <div class="examination-reveals__item-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+                </div>
+                <h4 class="examination-reveals__item-title">
+                  После еды ощущаете дискомфорт: зуд в горле, першение, тошнота
+                </h4>
+              </div>
+              <div class="examination-reveals__item">
+                <div class="examination-reveals__item-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+                </div>
+                <h4 class="examination-reveals__item-title">
+                  Часто появляется изжога, метеоризм без нарушений со стороны ЖКТ
+                </h4>
+              </div>
+              <div class="examination-reveals__item">
+                <div class="examination-reveals__item-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+                </div>
+                <h4 class="examination-reveals__item-title">
+                  Лечение у ЛОРа или офтальмолога не даёт результата
+                </h4>
+              </div>
+              <div class="examination-reveals__item">
+                <div class="examination-reveals__item-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+                </div>
+                <h4 class="examination-reveals__item-title">
+                  Есть реакции на<br> лекарства или укусы насекомых
+                </h4>
+              </div>
+            </div>
+            <div class="examination-reveals__right-btns">
+              <a class="examination-reveals__btn _gray-btn" href="#" data-fancybox>
+                <span>Записаться на прием</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+              </a>
+              <a class="examination-reveals__arrow-btn" href="#">
+                <span class="examination-reveals__btn-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+                </span>
+                <span>Записаться через WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
 
 <?php get_footer(); ?>
