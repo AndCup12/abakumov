@@ -52,6 +52,7 @@
     }
 
     @include mixins.lg {
+      display: grid !important;
       grid-auto-flow: column;
       overflow-x: auto;
       padding-bottom: 10px;
