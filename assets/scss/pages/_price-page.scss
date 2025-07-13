@@ -1,0 +1,104 @@
+@use '../base/mixins' as mixins;
+
+#price-page {
+  .front-block {
+    padding-bottom: 100px;
+
+    @include mixins.xl {
+      padding-bottom: 80px;
+    }
+
+    @include mixins.md {
+      padding-bottom: 60px;
+    }
+
+    &__items,
+    &__title {
+      margin-bottom: 60px;
+
+      @include mixins.xl {
+        margin-bottom: 50px;
+      }
+
+      @include mixins.lg {
+        margin-bottom: 40px;
+      }
+
+      @include mixins.md {
+        margin-bottom: 30px;
+      }
+
+      @include mixins.sm {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__logo {
+      bottom: 0;
+      height: auto;
+    }
+  }
+
+  .directions-price {
+    &__accordion {
+      max-width: 850px;
+    }
+
+    &__item-step {
+      font-size: 16px;
+    }
+
+    &__item-title {
+      font-size: 22px;
+
+      @include mixins.md {
+        font-size: 20px;
+      }
+
+      @include mixins.sm {
+        font-size: 18px;
+      }
+
+      @include mixins.xs {
+        font-size: 16px;
+      }
+    }
+
+    &__item-icon {
+      svg {
+        width: 12px;
+      }
+    }
+  }
+
+  .new-level {
+    padding-bottom: 0;
+    background-position: center 30%;
+    border-radius: 30px;
+
+    &__title {
+      margin-bottom: 0;
+    }
+
+    &__btn {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 94px;
+      z-index: 1;
+      max-width: 389px;
+
+      @include mixins.lg {
+        bottom: 40px;
+      }
+
+      @include mixins.md {
+        position: static;
+        transform: translateX(0%);
+        height: 75px;
+        max-width: 350px;
+        margin: 0 auto 10px;
+      }
+    }
+  }
+}
