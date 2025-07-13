@@ -95,9 +95,409 @@
       </div>
     </div>
   </section>
+  <!-- Форма обратной связи (1 вариант) -->
+  <section class="callback ">
+    <div class="container">
+      <div class="callback__inner _image-wrapper relative">
+        <div class="overlay"></div>
+        <div class="callback__left relative">
+          <h2 class="callback__title _title">
+            Есть вопросы<br> или хотите<br> записаться<br>
+            по телефону?
+          </h2>
+          <div class="callback__info">
+            <img class="callback__info-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/callback-manager.webp" alt="callback-manager">
+            <p class="callback__info-text">
+              Мы перезвоним вам<br> в течение 7 минут
+            </p>
+          </div>
+        </div>
+        <form class="callback__form form-submit relative" action="#" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="from" value="Есть вопросы или хотите записаться по телефону?">
+          <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
+          <h4 class="callback__form-title">
+            Заполните форму
+          </h4>
+          <p class="callback__form-subtitle">
+            Введите телефон в форме ниже
+          </p>
+          <div class="callback__form-inputs">
+            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <button class="callback__form-btn _gray-btn">
+              Получите консультацию
+            </button>
+          </div>
+          <p class="callback__form-politic politic-text">
+            Нажимая на кнопку, вы соглашаетесь с <a href="#politics" data-fancybox>
+              Политикой конфиденциальности
+            </a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+  <div class="wrapper-bg _section-lg">
+    <section class="doctors-doctors">
+      <img class="doctors-doctors__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
+      <div class="container relative">
+        <h2 class="doctors-doctors__title _title">
+          Выберите специализацию врача
+        </h2>
+        <div class="doctors-doctors__btn _gray-btn open-form">
+          Открыть фильтр
+        </div>
+        <div class="doctors-doctors__inner relative">
+          <form class="doctors-doctors__form form-submit hidden-form" action="#" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="from" value="Есть вопросы или хотите записаться по телефону?">
+            <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
+            <div class="doctors-doctors__form-labels">
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Все специализации">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Все специализации</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Аллергология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Аллергология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Гастроэнтерология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Гастроэнтерология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Гематология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Гематология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Гинекология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Гинекология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Дерматология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Дерматология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Диетология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Диетология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Кардиология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Кардиология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Косметология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Косметология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Маммология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Маммология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Неврология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Неврология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Онкология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Онкология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Оториноларингология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Оториноларингология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Пульмонология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Пульмонология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Терапия">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Терапия</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="УЗИ">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">УЗИ</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Урология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Урология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Физиотерапия">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Физиотерапия</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Фониатрия">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Фониатрия</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Функциональная диагностика">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Функциональная диагностика</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+              <label class="doctors-doctors__form-label">
+                <input type="radio" name="direction" value="Эндокринология">
+                <span class="doctors-doctors__form-inner">
+                  <span class="doctors-doctors__form-text">Эндокринология</span>
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+                </span>
+              </label>
+            </div>
+          </form>
+          <div class="doctors-doctors__items">
+            <div class="doctors-doctors__item">
+              <a class="doctors-doctors__item-wrapper" href="#">
+                <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-1.webp" alt="doctors-doctors-1">
+              </a>
+              <div class="doctors-doctors__item-info">
+                <h4 class="doctors-doctors__item-title _title">
+                  Абакумов<br>
+                  Олег Александрович
+                </h4>
+                <p class="doctors-doctors__item-text">
+                  Терапевт, пульмонолог, статус «Московский врач»
+                </p>
+                <p class="doctors-doctors__item-exp">
+                  Стаж<span>: 12 лет</span>
+                </p>
+                <a class="doctors-doctors__item-link" href="#">
+                  Узнать о враче подробнее
+                </a>
+                <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+                  Записаться к врачу
+                </a>
+              </div>
+            </div>
+            <div class="doctors-doctors__item">
+              <a class="doctors-doctors__item-wrapper" href="#">
+                <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-2.webp" alt="doctors-doctors-2">
+              </a>
+              <div class="doctors-doctors__item-info">
+                <h4 class="doctors-doctors__item-title _title">
+                  Ионичевская<br>
+                  Ирина Игоревна
+                </h4>
+                <p class="doctors-doctors__item-text">
+                  Терапевт, пульмонолог, гастроэнтеролог, кандидат медицинских наук
+                </p>
+                <p class="doctors-doctors__item-exp">
+                  Стаж: <span>12 лет</span>
+                </p>
+                <a class="doctors-doctors__item-link" href="#">
+                  Узнать о враче подробнее
+                </a>
+                <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+                  Записаться к врачу
+                </a>
+              </div>
+            </div>
+            <div class="doctors-doctors__item">
+              <a class="doctors-doctors__item-wrapper" href="#">
+                <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-3.webp" alt="doctors-doctors-3">
+              </a>
+              <div class="doctors-doctors__item-info">
+                <h4 class="doctors-doctors__item-title _title">
+                  Войнилович<br>
+                  Сергей Вячеславович
+                </h4>
+                <p class="doctors-doctors__item-text">
+                  Терапевт, Пульмонолог, сомнолог, кандидат медицинских наук
+                </p>
+                <p class="doctors-doctors__item-exp">
+                  Стаж: <span>27 лет</span>
+                </p>
+                <a class="doctors-doctors__item-link" href="#">
+                  Узнать о враче подробнее
+                </a>
+                <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+                  Записаться к врачу
+                </a>
+              </div>
+
+            </div>
+            <div class="doctors-doctors__item">
+              <a class="doctors-doctors__item-wrapper" href="#">
+                <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-1.webp" alt="doctors-doctors-1">
+              </a>
+              <div class="doctors-doctors__item-info">
+                <h4 class="doctors-doctors__item-title _title">
+                  Абакумов<br>
+                  Олег Александрович
+                </h4>
+                <p class="doctors-doctors__item-text">
+                  Терапевт, пульмонолог, статус «Московский врач»
+                </p>
+                <p class="doctors-doctors__item-exp">
+                  Стаж<span>: 12 лет</span>
+                </p>
+                <a class="doctors-doctors__item-link" href="#">
+                  Узнать о враче подробнее
+                </a>
+                <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+                  Записаться к врачу
+                </a>
+              </div>
+            </div>
+            <div class="doctors-doctors__item">
+              <a class="doctors-doctors__item-wrapper" href="#">
+                <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-2.webp" alt="doctors-doctors-2">
+              </a>
+              <div class="doctors-doctors__item-info">
+                <h4 class="doctors-doctors__item-title _title">
+                  Ионичевская<br>
+                  Ирина Игоревна
+                </h4>
+                <p class="doctors-doctors__item-text">
+                  Терапевт, пульмонолог, гастроэнтеролог, кандидат медицинских наук
+                </p>
+                <p class="doctors-doctors__item-exp">
+                  Стаж: <span>12 лет</span>
+                </p>
+                <a class="doctors-doctors__item-link" href="#">
+                  Узнать о враче подробнее
+                </a>
+                <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+                  Записаться к врачу
+                </a>
+              </div>
+            </div>
+            <div class="doctors-doctors__item">
+              <a class="doctors-doctors__item-wrapper" href="#">
+                <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-3.webp" alt="doctors-doctors-3">
+              </a>
+              <div class="doctors-doctors__item-info">
+                <h4 class="doctors-doctors__item-title _title">
+                  Войнилович<br>
+                  Сергей Вячеславович
+                </h4>
+                <p class="doctors-doctors__item-text">
+                  Терапевт, Пульмонолог, сомнолог, кандидат медицинских наук
+                </p>
+                <p class="doctors-doctors__item-exp">
+                  Стаж: <span>27 лет</span>
+                </p>
+                <a class="doctors-doctors__item-link" href="#">
+                  Узнать о враче подробнее
+                </a>
+                <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+                  Записаться к врачу
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
 
 
 
+
+
+
+
+
+
+
+  <!-- Форма обратной связи (1 вариант) -->
+  <section class="callback ">
+    <div class="container">
+      <div class="callback__inner _image-wrapper relative">
+        <div class="overlay"></div>
+        <div class="callback__left relative">
+          <h2 class="callback__title _title">
+            Есть вопросы<br> или хотите<br> записаться<br>
+            по телефону?
+          </h2>
+          <div class="callback__info">
+            <img class="callback__info-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/callback-manager.webp" alt="callback-manager">
+            <p class="callback__info-text">
+              Мы перезвоним вам<br> в течение 7 минут
+            </p>
+          </div>
+        </div>
+        <form class="callback__form form-submit relative" action="#" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="from" value="Есть вопросы или хотите записаться по телефону?">
+          <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
+          <h4 class="callback__form-title">
+            Заполните форму
+          </h4>
+          <p class="callback__form-subtitle">
+            Введите телефон в форме ниже
+          </p>
+          <div class="callback__form-inputs">
+            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <button class="callback__form-btn _gray-btn">
+              Получите консультацию
+            </button>
+          </div>
+          <p class="callback__form-politic politic-text">
+            Нажимая на кнопку, вы соглашаетесь с <a href="#politics" data-fancybox>
+              Политикой конфиденциальности
+            </a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
   <div class="wrapper-bg _section-lg">
     <!-- Медицина нового уровня -->
     <section class="new-level">
