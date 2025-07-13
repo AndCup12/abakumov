@@ -2274,64 +2274,67 @@ function directionsDoctor(){
     <img class="directions-doctor__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
     <div class="container relative">
       <h2 class="directions-doctor__title _title">
-        Врач-аллерголог Abakumov Clinic
+        <?php the_sub_field('directionsDoctor_title'); ?>
       </h2>
       <div class="filters directions-doctor__filters">
+        <?php $count = count(get_sub_field('directionsDoctor_doctors'));
+        if($count > 1) :
+        if(have_rows('directionsDoctor_doctors')) : $index = 1; ?>
         <div class="directions-doctor__filters-btns">
-
-          <div class="directions-doctor__filters-btn filters-btn active" data-filter="one">
+          <?php while(have_rows('directionsDoctor_doctors')) : the_row();
+          $img = get_sub_field('doctor_img_icon');
+          $img_url = isset($img['url']) ? $img['url'] : '';
+          $img_alt = isset($img['alt']) ? $img['alt'] : '';?>
+          <div class="directions-doctor__filters-btn filters-btn active" data-filter="<?php echo $index; ?>">
             <div class="filters-btn__img-wrapper">
-              <img class="filters-btn__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-1.webp" alt="">
+              <img class="filters-btn__img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
             </div>
             <p class="filters-btn__text _title">
-              Ионичевская
-              Ирина Игоревна
+              <?php the_sub_field('doctor_name'); ?>
             </p>
           </div>
-
+          <?php $index++; endwhile; ?>
         </div>
+        <?php endif;
+        endif; ?>
+        <?php if(have_rows('directionsDoctor_doctors')) : ?>
         <div class="directions-doctor__filters-items">
-
-          <div class="directions-doctor__item filters-item one">
+          <?php $index = 1; while(have_rows('directionsDoctor_doctors')) : the_row();
+          $img = get_sub_field('doctor_img');
+          $img_url = isset($img['url']) ? $img['url'] : '';
+          $img_alt = isset($img['alt']) ? $img['alt'] : ''; ?>
+          <div class="directions-doctor__item filters-item <?php echo $index; ?>">
             <div class="directions-doctor__left">
               <div class="directions-doctor__left-wrapper">
-                <img class="directions-doctor__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-1.webp" alt="directions-doctor-1">
+                <img class="directions-doctor__left-img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
               </div>
             </div>
             <div class="directions-doctor__right">
               <h4 class="directions-doctor__right-name _title">
-                Анатолий Михайлович Бала
+                <?php the_sub_field('doctor_name'); ?>
               </h4>
               <p class="directions-doctor__right-text">
-                Врач аллерголог-иммунолог, кандидат медицинских наук
+                <?php the_sub_field('doctor_position'); ?>
               </p>
               <p class="directions-doctor__right-exp">
-                Стаж 16 лет
+                <?php the_sub_field('doctor_stage'); ?>
               </p>
+              <?php if(have_rows('doctor_directions')) : ?>
               <h5 class="directions-doctor__right-subtitle _title">
                 Основные направления,<br>
                 на которых специализируется врач:
               </h5>
               <ul class="directions-doctor__right-list">
+                <?php while(have_rows('doctor_directions')) : the_row(); ?>
                 <li class="directions-doctor__right-point">
                   <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
                   <span>
-                    Молекулярная аллергодиагностика
+                    <?php the_sub_field('point'); ?>
                   </span>
                 </li>
-                <li class="directions-doctor__right-point">
-                  <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-                  <span>
-                    Проведение аллерген-специфической иммунотерапии (АСИТ)
-                  </span>
-                </li>
-                <li class="directions-doctor__right-point">
-                  <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-                  <span>
-                    Лечение с использованием генно-инженерных биологических<br> препаратов в области аллергологии и иммунологии
-                  </span>
-                </li>
+                <?php endwhile;?>
               </ul>
+              <?php endif; ?>
               <div class="directions-doctor__right-btns">
                 <a class="directions-doctor__btn _gray-btn" href="#" data-fancybox>
                   <span>Записаться на прием</span>
@@ -2346,8 +2349,9 @@ function directionsDoctor(){
               </div>
             </div>
           </div>
-
+          <?php $index++; endwhile; ?>
         </div>
+        <?php endif; ?>
       </div>
     </div>
   </section>
@@ -2362,295 +2366,53 @@ function directionsPrice(){
   <section class="directions-price">
     <div class="container">
       <h2 class="directions-price__title _title">
-        Стоимость<br>
-        диагностики и лечения
+        <?php the_sub_field('directionsPrice_title'); ?>
       </h2>
+      <?php
+      $counter = 1;
+      if(have_rows('directionsPrice_services')) : ?>
       <div class="directions-price__accordion accordion">
+        <?php while(have_rows('directionsPrice_services')) : the_row();
+        $num = str_pad($counter, 2, '0', STR_PAD_LEFT); ?>
         <div class="directions-price__item accordion-item">
           <div class="directions-price__item-header accordion-header">
             <div class="directions-price__item-left">
               <span class="directions-price__item-step">
-                01
+                <?php echo $num; ?>
               </span>
               <h4 class="directions-price__item-title">
-                Вакцинация
+                <?php the_sub_field('service_name'); ?>
               </h4>
             </div>
             <div class="open-item directions-price__item-icon">
               <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
             </div>
           </div>
+          <?php if(have_rows('service_points')) : ?>
           <div class="directions-price__item-body accordion-body">
             <div class="directions-price__item-costs">
+              <?php while(have_rows('service_points')) : the_row(); ?>
               <div class="directions-price__item-cost">
                 <h5 class="directions-price__item-name">
-                  Введение лекарственного средства «Пневмовакс 23» 0,5 мл против пневмоккоковой инфекции (внутримышечно)
+                  <?php the_sub_field('name'); ?>
                 </h5>
                 <div class="directions-price__item-right">
                   <span class="directions-price__item-price">
-                    7 000 ₽
+                    <?php the_sub_field('price'); ?> ₽
                   </span>
                   <a class="directions-price__item-btn _gray-btn" href="#">
                     Записаться
                   </a>
                 </div>
               </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Подкожное введение препарата Омализумаб (Ксолар) 150 мг, включая стоимость препарата
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    60 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (I-ый этап, 7 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    21 428 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (II-ой этап, 5 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    20 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
+              <?php endwhile; ?>
             </div>
           </div>
+          <?php endif; ?>
         </div>
-        <div class="directions-price__item accordion-item">
-          <div class="directions-price__item-header accordion-header">
-            <div class="directions-price__item-left">
-              <span class="directions-price__item-step">
-                02
-              </span>
-              <h4 class="directions-price__item-title">
-                Консультации
-              </h4>
-            </div>
-            <div class="open-item directions-price__item-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-            </div>
-          </div>
-          <div class="directions-price__item-body accordion-body">
-            <div class="directions-price__item-costs">
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Введение лекарственного средства «Пневмовакс 23» 0,5 мл против пневмоккоковой инфекции (внутримышечно)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    7 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Подкожное введение препарата Омализумаб (Ксолар) 150 мг, включая стоимость препарата
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    60 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (I-ый этап, 7 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    21 428 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (II-ой этап, 5 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    20 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="directions-price__item accordion-item">
-          <div class="directions-price__item-header accordion-header">
-            <div class="directions-price__item-left">
-              <span class="directions-price__item-step">
-                03
-              </span>
-              <h4 class="directions-price__item-title">
-                Общие манипуляции и процедуры
-              </h4>
-            </div>
-            <div class="open-item directions-price__item-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-            </div>
-          </div>
-          <div class="directions-price__item-body accordion-body">
-            <div class="directions-price__item-costs">
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Введение лекарственного средства «Пневмовакс 23» 0,5 мл против пневмоккоковой инфекции (внутримышечно)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    7 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Подкожное введение препарата Омализумаб (Ксолар) 150 мг, включая стоимость препарата
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    60 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (I-ый этап, 7 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    21 428 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (II-ой этап, 5 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    20 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="directions-price__item accordion-item">
-          <div class="directions-price__item-header accordion-header">
-            <div class="directions-price__item-left">
-              <span class="directions-price__item-step">
-                04
-              </span>
-              <h4 class="directions-price__item-title">
-                Манипуляции хирургические
-              </h4>
-            </div>
-            <div class="open-item directions-price__item-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-            </div>
-          </div>
-          <div class="directions-price__item-body accordion-body">
-            <div class="directions-price__item-costs">
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Введение лекарственного средства «Пневмовакс 23» 0,5 мл против пневмоккоковой инфекции (внутримышечно)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    7 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Подкожное введение препарата Омализумаб (Ксолар) 150 мг, включая стоимость препарата
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    60 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (I-ый этап, 7 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    21 428 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (II-ой этап, 5 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    20 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php $counter++; endwhile; ?>
       </div>
+      <?php endif; ?>
     </div>
   </section>
 
