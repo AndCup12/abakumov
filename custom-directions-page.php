@@ -11,6 +11,8 @@ get_header();
 
 <main class="main" id="directions-single">
 
+  <?php renderBlocksSingleCheckup(); ?>
+
   <!-- Первый блок -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
@@ -622,7 +624,7 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Этапы прохождения -->
+  <!-- Этапы лечения -->
   <section class="checkup-stages _section-lg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/checkup-stages-bg-3.webp);">
     <div class="container">
       <h2 class="checkup-stages__title _title _white-text">

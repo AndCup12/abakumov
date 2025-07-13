@@ -96,6 +96,24 @@ function renderBlocksSingleCheckup() {
         case 'map':
           echo map();
           break;
+        case 'disease' :
+          echo disease();
+          break;
+        case 'directionsSimptom' :
+          echo directionsSimptom();
+          break;
+        case 'callback_2' :
+          echo callback_2();
+          break;
+        case 'directionsMethods' :
+          echo directionsMethods();
+          break;
+        case 'directionsDoctor' :
+          echo directionsDoctor();
+          break;
+        case 'directionsPrice' :
+          echo directionsPrice();
+          break;
         case 'wrapperStart':
           $type = get_sub_field('wrapperStart_variants');
           echo wrapperStart($type);
@@ -2149,11 +2167,11 @@ function disease(){
   <?php return ob_get_clean();
 }
 
-// Симптомы
+// Симптомы (space-null добавить выбор)
 function directionsSimptom(){
   ob_start(); ?>
 
-  <section class="directions-simptom relative space-null">
+  <section class="directions-simptom relative <?php if(get_sub_field('directionsSimptom_space') != 1){echo 'space-null';}?>">
     <div class="container">
       <h2 class="directions-simptom__title _title">
         <?php the_sub_field('directionsSimptom_title'); ?>
