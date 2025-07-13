@@ -50,6 +50,8 @@
 @use 'blocks/directions-methods';
 @use 'blocks/directions-doctor';
 @use 'blocks/directions-price';
+@use 'blocks/doctors-doctors';
+@use 'blocks/doctors-specialization';
 
 
 @use 'blocks/quiz';
@@ -65,4 +67,9 @@
 @use 'pages/checkup-single';
 @use 'pages/directions-main';
 @use 'pages/directions-single';
+@use 'pages/services-main';
+@use 'pages/services-single';
+@use 'pages/doctors-main';
+@use 'pages/doctors-single';
+@use 'pages/price-page';
 

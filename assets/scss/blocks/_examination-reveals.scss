@@ -79,6 +79,10 @@
     gap: 30px;
     margin-bottom: 70px;
 
+    &.grid-3{
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     @include mixins.xxl {
       gap: 20px;
       margin-bottom: 40px;
@@ -106,9 +110,9 @@
     background-color: #FBFBFB;
     border-radius: 20px;
     display: flex;
+    align-items: center;
     gap: 25px;
-    padding: 25px;
-    padding-left: 30px;
+    padding: 25px 15px 25px 30px;
     border: 1px solid #EFEFEF;
 
     @include mixins.lg {

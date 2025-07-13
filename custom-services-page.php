@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Направления-single
+ * Template Name: Услуги-single
  * http://dontforget.pro
  * @package WordPress
  * @subpackage clean
@@ -9,8 +9,7 @@
 get_header();
 ?>
 
-<main class="main" id="directions-single">
-
+<main class="main" id="services-single">
   <!-- Первый блок -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
@@ -18,11 +17,11 @@ get_header();
       <div class="front-block__inner">
         <div class="front-block__left">
           <h1 class="front-block__title _title">
-            Аллергология<br>
-            в Abakumov Clinic
+            Медицинские<br> услуги на дому<br>
+            от Abakumov Clinic
           </h1>
           <p class="front-block__subtitle _subtitle">
-            Комплексный подход к диагностике и лечению<br> аллергических заболеваний
+            Профессиональная медицинская помощь в комфортных<br> условиях вашего дома — без очередей и лишнего стресса
           </p>
           <div class="front-block__btns">
             <a class="front-block__btn _main-btn" href="#" data-fancybox>
@@ -38,27 +37,25 @@ get_header();
         </div>
         <div class="front-block__right-item">
           <div class="front-block__right-wrapper">
-            <img class="front-block__right-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/front-block-9.webp" alt="front-block-9">
+            <img class="front-block__right-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/front-block-16.webp" alt="front-block-16">
           </div>
         </div>
       </div>
-      <div class="front-block__links items-between">
+      <div class="front-block__links items-center">
         <a class="front-block__link" href="#">
-          <span>Комплекс обследования при<br> острой и хронической крапивнице</span>
+          <span>Прием врача и проведение<br>
+            функциональной диагностики на дому</span>
         </a>
         <a class="front-block__link" href="#">
-          <span>Комплекс обследования при аллергическом<br> риноконъюнктивите и бронхиальной астме</span>
+          <span>Лечебно-восстановительная<br>
+            терапия на дому</span>
         </a>
         <a class="front-block__link" href="#">
-          <span>Крапивница</span>
-        </a>
-        <a class="front-block__link" href="#">
-          <span>Лечение аллергического<br> ринита и конъюнктивита</span>
+          <span>Анализы на дому</span>
         </a>
       </div>
     </div>
   </section>
-
   <!-- Преимущества -->
   <section class="services">
     <div class="container">
@@ -113,9 +110,6 @@ get_header();
       </div>
     </div>
   </section>
-
-
-
   <div class="wrapper-gray space-top">
 
     <!-- Заболевание/расшифровка новый -->
@@ -127,14 +121,16 @@ get_header();
         <div class="directions-question__inner">
           <h2 class="directions-question__title _title">
             Что такое<br>
-            аллергология?
+            медицинские<br>
+            услуги на дому?
           </h2>
           <div class="directions-question__info">
             <h4 class="directions-question__info-title">
-              Аллергология — раздел медицины,<br> изучающий аллергические реакции<br> организма
+              Медицинские услуги на дому — это<br> возможность получить квалифицированную<br> помощь без необходимости посещения<br> клиники
             </h4>
             <p class="directions-question__info-text">
-              на различные вещества (аллергены) и методы<br> их диагностики, лечения и профилактики
+              Это особенно актуально для пациентов с ограниченной<br> подвижностью, послеоперационными состояниями или<br>
+              в период восстановления после серьёзных заболеваний
             </p>
           </div>
         </div>
@@ -145,19 +141,19 @@ get_header();
     <section class="directions-simptom relative">
       <div class="container">
         <h2 class="directions-simptom__title _title">
-          С какими симптомами нужно
-          обратиться к аллергологу?
+          С какими симптомами<br>
+          нужно обратиться?
         </h2>
         <div class="cursor">
           <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
         </div>
-        <div class="directions-simptom__items">
+        <div class="directions-simptom__items grid-3">
           <div class="directions-simptom__item">
             <div class="directions-simptom__item-icon">
               <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
             </div>
             <h4 class="directions-simptom__item-title">
-              Постоянный или<br> сезонный насморк,<br> чихание
+              При высокой температуре и слабости,<br> когда нет возможности добраться до<br> клиники
             </h4>
           </div>
           <div class="directions-simptom__item">
@@ -165,8 +161,7 @@ get_header();
               <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
             </div>
             <h4 class="directions-simptom__item-title">
-              Зуд<br>
-              и покраснение глаз
+              После перенесённого инсульта<br> или серьёзных травм
             </h4>
           </div>
           <div class="directions-simptom__item">
@@ -174,7 +169,8 @@ get_header();
               <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
             </div>
             <h4 class="directions-simptom__item-title">
-              Кожные высыпания,<br> крапивница
+              В период реабилитации<br>
+              после операций
             </h4>
           </div>
           <div class="directions-simptom__item">
@@ -182,7 +178,7 @@ get_header();
               <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
             </div>
             <h4 class="directions-simptom__item-title">
-              Одышка, кашель<br> без видимой<br> причин
+              При хронических заболеваниях,<br> требующих регулярного наблюдения
             </h4>
           </div>
           <div class="directions-simptom__item">
@@ -190,7 +186,8 @@ get_header();
               <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
             </div>
             <h4 class="directions-simptom__item-title">
-              Реакции на пищу,<br> лекарства или укусы<br> насекомых
+              Для проведения плановых процедур<br>
+              и анализов без посещения медицинского учреждения​
             </h4>
           </div>
         </div>
@@ -198,13 +195,11 @@ get_header();
     </section>
 
   </div>
-
-
   <!-- Форма обратной связи (2 вариант) новый -->
   <section class="directions-callback">
     <div class="container">
       <div class="directions-callback__inner _image-wrapper">
-        <img class="directions-callback__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-callback-1.webp" alt="directions-callback-1">
+        <img class="directions-callback__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-callback-2.webp" alt="directions-callback-2">
         <div class="overlay"></div>
         <h2 class="directions-callback__title _title">
           Получите<br> консультацию<br>
@@ -232,12 +227,11 @@ get_header();
       </div>
     </div>
   </section>
-
-  <!-- Врач с цитатами (space-null убирает отступ?) -->
-  <section class="quote-block">
+  <!-- Врач с цитатами (space-null убирает отступ? --- ДА) -->
+  <section class="quote-block space-top">
     <div class="container">
       <div class="quote-block__content relative">
-        <img class="quote-block__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/quote-block-men.webp" alt="men">
+        <img class="quote-block__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/quote-block-men-1.webp" alt="men-1">
         <div class="overlay"></div>
         <div class="quote-block__inner">
           <div class="quote-block__left">
@@ -245,25 +239,24 @@ get_header();
               <?php include(get_template_directory() . '/assets/images/icons/dots.svg'); ?>
             </div>
             <p class="quote-block__left-text">
-              «Аллергия — это не просто<br> дискомфорт. Это сигнал иммунной<br> системы, что в организме нарушен<br> баланс. Моя задача — найти<br> причину и восстановить контроль»
+              «Домашний визит врача — это не только<br> удобство, но и возможность обеспечить вам<br> индивидуальный подход в привычной<br> обстановке, что способствует более<br> эффективному лечению и восстановлению»
             </p>
           </div>
           <div class="quote-block__right">
             <h5 class="quote-block__right-name">
-              Анатолий Михайлович Бала
+              Хасанов Абдулла Александрович
             </h5>
-            <p class="quote-block__right-text ">
-              Врач аллерголог-иммунолог, кандидат<br> медицинских наук
+            <p class="quote-block__right-text">
+              Врач уролог, хирург, УЗД
             </p>
-            <p class="quote-block__right-exp ">
-              Стаж 16 лет
+            <p class="quote-block__right-exp">
+              Стаж 13 лет
             </p>
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Блок с видео -->
   <section class="video-block">
     <div class="container relative">
@@ -271,8 +264,8 @@ get_header();
         Посмотрите видео о том,
       </h2>
       <p class="video-block__subtitle _subtitle">
-        как комплексный подход в аллергологии помогает выявить скрытые аллергены,<br>
-        контролировать иммунный ответ и снижать частоту обострений
+        как услуги на дому от Abakumov Clinic помогают обеспечить непрерывность медицинского наблюдения,<br>
+        своевременно реагировать на изменения в состоянии здоровья и повышать качество жизни пациентов
       </p>
       <a class="video-block__video" href="#" data-fancybox>
         <img class="video-block__video-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-1.webp" alt="video-block-1">
@@ -285,27 +278,24 @@ get_header();
       <img class="video-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-2.webp" alt="video-block-2">
     </div>
   </section>
-
-
-
   <div class="wrapper-gray">
     <!-- Симптомы (space-null убирает отступ?) -->
     <section class="directions-simptom relative space-null">
       <div class="container">
         <h2 class="directions-simptom__title _title">
-          Заболевания, подлежащие<br>
-          диагностике и терапии
+          Какие услуги<br>
+          предоставляются на дому?
         </h2>
         <div class="cursor">
           <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
         </div>
-        <div class="directions-simptom__items">
+        <div class="directions-simptom__items grid-4">
           <div class="directions-simptom__item">
             <div class="directions-simptom__item-icon">
               <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
             </div>
             <h4 class="directions-simptom__item-title">
-              Аллергический<br> ринит и<br> конъюнктиви
+              Выезд терапевта и<br> узких специалистов
             </h4>
           </div>
           <div class="directions-simptom__item">
@@ -313,7 +303,7 @@ get_header();
               <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
             </div>
             <h4 class="directions-simptom__item-title">
-              Бронхиальная<br> астма
+              Проведение функциональной<br> диагностики (включая УЗИ)
             </h4>
           </div>
           <div class="directions-simptom__item">
@@ -321,7 +311,8 @@ get_header();
               <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
             </div>
             <h4 class="directions-simptom__item-title">
-              Атопический<br> дерматит, экзема
+              Постановка капельниц<br>
+              и инъекций
             </h4>
           </div>
           <div class="directions-simptom__item">
@@ -329,7 +320,7 @@ get_header();
               <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
             </div>
             <h4 class="directions-simptom__item-title">
-              Пищевая и<br> лекарственная<br> аллергия
+              Забор анализов
             </h4>
           </div>
           <div class="directions-simptom__item">
@@ -337,17 +328,18 @@ get_header();
               <?php include(get_template_directory() . '/assets/images/icons/attention.svg'); ?>
             </div>
             <h4 class="directions-simptom__item-title">
-              Крапивница,<br> ангионевротический<br> отек
+              Лечебно-восстановительные<br> процедуры после операций<br>
+              и травм
             </h4>
           </div>
         </div>
       </div>
     </section>
-    <!-- Врач с цитатами (space-null убирает отступ?) -->
+    <!-- Врач с цитатами (space-null убирает отступ? --ДА) -->
     <section class="quote-block">
       <div class="container">
         <div class="quote-block__content relative">
-          <img class="quote-block__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/quote-block-men.webp" alt="men">
+          <img class="quote-block__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/quote-block-men-1.webp" alt="men-1">
           <div class="overlay"></div>
           <div class="quote-block__inner">
             <div class="quote-block__left">
@@ -355,18 +347,18 @@ get_header();
                 <?php include(get_template_directory() . '/assets/images/icons/dots.svg'); ?>
               </div>
               <p class="quote-block__left-text">
-                «Самолечение при аллергии<br> часто приводит к хронизации.<br> Чем раньше начата точная<br> диагностика, тем проще вернуть<br> человеку качество жизни»
+                «Мы стремимся сделать медицинскую<br> помощь максимально доступной и<br> комфортной для каждого пациента,<br> предоставляя полный спектр услуг<br> прямо у вас дома»
               </p>
             </div>
             <div class="quote-block__right">
               <h5 class="quote-block__right-name">
-                Анатолий Михайлович Бала
+                Хасанов Абдулла Александрович
               </h5>
-              <p class="quote-block__right-text ">
-                Врач аллерголог-иммунолог, кандидат<br> медицинских наук
+              <p class="quote-block__right-text">
+                Врач уролог, хирург, УЗД
               </p>
-              <p class="quote-block__right-exp ">
-                Стаж 16 лет
+              <p class="quote-block__right-exp">
+                Стаж 13 лет
               </p>
             </div>
           </div>
@@ -377,27 +369,21 @@ get_header();
     <section class="examination-reveals">
       <div class="container">
         <h2 class="examination-reveals__title _title">
-          С какими симптомами следует<br>
-          записаться к аллергологу?
+          Преимущества услуг на дому<br>
+          от Abakumov Clinic
         </h2>
         <div class="examination-reveals__inner">
-          <div class="examination-reveals__left">
-            <div class="examination-reveals__left-wrapper">
-              <img class="examination-reveals__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/examination-reveals-2.webp"
-                alt="examination-reveals-1">
-            </div>
-          </div>
           <div class="examination-reveals__right">
             <div class="cursor">
               <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
             </div>
-            <div class="examination-reveals__items">
+            <div class="examination-reveals__items grid-3">
               <div class="examination-reveals__item">
                 <div class="examination-reveals__item-icon">
                   <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
                 </div>
                 <h4 class="examination-reveals__item-title">
-                  Долгое время сохраняется сухой кашель без признаков инфекции
+                  Индивидуальный подход и<br> внимание к каждому пациенту
                 </h4>
               </div>
               <div class="examination-reveals__item">
@@ -405,7 +391,7 @@ get_header();
                   <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
                 </div>
                 <h4 class="examination-reveals__item-title">
-                  Появляются высыпания, жжение или отёки кожи без ясной причины
+                  Современное оборудование<br> и высококвалифицированные<br> специалисты
                 </h4>
               </div>
               <div class="examination-reveals__item">
@@ -413,7 +399,8 @@ get_header();
                   <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
                 </div>
                 <h4 class="examination-reveals__item-title">
-                  Глаза чешутся, краснеют, раздражаются от света или пыли
+                  Экономия<br>
+                  времени и сил
                 </h4>
               </div>
               <div class="examination-reveals__item">
@@ -421,7 +408,7 @@ get_header();
                   <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
                 </div>
                 <h4 class="examination-reveals__item-title">
-                  Каждую весну или осень возвращается чихание, насморк, зуд в носу
+                  Возможность получения<br> медицинской помощи в комфортной<br> и привычной обстановке
                 </h4>
               </div>
               <div class="examination-reveals__item">
@@ -429,61 +416,11 @@ get_header();
                   <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
                 </div>
                 <h4 class="examination-reveals__item-title">
-                  Нос заложен,
-                  слизь обильная,
-                  но температуры нет
-                </h4>
-              </div>
-              <div class="examination-reveals__item">
-                <div class="examination-reveals__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-                </div>
-                <h4 class="examination-reveals__item-title">
-                  Возникает одышка, затруднённое дыхание, слышны хрип
-                </h4>
-              </div>
-              <div class="examination-reveals__item">
-                <div class="examination-reveals__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-                </div>
-                <h4 class="examination-reveals__item-title">
-                  Отёки на губах, веках или языке появляются внезапно
-                </h4>
-              </div>
-              <div class="examination-reveals__item">
-                <div class="examination-reveals__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-                </div>
-                <h4 class="examination-reveals__item-title">
-                  После еды ощущаете дискомфорт: зуд в горле, першение, тошнота
-                </h4>
-              </div>
-              <div class="examination-reveals__item">
-                <div class="examination-reveals__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-                </div>
-                <h4 class="examination-reveals__item-title">
-                  Часто появляется изжога, метеоризм без нарушений со стороны ЖКТ
-                </h4>
-              </div>
-              <div class="examination-reveals__item">
-                <div class="examination-reveals__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-                </div>
-                <h4 class="examination-reveals__item-title">
-                  Лечение у ЛОРа или офтальмолога не даёт результата
-                </h4>
-              </div>
-              <div class="examination-reveals__item">
-                <div class="examination-reveals__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-                </div>
-                <h4 class="examination-reveals__item-title">
-                  Есть реакции на<br> лекарства или укусы насекомых
+                  Гибкий график и оперативность<br> выезда специалистов
                 </h4>
               </div>
             </div>
-            <div class="examination-reveals__right-btns">
+            <div class="examination-reveals__right-btns items-center">
               <a class="examination-reveals__btn _gray-btn" href="#" data-fancybox>
                 <span>Записаться на прием</span>
                 <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
@@ -500,87 +437,6 @@ get_header();
       </div>
     </section>
   </div>
-
-
-  <!-- Методы диагностики и лечения -->
-  <section class="directions-methods">
-    <div class="container">
-      <h2 class="directions-methods__title _title">
-        Методы диагностики и лечения
-      </h2>
-      <div class="directions-methods__items">
-        <div class="directions-methods__item">
-          <span class="directions-methods__item-icon">
-            <?php include(get_template_directory() . '/assets/images/icons/directions-methods-1.svg'); ?>
-          </span>
-          <h4 class="directions-methods__item-title _title">
-            Диагностика
-          </h4>
-          <ul class="directions-methods__item-list">
-            <li class="directions-methods__item-point">
-              <span class="directions-methods__item-check">
-                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-              </span>
-              <p class="directions-methods__item-text">
-                Кожные пробы (прик-тесты, скарификационные)
-              </p>
-            </li>
-            <li class="directions-methods__item-point">
-              <span class="directions-methods__item-check">
-                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-              </span>
-              <p class="directions-methods__item-text">
-                Определение уровня специфических IgE-антител
-              </p>
-            </li>
-            <li class="directions-methods__item-point">
-              <span class="directions-methods__item-check">
-                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-              </span>
-              <p class="directions-methods__item-text">
-                Провокационные тесты
-              </p>
-            </li>
-          </ul>
-        </div>
-        <div class="directions-methods__item">
-          <span class="directions-methods__item-icon">
-            <?php include(get_template_directory() . '/assets/images/icons/directions-methods-2.svg'); ?>
-          </span>
-          <h4 class="directions-methods__item-title _title">
-            Лечение
-          </h4>
-          <ul class="directions-methods__item-list">
-            <li class="directions-methods__item-point">
-              <span class="directions-methods__item-check">
-                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-              </span>
-              <p class="directions-methods__item-text">
-                Элиминационная терапия<br>
-                (исключение контакта с аллергеном)
-              </p>
-            </li>
-            <li class="directions-methods__item-point">
-              <span class="directions-methods__item-check">
-                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-              </span>
-              <p class="directions-methods__item-text">
-                Фармакотерапия (антигистаминные препараты,<br> кортикостероиды)
-              </p>
-            </li>
-            <li class="directions-methods__item-point">
-              <span class="directions-methods__item-check">
-                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-              </span>
-              <p class="directions-methods__item-text">
-                Аллерген-специфическая иммунотерапия (АСИТ)
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
   <!-- Форма обратной связи (1 вариант) -->
   <section class="callback ">
     <div class="container">
@@ -623,11 +479,11 @@ get_header();
     </div>
   </section>
   <!-- Этапы прохождения -->
-  <section class="checkup-stages _section-lg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/checkup-stages-bg-3.webp);">
+  <section class="checkup-stages _section-lg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/checkup-stages-bg-4.webp);">
     <div class="container">
-      <h2 class="checkup-stages__title _title _white-text">
-        Этапы<br>
-        лечения
+      <h2 class="checkup-stages__title _title">
+        Как проходит<br>
+        оказание услуг на дому
       </h2>
       <div class="cursor">
         <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
@@ -644,11 +500,11 @@ get_header();
             </span>
           </div>
           <h4 class="checkup-stages__elem-title">
-            Первичная
-            консультация
+            Оформление<br>
+            заявки
           </h4>
           <p class="checkup-stages__elem-text">
-            сбор анамнеза, осмотр, назначение необходимых исследований
+            свяжитесь с нами по телефону или через сайт
           </p>
         </div>
         <div class="checkup-stages__elem">
@@ -661,11 +517,11 @@ get_header();
             </span>
           </div>
           <h4 class="checkup-stages__elem-title">
-            Прохождение
-            диагностики
+            Подтверждение
+            визита
           </h4>
           <p class="checkup-stages__elem-text">
-            проведение кожных проб, лабораторных анализов
+            уточнение времени и перечня необходимых процедур
           </p>
         </div>
         <div class="checkup-stages__elem">
@@ -678,11 +534,10 @@ get_header();
             </span>
           </div>
           <h4 class="checkup-stages__elem-title">
-            Разработка
-            плана лечения
+            Выезд специалиста
           </h4>
           <p class="checkup-stages__elem-text">
-            и подбор индивидуальной терапии
+            врач или медсестра прибывают в согласованное время
           </p>
         </div>
         <div class="checkup-stages__elem">
@@ -695,11 +550,10 @@ get_header();
             </span>
           </div>
           <h4 class="checkup-stages__elem-title">
-            Терапия
-            проведение
+            Проведение процедур
           </h4>
           <p class="checkup-stages__elem-text">
-            лечения согласно разработанному плану
+            осмотр, диагностика, лечение или забор анализов
           </p>
         </div>
         <div class="checkup-stages__elem">
@@ -712,226 +566,16 @@ get_header();
             </span>
           </div>
           <h4 class="checkup-stages__elem-title">
-            Динамическое
-            наблюдение
+            Рекомендации
+            и наблюдение
           </h4>
           <p class="checkup-stages__elem-text">
-            оценка эффективности <br>лечения, коррекция при необходимости
+            при необходимости, составление плана дальнейших действий и наблюдение за состоянием пациента
           </p>
         </div>
       </div>
     </div>
   </section>
-
-
-
-  <div class="wrapper-bg _section-lg">
-    <!-- Врачи клиники -->
-    <section class="directions-doctor">
-      <img class="directions-doctor__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
-      <div class="container relative">
-        <h2 class="directions-doctor__title _title">
-          Врач-аллерголог Abakumov Clinic
-        </h2>
-        <div class="filters directions-doctor__filters">
-          <div class="directions-doctor__filters-btns">
-            <div class="directions-doctor__filters-btn filters-btn active" data-filter="one">
-              <div class="filters-btn__img-wrapper">
-                <img class="filters-btn__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-1.webp" alt="">
-              </div>
-              <p class="filters-btn__text _title">
-                Ионичевская
-                Ирина Игоревна
-              </p>
-            </div>
-            <div class="directions-doctor__filters-btn filters-btn" data-filter="two">
-              <div class="filters-btn__img-wrapper">
-                <img class="filters-btn__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-1.webp" alt="">
-              </div>
-              <p class="filters-btn__text _title">
-                Зиннатуллин
-                Марат Радикович
-              </p>
-            </div>
-            <div class="directions-doctor__filters-btn filters-btn" data-filter="three">
-              <div class="filters-btn__img-wrapper">
-                <img class="filters-btn__img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-1.webp" alt="">
-              </div>
-              <p class="filters-btn__text _title">
-                Костогрыз
-                Злата Олеговна
-              </p>
-            </div>
-          </div>
-          <div class="directions-doctor__filters-items">
-            <div class="directions-doctor__item filters-item one">
-              <div class="directions-doctor__left">
-                <div class="directions-doctor__left-wrapper">
-                  <img class="directions-doctor__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-1.webp" alt="directions-doctor-1">
-                </div>
-              </div>
-              <div class="directions-doctor__right">
-                <h4 class="directions-doctor__right-name _title">
-                  Анатолий Михайлович Бала
-                </h4>
-                <p class="directions-doctor__right-text">
-                  Врач аллерголог-иммунолог, кандидат медицинских наук
-                </p>
-                <p class="directions-doctor__right-exp">
-                  Стаж 16 лет
-                </p>
-                <h5 class="directions-doctor__right-subtitle _title">
-                  Основные направления,<br>
-                  на которых специализируется врач:
-                </h5>
-                <ul class="directions-doctor__right-list">
-                  <li class="directions-doctor__right-point">
-                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-                    <span>
-                      Молекулярная аллергодиагностика
-                    </span>
-                  </li>
-                  <li class="directions-doctor__right-point">
-                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-                    <span>
-                      Проведение аллерген-специфической иммунотерапии (АСИТ)
-                    </span>
-                  </li>
-                  <li class="directions-doctor__right-point">
-                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-                    <span>
-                      Лечение с использованием генно-инженерных биологических<br> препаратов в области аллергологии и иммунологии
-                    </span>
-                  </li>
-                </ul>
-                <div class="directions-doctor__right-btns">
-                  <a class="directions-doctor__btn _gray-btn" href="#" data-fancybox>
-                    <span>Записаться на прием</span>
-                    <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-                  </a>
-                  <a class="directions-doctor__arrow-btn" href="#">
-                    <span class="directions-doctor__btn-icon">
-                      <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
-                    </span>
-                    <span>Записаться через WhatsApp</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="directions-doctor__item filters-item two hidden">
-              <div class="directions-doctor__left">
-                <div class="directions-doctor__left-wrapper">
-                  <img class="directions-doctor__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-2.webp" alt="directions-doctor-1">
-                </div>
-              </div>
-              <div class="directions-doctor__right">
-                <h4 class="directions-doctor__right-name _title">
-                  Анатолий Михайлович Бала
-                </h4>
-                <p class="directions-doctor__right-text">
-                  Врач аллерголог-иммунолог, кандидат медицинских наук
-                </p>
-                <p class="directions-doctor__right-exp">
-                  Стаж 16 лет
-                </p>
-                <h5 class="directions-doctor__right-subtitle _title">
-                  Основные направления,<br>
-                  на которых специализируется врач:
-                </h5>
-                <ul class="directions-doctor__right-list">
-                  <li class="directions-doctor__right-point">
-                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-                    <span>
-                      Молекулярная аллергодиагностика
-                    </span>
-                  </li>
-                  <li class="directions-doctor__right-point">
-                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-                    <span>
-                      Проведение аллерген-специфической иммунотерапии (АСИТ)
-                    </span>
-                  </li>
-                  <li class="directions-doctor__right-point">
-                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-                    <span>
-                      Лечение с использованием генно-инженерных биологических<br> препаратов в области аллергологии и иммунологии
-                    </span>
-                  </li>
-                </ul>
-                <div class="directions-doctor__right-btns">
-                  <a class="directions-doctor__btn _gray-btn" href="#" data-fancybox>
-                    <span>Записаться на прием</span>
-                    <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-                  </a>
-                  <a class="directions-doctor__arrow-btn" href="#">
-                    <span class="directions-doctor__btn-icon">
-                      <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
-                    </span>
-                    <span>Записаться через WhatsApp</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="directions-doctor__item filters-item three hidden">
-              <div class="directions-doctor__left">
-                <div class="directions-doctor__left-wrapper">
-                  <img class="directions-doctor__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-1.webp" alt="directions-doctor-1">
-                </div>
-              </div>
-              <div class="directions-doctor__right">
-                <h4 class="directions-doctor__right-name _title">
-                  Анатолий Михайлович Бала
-                </h4>
-                <p class="directions-doctor__right-text">
-                  Врач аллерголог-иммунолог, кандидат медицинских наук
-                </p>
-                <p class="directions-doctor__right-exp">
-                  Стаж 16 лет
-                </p>
-                <h5 class="directions-doctor__right-subtitle _title">
-                  Основные направления,<br>
-                  на которых специализируется врач:
-                </h5>
-                <ul class="directions-doctor__right-list">
-                  <li class="directions-doctor__right-point">
-                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-                    <span>
-                      Молекулярная аллергодиагностика
-                    </span>
-                  </li>
-                  <li class="directions-doctor__right-point">
-                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-                    <span>
-                      Проведение аллерген-специфической иммунотерапии (АСИТ)
-                    </span>
-                  </li>
-                  <li class="directions-doctor__right-point">
-                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-                    <span>
-                      Лечение с использованием генно-инженерных биологических<br> препаратов в области аллергологии и иммунологии
-                    </span>
-                  </li>
-                </ul>
-                <div class="directions-doctor__right-btns">
-                  <a class="directions-doctor__btn _gray-btn" href="#" data-fancybox>
-                    <span>Записаться на прием</span>
-                    <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-                  </a>
-                  <a class="directions-doctor__arrow-btn" href="#">
-                    <span class="directions-doctor__btn-icon">
-                      <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
-                    </span>
-                    <span>Записаться через WhatsApp</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </div>
   <!-- Стоимость лечения -->
   <section class="directions-price">
     <div class="container">
@@ -947,77 +591,6 @@ get_header();
                 01
               </span>
               <h4 class="directions-price__item-title">
-                Вакцинация
-              </h4>
-            </div>
-            <div class="open-item directions-price__item-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-            </div>
-          </div>
-          <div class="directions-price__item-body accordion-body">
-            <div class="directions-price__item-costs">
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Введение лекарственного средства «Пневмовакс 23» 0,5 мл против пневмоккоковой инфекции (внутримышечно)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    7 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Подкожное введение препарата Омализумаб (Ксолар) 150 мг, включая стоимость препарата
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    60 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (I-ый этап, 7 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    21 428 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (II-ой этап, 5 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    20 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="directions-price__item accordion-item">
-          <div class="directions-price__item-header accordion-header">
-            <div class="directions-price__item-left">
-              <span class="directions-price__item-step">
-                02
-              </span>
-              <h4 class="directions-price__item-title">
                 Консультации
               </h4>
             </div>
@@ -1029,11 +602,12 @@ get_header();
             <div class="directions-price__item-costs">
               <div class="directions-price__item-cost">
                 <h5 class="directions-price__item-name">
-                  Введение лекарственного средства «Пневмовакс 23» 0,5 мл против пневмоккоковой инфекции (внутримышечно)
+                  Прием (осмотр, консультация) врача-уролог,<br>
+                  первичный
                 </h5>
                 <div class="directions-price__item-right">
                   <span class="directions-price__item-price">
-                    7 000 ₽
+                    10 000 ₽
                   </span>
                   <a class="directions-price__item-btn _gray-btn" href="#">
                     Записаться
@@ -1042,179 +616,12 @@ get_header();
               </div>
               <div class="directions-price__item-cost">
                 <h5 class="directions-price__item-name">
-                  Подкожное введение препарата Омализумаб (Ксолар) 150 мг, включая стоимость препарата
+                  Прием (осмотр, консультация) врача-уролог,<br>
+                  повторный
                 </h5>
                 <div class="directions-price__item-right">
                   <span class="directions-price__item-price">
-                    60 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (I-ый этап, 7 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    21 428 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (II-ой этап, 5 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    20 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="directions-price__item accordion-item">
-          <div class="directions-price__item-header accordion-header">
-            <div class="directions-price__item-left">
-              <span class="directions-price__item-step">
-                03
-              </span>
-              <h4 class="directions-price__item-title">
-                Общие манипуляции и процедуры
-              </h4>
-            </div>
-            <div class="open-item directions-price__item-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-            </div>
-          </div>
-          <div class="directions-price__item-body accordion-body">
-            <div class="directions-price__item-costs">
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Введение лекарственного средства «Пневмовакс 23» 0,5 мл против пневмоккоковой инфекции (внутримышечно)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    7 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Подкожное введение препарата Омализумаб (Ксолар) 150 мг, включая стоимость препарата
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    60 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (I-ый этап, 7 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    21 428 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (II-ой этап, 5 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    20 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="directions-price__item accordion-item">
-          <div class="directions-price__item-header accordion-header">
-            <div class="directions-price__item-left">
-              <span class="directions-price__item-step">
-                04
-              </span>
-              <h4 class="directions-price__item-title">
-                Манипуляции хирургические
-              </h4>
-            </div>
-            <div class="open-item directions-price__item-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-            </div>
-          </div>
-          <div class="directions-price__item-body accordion-body">
-            <div class="directions-price__item-costs">
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Введение лекарственного средства «Пневмовакс 23» 0,5 мл против пневмоккоковой инфекции (внутримышечно)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    7 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Подкожное введение препарата Омализумаб (Ксолар) 150 мг, включая стоимость препарата
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    60 000 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (I-ый этап, 7 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    21 428 ₽
-                  </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
-                    Записаться
-                  </a>
-                </div>
-              </div>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
-                  Аллерген-специфическая иммунотерапия (АСИТ), 1 укол (II-ой этап, 5 уколов)
-                </h5>
-                <div class="directions-price__item-right">
-                  <span class="directions-price__item-price">
-                    20 000 ₽
+                    9 000 ₽
                   </span>
                   <a class="directions-price__item-btn _gray-btn" href="#">
                     Записаться
@@ -1227,8 +634,6 @@ get_header();
       </div>
     </div>
   </section>
-
-
   <div class="wrapper-bg _section-lg">
     <!-- Медицина нового уровня -->
     <section class="new-level">
@@ -1347,8 +752,6 @@ get_header();
     </section>
 
   </div>
-
-
   <!-- Блок отзывов (изображения вытянутые) -->
   <section class="checkup-reviews _section-lg">
     <div class="container">
@@ -1448,8 +851,6 @@ get_header();
       </div>
     </div>
   </section>
-
-
   <div class="wrapper-bg _section-lg">
     <!-- Рейтинг клиники -->
     <section class="rating">

@@ -39,11 +39,20 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
 
+    &.grid-3{
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &.grid-4{
+      grid-template-columns: repeat(4, 1fr);
+    }
+
     @include mixins.xl {
       gap: 10px;
     }
 
     @include mixins.lg {
+      display: grid !important;
       grid-auto-flow: column;
       overflow-x: auto;
       padding-bottom: 10px;
@@ -86,6 +95,9 @@
       font-weight: 600;
     }
 
+    @include mixins.xxl {
+      br{display: none;}
+    }
     @include mixins.xl {
       font-size: 18px;
     }

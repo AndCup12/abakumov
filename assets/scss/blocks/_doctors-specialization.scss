@@ -1,0 +1,97 @@
+@use '../base/mixins' as mixins;
+
+.doctors-specialization {
+  margin-top: 120px;
+
+  @include mixins.xl {
+    margin-top: 100px;
+  }
+
+  @include mixins.lg {
+    margin-top: 40px;
+  }
+
+  &__title{
+    @include mixins.lg {
+        br{display: none;}
+        text-align: center;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+
+    @include mixins.xl {
+        gap: 25px;
+    }
+
+    @include mixins.lg {
+        flex-direction: column;
+    }
+  }
+
+  &__left {
+    max-width: 650px;
+    width: 100%;
+  }
+
+  &__list {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 52px;
+
+    @include mixins.lg {
+        margin-bottom: 35px;
+    }
+
+    @include mixins.md {
+        margin-bottom: 30px;
+    }
+
+    @include mixins.sm {
+        margin-bottom: 20px;
+    }
+  }
+
+  &__point {
+    display: flex;
+    gap: 18px;
+
+    @include mixins.sm {
+        gap: 10px;
+    }
+
+    svg {
+      width: 8px;
+      min-width: 8px;
+
+      path {
+        fill: var(--accent);
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 21px;
+    line-height: calc(24/21*100%);
+
+    @include mixins.sm {
+        font-size: 18px;
+    }
+  }
+
+  &__btn {
+    max-width: 371px;
+    height: 108px;
+
+    @include mixins.md {
+        height: 84px;
+    }
+
+    svg{
+      width: 12px;
+    }
+  }
+}
