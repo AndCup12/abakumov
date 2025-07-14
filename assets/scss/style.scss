@@ -53,6 +53,7 @@
 @use 'blocks/directions-price';
 @use 'blocks/doctors-doctors';
 @use 'blocks/doctors-specialization';
+@use 'blocks/link-items';
 
 
 @use 'blocks/quiz';
@@ -73,4 +74,5 @@
 @use 'pages/doctors-main';
 @use 'pages/doctors-single';
 @use 'pages/price-page';
+@use 'pages/client-info';
 

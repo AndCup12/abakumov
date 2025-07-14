@@ -419,7 +419,7 @@ function whenExamination()
 <?php return ob_get_clean();
 }
 
-// Когда стоит пройти обследование
+// Результат
 function checkupResult()
 {
   ob_start();

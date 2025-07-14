@@ -1,0 +1,83 @@
+@use '../base/mixins' as mixins;
+
+.link-items {
+  margin-top: 70px;
+
+  @include mixins.lg {
+      margin-top: 40px;
+  }
+  &__services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+
+    @include mixins.xxl {
+        gap: 30px;
+    }
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      gap: 10px;
+      padding-bottom: 10px;
+      overflow-x: auto;
+    }
+  }
+
+  &__service {
+    background-color: #fafafa;
+    border-radius: 30px;
+    padding: 22px 22px 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: 520px;
+
+    @include mixins.xxl {
+      min-height: 470px;
+    }
+
+    @include mixins.xl {
+      min-height: 430px;
+    }
+
+    @include mixins.lg {
+      width: 320px;
+    }
+  }
+
+  &__service-wrapper {
+    position: relative;
+    padding-bottom: calc(275/401*100%);
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__service-info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__service-title {
+    font-weight: 500;
+    font-size: 23px;
+    line-height: calc(30/23*100%);
+    text-align: center;
+    color: var(--default-color);
+    margin-bottom: auto;
+
+    @include mixins.xl {
+        font-size: 19px;
+    }
+  }
+
+  &__service-btn {
+    max-width: 280px;
+    height: 82px;
+    margin: 20px auto 0;
+  }
+}
