@@ -278,10 +278,10 @@ function advantages() {
             </div>
             <div class="services__item-info">
               <?php if (get_sub_field('advantages_title')) : ?>
-                <h4 class="services__item-title"><?php echo nl2br(get_sub_field('advantages_title')); ?></h4>
+                <h4 class="services__item-title"><?php the_sub_field('advantages_title'); ?></h4>
               <?php endif; ?>
               <?php if (get_sub_field('advantages_text')) : ?>
-                <p class="services__item-text"><?php echo nl2br(get_sub_field('advantages_text')); ?></p>
+                <p class="services__item-text"><?php the_sub_field('advantages_text'); ?></p>
               <?php endif; ?>
               <span class="services__item-num"><?php echo $num; ?></span>
             </div>
@@ -540,8 +540,8 @@ function examinationReveals(){
               <div class="examination-reveals__left">
                   <div class="examination-reveals__left-wrapper">
                       <?php
-                      $img = get_sub_field('examinationReveals_img');
-                      if ($img) : ?>
+                      if (get_sub_field('examinationReveals_img')) :
+                      $img = get_sub_field('examinationReveals_img'); ?>
                           <img class="examination-reveals__left-img _img"
                               src="<?php echo esc_url($img['url']); ?>"
                               alt="<?php echo esc_attr($img['alt']); ?>">
