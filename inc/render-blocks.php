@@ -32,6 +32,7 @@
 // readyPrograms : Комплексные обследования
 // checkUpPrograms : Программы CheckUp для...
 // checkupIs : Чекап это
+// reviewsBloger : Отзывы блогеров
 
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
@@ -133,6 +134,9 @@ function renderBlocksSingleCheckup() {
           break;
         case 'checkupIs':
           echo checkupIs();
+          break;
+        case 'reviewsBloger':
+          echo reviewsBloger();
           break;
         case 'wrapperStart':
           $type = get_sub_field('wrapperStart_variants');
@@ -2723,6 +2727,79 @@ function checkupIs(){
       </div>
       <?php endif; ?>
     </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Отзывы блогеров
+function reviewsBloger(){
+  ob_start(); ?>
+
+  <section class="reviews _section-lg">
+    <div class="container">
+      <div class="reviews__top">
+        <h2 class="reviews__title _title">
+          Свое здоровье нам доверяют<br> блогеры и лидеры мнений
+        </h2>
+        <div class="reviews__right swiper-navigation">
+          <div class="swiper-button-prev swiper-navigation__prev">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1.29289 9.05855C0.902369 8.66802 0.902369 8.03486 1.29289 7.64434L7.65685 1.28037C8.04738 0.889849 8.68054 0.889849 9.07107 1.28037C9.46159 1.6709 9.46159 2.30406 9.07107 2.69459L3.41421 8.35144L9.07107 14.0083C9.46159 14.3988 9.46159 15.032 9.07107 15.4225C8.68054 15.813 8.04738 15.813 7.65686 15.4225L1.29289 9.05855ZM21 8.35144L21 9.35144L2 9.35144L2 8.35144L2 7.35144L21 7.35144L21 8.35144Z"
+                fill="white" />
+            </svg>
+
+          </div>
+          <div class="swiper-button-next swiper-navigation__next">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1.29289 9.05855C0.902369 8.66802 0.902369 8.03486 1.29289 7.64434L7.65685 1.28037C8.04738 0.889849 8.68054 0.889849 9.07107 1.28037C9.46159 1.6709 9.46159 2.30406 9.07107 2.69459L3.41421 8.35144L9.07107 14.0083C9.46159 14.3988 9.46159 15.032 9.07107 15.4225C8.68054 15.813 8.04738 15.813 7.65686 15.4225L1.29289 9.05855ZM21 8.35144L21 9.35144L2 9.35144L2 8.35144L2 7.35144L21 7.35144L21 8.35144Z"
+                fill="white" />
+            </svg>
+
+          </div>
+        </div>
+      </div>
+      <?php if(have_rows('reviewsBloger_reviews')) : ?>
+      <div class="reviews__swiper swiper">
+        <div class="swiper-wrapper">
+          <?php while(have_rows('reviewsBloger_reviews')) : the_row(); ?>
+          <div class="swiper-slide reviews__slide">
+            <div class="reviews__item">
+              <?php if(get_sub_field('reviews_head')) {
+                $img_head = get_sub_field('reviews_head');?>
+              <img class="reviews__item-img" src="<?php echo esc_url( $img_head['url'] ); ?>" alt="<?php echo esc_attr( $img_head['alt'] ); ?>">
+              <?php } ?>
+              <a class="reviews__item-wrapper" href="#" data-fancybox>
+                <?php if(get_sub_field('reviews_preview')) {
+                  $img_preview = get_sub_field('reviews_preview'); ?>
+                <img class="reviews__item-video _img" src="<?php echo esc_url( $img_preview['url'] ); ?>" alt="<?php echo esc_attr( $img_preview['alt'] ); ?>">
+                <?php }?>
+                <div class="play">
+                  <div class="play__inner">
+                    <svg width="47" height="50" viewBox="0 0 47 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M41.4506 21.5916C43.9927 23.1529 43.9927 26.8471 41.4506 28.4084L17.8435 42.908C15.1783 44.545 11.75 42.6273 11.75 39.4996L11.75 10.5004C11.75 7.37267 15.1783 5.45503 17.8435 7.09199L41.4506 21.5916Z"
+                        fill="white" />
+                    </svg>
+
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <?php endwhile; ?>
+        </div>
+      </div>
+      <?php endif; ?>
+      <a class="reviews__btn _gray-btn" href="#">
+        Посмотреть больше отзывов
+      </a>
+    </div>
+    <p class="reviews__bottom-text">
+      нам доверяют
+    </p>
   </section>
 
   <?php return ob_get_clean();
