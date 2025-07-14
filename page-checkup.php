@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
     <main class="main" id="checkup-main">
-      <section class="front-block _image-wrapper _section-lg">
+      <!-- <section class="front-block _image-wrapper _section-lg">
         <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
         <div class="container">
           <div class="front-block__top">
@@ -30,7 +30,10 @@
             </a>
           </div>
         </div>
-      </section>
+      </section> -->
+
+      <?php echo checkupFrontBlock();?>
+
       <section class="services">
         <div class="container">
           <div class="cursor @@class">
@@ -144,7 +147,9 @@
           </div>
         </div>
       </section>
+
       <div class="wrapper-bg _section-lg">
+
         <section class="ready-programs">
           <div class="container">
             <h2 class="ready-programs__title _title">
@@ -234,7 +239,9 @@
             </div>
           </div>
         </section>
+
       </div>
+
       <section class="checkup-programs">
         <div class="checkup-programs__program _section-lg">
           <div class="container">
@@ -744,6 +751,7 @@
           </div>
         </div>
       </section>
+
       <section class="checkup-is">
         <div class="container">
           <h2 class="checkup-is__title _title">
@@ -866,6 +874,7 @@
           </div>
         </div>
       </section>
+
       <section class="checkup-stages _section-lg">
         <div class="container">
           <h2 class="checkup-stages__title _title">
@@ -1083,6 +1092,7 @@
           </div>
         </div>
       </section>
+
       <section class="personal-plan">
         <div class="container">
           <h2 class="personal-plan__title _title">
@@ -1113,6 +1123,7 @@
           </div>
         </div>
       </section>
+
       <section class="callback ">
         <div class="container">
           <div class="callback__inner _image-wrapper relative">
@@ -1156,6 +1167,7 @@
           </div>
         </div>
       </section>
+
       <section class="reviews _section-lg">
         <div class="container">
           <div class="reviews__top">
@@ -1265,6 +1277,7 @@
           нам доверяют
         </p>
       </section>
+
       <section class="checkup-reviews _section-lg">
         <div class="container">
           <div class="checkup-reviews__top">
@@ -1327,7 +1340,9 @@
           </div>
         </div>
       </section>
+
       <div class="wrapper-bg _section-lg">
+
         <section class="rating">
           <span class="rating__top-num">
             10
@@ -1672,6 +1687,7 @@
             </div>
           </div>
         </section>
+
       </div>
       <section class="care-comfort">
         <div class="container">
@@ -1778,7 +1794,9 @@
           </div>
         </div>
       </section>
+
       <div class="divider"></div>
+
       <section class="contacts">
         <div class="container">
           <h2 class="contacts__title _title">
@@ -1912,6 +1930,7 @@
           </div>
         </div>
       </section>
+
       <section class="map-block">
         <div class="container">
           <h2 class="map-block__title _title">
@@ -1948,6 +1967,7 @@
           </div>
         </div>
       </section>
+
     </main>
 
 <?php get_footer(); ?>

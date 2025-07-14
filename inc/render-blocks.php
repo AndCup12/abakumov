@@ -28,6 +28,9 @@
 // directionsDoctor : Врачи клиники
 // directionsPrice : Стоимость лечения
 // stagesOfTreatment : Этапы лечения
+// checkupResult : Результат
+// readyPrograms : Комплексные обследования
+// checkUpPrograms : Программы CheckUp для...
 
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
@@ -117,6 +120,15 @@ function renderBlocksSingleCheckup() {
           break;
         case 'stagesOfTreatment':
           echo stagesOfTreatment();
+          break;
+        case 'checkupResult':
+          echo checkupResult();
+          break;
+        case 'readyPrograms':
+          echo readyPrograms();
+          break;
+        case 'checkUpPrograms':
+          echo checkUpPrograms();
           break;
         case 'wrapperStart':
           $type = get_sub_field('wrapperStart_variants');
@@ -2440,7 +2452,6 @@ function directionsPrice(){
   <?php return ob_get_clean();
 }
 
-
 // Этапы лечения
 function stagesOfTreatment(){
   ob_start(); ?>
@@ -2483,6 +2494,162 @@ function stagesOfTreatment(){
   <?php return ob_get_clean();
 }
 
+// Результат
+function checkupResult(){
+  ob_start(); ?>
+
+  <section class="checkup-result">
+    <div class="container">
+      <h2 class="checkup-result__title _title">
+        <?php the_sub_field('checkupResult_title'); ?>
+      </h2>
+      <p class="checkup-result__subtitle _title">
+        <?php the_sub_field('checkupResult_subtitle'); ?>
+      </p>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="checkup-result__items">
+        <?php if (have_rows('checkupResult_item')) :
+          while (have_rows('checkupResult_item')) : the_row(); ?>
+            <div class="checkup-result__item">
+              <?php
+              $img = get_sub_field('checkupResult_item_img');
+              if ($img && isset($img['url'])) :
+              ?>
+                <div class="checkup-result__item-wrapper">
+                  <img class="checkup-result__item-img _img" src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt'] ?? ''); ?>">
+                </div>
+              <?php endif; ?>
+              <h4 class="checkup-result__item-title">
+                <?php the_sub_field('checkupResult_item_title'); ?>
+              </h4>
+            </div>
+        <?php endwhile;
+        endif; ?>
+      </div>
+    </div>
+  </section>
+
+<?php return ob_get_clean();
+}
+
+
+// Комплексные обследования
+function readyPrograms(){
+  ob_start(); ?>
+
+  <section class="ready-programs">
+    <div class="container">
+      <h2 class="ready-programs__title _title">
+        <?php the_sub_field('readyPrograms_title'); ?>
+      </h2>
+      <p class="ready-programs__subtitle _subtitle">
+        <?php the_sub_field('readyPrograms_subtitle'); ?>
+      </p>
+      <h3 class="ready-programs__items-title">
+        <?php the_sub_field('readyPrograms_text'); ?>
+      </h3>
+      <?php if(have_rows('readyPrograms_points')) : ?>
+      <div class="ready-programs__items">
+        <?php while(have_rows('readyPrograms_points')) : the_row(); ?>
+        <div class="ready-programs__item">
+          <div class="ready-programs__item-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
+                fill="white" />
+              <path
+                d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
+                fill="white" />
+            </svg>
+          </div>
+          <h4 class="ready-programs__item-title">
+            <?php the_sub_field('point_title'); ?>
+          </h4>
+          <p class="ready-programs__item-text">
+            <?php the_sub_field('point_text'); ?>
+          </p>
+        </div>
+        <?php endwhile; ?>
+      </div>
+      <?php endif; ?>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Программы CheckUp для...
+function checkUpPrograms(){
+  ob_start(); ?>
+
+  <?php if(have_rows('checkUpPrograms_programs')) : ?>
+  <section class="checkup-programs">
+    <?php while(have_rows('checkUpPrograms_programs')) : the_row(); ?>
+    <div class="checkup-programs__program _section-lg">
+      <div class="container">
+        <div class="checkup-programs__top">
+          <p class="checkup-programs__top-text">
+            <?php the_sub_field('checkUpPrograms_for_back'); ?>
+          </p>
+          <h3 class="checkup-programs__top-title _title">
+            <?php the_sub_field('checkUpPrograms_for'); ?>
+          </h3>
+          <?php if(get_sub_field('checkUpPrograms_img')){
+            $img = get_sub_field('checkUpPrograms_img');?>
+          <div class="checkup-programs__top-wrapper">
+            <img class="checkup-programs__top-img _img" src="<?php echo esc_url( $img['url'] ); ?>"
+              alt="<?php echo esc_attr( $img['alt'] ); ?>">
+          </div>
+          <?php }?>
+        </div>
+        <?php $programs_list = get_sub_field('programs_list');
+        if($programs_list):
+        $counter = 1; ?>
+        <div class="checkup-programs__items">
+          <?php foreach ( $programs_list as $post_ids ) :
+            $num = str_pad($counter, 2, '0', STR_PAD_LEFT); ?>
+          <div class="checkup-programs__item">
+            <div class="checkup-programs__item-left">
+              <span class="checkup-programs__item-step">
+                <?php echo $num; ?>
+              </span>
+              <h4 class="checkup-programs__item-title">
+                <?php echo get_field('meta_h1', $post_ids);?>
+                <span class="checkup-programs__item-descr">
+                  Пакет <span>LIGHT</span>
+                </span>
+              </h4>
+            </div>
+            <div class="checkup-programs__item-right">
+              <a class="checkup-programs__item-link" href="<?php echo get_permalink( $post_ids ); ?>">
+                <span>Узнать подробнее</span>
+                <p class="arrow-icon">
+                  <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1.29289 9.05855C0.902369 8.66802 0.902369 8.03486 1.29289 7.64434L7.65685 1.28037C8.04738 0.889849 8.68054 0.889849 9.07107 1.28037C9.46159 1.6709 9.46159 2.30406 9.07107 2.69459L3.41421 8.35144L9.07107 14.0083C9.46159 14.3988 9.46159 15.032 9.07107 15.4225C8.68054 15.813 8.04738 15.813 7.65686 15.4225L1.29289 9.05855ZM21 8.35144L21 9.35144L2 9.35144L2 8.35144L2 7.35144L21 7.35144L21 8.35144Z"
+                      fill="white" />
+                  </svg>
+                </p>
+              </a>
+              <a class="checkup-programs__item-btn _gray-btn" href="#">
+                Записаться на Check-Up
+              </a>
+            </div>
+          </div>
+          <?php $counter++; endforeach; ?>
+        </div>
+        <?php endif; ?>
+      </div>
+    </div>
+    <?php endwhile;?>
+  </section>
+  <?php endif; ?>
+
+  <?php return ob_get_clean();
+}
+
 // Обертка
 function wrapperStart ($type){
   ob_start(); ?>
@@ -2496,7 +2663,6 @@ function wrapperEnd (){
   </div>
   <?php return ob_get_clean();
 }
-
 
 function name(){
   ob_start(); ?>
