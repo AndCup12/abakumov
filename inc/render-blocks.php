@@ -28,6 +28,7 @@
 // directionsDoctor : Врачи клиники
 // directionsPrice : Стоимость лечения
 // stagesOfTreatment : Этапы лечения
+// checkupResult : Результат
 
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
@@ -117,6 +118,9 @@ function renderBlocksSingleCheckup() {
           break;
         case 'stagesOfTreatment':
           echo stagesOfTreatment();
+          break;
+        case 'checkupResult':
+          echo checkupResult();
           break;
         case 'wrapperStart':
           $type = get_sub_field('wrapperStart_variants');
@@ -2440,7 +2444,6 @@ function directionsPrice(){
   <?php return ob_get_clean();
 }
 
-
 // Этапы лечения
 function stagesOfTreatment(){
   ob_start(); ?>
@@ -2482,6 +2485,50 @@ function stagesOfTreatment(){
 
   <?php return ob_get_clean();
 }
+
+// Результат
+function checkupResult()
+{
+  ob_start();
+
+?>
+
+  <section class="checkup-result">
+    <div class="container">
+      <h2 class="checkup-result__title _title">
+        <?php the_sub_field('checkupResult_title'); ?>
+      </h2>
+      <p class="checkup-result__subtitle _title">
+        <?php the_sub_field('checkupResult_subtitle'); ?>
+      </p>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="checkup-result__items">
+        <?php if (have_rows('checkupResult_item')) :
+          while (have_rows('checkupResult_item')) : the_row(); ?>
+            <div class="checkup-result__item">
+              <?php
+              $img = get_sub_field('checkupResult_item_img');
+              if ($img && isset($img['url'])) :
+              ?>
+                <div class="checkup-result__item-wrapper">
+                  <img class="checkup-result__item-img _img" src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt'] ?? ''); ?>">
+                </div>
+              <?php endif; ?>
+              <h4 class="checkup-result__item-title">
+                <?php the_sub_field('checkupResult_item_title'); ?>
+              </h4>
+            </div>
+        <?php endwhile;
+        endif; ?>
+      </div>
+    </div>
+  </section>
+
+<?php return ob_get_clean();
+}
+
 
 // Обертка
 function wrapperStart ($type){
