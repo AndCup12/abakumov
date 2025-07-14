@@ -1,0 +1,131 @@
+@use '../base/mixins' as mixins;
+
+.clinic-concept {
+  padding-top: 100px;
+
+  @include mixins.lg {
+    padding-top: 40px;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__subtitle {
+    text-align: center;
+    margin: 27px 0 50px;
+
+    @include mixins.xl {
+        margin-bottom: 40px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 30px;
+    }
+
+    @include mixins.md {
+      margin: 15px 0 20px;
+    }
+
+    @include mixins.sm {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__name {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: calc(34/24*100%);
+    text-align: center;
+    margin-bottom: 52px;
+
+    @include mixins.lg {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+      font-size: 22px;
+      margin: 15px 0 30px;
+    }
+    
+    @include mixins.sm {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    @include mixins.xs {
+        font-size: 18px;
+    }
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 63px 58px;
+
+    @include mixins.xxl {
+      gap: 30px;
+    }
+
+    @include mixins.lg {
+      grid-auto-flow: column;
+      padding-bottom: 10px;
+      gap: 10px;
+      overflow-x: auto;
+    }
+  }
+
+  &__item {
+
+    @include mixins.lg {
+      width: 320px;
+    }
+  }
+
+  &__item-wrapper {
+    position: relative;
+    padding-bottom: calc(370/671*100%);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 25px;
+
+    @include mixins.xxl {
+        margin-bottom: 15px;
+    }
+  }
+
+  &__item-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: calc(32/24*100%);
+    margin-bottom: 16px;
+
+    @include mixins.xxl {
+        margin-bottom: 10px;
+    }
+
+    @include mixins.xl {
+        font-size: 22px;
+    }
+
+    @include mixins.lg {
+        font-size: 20px;
+        br{display: none;}
+    }
+  }
+
+  &__item-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+
+    @include mixins.xl {
+        font-size: 18px;
+    }
+
+    @include mixins.lg {
+        font-size: 16px;
+        br{display: none;}
+    }
+  }
+}

@@ -16,6 +16,8 @@ get_header();
 -->
 
 <main class="main" id="advantages-page">
+
+  <!-- Первый блок (нет картинки докторов) -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
@@ -41,6 +43,8 @@ get_header();
       </div>
     </div>
   </section>
+
+  <!-- блок видео (нет подзаголовка и кнопки) -->
   <section class="video-block">
     <div class="container relative">
       <h2 class="video-block__title _title">
@@ -58,6 +62,8 @@ get_header();
       <img class="video-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-2.webp" alt="video-block-2">
     </div>
   </section>
+
+  <!-- блок с картинкой (добавлен логотип и заголовок) -->
   <div class="wrapper-bg _section-lg">
     <section class="image-block">
       <img class="image-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
@@ -72,6 +78,81 @@ get_header();
       </div>
     </section>
   </div>
+
+  <!-- Новый блок  Концепция клиники -->
+  <section class="clinic-concept">
+    <div class="container">
+      <h2 class="clinic-concept__title _title">
+        Концепция клиники –
+      </h2>
+      <p class="clinic-concept__subtitle _subtitle">
+        медицина, в которую хочется возвращаться
+      </p>
+      <h3 class="clinic-concept__name">
+        При создании Abakumov Clinic мы поставили перед собой несколько принципиально важных задач:
+      </h3>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="clinic-concept__items">
+        <div class="clinic-concept__item">
+          <div class="clinic-concept__item-wrapper">
+            <img class="clinic-concept__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/clinic-concept-1.webp" alt="clinic-concept-1">
+          </div>
+          <div class="clinic-concept__item-info">
+            <h4 class="clinic-concept__item-title">
+              Построить клинику нового поколения
+            </h4>
+            <p class="clinic-concept__item-text">
+              на основе доказательной медицины, экспертной<br> диагностики и технологичной базы
+            </p>
+          </div>
+        </div>
+        <div class="clinic-concept__item">
+          <div class="clinic-concept__item-wrapper">
+            <img class="clinic-concept__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/clinic-concept-2.webp" alt="clinic-concept-2">
+          </div>
+          <div class="clinic-concept__item-info">
+            <h4 class="clinic-concept__item-title">
+              Объединить высокий медицинский<br>
+              стандарт с эстетикой сервиса —
+            </h4>
+            <p class="clinic-concept__item-text">
+              чтобы каждый визит был комфортным, быстрым и результативны
+            </p>
+          </div>
+        </div>
+        <div class="clinic-concept__item">
+          <div class="clinic-concept__item-wrapper">
+            <img class="clinic-concept__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/clinic-concept-3.webp" alt="clinic-concept-3">
+          </div>
+          <div class="clinic-concept__item-info">
+            <h4 class="clinic-concept__item-title">
+              Сместить фокус с «лечения проблем»<br>
+              на осознанное управление здоровьем
+            </h4>
+            <p class="clinic-concept__item-text">
+              через регулярные персональные чек-апы
+            </p>
+          </div>
+        </div>
+        <div class="clinic-concept__item">
+          <div class="clinic-concept__item-wrapper">
+            <img class="clinic-concept__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/clinic-concept-4.webp" alt="clinic-concept-4">
+          </div>
+          <div class="clinic-concept__item-info">
+            <h4 class="clinic-concept__item-title">
+              Превратить медицинские визиты в новый стандарт<br>
+              жизни современного человека —
+            </h4>
+            <p class="clinic-concept__item-text">
+              необходимый, желанный и по-настоящему ценный
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Контакты -->
   <section class="contacts">
