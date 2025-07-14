@@ -1,0 +1,144 @@
+@use '../base/mixins' as mixins;
+
+#advantages-page {
+  .front-block {
+    padding: 273px 0 112px;
+
+    @include mixins.xxl {
+      padding-top: 250px;
+    }
+
+    @include mixins.xl {
+      padding: 200px 0 100px;
+    }
+
+    @include mixins.lg {
+      padding-bottom: 80px;
+    }
+
+    @include mixins.md {
+      padding-bottom: 60px;
+    }
+
+    &__top {
+      margin-bottom: 60px;
+
+      @include mixins.xl {
+        margin-bottom: 50px;
+      }
+
+      @include mixins.lg {
+        margin-bottom: 40px;
+      }
+
+      @include mixins.md {
+        margin: 15px 0 30px;
+      }
+
+      @include mixins.sm {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__logo {
+      height: auto;
+      bottom: 0;
+    }
+
+    &__right {
+      top: 17px;
+      right: 65px;
+
+      @include mixins.xxl {
+        right: 10px;
+        top: -5px;
+      }
+
+      @include mixins.xl {
+        max-width: 135px;
+      }
+
+      @include mixins.lg {
+        display: none;
+      }
+    }
+
+    &__yandex {
+      left: -109px;
+      top: -8px;
+
+      @include mixins.xxl {
+        left: -80px;
+        top: -27px;
+        max-width: 300px;
+      }
+
+      @include mixins.xl {
+        left: -80px;
+        top: -5px;
+        max-width: 225px;
+      }
+
+      @include mixins.lg {
+        display: none;
+      }
+    }
+
+    &__btns {
+      margin-bottom: 0;
+    }
+  }
+
+  .video-block {
+    &__title {
+      margin-bottom: 64px;
+
+      @include mixins.xl {
+        margin-bottom: 50px;
+      }
+
+      @include mixins.lg {
+        margin-bottom: 40px;
+      }
+
+      @include mixins.md {
+        margin: 15px 0 30px;
+      }
+
+      @include mixins.sm {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .image-block {
+    padding: 105px 0 198px;
+    position: relative;
+    background-image: url(../images/new-level-bg.webp);
+    background-repeat: no-repeat;
+    background-position: bottom;
+
+    @include mixins.xl {
+        padding: 100px 0;
+        background-position: center 30%;
+    }
+
+    @include mixins.md {
+        background-position: center 20%;
+    }
+
+    @include mixins.lg {
+        padding: 40px 0;
+    }
+
+    &__logo {
+      position: absolute;
+      max-width: 106%;
+      transform: translateX(-50%);
+      left: 50%;
+      height: auto;
+      bottom: 0;
+    }
+  }
+
+}
