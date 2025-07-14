@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Контакты
+ * Template Name: Преимущества клиники
  * http://dontforget.pro
  * @package WordPress
  * @subpackage clean
@@ -10,31 +10,68 @@ get_header();
 ?>
 
 <!-- 
-страница Контакты
+страница Преимущества клиники
 
 
 -->
 
-<main class="main" id="contacts-page">
-
-  <!-- В первом блоке только заголовок -->
+<main class="main" id="advantages-page">
   <section class="front-block _image-wrapper _section-lg">
-    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
-    <div class="container relative">
-      <h1 class="front-block__title _title">
-        Контакты Abakumov Clinic
-      </h1>
-    </div>
-  </section>
-
-  <!-- блок с картинкой -->
-  <section class="image-block space-top-negative relative">
+    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
-      <div class="images-block__wrapper">
-        <img class="image-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/image-block-1.webp" alt="image-block-1">
+      <div class="front-block__top">
+        <h1 class="front-block__title _title">
+          Мы создали пространство<br>
+          продуманной медицины
+        </h1>
+        <p class="front-block__subtitle _subtitle">
+          Это результат многолетней работы команды врачей, управленцев и исследователей,<br> которые создали медицинское пространство нового уровня
+        </p>
+        <img class="front-block__yandex" src="<?php echo get_template_directory_uri(); ?>/assets/images/front-block-2.webp" alt="front-block-yandex">
+        <img class="front-block__right" src="<?php echo get_template_directory_uri(); ?>/assets/images/front-block-3.webp" alt="front-block-3">
+      </div>
+      <div class="front-block__btns">
+        <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
+          <span>Записаться на прием</span>
+        </a>
+        <a class="front-block__btn _whatsapp-btn" href="https://wa.me/+79031003195" target="_blank">
+          <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+          <span>Записаться через WhatsApp</span>
+        </a>
       </div>
     </div>
   </section>
+  <section class="video-block">
+    <div class="container relative">
+      <h2 class="video-block__title _title">
+        Узнайте все самое важное<br>
+        о клинике всего за 1 минуту
+      </h2>
+      <a class="video-block__video" href="#" data-fancybox>
+        <img class="video-block__video-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-1.webp" alt="video-block-1">
+        <div class="play">
+          <div class="play__inner">
+            <?php include(get_template_directory() . '/assets/images/icons/play.svg'); ?>
+          </div>
+        </div>
+      </a>
+      <img class="video-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-2.webp" alt="video-block-2">
+    </div>
+  </section>
+  <div class="wrapper-bg _section-lg">
+    <section class="image-block">
+      <img class="image-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
+      <div class="container relative">
+        <h2 class="image-block__title _title">
+          Врачи-пульмонологи<br>
+          Abakumov Clinic
+        </h2>
+        <div class="images-block__wrapper">
+          <img class="image-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/image-block-1.webp" alt="image-block-1">
+        </div>
+      </div>
+    </section>
+  </div>
 
   <!-- Контакты -->
   <section class="contacts">
