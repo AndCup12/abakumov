@@ -54,6 +54,7 @@
 @use 'blocks/doctors-doctors';
 @use 'blocks/doctors-specialization';
 @use 'blocks/link-items';
+@use 'blocks/image-block';
 
 
 @use 'blocks/quiz';
@@ -75,4 +76,5 @@
 @use 'pages/doctors-single';
 @use 'pages/price-page';
 @use 'pages/client-info';
+@use 'pages/contacts-page';
 

@@ -1,0 +1,27 @@
+@use '../base/mixins' as mixins;
+#contacts-page{
+.front-block {
+    padding: 301px 0 202px;
+
+    @include mixins.xxl {
+      padding: 250px 0 150px;
+    }
+
+    @include mixins.xl {
+      padding-top: 200px;
+    }
+
+    @include mixins.lg {
+        padding-bottom: 80px;
+    }
+
+    @include mixins.md {
+      padding: 150px 0 60px;
+    }
+
+    &__logo {
+      bottom: 141px;
+      height: 250px;
+    }
+  }
+}

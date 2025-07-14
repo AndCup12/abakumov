@@ -1,0 +1,10 @@
+@use '../base/mixins' as mixins;
+
+.image-block {
+  &__wrapper {
+   position: relative;
+   overflow: hidden;
+    padding-bottom: calc(746/1400*100%);
+    border-radius: 30px;
+  }
+}

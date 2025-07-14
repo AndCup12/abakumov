@@ -148,13 +148,6 @@ a {
   }
 }
 
-._section-lg {
-  max-width: 1700px;
-  width: 100%;
-  margin: 0 auto;
-  border-radius: 30px;
-}
-
 ._main-btn {
   display: flex;
   justify-content: center;
@@ -401,6 +394,13 @@ a {
   border-radius: 30px;
 }
 
+._section-lg {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 30px;
+}
+
 .cursor {
   display: none;
 
@@ -514,6 +514,18 @@ a {
 
 .space-null{
   padding-bottom: 0 !important;
+}
+
+.space-top-negative{
+  margin-top: -120px;
+
+  @include mixins.xl {
+      margin-top: -100px;
+  }
+
+  @include mixins.lg {
+      margin-top: -40px;
+  }
 }
 
 .items-center{
