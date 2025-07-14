@@ -31,6 +31,7 @@
 // checkupResult : Результат
 // readyPrograms : Комплексные обследования
 // checkUpPrograms : Программы CheckUp для...
+// checkupIs : Чекап это
 
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
@@ -129,6 +130,9 @@ function renderBlocksSingleCheckup() {
           break;
         case 'checkUpPrograms':
           echo checkUpPrograms();
+          break;
+        case 'checkupIs':
+          echo checkupIs();
           break;
         case 'wrapperStart':
           $type = get_sub_field('wrapperStart_variants');
@@ -2646,6 +2650,80 @@ function checkUpPrograms(){
     <?php endwhile;?>
   </section>
   <?php endif; ?>
+
+  <?php return ob_get_clean();
+}
+
+// Чекап это
+function checkupIs(){
+  ob_start(); ?>
+
+  <section class="checkup-is">
+    <div class="container">
+      <h2 class="checkup-is__title _title">
+        <?php the_sub_field('checkupIs_title');?>
+      </h2>
+      <p class="checkup-is__subtitle _subtitle">
+        <?php the_sub_field('checkupIs_subtitle'); ?>
+      </p>
+      <?php if(have_rows('checkupIs_cards')) : ?>
+      <div class="checkup-is__items">
+        <?php while(have_rows('checkupIs_cards')) : the_row(); ?>
+        <div class="checkup-is__item">
+          <?php if(get_sub_field('card_img')) :
+            $img = get_sub_field('card_img'); ?>
+          <div class="checkup-is__item-wrapper">
+            <img class="checkup-is__item-img" src="<?php echo esc_url( $card_img['url'] ); ?>" alt="<?php echo esc_attr( $card_img['alt'] ); ?>">
+          </div>
+          <?php endif; ?>
+          <div class="checkup-is__item-info">
+            <h5 class="checkup-is__item-title">
+              <?php the_sub_field('card_title'); ?>
+            </h5>
+            <p class="checkup-is__item-text">
+              <?php the_sub_field('card_text'); ?>
+            </p>
+          </div>
+        </div>
+        <?php endwhile; ?>
+      </div>
+      <?php endif; ?>
+      <?php if(have_rows('checkupIs_list')) :?>
+      <div class="checkup-is__inner">
+        <div class="checkup-is__inner-left">
+          <h3 class="checkup-is__inner-title _title">
+            <?php the_sub_field('checkupIs_textList');?>
+          </h3>
+          <ul class="checkup-is__inner-list">
+            <?php while(have_rows('checkupIs_list')) : the_row(); ?>
+            <li class="checkup-is__inner-point">
+              <span class="checkup-is__inner-icon">
+                <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
+                    fill="white" />
+                </svg>
+
+              </span>
+              <p class="checkup-is__inner-text">
+                <?php the_sub_field('point'); ?>
+              </p>
+            </li>
+            <?php endwhile; ?>
+          </ul>
+        </div>
+        <?php if(get_sub_field('checkupIs_img')):
+          $img = get_sub_field('checkupIs_img');?>
+        <div class="checkup-is__inner-right">
+          <div class="checkup-is__inner-wrapper relative">
+            <img class="checkup-is__inner-img _img" src="<?php echo esc_url( $card_img['url'] ); ?>" alt="<?php echo esc_attr( $card_img['alt'] ); ?>">
+          </div>
+        </div>
+        <?php endif; ?>
+      </div>
+      <?php endif; ?>
+    </div>
+  </section>
 
   <?php return ob_get_clean();
 }

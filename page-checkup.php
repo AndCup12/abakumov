@@ -150,6 +150,7 @@
 
       <div class="wrapper-bg _section-lg">
 
+        <!-- Комплексные обследования -->
         <section class="ready-programs">
           <div class="container">
             <h2 class="ready-programs__title _title">
@@ -242,6 +243,7 @@
 
       </div>
 
+      <!-- Программы CheckUp для... -->
       <section class="checkup-programs">
         <div class="checkup-programs__program _section-lg">
           <div class="container">
@@ -752,6 +754,7 @@
         </div>
       </section>
 
+      <!-- Чекап это -->
       <section class="checkup-is">
         <div class="container">
           <h2 class="checkup-is__title _title">
