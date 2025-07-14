@@ -3,6 +3,7 @@ get_header();
 ?>
 
 <main class="main" id="directions-main">
+
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
     <div class="container">
@@ -42,6 +43,8 @@ get_header();
       </div>
     </div>
   </section>
+
+
   <section class="services">
     <div class="container">
       <div class="cursor">
@@ -94,6 +97,8 @@ get_header();
       </div>
     </div>
   </section>
+
+
   <section class="catalog _section-lg">
     <div class="container">
       <h2 class="catalog__title _title">
@@ -284,6 +289,8 @@ get_header();
       </div>
     </div>
   </section>
+
+
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">
@@ -324,6 +331,8 @@ get_header();
       </div>
     </div>
   </section>
+
+
   <section class="checkup-stages _section-lg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/checkup-stages-bg-3.webp);">
     <div class="container">
       <h2 class="checkup-stages__title _title _white-text">
@@ -423,8 +432,10 @@ get_header();
       </div>
     </div>
   </section>
+
   <div class="wrapper-bg _section-lg">
-    <section class="new-level">
+
+  <section class="new-level">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
       <div class="container relative">
         <h2 class="new-level__title _title">
@@ -538,7 +549,9 @@ get_header();
         </div>
       </div>
     </section>
+
   </div>
+
   <section class="reviews _section-lg">
     <div class="container">
       <div class="reviews__top">
@@ -618,6 +631,8 @@ get_header();
       нам доверяют
     </p>
   </section>
+
+
   <section class="checkup-reviews _section-lg">
     <div class="container">
       <div class="checkup-reviews__top">
@@ -665,6 +680,8 @@ get_header();
       </div>
     </div>
   </section>
+
+
   <section class="checkup-after _section-lg">
     <div class="container">
       <h2 class="checkup-after__title _title">
@@ -715,8 +732,10 @@ get_header();
       </div>
     </div>
   </section>
+
   <div class="wrapper-bg _section-lg">
-    <section class="rating">
+
+  <section class="rating">
       <span class="rating__top-num">
         10
       </span>
@@ -914,7 +933,9 @@ get_header();
         </div>
       </div>
     </section>
+
   </div>
+
   <section class="care-comfort">
     <div class="container">
       <h2 class="care-comfort__title _title">
@@ -960,7 +981,9 @@ get_header();
       </div>
     </div>
   </section>
+
   <div class="divider"></div>
+
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -1038,6 +1061,8 @@ get_header();
       </div>
     </div>
   </section>
+
+
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -1074,6 +1099,7 @@ get_header();
       </div>
     </div>
   </section>
+
 
 </main>
 

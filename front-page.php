@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 <main class="main">
+
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
@@ -27,6 +28,8 @@
     </div>
     <img class="front-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors.webp" alt="doctors">
   </section>
+
+
   <section class="comfort">
     <div class="container">
       <div class="comfort__top">
@@ -112,7 +115,9 @@
       </div>
     </div>
   </section>
+
   <div class="divider"></div>
+
   <section class="just-treat">
     <div class="container">
       <div class="just-treat__top">
@@ -152,7 +157,9 @@
       </div>
     </div>
   </section>
+
   <div class="wrapper-bg _section-lg">
+
     <section class="ready-programs">
       <div class="container">
         <h2 class="ready-programs__title _title">
@@ -261,6 +268,8 @@
         </div>
       </div>
     </section>
+
+
     <section class="consultation _image-wrapper">
       <div class="container">
         <h2 class="consultation__title _title">
@@ -280,7 +289,9 @@
         <img class="consultation__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors.webp" alt="doctors">
       </div>
     </section>
+
   </div>
+
   <section class="services">
     <div class="container">
       <div class="cursor">
@@ -334,6 +345,8 @@
       </div>
     </div>
   </section>
+
+
   <section class="catalog _section-lg">
     <div class="container">
       <h2 class="catalog__title _title">
@@ -527,6 +540,8 @@
       </div>
     </div>
   </section>
+
+
   <section class="callback">
     <div class="container">
       <div class="callback__inner _image-wrapper">
@@ -567,6 +582,8 @@
       </div>
     </div>
   </section>
+
+
   <section class="video-block">
     <div class="container relative">
       <div class="video-block__icon">
@@ -593,6 +610,8 @@
       <img class="video-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-2.webp" alt="video-block-2">
     </div>
   </section>
+
+
   <section class="reviews _section-lg">
     <div class="container">
       <div class="reviews__top">
@@ -673,6 +692,8 @@
       нам доверяют
     </p>
   </section>
+
+
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -754,6 +775,8 @@
       </div>
     </div>
   </section>
+
+
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -790,6 +813,7 @@
       </div>
     </div>
   </section>
+
 
 </main>
 <?php get_footer(); ?>

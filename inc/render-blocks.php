@@ -3,6 +3,7 @@
 // Функции генерирующие данные типы блоков
 // checkupFrontBlock : Первый блок
 // checkupFrontBlockMain : Первый блок - Чекап основная
+// firstBlockDirection : Первый блок - Направления основная
 // advatages : Преимущества
 // checkupQuestions : Зачем проходить 'направление'
 // doctorWithQuotes : Врач с цитатами
@@ -34,6 +35,7 @@
 // checkUpPrograms : Программы CheckUp для...
 // checkupIs : Чекап это
 // reviewsBloger : Отзывы блогеров
+// catalogDirections : Каталог направлений
 
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
@@ -51,6 +53,9 @@ function renderBlocksSingleCheckup() {
           break;
         case 'checkupFrontBlockMain':
           echo checkupFrontBlockMain();
+          break;
+        case 'firstBlockDirection':
+          echo firstBlockDirection();
           break;
         case 'advantages':
           echo advantages();
@@ -141,6 +146,9 @@ function renderBlocksSingleCheckup() {
           break;
         case 'reviewsBloger':
           echo reviewsBloger();
+          break;
+        case 'catalogDirections':
+          echo catalogDirections();
           break;
         case 'wrapperStart':
           $type = get_sub_field('wrapperStart_variants');
@@ -252,6 +260,51 @@ function checkupFrontBlockMain(){
         </div>
       </div>
     </section>
+  <?php return ob_get_clean();
+}
+
+// Первый блок - Направления основная
+function firstBlockDirection(){
+  ob_start(); ?>
+
+  <section class="front-block _image-wrapper _section-lg">
+    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
+    <div class="container">
+      <div class="front-block__inner">
+        <div class="front-block__left">
+          <h1 class="front-block__title _title">
+            <?php the_field('meta_h1'); ?>
+          </h1>
+          <div class="cursor">
+            <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+          </div>
+          <?php if(have_rows('firstblockdirection_images')) : ?>
+          <div class="front-block__items">
+            <?php while(have_rows('firstblockdirection_images')) : the_row(); ?>
+            <?php if(get_sub_field('img')) :
+              $img = get_sub_field('img'); ?>
+            <div class="front-block__item">
+              <img class="front-block__item-img _img" src="<?php echo $img['url'];?>" alt="<?php echo $img['alt'];?>">
+            </div>
+            <?php endif; ?>
+            <?php endwhile; ?>
+          </div>
+          <?php endif; ?>
+          <div class="front-block__btns">
+            <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
+              <?php include(get_template_directory() . '/assets/images/icons/mail.svg'); ?>
+              <span>Записаться на прием</span>
+            </a>
+            <a class="front-block__btn _whatsapp-btn" href="https://wa.me/+79031003195" target="_blank">
+              <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+              <span>Записаться через WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <?php return ob_get_clean();
 }
 
@@ -2846,6 +2899,39 @@ function reviewsBloger(){
     <p class="reviews__bottom-text">
       нам доверяют
     </p>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Каталог направлений
+function catalogDirections(){
+  ob_start(); ?>
+
+  <section class="catalog _section-lg">
+    <div class="container">
+      <h2 class="catalog__title _title">
+        <?php the_sub_field('catalogDirections_title'); ?>
+      </h2>
+      <?php $catalogDirections_cards = get_sub_field( 'catalogDirections_cards' );
+      if($catalogDirections_cards) :
+      $counter = 1; ?>
+      <div class="catalog__items">
+        <?php foreach ( $catalogDirections_cards as $post_ids ) :
+          $num = str_pad($counter, 2, '0', STR_PAD_LEFT);?>
+        <a href="<?php echo get_permalink( $post_ids ); ?>" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num"><?php echo $num; ?></span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title"><?php echo get_the_title( $post_ids ); ?></h4>
+        </a>
+        <?php $counter++; endforeach; ?>
+      </div>
+      <?php endif; ?>
+    </div>
   </section>
 
   <?php return ob_get_clean();
