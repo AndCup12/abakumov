@@ -13,7 +13,6 @@ get_header();
 
   <?php renderBlocksSingleCheckup(); ?>
 
-
 </main>
 
 <?php get_footer(); ?>
