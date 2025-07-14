@@ -2,6 +2,7 @@
 
 // Функции генерирующие данные типы блоков
 // checkupFrontBlock : Первый блок
+// checkupFrontBlockMain : Первый блок - Чекап основная
 // advatages : Преимущества
 // checkupQuestions : Зачем проходить 'направление'
 // doctorWithQuotes : Врач с цитатами
@@ -47,6 +48,9 @@ function renderBlocksSingleCheckup() {
       switch ($block_type) {
         case 'checkupFrontBlock':
           echo checkupFrontBlock();
+          break;
+        case 'checkupFrontBlockMain':
+          echo checkupFrontBlockMain();
           break;
         case 'advantages':
           echo advantages();
@@ -209,6 +213,45 @@ function checkupFrontBlock(){
       </div>
     </section>
 
+  <?php return ob_get_clean();
+}
+
+// Первый блок - Чекап основная
+function checkupFrontBlockMain(){
+  ob_start(); ?>
+    <section class="front-block _image-wrapper _section-lg">
+      <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
+      <div class="container">
+        <div class="front-block__top">
+          <h1 class="front-block__title _title">
+            <?php the_field('meta_h1'); ?>
+          </h1>
+          <p class="front-block__subtitle _subtitle">
+            <?php the_sub_field('checkupFrontBlockMain_subtitle'); ?>
+          </p>
+          <?php if(get_sub_field('checkupFrontBlockMain_img')) :
+            $img = get_sub_field('checkupFrontBlockMain_img');?>
+          <img class="front-block__right" src="<?php echo $img['url'];?>" alt="<?php echo $img['alt'];?>">
+          <?php endif; ?>
+        </div>
+        <div class="front-block__btns">
+          <a class="front-block__btn _main-btn" href="#" data-fancybox>
+            <span>Подобрать чекап</span>
+          </a>
+          <a class="front-block__arrow-btn" href="#">
+            <p class="arrow-icon">
+              <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1.29289 9.05855C0.902369 8.66802 0.902369 8.03486 1.29289 7.64434L7.65685 1.28037C8.04738 0.889849 8.68054 0.889849 9.07107 1.28037C9.46159 1.6709 9.46159 2.30406 9.07107 2.69459L3.41421 8.35144L9.07107 14.0083C9.46159 14.3988 9.46159 15.032 9.07107 15.4225C8.68054 15.813 8.04738 15.813 7.65686 15.4225L1.29289 9.05855ZM21 8.35144L21 9.35144L2 9.35144L2 8.35144L2 7.35144L21 7.35144L21 8.35144Z"
+                  fill="white" />
+              </svg>
+
+            </p>
+            <span>Перейти к выбору</span>
+          </a>
+        </div>
+      </div>
+    </section>
   <?php return ob_get_clean();
 }
 

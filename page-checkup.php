@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
     <main class="main" id="checkup-main">
-      <!-- <section class="front-block _image-wrapper _section-lg">
+      <section class="front-block _image-wrapper _section-lg">
         <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
         <div class="container">
           <div class="front-block__top">
@@ -30,9 +30,9 @@
             </a>
           </div>
         </div>
-      </section> -->
+      </section>
 
-      <?php echo checkupFrontBlock();?>
+      <?php echo renderBlocksSingleCheckup();?>
 
       <section class="services">
         <div class="container">
