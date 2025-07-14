@@ -1,0 +1,24 @@
+@use '../base/mixins' as mixins;
+
+#client-info {
+  .front-block {
+    padding: 301px 0 202px;
+
+    @include mixins.xxl {
+      padding: 250px 0 100px;
+    }
+
+    @include mixins.xl {
+      padding: 200px 0 80px;
+    }
+
+    @include mixins.md {
+      padding: 150px 0 60px;
+    }
+
+    &__logo {
+      bottom: 0;
+      height: auto;
+    }
+  }
+}
