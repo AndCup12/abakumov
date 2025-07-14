@@ -2669,9 +2669,9 @@ function checkUpPrograms(){
               </span>
               <h4 class="checkup-programs__item-title">
                 <?php echo get_field('meta_h1', $post_ids);?>
-                <span class="checkup-programs__item-descr">
+                <!-- <span class="checkup-programs__item-descr">
                   Пакет <span>LIGHT</span>
-                </span>
+                </span> -->
               </h4>
             </div>
             <div class="checkup-programs__item-right">
@@ -2721,7 +2721,7 @@ function checkupIs(){
           <?php if(get_sub_field('card_img')) :
             $img = get_sub_field('card_img'); ?>
           <div class="checkup-is__item-wrapper">
-            <img class="checkup-is__item-img" src="<?php echo esc_url( $card_img['url'] ); ?>" alt="<?php echo esc_attr( $card_img['alt'] ); ?>">
+            <img class="checkup-is__item-img" src="<?php echo esc_url( $img['url'] ); ?>" alt="<?php echo esc_attr( $img['alt'] ); ?>">
           </div>
           <?php endif; ?>
           <div class="checkup-is__item-info">
@@ -2736,12 +2736,13 @@ function checkupIs(){
         <?php endwhile; ?>
       </div>
       <?php endif; ?>
-      <?php if(have_rows('checkupIs_list')) :?>
+
       <div class="checkup-is__inner">
         <div class="checkup-is__inner-left">
           <h3 class="checkup-is__inner-title _title">
             <?php the_sub_field('checkupIs_textList');?>
           </h3>
+          <?php if(have_rows('checkupIs_list')) :?>
           <ul class="checkup-is__inner-list">
             <?php while(have_rows('checkupIs_list')) : the_row(); ?>
             <li class="checkup-is__inner-point">
@@ -2759,6 +2760,7 @@ function checkupIs(){
             </li>
             <?php endwhile; ?>
           </ul>
+          <?php endif; ?>
         </div>
         <?php if(get_sub_field('checkupIs_img')):
           $img = get_sub_field('checkupIs_img');?>
@@ -2769,7 +2771,7 @@ function checkupIs(){
         </div>
         <?php endif; ?>
       </div>
-      <?php endif; ?>
+
     </div>
   </section>
 

@@ -1,6 +1,10 @@
 <?php get_header(); ?>
 
     <main class="main" id="checkup-main">
+
+      <?php echo renderBlocksSingleCheckup();?>
+
+    <!-- Первый блок - Чекап основная -->
       <section class="front-block _image-wrapper _section-lg">
         <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
         <div class="container">
@@ -32,7 +36,6 @@
         </div>
       </section>
 
-      <?php echo renderBlocksSingleCheckup();?>
 
       <section class="services">
         <div class="container">
@@ -878,6 +881,7 @@
         </div>
       </section>
 
+      <!-- Этапы прохождения -->
       <section class="checkup-stages _section-lg">
         <div class="container">
           <h2 class="checkup-stages__title _title">
@@ -1096,6 +1100,7 @@
         </div>
       </section>
 
+      <!-- Персональный план -->
       <section class="personal-plan">
         <div class="container">
           <h2 class="personal-plan__title _title">
@@ -1127,6 +1132,7 @@
         </div>
       </section>
 
+      <!-- Форма ОС 1 -->
       <section class="callback ">
         <div class="container">
           <div class="callback__inner _image-wrapper relative">
@@ -1171,6 +1177,7 @@
         </div>
       </section>
 
+      <!-- Отзывы блогеров -->
       <section class="reviews _section-lg">
         <div class="container">
           <div class="reviews__top">
@@ -1281,6 +1288,7 @@
         </p>
       </section>
 
+      <!-- Блок отзывов (изображения вытянутые) -->
       <section class="checkup-reviews _section-lg">
         <div class="container">
           <div class="checkup-reviews__top">
@@ -1345,7 +1353,7 @@
       </section>
 
       <div class="wrapper-bg _section-lg">
-
+        <!-- Рейтинг клиники -->
         <section class="rating">
           <span class="rating__top-num">
             10
