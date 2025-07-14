@@ -27,6 +27,7 @@
 // directionsMethods : Методы диагностики и лечения
 // directionsDoctor : Врачи клиники
 // directionsPrice : Стоимость лечения
+// stagesOfTreatment : Этапы лечения
 
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
@@ -113,6 +114,9 @@ function renderBlocksSingleCheckup() {
           break;
         case 'directionsPrice' :
           echo directionsPrice();
+          break;
+        case 'stagesOfTreatment':
+          echo stagesOfTreatment();
           break;
         case 'wrapperStart':
           $type = get_sub_field('wrapperStart_variants');
@@ -732,11 +736,10 @@ function checkupStages(){
           </div>
           <div class="checkup-stages__items">
               <?php
-              $counter = 1;
               if(have_rows('checkupStages_steps')) :
+                $counter = 1;
                   while(have_rows('checkupStages_steps')) : the_row();
-                      $num = str_pad($counter, 2, '0', STR_PAD_LEFT);
-              ?>
+                      $num = str_pad($counter, 2, '0', STR_PAD_LEFT); ?>
               <div class="checkup-stages__item">
                   <span class="checkup-stages__item-stage">
                       <?php echo $num; ?>
@@ -2427,6 +2430,49 @@ function directionsPrice(){
             </div>
           </div>
           <?php endif; ?>
+        </div>
+        <?php $counter++; endwhile; ?>
+      </div>
+      <?php endif; ?>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+
+// Этапы лечения
+function stagesOfTreatment(){
+  ob_start(); ?>
+
+  <section class="checkup-stages _section-lg" style="background-image: url(<?php echo esc_url(get_sub_field('stagesOfTreatment_img')['url']); ?>);">
+    <div class="container">
+      <h2 class="checkup-stages__title _title _white-text">
+        <?php the_sub_field('stagesOfTreatment_title'); ?>
+      </h2>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <?php if(have_rows('stagesOfTreatment_steps')) :
+        $counter = 1; ?>
+      <div class="checkup-stages__elems">
+        <?php while(have_rows('stagesOfTreatment_steps')) : the_row();
+        $num = str_pad($counter, 2, '0', STR_PAD_LEFT); ?>
+        <div class="checkup-stages__elem">
+          <div class="checkup-stages__elem-top">
+            <span class="checkup-stages__elem-num">
+              <?php echo $num; ?>
+            </span>
+            <span class="checkup-stages__elem-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </span>
+          </div>
+          <h4 class="checkup-stages__elem-title">
+            <?php the_sub_field('title_step'); ?>
+          </h4>
+          <p class="checkup-stages__elem-text">
+            <?php the_sub_field('text_step'); ?>
+          </p>
         </div>
         <?php $counter++; endwhile; ?>
       </div>
