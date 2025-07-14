@@ -1013,7 +1013,7 @@ function checkupCompound() {
                               </svg>
                           </div>
                       </div>
-
+                      <?php if(have_rows('compounds')) : while(have_rows('compounds')) : the_row()?>
                       <div class="checkup-compound__item-body accordion-body">
                           <?php if(have_rows('compound_list')) : ?>
                               <ul class="checkup-compound__item-list">
@@ -1049,6 +1049,7 @@ function checkupCompound() {
                               </div>
                           <?php endif; ?>
                       </div>
+                      <?php endwhile; endif; ?>
                   </div>
                   <?php
                       $counter++;
