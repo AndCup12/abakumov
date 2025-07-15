@@ -4,6 +4,7 @@
 // checkupFrontBlock : Первый блок
 // checkupFrontBlockMain : Первый блок - Чекап основная
 // firstBlockDirection : Первый блок - Направления основная
+// firstBlockService : Первый блок - Услуги главная
 // advatages : Преимущества
 // checkupQuestions : Зачем проходить 'направление'
 // doctorWithQuotes : Врач с цитатами
@@ -62,6 +63,9 @@ function renderBlocksSingleCheckup() {
           break;
         case 'frontBlockMain';
           echo frontBlockMain();
+          break;
+        case 'firstBlockService':
+          echo firstBlockService();
           break;
         case 'advantages':
           echo advantages();
@@ -366,6 +370,55 @@ function frontBlockMain(){
   <?php return ob_get_clean();
 }
 
+// Первый блок - Услуги
+function firstBlockService(){
+  ob_start(); ?>
+
+  <section class="front-block _image-wrapper _section-lg">
+    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
+    <div class="container relative">
+      <div class="front-block__inner">
+        <div class="front-block__left">
+          <h1 class="front-block__title _title">
+            <?php the_field('meta_h1'); ?>
+          </h1>
+          <?php $services = get_sub_field('firstBlockService_services');
+          if($services) :?>
+              <div class="cursor">
+                  <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+              </div>
+              <div class="front-block__services">
+                  <?php foreach($services as $post_ids) :?>
+                  <a class="front-block__service" href="<?php echo get_permalink($post_ids); ?>">
+                      <?php if(get_the_post_thumbnail($post_ids)) :?>
+                      <div class="front-block__service-wrapper">
+                          <?php echo get_the_post_thumbnail($post_ids, 'full', [
+                              'class' => 'front-block__service-img _img',
+                              'alt' => get_the_title($post_ids),
+                              'loading' => 'lazy'
+                          ]); ?>
+                      </div>
+                      <?php endif; ?>
+                      <div class="front-block__service-info">
+                          <h4 class="front-block__service-title">
+                              <?php echo get_the_title($post_ids); ?>
+                          </h4>
+                          <div class="front-block__service-btn _gray-btn">
+                              <span>Узнать подробнее</span>
+                              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+                          </div>
+                      </div>
+                  </a>
+                  <?php endforeach;?>
+              </div>
+          <?php endif; ?>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
 // Преимущества
 function advantages() {
   ob_start(); ?>
