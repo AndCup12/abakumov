@@ -154,6 +154,181 @@ get_header();
     </div>
   </section>
 
+  <!-- Клиника стала воплощением опыта, -->
+  <div class="wrapper-gray _section-lg space-top">
+    <section class="directions-doctor">
+      <img class="directions-doctor__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
+      <div class="container relative">
+        <h2 class="directions-doctor__title _title">
+          Клиника стала воплощением опыта,
+        </h2>
+        <p class="directions-doctor__subtitle _subtitle">
+          ценностей и медицинской философии основателя
+        </p>
+        <div class="directions-doctor__filters">
+          <div class="directions-doctor__filters-items">
+            <div class="directions-doctor__item filters-item">
+              <div class="directions-doctor__left">
+                <div class="directions-doctor__left-wrapper">
+                  <img class="directions-doctor__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-3.webp" alt="">
+                </div>
+              </div>
+              <div class="directions-doctor__right">
+                <h5 class="directions-doctor__right-subtitle _title">
+                  Олег Абакумов — врач, который прошёл путь<br> от медбрата скорой помощи до создателя<br> частной клиники нового формата
+                </h5>
+                <ul class="directions-doctor__right-list">
+                  <li class="directions-doctor__right-point">
+                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                    <span>
+                      Более 10 000 пациентов получили квалифицированную<br> помощь под его руководством.
+                    </span>
+                  </li>
+                  <li class="directions-doctor__right-point">
+                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                    <span>
+                      В клинической практике делает ставку на точность,<br> индивидуальность и доверие.
+                    </span>
+                  </li>
+                  <li class="directions-doctor__right-point">
+                    <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                    <span>
+                      В основе подхода — проверенные методики и живая<br> забота о человеке, а не просто о диагнозе
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Новый блок  устраняем причину -->
+  <section class="delete-cause">
+    <div class="container">
+      <h2 class="delete-cause__title _title">
+        Лечим не симптомы —<br>
+        устраняем причину
+      </h2>
+      <div class="delete-cause__inner">
+        <div class="delete-cause__left">
+          <div class="delete-cause__left-wrapper">
+            <img class="delete-cause__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/delete-cause-1.webp" alt=" delete-cause-1">
+          </div>
+        </div>
+        <div class="delete-cause__right">
+          <h4 class="delete-cause__right-title _title">
+            Пациенты часто списывают<br> слабость на стресс, головную<br> боль — на погоду, а проблемы<br>
+            с ЖКТ — на «что-то не то съел»
+          </h4>
+          <p class="delete-cause__right-text">
+            Но настоящее здоровье — это не жизнь между<br> симптомами, а энергия и ресурсность каждый день
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrapper-bg _section-lg space-top">
+    <section class="new-level bg-bottom">
+      <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
+      <div class="container relative">
+        <h2 class="new-level__title _title">
+          Abakumov Clinic —<br>
+          это клиника-ментор
+        </h2>
+        <p class="new-level__subtitle _subtitle">
+          Мы сопровождаем пациента от первого визита до стабилизации состояния,<br>
+          беря на себя всё, что обычно вызывает тревогу и перегрузку
+        </p>
+        <p class="new-level__name">
+          Вам больше не нужно:
+        </p>
+        <div class="cursor">
+          <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+        </div>
+        <div class="new-level__items">
+          <div class="new-level__item">
+            <span class="new-level__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/new-level-1.svg'); ?>
+            </span>
+            <h4 class="new-level__item-title">
+              Разбираться в диагнозах и<br> сложной медицинской<br> терминологии —
+            </h4>
+            <p class="new-level__item-text">
+              мы всё объясняем простым<br> и человеческим языком
+            </p>
+          </div>
+          <div class="new-level__item">
+            <span class="new-level__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/new-level-2.svg'); ?>
+            </span>
+            <h4 class="new-level__item-title">
+              Жить по часам, зависеть<br>
+              от таблеток и процедур —
+            </h4>
+            <p class="new-level__item-text">
+              план лечения будет интегрирован в ваш<br> привычный ритм, без стресса и <br>ограничений
+            </p>
+          </div>
+          <div class="new-level__item">
+            <span class="new-level__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/new-level-3.svg'); ?>
+
+            </span>
+            <h4 class="new-level__item-title">
+              Проводить свое свободное<br> время в клинике —
+            </h4>
+            <p class="new-level__item-text">
+              часть обследований и процедур<br> вы можете пройти у себя дома<br> или в офисе
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- В этом блоке есть изменения - добавлен класс grid-3 -->
+  <section class="care-comfort">
+    <div class="container">
+      <h2 class="care-comfort__title _title">
+        Abakumov Clinic — это забота
+      </h2>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="care-comfort__items grid-3">
+        <div class="care-comfort__item">
+          <div class="care-comfort__item-wrapper">
+            <img class="care-comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/care-comfort-1.webp" alt="care-comfort-1">
+          </div>
+          <h4 class="care-comfort__item-title">
+            Просторная закрытая<br>
+            парковка за шлагбаумом
+          </h4>
+        </div>
+        <div class="care-comfort__item">
+          <div class="care-comfort__item-wrapper">
+            <img class="care-comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/care-comfort-4.webp" alt="care-comfort-4">
+          </div>
+          <h4 class="care-comfort__item-title">
+            Комфортная зона ожидания
+          </h4>
+        </div>
+        <div class="care-comfort__item">
+          <div class="care-comfort__item-wrapper">
+            <img class="care-comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/care-comfort-5.webp" alt="care-comfort-5">
+          </div>
+          <h4 class="care-comfort__item-title">
+            Абсолютная стерильность
+          </h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
   <!-- Контакты -->
   <section class="contacts">
     <div class="container">

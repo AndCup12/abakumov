@@ -512,30 +512,37 @@ a {
   }
 }
 
-.space-null{
+.space-null {
   padding-bottom: 0 !important;
 }
 
-.space-top-negative{
+.space-top-negative {
   margin-top: -120px;
 
   @include mixins.xl {
-      margin-top: -100px;
+    margin-top: -100px;
   }
 
   @include mixins.lg {
-      margin-top: -40px;
+    margin-top: -40px;
   }
 }
 
-.items-center{
+.items-center {
   justify-content: center;
 }
-.items-between{
+
+.items-between {
   justify-content: center;
 }
-.d-flex{
+
+.d-flex {
   display: flex !important;
+}
+
+.bg-bottom {
+  background-position: center 30% !important;
+  background-size: auto !important;
 }
 
 

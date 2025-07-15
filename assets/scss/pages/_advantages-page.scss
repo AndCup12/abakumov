@@ -119,16 +119,16 @@
     background-position: bottom;
 
     @include mixins.xl {
-        padding: 100px 0;
-        background-position: center 30%;
+      padding: 100px 0;
+      background-position: center 30%;
     }
 
     @include mixins.md {
-        background-position: center 20%;
+      background-position: center 20%;
     }
 
     @include mixins.lg {
-        padding: 40px 0;
+      padding: 40px 0;
     }
 
     &__logo {
@@ -141,4 +141,105 @@
     }
   }
 
+  .directions-doctor {
+    &__title {
+      margin-bottom: 0;
+    }
+
+    &__subtitle {
+      text-align: center;
+      margin: 24px 0 64px;
+
+      @include mixins.xxl {
+        margin-bottom: 50px;
+      }
+
+      @include mixins.xl {
+        margin-bottom: 40px;
+      }
+
+      @include mixins.lg {
+        margin-bottom: 30px;
+      }
+
+      @include mixins.md {
+        margin: 15px 0 20px;
+      }
+
+      @include mixins.sm {
+        margin-bottom: 15px;
+      }
+    }
+
+    &__left-wrapper {
+      padding-bottom: calc(549/644*100%);
+
+      @include mixins.lg {
+        padding-bottom: 63%;
+      }
+    }
+
+    &__right-subtitle {
+      margin-bottom: 60px;
+
+      @include mixins.xxl {
+        margin-bottom: 50px;
+      }
+
+      @include mixins.xl {
+        margin-bottom: 30px;
+      }
+
+      @include mixins.lg {
+        margin-bottom: 20px;
+      }
+
+      @include mixins.md {
+        margin-bottom: 15px;
+      }
+    }
+
+    &__right-list {
+      display: grid;
+      gap: 20px;
+
+      @include mixins.xl {
+        gap: 10px;
+      }
+    }
+  }
+
+  .new-level {
+    &__title {
+      margin-bottom: 0;
+    }
+
+    &__subtitle {
+      margin-bottom: 70px;
+
+      @include mixins.xxl {
+        margin-bottom: 60px;
+      }
+
+      @include mixins.xl {
+        margin-bottom: 50px;
+      }
+
+      @include mixins.lg {
+        margin-bottom: 40px;
+      }
+
+      @include mixins.md {
+        margin: 15px 0 30px;
+      }
+
+      @include mixins.sm {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__items{
+      margin-top: 0;
+    }
+  }
 }
