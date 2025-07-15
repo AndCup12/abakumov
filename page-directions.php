@@ -4,6 +4,7 @@ get_header();
 
 <main class="main" id="directions-main">
 
+  <!-- Первый блок - Направления основная -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
     <div class="container">
@@ -44,7 +45,7 @@ get_header();
     </div>
   </section>
 
-
+  <!-- Преимущества -->
   <section class="services">
     <div class="container">
       <div class="cursor">
@@ -98,7 +99,7 @@ get_header();
     </div>
   </section>
 
-
+  <!-- Каталог направлений -->
   <section class="catalog _section-lg">
     <div class="container">
       <h2 class="catalog__title _title">
@@ -290,7 +291,7 @@ get_header();
     </div>
   </section>
 
-
+  <!-- Форма ОС - 1 -->
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">
@@ -332,7 +333,7 @@ get_header();
     </div>
   </section>
 
-
+  <!-- Этапы лечения -->
   <section class="checkup-stages _section-lg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/checkup-stages-bg-3.webp);">
     <div class="container">
       <h2 class="checkup-stages__title _title _white-text">
@@ -434,8 +435,8 @@ get_header();
   </section>
 
   <div class="wrapper-bg _section-lg">
-
-  <section class="new-level">
+    <!-- Медицина нового уровня -->
+    <section class="new-level">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
       <div class="container relative">
         <h2 class="new-level__title _title">
@@ -551,7 +552,7 @@ get_header();
     </section>
 
   </div>
-
+  <!-- Отызывы блогеров -->
   <section class="reviews _section-lg">
     <div class="container">
       <div class="reviews__top">
@@ -632,7 +633,7 @@ get_header();
     </p>
   </section>
 
-
+  <!-- Блок отзывов (изображения вытянутые) -->
   <section class="checkup-reviews _section-lg">
     <div class="container">
       <div class="checkup-reviews__top">
@@ -681,7 +682,7 @@ get_header();
     </div>
   </section>
 
-
+  <!-- Видео-отзывы -->
   <section class="checkup-after _section-lg">
     <div class="container">
       <h2 class="checkup-after__title _title">
@@ -734,208 +735,208 @@ get_header();
   </section>
 
   <div class="wrapper-bg _section-lg">
-
+  <!-- Рейтинг клиники -->
   <section class="rating">
-      <span class="rating__top-num">
-        10
-      </span>
-      <div class="container">
-        <h2 class="rating__title _title">
-          Abakumov Clinic входит<br>
-          в ТОП-10 частных клиник<br>
-          превентивной медицины Москвы
-        </h2>
-        <p class="rating__subtitle _subtitle">
-          по рейтингу и количеству отзывов на независимых площадках
-        </p>
-        <div class="rating__top">
-          <div class="rating__top-left">
-            <h3 class="rating__top-title">
-              Максимальные оценки<br>
-              в сервисе <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rating-yandex.webp" alt="rating-yandex">
-            </h3>
-            <img class="rating__top-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating-num.webp" alt="rating-num">
+    <span class="rating__top-num">
+      10
+    </span>
+    <div class="container">
+      <h2 class="rating__title _title">
+        Abakumov Clinic входит<br>
+        в ТОП-10 частных клиник<br>
+        превентивной медицины Москвы
+      </h2>
+      <p class="rating__subtitle _subtitle">
+        по рейтингу и количеству отзывов на независимых площадках
+      </p>
+      <div class="rating__top">
+        <div class="rating__top-left">
+          <h3 class="rating__top-title">
+            Максимальные оценки<br>
+            в сервисе <img src="<?php echo get_template_directory_uri(); ?>/assets/images/rating-yandex.webp" alt="rating-yandex">
+          </h3>
+          <img class="rating__top-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating-num.webp" alt="rating-num">
+        </div>
+        <div class="cursor rating__elems-cursor">
+          <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+        </div>
+        <div class="rating__elems">
+          <div class="rating__elem">
+            <div class="rating__elem-top">
+              <h5 class="rating__elem-title">
+                Персонал
+              </h5>
+              <p class="rating__elem-percent">
+                98%
+                <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
+              </p>
+            </div>
+            <p class="rating__elem-text">
+              172 отзыва
+            </p>
           </div>
-          <div class="cursor rating__elems-cursor">
-            <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+          <div class="rating__elem">
+            <div class="rating__elem-top">
+              <h5 class="rating__elem-title">
+                Качество лечения
+              </h5>
+              <p class="rating__elem-percent">
+                98%
+                <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
+              </p>
+            </div>
+            <p class="rating__elem-text">
+              85 отзывов
+            </p>
           </div>
-          <div class="rating__elems">
-            <div class="rating__elem">
-              <div class="rating__elem-top">
-                <h5 class="rating__elem-title">
-                  Персонал
-                </h5>
-                <p class="rating__elem-percent">
-                  98%
-                  <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
-                </p>
-              </div>
-              <p class="rating__elem-text">
-                172 отзыва
+          <div class="rating__elem">
+            <div class="rating__elem-top">
+              <h5 class="rating__elem-title">
+                Анализы
+              </h5>
+              <p class="rating__elem-percent">
+                98%
+                <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
               </p>
             </div>
-            <div class="rating__elem">
-              <div class="rating__elem-top">
-                <h5 class="rating__elem-title">
-                  Качество лечения
-                </h5>
-                <p class="rating__elem-percent">
-                  98%
-                  <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
-                </p>
-              </div>
-              <p class="rating__elem-text">
-                85 отзывов
-              </p>
-            </div>
-            <div class="rating__elem">
-              <div class="rating__elem-top">
-                <h5 class="rating__elem-title">
-                  Анализы
-                </h5>
-                <p class="rating__elem-percent">
-                  98%
-                  <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
-                </p>
-              </div>
-              <p class="rating__elem-text">
-                41 отзыв
-              </p>
-            </div>
-            <div class="rating__elem">
-              <div class="rating__elem-top">
-                <h5 class="rating__elem-title">
-                  Интерьер
-                </h5>
-                <p class="rating__elem-percent">
-                  100%
-                  <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
-                </p>
-              </div>
-              <p class="rating__elem-text">
-                40 отзывов
-              </p>
-            </div>
-            <div class="rating__elem">
-              <div class="rating__elem-top">
-                <h5 class="rating__elem-title">
-                  Время ожидания
-                </h5>
-                <p class="rating__elem-percent">
-                  91%
-                  <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
-                </p>
-              </div>
-              <p class="rating__elem-text">
-                22 отзыва
-              </p>
-            </div>
-            <div class="rating__elem">
-              <div class="rating__elem-top">
-                <h5 class="rating__elem-title">
-                  Медицинский осмотр
-                </h5>
-                <p class="rating__elem-percent">
-                  100%
-                  <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
-                </p>
-              </div>
-              <p class="rating__elem-text">
-                13 отзывов
-              </p>
-            </div>
-            <div class="rating__elem">
-              <div class="rating__elem-top">
-                <h5 class="rating__elem-title">
-                  Расположение
-                </h5>
-                <p class="rating__elem-percent">
-                  98%
-                  <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
-                </p>
-              </div>
-              <p class="rating__elem-text">
-                13 отзывов
-              </p>
-            </div>
+            <p class="rating__elem-text">
+              41 отзыв
+            </p>
           </div>
-          <div class="rating__right swiper-navigation">
-            <div class="swiper-button-prev swiper-navigation__prev">
-              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+          <div class="rating__elem">
+            <div class="rating__elem-top">
+              <h5 class="rating__elem-title">
+                Интерьер
+              </h5>
+              <p class="rating__elem-percent">
+                100%
+                <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
+              </p>
             </div>
-            <div class="swiper-button-next swiper-navigation__next">
-              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            <p class="rating__elem-text">
+              40 отзывов
+            </p>
+          </div>
+          <div class="rating__elem">
+            <div class="rating__elem-top">
+              <h5 class="rating__elem-title">
+                Время ожидания
+              </h5>
+              <p class="rating__elem-percent">
+                91%
+                <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
+              </p>
             </div>
+            <p class="rating__elem-text">
+              22 отзыва
+            </p>
+          </div>
+          <div class="rating__elem">
+            <div class="rating__elem-top">
+              <h5 class="rating__elem-title">
+                Медицинский осмотр
+              </h5>
+              <p class="rating__elem-percent">
+                100%
+                <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
+              </p>
+            </div>
+            <p class="rating__elem-text">
+              13 отзывов
+            </p>
+          </div>
+          <div class="rating__elem">
+            <div class="rating__elem-top">
+              <h5 class="rating__elem-title">
+                Расположение
+              </h5>
+              <p class="rating__elem-percent">
+                98%
+                <?php include(get_template_directory() . '/assets/images/icons/finger.svg'); ?>
+              </p>
+            </div>
+            <p class="rating__elem-text">
+              13 отзывов
+            </p>
           </div>
         </div>
-        <div class="rating__swiper swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide rating__slide">
-              <a class="rating__item" href="<?php echo get_template_directory_uri(); ?>/assets/images/rating-1.webp" data-fancybox="rating-gallery">
-                <img class="rating__item-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating-1.webp" alt="rating-1">
-              </a>
-            </div>
-            <div class="swiper-slide rating__slide">
-              <a class="rating__item" href="<?php echo get_template_directory_uri(); ?>/assets/images/rating-2.webp" data-fancybox="rating-gallery">
-                <img class="rating__item-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating-2.webp" alt="rating-2">
-              </a>
-            </div>
-            <div class="swiper-slide rating__slide">
-              <a class="rating__item" href="<?php echo get_template_directory_uri(); ?>/assets/images/rating-3.webp" data-fancybox="rating-gallery">
-                <img class="rating__item-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating-3.webp" alt="rating-3">
-              </a>
-            </div>
-            <div class="swiper-slide rating__slide">
-              <a class="rating__item" href="<?php echo get_template_directory_uri(); ?>/assets/images/rating-1.webp" data-fancybox="rating-gallery">
-                <img class="rating__item-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating-1.webp" alt="rating-1">
-              </a>
-            </div>
+        <div class="rating__right swiper-navigation">
+          <div class="swiper-button-prev swiper-navigation__prev">
+            <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
           </div>
-        </div>
-        <div class="rating__links">
-          <a class="rating__link" href="#" target="_blank">
-            <img class="rating__link-logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating__logo-1.webp" alt="rating-logo">
-            <div class="rating__link-center">
-              <?php include(get_template_directory() . '/assets/images/icons/star.svg'); ?>
-              <p class="rating__link-num">
-                5
-              </p>
-              <p class="rating__link-grade">
-                52 оценки
-              </p>
-            </div>
-            <div class="rating__link-right">
-              <p class="arrow-icon">
-                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
-              </p>
-              <span class="rating__right-text">
-                Открыть отзывы
-              </span>
-            </div>
-          </a>
-          <a class="rating__link" href="#" target="_blank">
-            <img class="rating__link-logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating__logo-2.webp" alt="rating-logo">
-            <div class="rating__link-center">
-              <?php include(get_template_directory() . '/assets/images/icons/star.svg'); ?>
-              <p class="rating__link-grade">
-                19 отзывов
-              </p>
-            </div>
-            <div class="rating__link-right">
-              <p class="arrow-icon">
-                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
-              </p>
-              <span class="rating__right-text">
-                Открыть отзывы
-              </span>
-            </div>
-          </a>
+          <div class="swiper-button-next swiper-navigation__next">
+            <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+          </div>
         </div>
       </div>
-    </section>
+      <div class="rating__swiper swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide rating__slide">
+            <a class="rating__item" href="<?php echo get_template_directory_uri(); ?>/assets/images/rating-1.webp" data-fancybox="rating-gallery">
+              <img class="rating__item-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating-1.webp" alt="rating-1">
+            </a>
+          </div>
+          <div class="swiper-slide rating__slide">
+            <a class="rating__item" href="<?php echo get_template_directory_uri(); ?>/assets/images/rating-2.webp" data-fancybox="rating-gallery">
+              <img class="rating__item-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating-2.webp" alt="rating-2">
+            </a>
+          </div>
+          <div class="swiper-slide rating__slide">
+            <a class="rating__item" href="<?php echo get_template_directory_uri(); ?>/assets/images/rating-3.webp" data-fancybox="rating-gallery">
+              <img class="rating__item-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating-3.webp" alt="rating-3">
+            </a>
+          </div>
+          <div class="swiper-slide rating__slide">
+            <a class="rating__item" href="<?php echo get_template_directory_uri(); ?>/assets/images/rating-1.webp" data-fancybox="rating-gallery">
+              <img class="rating__item-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating-1.webp" alt="rating-1">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="rating__links">
+        <a class="rating__link" href="#" target="_blank">
+          <img class="rating__link-logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating__logo-1.webp" alt="rating-logo">
+          <div class="rating__link-center">
+            <?php include(get_template_directory() . '/assets/images/icons/star.svg'); ?>
+            <p class="rating__link-num">
+              5
+            </p>
+            <p class="rating__link-grade">
+              52 оценки
+            </p>
+          </div>
+          <div class="rating__link-right">
+            <p class="arrow-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </p>
+            <span class="rating__right-text">
+              Открыть отзывы
+            </span>
+          </div>
+        </a>
+        <a class="rating__link" href="#" target="_blank">
+          <img class="rating__link-logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/rating__logo-2.webp" alt="rating-logo">
+          <div class="rating__link-center">
+            <?php include(get_template_directory() . '/assets/images/icons/star.svg'); ?>
+            <p class="rating__link-grade">
+              19 отзывов
+            </p>
+          </div>
+          <div class="rating__link-right">
+            <p class="arrow-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </p>
+            <span class="rating__right-text">
+              Открыть отзывы
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
   </div>
-
+  <!-- Комфорт -->
   <section class="care-comfort">
     <div class="container">
       <h2 class="care-comfort__title _title">
@@ -983,7 +984,7 @@ get_header();
   </section>
 
   <div class="divider"></div>
-
+  <!-- Контакты -->
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -1062,7 +1063,7 @@ get_header();
     </div>
   </section>
 
-
+  <!-- Карта -->
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">

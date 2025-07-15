@@ -29,7 +29,7 @@
     <img class="front-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors.webp" alt="doctors">
   </section>
 
-
+  <!-- Комфорт как дома (слайдер)-->
   <section class="comfort">
     <div class="container">
       <div class="comfort__top">
@@ -117,7 +117,7 @@
   </section>
 
   <div class="divider"></div>
-
+  <!-- Мы не просто лечим (слайдер) -->
   <section class="just-treat">
     <div class="container">
       <div class="just-treat__top">
@@ -159,7 +159,7 @@
   </section>
 
   <div class="wrapper-bg _section-lg">
-
+    <!-- Комплексные обследования -->
     <section class="ready-programs">
       <div class="container">
         <h2 class="ready-programs__title _title">
@@ -269,7 +269,7 @@
       </div>
     </section>
 
-
+    <!-- Консилиум -->
     <section class="consultation _image-wrapper">
       <div class="container">
         <h2 class="consultation__title _title">
@@ -291,7 +291,7 @@
     </section>
 
   </div>
-
+  <!-- Преимущества -->
   <section class="services">
     <div class="container">
       <div class="cursor">
@@ -346,7 +346,7 @@
     </div>
   </section>
 
-
+  <!-- Каталог направлений -->
   <section class="catalog _section-lg">
     <div class="container">
       <h2 class="catalog__title _title">
@@ -541,7 +541,7 @@
     </div>
   </section>
 
-
+  <!-- Форма ОС - 1 -->
   <section class="callback">
     <div class="container">
       <div class="callback__inner _image-wrapper">
@@ -583,7 +583,7 @@
     </div>
   </section>
 
-
+  <!-- Блок с видео -->
   <section class="video-block">
     <div class="container relative">
       <div class="video-block__icon">
@@ -611,7 +611,7 @@
     </div>
   </section>
 
-
+  <!-- Отзывы блогеров -->
   <section class="reviews _section-lg">
     <div class="container">
       <div class="reviews__top">
@@ -693,7 +693,7 @@
     </p>
   </section>
 
-
+  <!-- Контакты -->
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -776,7 +776,7 @@
     </div>
   </section>
 
-
+  <!-- Карта -->
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">

@@ -36,6 +36,9 @@
 // checkupIs : Чекап это
 // reviewsBloger : Отзывы блогеров
 // catalogDirections : Каталог направлений
+// comfort : Комфорт как дома
+// justTreat : Мы не просто лечим
+// сonsilium : Консилиум
 
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
@@ -56,6 +59,9 @@ function renderBlocksSingleCheckup() {
           break;
         case 'firstBlockDirection':
           echo firstBlockDirection();
+          break;
+        case 'frontBlockMain';
+          echo frontBlockMain();
           break;
         case 'advantages':
           echo advantages();
@@ -149,6 +155,15 @@ function renderBlocksSingleCheckup() {
           break;
         case 'catalogDirections':
           echo catalogDirections();
+          break;
+        case 'comfort':
+          echo comfort();
+          break;
+        case 'justTreat':
+          echo justTreat();
+          break;
+        case 'сonsilium':
+          echo сonsilium();
           break;
         case 'wrapperStart':
           $type = get_sub_field('wrapperStart_variants');
@@ -303,6 +318,49 @@ function firstBlockDirection(){
         </div>
       </div>
     </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Превый блок - Главная
+function frontBlockMain(){
+  ob_start(); ?>
+
+  <section class="front-block _image-wrapper _section-lg">
+    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
+    <div class="container">
+      <div class="front-block__top">
+        <h1 class="front-block__title _title">
+          <?php the_field('meta_h1'); ?>
+        </h1>
+        <p class="front-block__subtitle _subtitle">
+          <?php the_sub_field('frontBlockMain_subtitle'); ?>
+        </p>
+        <?php if(get_sub_field('frontBlockMain_yandex')):
+          $img_yandex = get_sub_field('frontBlockMain_yandex');?>
+        <img class="front-block__yandex" src="<?php echo $img_yandex['url'];?>" alt="<?php echo $img_yandex['alt'];?>">
+        <?php endif; ?>
+        <?php if(get_sub_field('frontBlockMain_imgs')):
+          $imgs = get_sub_field('frontBlockMain_imgs'); ?>
+        <img class="front-block__right" src="<?php $imgs['url'];?>" alt="<?php echo $imgs['alt'];?>">
+        <?php endif; ?>
+      </div>
+      <div class="front-block__btns">
+        <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
+          <?php include(get_template_directory() . '/assets/images/icons/mail.svg'); ?>
+          <span>Записаться на прием</span>
+        </a>
+        <a class="front-block__btn _whatsapp-btn" href="https://wa.me/+79031003195" target="_blank">
+          <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+          <span>Записаться через WhatsApp</span>
+        </a>
+      </div>
+    </div>
+    <?php if(get_sub_field('frontBlockMain_doctors')) :
+      $doctors = get_sub_field('frontBlockMain_doctors'); ?>
+    <img class="front-block__img" src="<?php echo $doctors['url'];?>" alt="<?php echo $doctors['alt'];?>">
+    <?php endif; ?>
   </section>
 
   <?php return ob_get_clean();
@@ -2660,14 +2718,7 @@ function readyPrograms(){
         <?php while(have_rows('readyPrograms_points')) : the_row(); ?>
         <div class="ready-programs__item">
           <div class="ready-programs__item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
-                fill="white" />
-              <path
-                d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
-                fill="white" />
-            </svg>
+            <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
           </div>
           <h4 class="ready-programs__item-title">
             <?php the_sub_field('point_title'); ?>
@@ -2680,6 +2731,29 @@ function readyPrograms(){
       </div>
       <?php endif; ?>
     </div>
+    <?php if(have_rows('readyPrograms_cards')) :?>
+    <div class="ready-programs__elems">
+      <?php while(have_rows('readyPrograms_cards')) : the_row();?>
+      <div class="ready-programs__elem">
+        <?php if(get_sub_field('card_img')) :
+          $img = get_sub_field('card_img'); ?>
+        <div class="ready-programs__elem-wrapper">
+          <img class="ready-programs__elem-img _img" src="<?php echo $img['url'];?>" alt="<?php echo $img['alt'];?>">
+        </div>
+        <?php endif; ?>
+        <div class="ready-programs__elem-info">
+          <h4 class="ready-programs__elem-title">
+            <?php the_sub_field('card_title'); ?>
+          </h4>
+          <a class="ready-programs__elem-btn _gray-btn" href="<?php the_sub_field('card_link'); ?>">
+            <span>Выбрать программу</span>
+            <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+          </a>
+        </div>
+      </div>
+      <?php endwhile; ?>
+    </div>
+    <?php endif; ?>
   </section>
 
   <?php return ob_get_clean();
@@ -2931,6 +3005,173 @@ function catalogDirections(){
         <?php $counter++; endforeach; ?>
       </div>
       <?php endif; ?>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Комфорт как дома
+function comfort(){
+  ob_start(); ?>
+
+    <section class="comfort">
+      <div class="container">
+        <div class="comfort__top">
+          <div class="comfort__left">
+            <div class="comfort__left-top">
+              <h2 class="comfort__title _title">
+                Комфорт как дома. <br>
+                Забота — на каждом шаге
+              </h2>
+              <p class="comfort__suptitle">
+                Никаких стерильных<br> коридоров, шумных<br> регистратур и очередей
+              </p>
+            </div>
+            <div class="comfort__subtitle _subtitle">
+              С первых секунд, когда вы перешагиваете порог нашей клиники, <br>
+              привычный образ медицинского учреждения растворяется
+            </div>
+          </div>
+          <div class="comfort__right swiper-navigation">
+            <div class="swiper-button-prev swiper-navigation__prev">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+            <div class="swiper-button-next swiper-navigation__next">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+        </div>
+        <div class="comfort__swiper swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide comfort__slide">
+              <div class="comfort__item">
+                <div class="comfort__item-wrapper">
+                  <img class="comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/comfort-1.webp" alt="comfort-1">
+                </div>
+                <div class="comfort__item-info">
+                  <p class="comfort__item-text">
+                    <span>Уютные зоны отдыха, кафе-лаундж<br>
+                      и тишина,</span> где можно восстановиться<br> до или после процедур
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide comfort__slide">
+              <div class="comfort__item">
+                <div class="comfort__item-wrapper">
+                  <img class="comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/comfort-2.webp" alt="comfort-2">
+                </div>
+                <div class="comfort__item-info">
+                  <p class="comfort__item-text">
+                    <span>Доброжелательный персонал,<br></span> который встречает, сопровождает<br> и всегда рядом,
+                    если нужно
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide comfort__slide">
+              <div class="comfort__item">
+                <div class="comfort__item-wrapper">
+                  <img class="comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/comfort-3.webp" alt="comfort-3">
+                </div>
+                <div class="comfort__item-info">
+                  <p class="comfort__item-text">
+                    <span>Тёплый свет, мягкие интерьеры,<br> внимание к деталям</span> — всё, чтобы вы<br> чувствовали
+                    себя не пациентом, а<br> гостем уровня five stars
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide comfort__slide">
+              <div class="comfort__item">
+                <div class="comfort__item-wrapper">
+                  <img class="comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/comfort-4.webp" alt="comfort-4">
+                </div>
+                <div class="comfort__item-info">
+                  <p class="comfort__item-text">
+                    <span>Даже процедуры проходят мягко:<br></span> во время капельниц — LED-маски,<br> массажёры
+                    BORK, VR-очки для<br> снятия тревог
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <?php return ob_get_clean();
+}
+
+// Мы не просто лечим
+function justTreat(){
+  ob_start(); ?>
+
+  <section class="just-treat">
+    <div class="container">
+      <div class="just-treat__top">
+        <div class="just-treat__left">
+          <div class="just-treat__left-top">
+            <h2 class="just-treat__title _title">
+              Мы не просто лечим —
+            </h2>
+          </div>
+          <div class="just-treat__subtitle _subtitle">
+            мы формируем новое представление о том,<br> какой должна быть медицина
+          </div>
+        </div>
+        <div class="just-treat__right swiper-navigation">
+          <div class="swiper-button-prev swiper-navigation__prev">
+            <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+
+          </div>
+          <div class="swiper-button-next swiper-navigation__next">
+            <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+
+          </div>
+        </div>
+      </div>
+      <div class="just-treat__swiper swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide just-treat__slide">
+            <img class="just-treat__item" src="<?php echo get_template_directory_uri(); ?>/assets/images/just-treat-1.webp" alt="just-treat-1">
+          </div>
+          <div class="swiper-slide just-treat__slide">
+            <img class="just-treat__item" src="<?php echo get_template_directory_uri(); ?>/assets/images/just-treat-2.webp" alt="just-treat-2">
+          </div>
+          <div class="swiper-slide just-treat__slide">
+            <img class="just-treat__item" src="<?php echo get_template_directory_uri(); ?>/assets/images/just-treat-3.webp" alt="just-treat-3">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Консилиум
+function сonsilium(){
+  ob_start(); ?>
+
+  <section class="consultation _image-wrapper">
+    <div class="container">
+      <h2 class="consultation__title _title">
+        Консилиум экспертов: когда решает
+        команда, а не один врач
+      </h2>
+      <p class="consultation__subtitle _subtitle">
+        Мы объединяем мнения 27 врачей высшей категории,<br>
+        в том числе кандидатов медицинских наук и их клинический опыт,
+      </p>
+      <p class="consultation__text">
+        чтобы найти наиболее точный диагноз и эффективный путь к восстановлению
+      </p>
+      <a class="consultation__btn _main-btn" href="#">
+        Узнать о врачах подробнее
+      </a>
+      <img class="consultation__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors.webp" alt="doctors">
     </div>
   </section>
 
