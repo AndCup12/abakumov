@@ -36,6 +36,18 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
+    
+    &.grid-3{
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      @include mixins.xxl {
+        gap: 15px;
+      }
+  
+      @include mixins.xl {
+        gap: 10px;
+      }
+    }
 
     @include mixins.xxl {
       gap: 15px;

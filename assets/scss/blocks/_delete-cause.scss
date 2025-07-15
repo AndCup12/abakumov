@@ -1,0 +1,128 @@
+@use '../base/mixins' as mixins;
+
+.delete-cause {
+  margin-top: 120px;
+
+  @include mixins.xl {
+    margin-top: 100px;
+  }
+
+  @include mixins.lg {
+    margin-top: 40px;
+  }
+
+  &__title {
+    text-align: center;
+    margin-bottom: 70px;
+
+    @include mixins.xxl {
+      margin-bottom: 60px;
+    }
+
+    @include mixins.xl {
+      margin-bottom: 50px;
+    }
+
+    @include mixins.lg {
+      margin-bottom: 40px;
+    }
+
+    @include mixins.md {
+      margin: 15px 0 30px;
+    }
+
+    @include mixins.sm {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    gap: 82px;
+
+    @include mixins.xxl {
+      gap: 30px;
+    }
+
+    @include mixins.lg {
+      gap: 20px;
+      flex-direction: column;
+    }
+  }
+
+  &__left {
+    max-width: 764px;
+    width: 100%;
+
+    @include mixins.xl {
+      max-width: 365px;
+    }
+
+    @include mixins.lg {
+      max-width: none;
+    }
+  }
+
+  &__left-wrapper {
+    padding-bottom: calc(457/764*100%);
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+
+    @include mixins.lg {
+      padding-bottom: 63%;
+    }
+  }
+
+  &__right {
+    margin-top: 50px;
+    width: 100%;
+
+    @include mixins.xl {
+      margin-top: 30px;
+    }
+
+    @include mixins.lg {
+      margin-top: 0;
+    }
+
+  }
+
+  &__right-title {
+    font-weight: 500;
+    font-size: 36px;
+    margin-bottom: 30px;
+
+    @include mixins.xl {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    @include mixins.lg {
+      font-size: 26px;
+    }
+
+    @include mixins.md {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    @include mixins.sm {
+        font-size: 22px;
+    }
+  }
+
+  &__right-exp {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: calc(28/20*100%);
+
+    @include mixins.xxl {
+      margin-bottom: 20px;
+    }
+
+    @include mixins.md {
+      font-size: 18px;
+    }
+  }
+}
