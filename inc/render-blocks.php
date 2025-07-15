@@ -2966,9 +2966,11 @@ function reviewsBloger(){
         </div>
       </div>
       <?php endif; ?>
+      <?php if(is_front_page()) {?>
       <a class="reviews__btn _gray-btn" href="#">
         Посмотреть больше отзывов
       </a>
+      <?php }?>
     </div>
     <p class="reviews__bottom-text">
       нам доверяют
