@@ -1,19 +1,8 @@
 <?php
-
-/**
- * Template Name: Преимущества клиники
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
 get_header();
 ?>
 
-<!-- 
-страница Преимущества клиники
-
-
--->
+<!-- страница Преимущества клиники -->
 
 <main class="main" id="advantages-page">
 

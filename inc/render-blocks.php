@@ -1,11 +1,13 @@
 <?php
 
 // Функции генерирующие данные типы блоков
+
 // checkupFrontBlock : Первый блок
 // checkupFrontBlockMain : Первый блок - Чекап основная
 // firstBlockDirection : Первый блок - Направления основная
+// frontBlockMain : Первый блок - Главная
 // firstBlockService : Первый блок - Услуги главная
-// advatages : Преимущества
+// advantages : Преимущества
 // checkupQuestions : Зачем проходить 'направление'
 // doctorWithQuotes : Врач с цитатами
 // videoBlock : Блок с видео
@@ -23,7 +25,6 @@
 // careComfort : Комфорт
 // contacts : Контакты
 // map : Карта
-
 // disease : Заболевание/ расшифровка
 // directionsSimptom : Симптомы
 // callback_2 : Форма обратной связи (2 вариант)
@@ -40,6 +41,11 @@
 // comfort : Комфорт как дома
 // justTreat : Мы не просто лечим
 // сonsilium : Консилиум
+// catalogDoctors : Каталог врачей
+// doctorsSpecialization : Специализация врача
+// blockImg : Картинка большая
+// concept : Концепция клиники
+
 
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
@@ -169,6 +175,12 @@ function renderBlocksSingleCheckup() {
         case 'сonsilium':
           echo сonsilium();
           break;
+        case 'catalogDoctors':
+          echo catalogDoctors();
+          break;
+        case 'blockImg':
+          echo blockImg();
+          break;
         case 'wrapperStart':
           $type = get_sub_field('wrapperStart_variants');
           echo wrapperStart($type);
@@ -220,6 +232,7 @@ function checkupFrontBlock(){
             $img_alt = isset($img['alt']) ? $img['alt'] : '';
             ?>
           <div class="front-block__right-item">
+            <!-- Сделать через повторитель Посадка -->
             <div class="front-block__right-wrapper">
               <img class="front-block__right-img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
             </div>
@@ -2541,7 +2554,7 @@ function directionsDoctor(){
           $img = get_sub_field('doctor_img_icon');
           $img_url = isset($img['url']) ? $img['url'] : '';
           $img_alt = isset($img['alt']) ? $img['alt'] : '';?>
-          <div class="directions-doctor__filters-btn filters-btn active" data-filter="<?php echo $index; ?>">
+          <div class="directions-doctor__filters-btn filters-btn <?php if($index == 1){echo 'active';}?>" data-filter="<?php echo $index; ?>">
             <div class="filters-btn__img-wrapper">
               <img class="filters-btn__img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
             </div>
@@ -2559,7 +2572,7 @@ function directionsDoctor(){
           $img = get_sub_field('doctor_img');
           $img_url = isset($img['url']) ? $img['url'] : '';
           $img_alt = isset($img['alt']) ? $img['alt'] : ''; ?>
-          <div class="directions-doctor__item filters-item <?php echo $index; ?>">
+          <div class="directions-doctor__item filters-item <?php echo $index; if($index != 1){echo ' hidden';}?>">
             <div class="directions-doctor__left">
               <div class="directions-doctor__left-wrapper">
                 <img class="directions-doctor__left-img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
@@ -3239,7 +3252,7 @@ function сonsilium(){
   <?php return ob_get_clean();
 }
 
-// Каталог докторов
+// Каталог докторов - Посадка
 function catalogDoctors(){
   ob_clean(); ?>
 
@@ -3546,6 +3559,141 @@ function catalogDoctors(){
               </a>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Специализация врача - Посадка
+function doctorsSpecialization(){
+  ob_start(); ?>
+
+  <section class="doctors-specialization">
+    <div class="container">
+      <div class="doctors-specialization__inner">
+        <h2 class="doctors-specialization__title _title">
+          Основные<br> заболевания,<br>
+          на которых<br> специализируется<br> врач
+        </h2>
+        <div class="doctors-specialization__right">
+          <ul class="doctors-specialization__list">
+
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                аллергические реакции
+              </span>
+            </li>
+
+          </ul>
+          <a class="doctors-specialization__btn _gray-btn" href="#">
+            <span>Узнать о враче подробнее</span>
+            <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Картинка большая
+function blockImg(){
+  ob_start(); ?>
+    <section class="image-block">
+      <img class="image-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
+      <div class="container relative">
+        <h2 class="image-block__title _title">
+          <?php the_sub_field('blockImg_title'); ?>
+        </h2>
+        <?php if(get_sub_field('blockImg_img')) :
+          $img = get_sub_field('blockImg_img');?>
+        <div class="images-block__wrapper">
+          <img class="image-block__img" src="<?php echo $img['url'];?>" alt="<?php echo $img['url'];?>">
+        </div>
+        <?php endif; ?>
+      </div>
+    </section>
+  <?php return ob_get_clean();
+}
+
+// Концепция клиники
+function concept(){
+  ob_start(); ?>
+
+  <section class="clinic-concept">
+    <div class="container">
+      <h2 class="clinic-concept__title _title">
+        Концепция клиники –
+      </h2>
+      <p class="clinic-concept__subtitle _subtitle">
+        медицина, в которую хочется возвращаться
+      </p>
+      <h3 class="clinic-concept__name">
+        При создании Abakumov Clinic мы поставили перед собой несколько принципиально важных задач:
+      </h3>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="clinic-concept__items">
+        <div class="clinic-concept__item">
+          <div class="clinic-concept__item-wrapper">
+            <img class="clinic-concept__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/clinic-concept-1.webp" alt="clinic-concept-1">
+          </div>
+          <div class="clinic-concept__item-info">
+            <h4 class="clinic-concept__item-title">
+              Построить клинику нового поколения
+            </h4>
+            <p class="clinic-concept__item-text">
+              на основе доказательной медицины, экспертной<br> диагностики и технологичной базы
+            </p>
+          </div>
+        </div>
+        <div class="clinic-concept__item">
+          <div class="clinic-concept__item-wrapper">
+            <img class="clinic-concept__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/clinic-concept-2.webp" alt="clinic-concept-2">
+          </div>
+          <div class="clinic-concept__item-info">
+            <h4 class="clinic-concept__item-title">
+              Объединить высокий медицинский<br>
+              стандарт с эстетикой сервиса —
+            </h4>
+            <p class="clinic-concept__item-text">
+              чтобы каждый визит был комфортным, быстрым и результативны
+            </p>
+          </div>
+        </div>
+        <div class="clinic-concept__item">
+          <div class="clinic-concept__item-wrapper">
+            <img class="clinic-concept__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/clinic-concept-3.webp" alt="clinic-concept-3">
+          </div>
+          <div class="clinic-concept__item-info">
+            <h4 class="clinic-concept__item-title">
+              Сместить фокус с «лечения проблем»<br>
+              на осознанное управление здоровьем
+            </h4>
+            <p class="clinic-concept__item-text">
+              через регулярные персональные чек-апы
+            </p>
+          </div>
+        </div>
+        <div class="clinic-concept__item">
+          <div class="clinic-concept__item-wrapper">
+            <img class="clinic-concept__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/clinic-concept-4.webp" alt="clinic-concept-4">
+          </div>
+          <div class="clinic-concept__item-info">
+            <h4 class="clinic-concept__item-title">
+              Превратить медицинские визиты в новый стандарт<br>
+              жизни современного человека —
+            </h4>
+            <p class="clinic-concept__item-text">
+              необходимый, желанный и по-настоящему ценный
+            </p>
           </div>
         </div>
       </div>
