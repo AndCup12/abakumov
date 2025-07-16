@@ -18,6 +18,16 @@ get_header();
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
+      <div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+          <li class="breadcrumbs__point">
+            <a class="breadcrumbs__link" href="#">Главная</a>
+          </li>
+          <li class="breadcrumbs__point">
+            <a class="breadcrumbs__link active" href="#">Новости</a>
+          </li>
+        </ul>
+      </div>
       <div class="front-block__top">
         <h1 class="front-block__title _title">
           Новости Abakumov Clinic
