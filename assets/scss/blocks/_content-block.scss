@@ -1,0 +1,145 @@
+@use '../base/mixins' as mixins;
+
+.content-block {
+  margin-top: 100px;
+
+  @include mixins.lg {
+    margin-top: 40px;
+  }
+
+  &__inner {
+    display: flex;
+    gap: 125px;
+
+    @include mixins.xxl {
+        gap: 40px;
+    }
+
+    @include mixins.xl {
+        gap: 20px;
+    }
+
+    @include mixins.lg {
+        flex-direction: column;
+    }
+  }
+
+  &__left {
+    max-width: 838px;
+
+    @include mixins.xxl {
+        max-width: 715px;
+    }
+
+    @include mixins.xl {
+        max-width: 540px;
+    }
+
+    @include mixins.lg {
+        max-width: none;
+    }
+  }
+
+  &__form {
+    max-width: 436px;
+    padding: 270px 26px 26px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../images/content-block.webp);
+    border-radius: 30px;
+    height: fit-content;
+    @include mixins.xl {
+        padding-top: 150px;
+        background-position: top;
+    }
+
+    @include mixins.lg {
+        margin: 0 auto;
+    }
+
+    @include mixins.sm {
+        padding-top: 26px;
+    }
+  }
+
+  &__form-inner {
+     width: 100%;
+     background-color: var(--light-color);
+     border-radius: 25px;
+     padding: 24px 30px 30px;
+     height: fit-content;
+  
+     @include mixins.lg {
+       padding: 30px;
+     }
+  
+     @include mixins.sm {
+       padding: 20px;
+     }
+   }
+  
+   &__form-title {
+    text-align: center;
+     font-weight: 500;
+     font-size: 26px;
+     line-height: calc(34/26*100%);
+     margin-bottom: 6px;
+  
+     @include mixins.sm {
+       font-size: 24px;
+     }
+  
+     @include mixins.xs {
+       font-size: 22px;
+  
+       br {
+         display: none;
+       }
+     }
+   }
+  
+   &__form-subtitle {
+    text-align: center;
+     font-weight: 400;
+     font-size: 18px;
+     line-height: calc(24/18*100%);
+     margin-bottom: 20px;
+  
+     @include mixins.lg {
+       font-size: 18px;
+       margin-bottom: 15px;
+     }
+  
+     @include mixins.sm {
+       font-size: 16px;
+     }
+  
+     @include mixins.xs {
+       br {
+         display: none;
+       }
+     }
+  
+     span {
+       font-weight: 600;
+     }
+   }
+  
+   &__form-inputs {
+     display: grid;
+     gap: 14px;
+  
+     @include mixins.lg {
+       gap: 10px;
+     }
+   }
+  
+   &__form-politic {
+     margin-top: 21px;
+  
+     @include mixins.lg {
+       margin-top: 15px;
+     }
+   }
+}

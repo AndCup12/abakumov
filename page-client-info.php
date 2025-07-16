@@ -20,6 +20,9 @@ get_header();
   <!-- новый блок с карточками -->
   <section class="link-items">
     <div class="container">
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
       <div class="link-items__services">
         <a class="link-items__service" href="#">
           <div class="link-items__service-wrapper">

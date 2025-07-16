@@ -1,0 +1,150 @@
+@use '../base/mixins' as mixins;
+
+#business-page {
+  .front-block {
+    padding: 273px 0 112px;
+
+    @include mixins.xxl {
+      padding-top: 250px;
+    }
+
+    @include mixins.xl {
+      padding: 200px 0 100px;
+    }
+
+    @include mixins.lg {
+      padding-bottom: 80px;
+    }
+
+    @include mixins.md {
+      padding-bottom: 60px;
+    }
+
+    &__top {
+      margin-bottom: 60px;
+
+      @include mixins.xl {
+        margin-bottom: 50px;
+      }
+
+      @include mixins.lg {
+        margin-bottom: 40px;
+      }
+
+      @include mixins.md {
+        margin: 15px 0 30px;
+      }
+
+      @include mixins.sm {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__logo {
+      height: auto;
+      bottom: 0;
+    }
+
+    &__btns {
+      margin-bottom: 0;
+    }
+  }
+
+  .checkup-is {
+    &__inner-left {
+      margin-top: 0;
+    }
+  }
+
+  .callback {
+    &__inner {
+      padding: 93px 74px 80px;
+      align-items: end;
+
+      @include mixins.xxl {
+        padding: 60px;
+      }
+
+      @include mixins.xl {
+        padding: 50px;
+      }
+
+      @include mixins.md {
+        padding: 40px;
+      }
+
+      @include mixins.sm {
+        padding: 30px;
+      }
+
+      @include mixins.xs {
+        padding: 20px;
+      }
+
+      @include mixins.lg {
+        align-items: start;
+
+        .overlay {
+          display: block;
+          background-color: rgba($color: #000000, $alpha: 0.5);
+        }
+      }
+    }
+
+    &__left {
+      @include mixins.lg {
+        flex-direction: column;
+      }
+    }
+
+    &__title {
+      margin-bottom: 190px;
+
+      @include mixins.lg {
+        background: none;
+        -webkit-text-fill-color: initial;
+        color: var(--light-color);
+        margin-bottom: 30px;
+      }
+
+      @include mixins.md {
+        margin-bottom: 20px;
+      }
+
+      @include mixins.sm {
+        br {
+          display: none;
+        }
+
+        margin-bottom: 15px;
+      }
+    }
+
+    &__info {
+      display: flex;
+      max-width: 318px;
+      gap: 17px;
+      align-items: center;
+      padding: 18px 20px;
+    }
+
+    &__info-text {
+      font-size: 19px;
+
+      @include mixins.xs {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .examination-reveals{
+    &__left-wrapper{
+      padding-bottom: calc(433/590*100%);
+    }
+
+    &__item{
+      align-items: start;
+      padding-right: 12px;
+    }
+  }
+}

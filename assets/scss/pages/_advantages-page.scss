@@ -240,6 +240,11 @@
 
     &__items{
       margin-top: 0;
+      gap: 16px;
+
+      @include mixins.lg {
+          gap: 10px;
+      }
     }
   }
 }

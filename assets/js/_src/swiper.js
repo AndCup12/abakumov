@@ -99,3 +99,25 @@ if (rating)
       },
     },
   });
+
+  const checkupReviewsAfter = document.querySelector(".checkup-reviews-after__swiper");
+  if (checkupReviewsAfter)
+    new Swiper(checkupReviewsAfter, {
+      loop: false,
+      slidesPerView: 1,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: ".checkup-reviews-after__right .swiper-button-next",
+        prevEl: ".checkup-reviews-after__right .swiper-button-prev",
+      },
+      breakpoints: {
+        1230: {
+          slidesPerView: "auto",
+          spaceBetween: 45,
+        },
+        575.98: {
+          slidesPerView: "auto",
+          spaceBetween: 30,
+        },
+      },
+    });
