@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 <main class="main" id="doctors-main">
-  <section class="front-block _image-wrapper _section-lg">
+
+  <?php echo renderBlocksSingleCheckup(); ?>
+<!-- <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
       <div class="front-block__top">
@@ -25,7 +27,7 @@
     </div>
     <img class="front-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors.webp" alt="doctors">
   </section>
-  <!-- Что может выявить -->
+
   <section class="examination-reveals">
     <div class="container">
       <h2 class="examination-reveals__title _title">
@@ -95,7 +97,7 @@
       </div>
     </div>
   </section>
-  <!-- Форма обратной связи (1 вариант) -->
+
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">
@@ -136,6 +138,7 @@
       </div>
     </div>
   </section>
+
   <div class="wrapper-bg _section-lg">
     <section class="doctors-doctors">
       <img class="doctors-doctors__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
@@ -449,15 +452,6 @@
   </div>
 
 
-
-
-
-
-
-
-
-
-  <!-- Форма обратной связи (1 вариант) -->
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">
@@ -498,8 +492,9 @@
       </div>
     </div>
   </section>
+
   <div class="wrapper-bg _section-lg">
-    <!-- Медицина нового уровня -->
+
     <section class="new-level">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
       <div class="container relative">
@@ -616,7 +611,7 @@
     </section>
 
   </div>
-  <!-- Блок отзывов (изображения вытянутые) -->
+
   <section class="checkup-reviews _section-lg">
     <div class="container">
       <div class="checkup-reviews__top">
@@ -663,7 +658,8 @@
       </div>
     </div>
   </section>
-  <!-- Видео-отзывы -->
+
+
   <section class="checkup-after _section-lg">
     <div class="container">
       <h2 class="checkup-after__title _title">
@@ -714,8 +710,9 @@
       </div>
     </div>
   </section>
+
   <div class="wrapper-bg _section-lg">
-    <!-- Рейтинг клиники -->
+
     <section class="rating">
       <span class="rating__top-num">
         10
@@ -916,7 +913,8 @@
     </section>
 
   </div>
-  <!-- Комфорт -->
+
+
   <section class="care-comfort">
     <div class="container">
       <h2 class="care-comfort__title _title">
@@ -962,8 +960,9 @@
       </div>
     </div>
   </section>
+
   <div class="divider"></div>
-  <!-- Контакты -->
+
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -1041,7 +1040,8 @@
       </div>
     </div>
   </section>
-  <!-- Карта -->
+
+
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -1077,6 +1077,7 @@
 
       </div>
     </div>
-  </section>
+  </section> -->
+
 </main>
 <?php get_footer(); ?>
