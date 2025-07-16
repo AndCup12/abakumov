@@ -77,7 +77,9 @@
         }
       }
       .link-items__service-btn{
-        height: 55px;
+        @include mixins.md {
+          height: 55px;
+        }
       }
     }
   }
