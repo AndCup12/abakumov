@@ -2,11 +2,11 @@
 get_header();
 ?>
 
-<!-- страница Преимущества клиники -->
 
 <main class="main" id="advantages-page">
 
-  <!-- Первый блок (нет картинки докторов) -->
+  <?php echo renderBlocksSingleCheckup(); ?>
+<!--
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
@@ -33,7 +33,7 @@ get_header();
     </div>
   </section>
 
-  <!-- блок видео (нет подзаголовка и кнопки) -->
+
   <section class="video-block">
     <div class="container relative">
       <h2 class="video-block__title _title">
@@ -52,7 +52,7 @@ get_header();
     </div>
   </section>
 
-  <!-- блок с картинкой (добавлен логотип и заголовок) -->
+
   <div class="wrapper-bg _section-lg">
     <section class="image-block">
       <img class="image-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
@@ -68,7 +68,7 @@ get_header();
     </section>
   </div>
 
-  <!-- Новый блок  Концепция клиники -->
+
   <section class="clinic-concept">
     <div class="container">
       <h2 class="clinic-concept__title _title">
@@ -143,7 +143,7 @@ get_header();
     </div>
   </section>
 
-  <!-- Клиника стала воплощением опыта, -->
+
   <div class="wrapper-gray _section-lg space-top">
 
     <section class="directions-doctor">
@@ -196,7 +196,7 @@ get_header();
 
   </div>
 
-  <!-- Новый блок  устраняем причину -->
+
   <section class="delete-cause">
     <div class="container">
       <h2 class="delete-cause__title _title">
@@ -281,7 +281,7 @@ get_header();
     </section>
   </div>
 
-  <!-- В этом блоке есть изменения - добавлен класс grid-3 -->
+
   <section class="care-comfort">
     <div class="container">
       <h2 class="care-comfort__title _title">
@@ -321,7 +321,7 @@ get_header();
   </section>
 
   <div class="divider"></div>
-  <!-- Контакты -->
+
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -399,7 +399,7 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Карта -->
+
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -435,7 +435,8 @@ get_header();
 
       </div>
     </div>
-  </section>
+  </section> -->
+
 </main>
 
 <?php get_footer(); ?>

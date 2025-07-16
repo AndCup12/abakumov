@@ -1,20 +1,16 @@
 <?php
-
-/**
- * Template Name: Отзывы
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
 get_header();
 ?>
 
-<!-- 
+<!--
 страница Отзывы
 
 -->
 
 <main class="main" id="reviews-page">
+
+  <!-- <?php echo renderBlocksSingleCheckup(); ?> -->
+
   <!-- Первый блок c картинками отзывов -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
@@ -129,6 +125,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <section class="checkup-reviews _section-lg">
     <div class="container">
       <div class="checkup-reviews__top">
@@ -176,6 +173,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <div class="wrapper-bg _section-lg">
     <!-- Рейтинг клиники -->
     <section class="rating">
@@ -378,6 +376,7 @@ get_header();
     </section>
 
   </div>
+
   <!-- Видео-отзывы -->
   <section class="checkup-after _section-lg">
     <div class="container">
@@ -429,6 +428,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <!-- Форма обратной связи (1 вариант) -->
   <section class="callback ">
     <div class="container">
@@ -470,6 +470,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <div class="wrapper-bg _section-lg">
     <!-- Медицина нового уровня -->
     <section class="new-level">
@@ -588,6 +589,7 @@ get_header();
     </section>
 
   </div>
+
   <!-- Контакты -->
   <section class="contacts">
     <div class="container">

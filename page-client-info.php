@@ -7,6 +7,8 @@ get_header();
 
 <main class="main" id="client-info">
 
+  <!-- <?php echo renderBlocksSingleCheckup(); ?> -->
+
   <!-- В первом блоке только заголовок -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">

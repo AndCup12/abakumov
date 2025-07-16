@@ -2,11 +2,12 @@
 
 // Функции генерирующие данные типы блоков
 
-// checkupFrontBlock : Первый блок
+// checkupFrontBlock : Первый блок - Чекап сингл
 // checkupFrontBlockMain : Первый блок - Чекап основная
 // firstBlockDirection : Первый блок - Направления основная
 // frontBlockMain : Первый блок - Главная
 // firstBlockService : Первый блок - Услуги главная
+// firstBlockRev : Первый блок - Отзывы
 // advantages : Преимущества
 // checkupQuestions : Зачем проходить 'направление'
 // doctorWithQuotes : Врач с цитатами
@@ -21,6 +22,7 @@
 // newLevel : Медицина нового уровня
 // checkupReviews : Блок отзывов (изображения вытянутые)
 // checkupАfter : Видео-отзывы
+// videoRevSlider : Видео-отзывы (слайдер)
 // rating : Рейтинг клиники
 // careComfort : Комфорт
 // contacts : Контакты
@@ -49,6 +51,7 @@
 // deleteCause : Устраняем причину
 // staticNewLevel : Клиника ментор
 // care : Забота
+// whyWorks : Почему выгодно
 
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
@@ -117,6 +120,9 @@ function renderBlocksSingleCheckup() {
           break;
         case 'checkupАfter':
           echo checkupАfter();
+          break;
+        case 'videoRevSlider':
+          echo videoRevSlider();
           break;
         case 'rating':
           echo rating();
@@ -196,7 +202,12 @@ function renderBlocksSingleCheckup() {
         case 'staticNewLevel':
           echo staticNewLevel();
           break;
-
+        case 'firstBlockRev':
+          echo firstBlockRev();
+          break;
+        case 'whyWorks':
+          echo whyWorks();
+          break;
 
 
         case 'wrapperStart':
@@ -212,7 +223,7 @@ function renderBlocksSingleCheckup() {
 }
 
 
-// Первый блок
+// Первый блок - Чекап сингл
 function checkupFrontBlock(){
   ob_start(); ?>
 
@@ -401,7 +412,7 @@ function frontBlockMain(){
   <?php return ob_get_clean();
 }
 
-// Первый блок - Услуги
+// Первый блок - Услуги главная
 function firstBlockService(){
   ob_start(); ?>
 
@@ -450,6 +461,36 @@ function firstBlockService(){
 
   <?php return ob_get_clean();
 }
+
+// Первый блок - Отзывы
+function firstBlockRev(){
+  ob_start(); ?>
+
+  <section class="front-block _image-wrapper _section-lg">
+    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
+    <div class="container">
+      <h1 class="front-block__title _title">
+        <?php the_field('meta_h1'); ?>
+      </h1>
+      <?php if(have_rows('firstBlockRev_images')) : ?>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="front-block__reviews">
+        <?php while(have_rows('firstBlockRev_images')) : the_row();
+        $img = get_sub_field('img'); ?>
+        <a class="front-block__review" href="<?php echo $img['url'];?>" data-fancybox>
+          <img class="front-block__review-img _img" src="<?php echo $img['url'];?>" alt="<?php echo $img['alt'];?>">
+        </a>
+        <?php endwhile; ?>
+      </div>
+      <?php endif; ?>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
 // Преимущества
 function advantages() {
   ob_start(); ?>
@@ -896,6 +937,7 @@ function examinationReveals(){
                           <?php endwhile;
                       endif; ?>
                   </div>
+                  <!-- Посадка -->
                   <div class="examination-reveals__right-btns">
                       <a class="examination-reveals__btn _gray-btn" href="#" data-fancybox>
                           <span>Записаться на обследование</span>
@@ -1748,6 +1790,57 @@ function checkupАfter(){
           </h4>
         </div>
       </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Видео-отзывы (слайдер)
+function videoRevSlider(){
+  ob_start(); ?>
+
+  <section class="checkup-reviews-after _section-lg">
+    <div class="container">
+      <div class="checkup-reviews-after__top">
+        <h2 class="checkup-reviews-after__title _title">
+          <?php the_sub_field('videoRevSlider_title');?>
+        </h2>
+        <div class="checkup-reviews-after__right swiper-navigation">
+          <div class="swiper-button-prev swiper-navigation__prev">
+            <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+          </div>
+          <div class="swiper-button-next swiper-navigation__next">
+            <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+          </div>
+        </div>
+      </div>
+      <?php if(have_rows('videoRevSlider_video')) : ?>
+      <div class="checkup-reviews-after__swiper swiper">
+        <div class="swiper-wrapper">
+          <?php while(have_rows('videoRevSlider_video')) : the_row();
+          $img = ge_sub_field('preview'); ?>
+          <div class="swiper-slide checkup-reviews-after__slide">
+            <div class="checkup-after__item">
+              <a class="checkup-after__item-link" href="<?php echo $link;?>" data-fancybox>
+                <img class="checkup-after__item-img _img" src="<?php echo $img['url'];?>" alt="<?php echo $img['alt'];?>">
+                <div class="play">
+                  <div class="play__inner">
+                    <?php include(get_template_directory() . '/assets/images/icons/play.svg'); ?>
+                  </div>
+                </div>
+              </a>
+              <?php if(get_sub_field('text')) :?>
+              <h4 class="checkup-after__item-text">
+                «Прошёл чекап за один день —<br> спокойно, без очередей. Получил <br>чёткие рекомендации и ответы на всё»
+              </h4>
+              <?php endif; ?>
+            </div>
+          </div>
+          <?php endwhile; ?>
+        </div>
+      </div>
+      <?php endif; ?>
     </div>
   </section>
 
@@ -2785,7 +2878,7 @@ function checkupResult(){
     </div>
   </section>
 
-<?php return ob_get_clean();
+  <?php return ob_get_clean();
 }
 
 // Комплексные обследования
@@ -3915,6 +4008,41 @@ function care(){
   </section>
 
   <?php return ob_get_clean();
+}
+
+// Почему выгодно
+function whyWorks(){
+  ob_start(); ?>
+
+  <section class="why-works _section-lg">
+    <div class="container">
+      <h2 class="why-works__title _title">
+        <?php the_sub_field('whyWorks_title'); ?>
+      </h2>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <?php if(have_rows('whyWorks_cards')) :?>
+      <div class="why-works__items">
+        <?php while(have_rows('whyWorks_cards')) : the_row(); ?>
+        <div class="why-works__item">
+          <span class="why-works__item-icon">
+            <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+          </span>
+          <h4 class="why-works__item-title">
+            <?php the_sub_field('title'); ?>
+          </h4>
+          <p class="why-works__item-text">
+            <?php the_sub_field('text'); ?>
+          </p>
+        </div>
+        <?php endwhile; ?>
+      </div>
+      <?php endif; ?>
+    </div>
+  </section>
+
+  <?php ob_get_clean();
 }
 
 // Обертка
