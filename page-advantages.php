@@ -145,6 +145,7 @@ get_header();
 
   <!-- Клиника стала воплощением опыта, -->
   <div class="wrapper-gray _section-lg space-top">
+
     <section class="directions-doctor">
       <img class="directions-doctor__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
       <div class="container relative">
@@ -192,6 +193,7 @@ get_header();
         </div>
       </div>
     </section>
+
   </div>
 
   <!-- Новый блок  устраняем причину -->
@@ -317,6 +319,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <div class="divider"></div>
   <!-- Контакты -->
   <section class="contacts">
