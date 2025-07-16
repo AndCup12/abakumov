@@ -1,0 +1,57 @@
+@use '../base/mixins' as mixins;
+#vacancies-page{
+  .front-block {
+      padding: 301px 0 112px;
+  
+      @include mixins.xxl {
+        padding-top: 250px;
+      }
+  
+      @include mixins.xl {
+        padding: 200px 0 100px;
+      }
+  
+      @include mixins.lg {
+        padding-bottom: 80px;
+      }
+  
+      @include mixins.md {
+        padding-bottom: 60px;
+      }
+  
+      &__top {
+        margin-bottom: 60px;
+  
+        @include mixins.xl {
+          margin-bottom: 50px;
+        }
+  
+        @include mixins.lg {
+          margin-bottom: 40px;
+        }
+  
+        @include mixins.md {
+          margin: 15px 0 30px;
+        }
+  
+        @include mixins.sm {
+          margin-bottom: 20px;
+        }
+      }
+  
+      &__logo {
+        height: auto;
+        bottom: 0;
+      }
+  
+      &__btns {
+        margin-bottom: 0;
+      }
+    }
+
+    .checkup-is{
+      &__inner-left{
+        margin-top: 0;
+      }
+    }
+}

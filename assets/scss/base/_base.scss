@@ -548,6 +548,10 @@ a {
 .bg-bottom {
   background-position: center 30% !important;
   background-size: auto !important;
+  
+  @include mixins.lg {
+    background-position: center 20% !important;
+  }
 }
 
 .padding-top {
@@ -572,6 +576,9 @@ a {
   @include mixins.lg {
     padding-bottom: 40px;
   }
+}
+.padding-bottom-null {
+  padding-bottom: 0 !important;
 }
 
 

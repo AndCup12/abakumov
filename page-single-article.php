@@ -13,7 +13,7 @@ get_header();
 страница Статьи 
 -->
 
-<main class="main" id="articles-page">
+<main class="main" id="article-page">
   <!-- Первый блок (нет картинки докторов) -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">

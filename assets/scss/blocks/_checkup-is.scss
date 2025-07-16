@@ -177,7 +177,7 @@
   }
 
   &__inner-icon {
-    margin-top: 9px;
+    margin-top: 5px;
     width: 22px;
     min-width: 22px;
     height: 22px;
@@ -195,7 +195,7 @@
 
   &__inner-text {
     font-weight: 400;
-    font-size: 19px;
+    font-size: 20px;
     line-height: 150%;
 
     @include mixins.xs {
@@ -245,6 +245,17 @@
     @include mixins.xs {
       font-size: 18px;
       margin-bottom: 10px;
+    }
+  }
+
+  &__btn{
+    margin-top: 36px;
+    height: 94px;
+    max-width: 325px;
+
+    @include mixins.md {
+        margin-top: 20px;
+        height: 78px;
     }
   }
 }

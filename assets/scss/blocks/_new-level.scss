@@ -7,6 +7,7 @@
   background-repeat: no-repeat;
   background-position: bottom;
   overflow: hidden;
+  border-radius: 30px;
 
   @include mixins.lg {
     padding: 40px 0;
