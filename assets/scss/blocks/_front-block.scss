@@ -271,15 +271,15 @@
     min-height: 520px;
 
     @include mixins.xxl {
-        min-height: 470px;
+      min-height: 470px;
     }
 
     @include mixins.xl {
-        min-height: 430px;
+      min-height: 430px;
     }
 
     @include mixins.lg {
-        width: 320px;
+      width: 320px;
     }
   }
 
@@ -310,6 +310,39 @@
     max-width: 280px;
     height: 82px;
     margin: 20px auto 0;
+  }
+
+  &__reviews {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+
+    @include mixins.xl {
+      gap: 15px;
+    }
+
+    @include mixins.lg {
+      gap: 10px;
+      padding-bottom: 10px;
+      overflow-x: auto;
+      grid-auto-flow: column;
+    }
+  }
+
+  &__review {
+    display: block;
+    position: relative;
+    padding-bottom: calc(457/261*100%);
+    overflow: hidden;
+    border-radius: 20px;
+
+    @include mixins.lg {
+        width: 280px;
+    }
+
+    @include mixins.md {
+        width: 220px;
+    }
   }
 
 

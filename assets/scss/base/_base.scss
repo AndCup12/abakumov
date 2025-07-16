@@ -368,6 +368,10 @@ a {
   background-image: url('../images/icons/andball.svg');
   background-position: top;
 
+  @include mixins.xl {
+      margin-top: 100px;
+  }
+
   @include mixins.lg {
     margin-top: 60px;
   }
@@ -397,7 +401,8 @@ a {
 ._section-lg {
   max-width: 1700px;
   width: 100%;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 30px;
 }
 
