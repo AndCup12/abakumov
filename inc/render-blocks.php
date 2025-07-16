@@ -1,8 +1,14 @@
 <?php
 
 // Функции генерирующие данные типы блоков
-// checkupFrontBlock : Первый блок
-// advatages : Преимущества
+
+// checkupFrontBlock : Первый блок - Чекап сингл
+// checkupFrontBlockMain : Первый блок - Чекап основная
+// firstBlockDirection : Первый блок - Направления основная
+// frontBlockMain : Первый блок - Главная
+// firstBlockService : Первый блок - Услуги главная
+// firstBlockRev : Первый блок - Отзывы
+// advantages : Преимущества
 // checkupQuestions : Зачем проходить 'направление'
 // doctorWithQuotes : Врач с цитатами
 // videoBlock : Блок с видео
@@ -16,11 +22,11 @@
 // newLevel : Медицина нового уровня
 // checkupReviews : Блок отзывов (изображения вытянутые)
 // checkupАfter : Видео-отзывы
+// videoRevSlider : Видео-отзывы (слайдер)
 // rating : Рейтинг клиники
 // careComfort : Комфорт
 // contacts : Контакты
 // map : Карта
-
 // disease : Заболевание/ расшифровка
 // directionsSimptom : Симптомы
 // callback_2 : Форма обратной связи (2 вариант)
@@ -31,6 +37,21 @@
 // checkupResult : Результат
 // readyPrograms : Комплексные обследования
 // checkUpPrograms : Программы CheckUp для...
+// checkupIs : Чекап это
+// reviewsBloger : Отзывы блогеров
+// catalogDirections : Каталог направлений
+// comfort : Комфорт как дома
+// justTreat : Мы не просто лечим
+// сonsilium : Консилиум
+// catalogDoctors : Каталог врачей
+// doctorsSpecialization : Специализация врача
+// blockImg : Картинка большая
+// concept : Концепция клиники
+// doctorExp : Воплощение опыта
+// deleteCause : Устраняем причину
+// staticNewLevel : Клиника ментор
+// care : Забота
+// whyWorks : Почему выгодно
 
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
@@ -45,6 +66,18 @@ function renderBlocksSingleCheckup() {
       switch ($block_type) {
         case 'checkupFrontBlock':
           echo checkupFrontBlock();
+          break;
+        case 'checkupFrontBlockMain':
+          echo checkupFrontBlockMain();
+          break;
+        case 'firstBlockDirection':
+          echo firstBlockDirection();
+          break;
+        case 'frontBlockMain';
+          echo frontBlockMain();
+          break;
+        case 'firstBlockService':
+          echo firstBlockService();
           break;
         case 'advantages':
           echo advantages();
@@ -88,6 +121,9 @@ function renderBlocksSingleCheckup() {
         case 'checkupАfter':
           echo checkupАfter();
           break;
+        case 'videoRevSlider':
+          echo videoRevSlider();
+          break;
         case 'rating':
           echo rating();
           break;
@@ -130,6 +166,50 @@ function renderBlocksSingleCheckup() {
         case 'checkUpPrograms':
           echo checkUpPrograms();
           break;
+        case 'checkupIs':
+          echo checkupIs();
+          break;
+        case 'reviewsBloger':
+          echo reviewsBloger();
+          break;
+        case 'catalogDirections':
+          echo catalogDirections();
+          break;
+        case 'comfort':
+          echo comfort();
+          break;
+        case 'justTreat':
+          echo justTreat();
+          break;
+        case 'сonsilium':
+          echo сonsilium();
+          break;
+        case 'catalogDoctors':
+          echo catalogDoctors();
+          break;
+        case 'blockImg':
+          echo blockImg();
+          break;
+        case 'concept':
+          echo concept();
+          break;
+        case 'doctorExp':
+          echo doctorExp();
+          break;
+        case 'deleteCause':
+          echo deleteCause();
+          break;
+        case 'staticNewLevel':
+          echo staticNewLevel();
+          break;
+        case 'firstBlockRev':
+          echo firstBlockRev();
+          break;
+        case 'whyWorks':
+          echo whyWorks();
+          break;
+
+
         case 'wrapperStart':
           $type = get_sub_field('wrapperStart_variants');
           echo wrapperStart($type);
@@ -143,7 +223,7 @@ function renderBlocksSingleCheckup() {
 }
 
 
-// Первый блок
+// Первый блок - Чекап сингл
 function checkupFrontBlock(){
   ob_start(); ?>
 
@@ -181,6 +261,7 @@ function checkupFrontBlock(){
             $img_alt = isset($img['alt']) ? $img['alt'] : '';
             ?>
           <div class="front-block__right-item">
+            <!-- Сделать через повторитель Посадка -->
             <div class="front-block__right-wrapper">
               <img class="front-block__right-img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
             </div>
@@ -200,6 +281,212 @@ function checkupFrontBlock(){
         <?php endif; ?>
       </div>
     </section>
+
+  <?php return ob_get_clean();
+}
+
+// Первый блок - Чекап основная
+function checkupFrontBlockMain(){
+  ob_start(); ?>
+    <section class="front-block _image-wrapper _section-lg">
+      <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
+      <div class="container">
+        <div class="front-block__top">
+          <h1 class="front-block__title _title">
+            <?php the_field('meta_h1'); ?>
+          </h1>
+          <p class="front-block__subtitle _subtitle">
+            <?php the_sub_field('checkupFrontBlockMain_subtitle'); ?>
+          </p>
+          <?php if(get_sub_field('checkupFrontBlockMain_img')) :
+            $img = get_sub_field('checkupFrontBlockMain_img');?>
+          <img class="front-block__right" src="<?php echo $img['url'];?>" alt="<?php echo $img['alt'];?>">
+          <?php endif; ?>
+        </div>
+        <div class="front-block__btns">
+          <a class="front-block__btn _main-btn" href="#" data-fancybox>
+            <span>Подобрать чекап</span>
+          </a>
+          <a class="front-block__arrow-btn" href="#">
+            <p class="arrow-icon">
+              <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1.29289 9.05855C0.902369 8.66802 0.902369 8.03486 1.29289 7.64434L7.65685 1.28037C8.04738 0.889849 8.68054 0.889849 9.07107 1.28037C9.46159 1.6709 9.46159 2.30406 9.07107 2.69459L3.41421 8.35144L9.07107 14.0083C9.46159 14.3988 9.46159 15.032 9.07107 15.4225C8.68054 15.813 8.04738 15.813 7.65686 15.4225L1.29289 9.05855ZM21 8.35144L21 9.35144L2 9.35144L2 8.35144L2 7.35144L21 7.35144L21 8.35144Z"
+                  fill="white" />
+              </svg>
+
+            </p>
+            <span>Перейти к выбору</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  <?php return ob_get_clean();
+}
+
+// Первый блок - Направления основная
+function firstBlockDirection(){
+  ob_start(); ?>
+
+  <section class="front-block _image-wrapper _section-lg">
+    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
+    <div class="container">
+      <div class="front-block__inner">
+        <div class="front-block__left">
+          <h1 class="front-block__title _title">
+            <?php the_field('meta_h1'); ?>
+          </h1>
+          <div class="cursor">
+            <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+          </div>
+          <?php if(have_rows('firstblockdirection_images')) : ?>
+          <div class="front-block__items">
+            <?php while(have_rows('firstblockdirection_images')) : the_row(); ?>
+            <?php if(get_sub_field('img')) :
+              $img = get_sub_field('img'); ?>
+            <div class="front-block__item">
+              <img class="front-block__item-img _img" src="<?php echo $img['url'];?>" alt="<?php echo $img['alt'];?>">
+            </div>
+            <?php endif; ?>
+            <?php endwhile; ?>
+          </div>
+          <?php endif; ?>
+          <div class="front-block__btns">
+            <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
+              <?php include(get_template_directory() . '/assets/images/icons/mail.svg'); ?>
+              <span>Записаться на прием</span>
+            </a>
+            <a class="front-block__btn _whatsapp-btn" href="https://wa.me/+79031003195" target="_blank">
+              <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+              <span>Записаться через WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Превый блок - Главная
+function frontBlockMain(){
+  ob_start(); ?>
+
+  <section class="front-block _image-wrapper _section-lg">
+    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
+    <div class="container">
+      <div class="front-block__top">
+        <h1 class="front-block__title _title">
+          <?php the_field('meta_h1'); ?>
+        </h1>
+        <p class="front-block__subtitle _subtitle">
+          <?php the_sub_field('frontBlockMain_subtitle'); ?>
+        </p>
+        <?php if(get_sub_field('frontBlockMain_yandex')):
+          $img_yandex = get_sub_field('frontBlockMain_yandex');?>
+        <img class="front-block__yandex" src="<?php echo $img_yandex['url'];?>" alt="<?php echo $img_yandex['alt'];?>">
+        <?php endif; ?>
+        <?php if(get_sub_field('frontBlockMain_imgs')):
+          $imgs = get_sub_field('frontBlockMain_imgs'); ?>
+        <img class="front-block__right" src="<?php $imgs['url'];?>" alt="<?php echo $imgs['alt'];?>">
+        <?php endif; ?>
+      </div>
+      <div class="front-block__btns">
+        <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
+          <?php include(get_template_directory() . '/assets/images/icons/mail.svg'); ?>
+          <span>Записаться на прием</span>
+        </a>
+        <a class="front-block__btn _whatsapp-btn" href="https://wa.me/+79031003195" target="_blank">
+          <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+          <span>Записаться через WhatsApp</span>
+        </a>
+      </div>
+    </div>
+    <?php if(get_sub_field('frontBlockMain_doctors')) :
+      $doctors = get_sub_field('frontBlockMain_doctors'); ?>
+    <img class="front-block__img" src="<?php echo $doctors['url'];?>" alt="<?php echo $doctors['alt'];?>">
+    <?php endif; ?>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Первый блок - Услуги главная
+function firstBlockService(){
+  ob_start(); ?>
+
+  <section class="front-block _image-wrapper _section-lg">
+    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
+    <div class="container relative">
+      <div class="front-block__inner">
+        <div class="front-block__left">
+          <h1 class="front-block__title _title">
+            <?php the_field('meta_h1'); ?>
+          </h1>
+          <?php $services = get_sub_field('firstBlockService_services');
+          if($services) :?>
+              <div class="cursor">
+                  <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+              </div>
+              <div class="front-block__services">
+                  <?php foreach($services as $post_ids) :?>
+                  <a class="front-block__service" href="<?php echo get_permalink($post_ids); ?>">
+                      <?php if(get_the_post_thumbnail($post_ids)) :?>
+                      <div class="front-block__service-wrapper">
+                          <?php echo get_the_post_thumbnail($post_ids, 'full', [
+                              'class' => 'front-block__service-img _img',
+                              'alt' => get_the_title($post_ids),
+                              'loading' => 'lazy'
+                          ]); ?>
+                      </div>
+                      <?php endif; ?>
+                      <div class="front-block__service-info">
+                          <h4 class="front-block__service-title">
+                              <?php echo get_the_title($post_ids); ?>
+                          </h4>
+                          <div class="front-block__service-btn _gray-btn">
+                              <span>Узнать подробнее</span>
+                              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+                          </div>
+                      </div>
+                  </a>
+                  <?php endforeach;?>
+              </div>
+          <?php endif; ?>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Первый блок - Отзывы
+function firstBlockRev(){
+  ob_start(); ?>
+
+  <section class="front-block _image-wrapper _section-lg">
+    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
+    <div class="container">
+      <h1 class="front-block__title _title">
+        <?php the_field('meta_h1'); ?>
+      </h1>
+      <?php if(have_rows('firstBlockRev_images')) : ?>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="front-block__reviews">
+        <?php while(have_rows('firstBlockRev_images')) : the_row();
+        $img = get_sub_field('img'); ?>
+        <a class="front-block__review" href="<?php echo $img['url'];?>" data-fancybox>
+          <img class="front-block__review-img _img" src="<?php echo $img['url'];?>" alt="<?php echo $img['alt'];?>">
+        </a>
+        <?php endwhile; ?>
+      </div>
+      <?php endif; ?>
+    </div>
+  </section>
 
   <?php return ob_get_clean();
 }
@@ -561,6 +848,11 @@ function examinationReveals(){
                   </div>
               </div>
               <div class="examination-reveals__right">
+                <!-- Посадка -->
+                <h3 class="examination-reveals__right-title _title">
+                  Что объединяет всех врачей<br>
+                  нашей клиники?
+                </h3>
                   <div class="cursor @@class">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" height="42" width="42">
                           <rect class="tooltip-horizontal-scroll-icon_card" x="480" width="200" height="200" rx="5"
@@ -645,6 +937,7 @@ function examinationReveals(){
                           <?php endwhile;
                       endif; ?>
                   </div>
+                  <!-- Посадка -->
                   <div class="examination-reveals__right-btns">
                       <a class="examination-reveals__btn _gray-btn" href="#" data-fancybox>
                           <span>Записаться на обследование</span>
@@ -865,6 +1158,7 @@ function callback_1(){
           </h2>
           <div class="callback__info">
             <img class="callback__info-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/callback-manager.webp" alt="callback-manager">
+            <!-- Посадка -->
             <p class="callback__info-text">
               Мы перезвоним вам<br> в течение 7 минут
             </p>
@@ -873,9 +1167,11 @@ function callback_1(){
         <form class="callback__form form-submit relative" action="#" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="from" value="Есть вопросы или хотите записаться по телефону?">
           <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
+          <!-- Посадка -->
           <h4 class="callback__form-title">
             Заполните форму
           </h4>
+          <!-- Посадка -->
           <p class="callback__form-subtitle">
             Введите телефон в форме ниже
           </p>
@@ -897,7 +1193,6 @@ function callback_1(){
 
   <?php return ob_get_clean();
 }
-
 
 // График прохождения
 function checkupSchedule(){
@@ -1005,7 +1300,7 @@ function checkupCompound() {
                               </svg>
                           </div>
                       </div>
-
+                      <?php if(have_rows('compounds')) : while(have_rows('compounds')) : the_row()?>
                       <div class="checkup-compound__item-body accordion-body">
                           <?php if(have_rows('compound_list')) : ?>
                               <ul class="checkup-compound__item-list">
@@ -1041,6 +1336,7 @@ function checkupCompound() {
                               </div>
                           <?php endif; ?>
                       </div>
+                      <?php endwhile; endif; ?>
                   </div>
                   <?php
                       $counter++;
@@ -1494,6 +1790,57 @@ function checkupАfter(){
           </h4>
         </div>
       </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Видео-отзывы (слайдер)
+function videoRevSlider(){
+  ob_start(); ?>
+
+  <section class="checkup-reviews-after _section-lg">
+    <div class="container">
+      <div class="checkup-reviews-after__top">
+        <h2 class="checkup-reviews-after__title _title">
+          <?php the_sub_field('videoRevSlider_title');?>
+        </h2>
+        <div class="checkup-reviews-after__right swiper-navigation">
+          <div class="swiper-button-prev swiper-navigation__prev">
+            <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+          </div>
+          <div class="swiper-button-next swiper-navigation__next">
+            <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+          </div>
+        </div>
+      </div>
+      <?php if(have_rows('videoRevSlider_video')) : ?>
+      <div class="checkup-reviews-after__swiper swiper">
+        <div class="swiper-wrapper">
+          <?php while(have_rows('videoRevSlider_video')) : the_row();
+          $img = ge_sub_field('preview'); ?>
+          <div class="swiper-slide checkup-reviews-after__slide">
+            <div class="checkup-after__item">
+              <a class="checkup-after__item-link" href="<?php echo $link;?>" data-fancybox>
+                <img class="checkup-after__item-img _img" src="<?php echo $img['url'];?>" alt="<?php echo $img['alt'];?>">
+                <div class="play">
+                  <div class="play__inner">
+                    <?php include(get_template_directory() . '/assets/images/icons/play.svg'); ?>
+                  </div>
+                </div>
+              </a>
+              <?php if(get_sub_field('text')) :?>
+              <h4 class="checkup-after__item-text">
+                «Прошёл чекап за один день —<br> спокойно, без очередей. Получил <br>чёткие рекомендации и ответы на всё»
+              </h4>
+              <?php endif; ?>
+            </div>
+          </div>
+          <?php endwhile; ?>
+        </div>
+      </div>
+      <?php endif; ?>
     </div>
   </section>
 
@@ -2318,7 +2665,7 @@ function directionsDoctor(){
           $img = get_sub_field('doctor_img_icon');
           $img_url = isset($img['url']) ? $img['url'] : '';
           $img_alt = isset($img['alt']) ? $img['alt'] : '';?>
-          <div class="directions-doctor__filters-btn filters-btn active" data-filter="<?php echo $index; ?>">
+          <div class="directions-doctor__filters-btn filters-btn <?php if($index == 1){echo 'active';}?>" data-filter="<?php echo $index; ?>">
             <div class="filters-btn__img-wrapper">
               <img class="filters-btn__img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
             </div>
@@ -2336,7 +2683,7 @@ function directionsDoctor(){
           $img = get_sub_field('doctor_img');
           $img_url = isset($img['url']) ? $img['url'] : '';
           $img_alt = isset($img['alt']) ? $img['alt'] : ''; ?>
-          <div class="directions-doctor__item filters-item <?php echo $index; ?>">
+          <div class="directions-doctor__item filters-item <?php echo $index; if($index != 1){echo ' hidden';}?>">
             <div class="directions-doctor__left">
               <div class="directions-doctor__left-wrapper">
                 <img class="directions-doctor__left-img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
@@ -2531,9 +2878,8 @@ function checkupResult(){
     </div>
   </section>
 
-<?php return ob_get_clean();
+  <?php return ob_get_clean();
 }
-
 
 // Комплексные обследования
 function readyPrograms(){
@@ -2555,14 +2901,7 @@ function readyPrograms(){
         <?php while(have_rows('readyPrograms_points')) : the_row(); ?>
         <div class="ready-programs__item">
           <div class="ready-programs__item-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M10.79 15.17C10.59 15.17 10.4 15.09 10.26 14.95L7.84 12.53C7.55 12.24 7.55 11.76 7.84 11.47C8.13 11.18 8.61 11.18 8.9 11.47L10.79 13.36L15.09 9.06003C15.38 8.77003 15.86 8.77003 16.15 9.06003C16.44 9.35003 16.44 9.83003 16.15 10.12L11.32 14.95C11.18 15.09 10.99 15.17 10.79 15.17Z"
-                fill="white" />
-              <path
-                d="M12 22.75C11.37 22.75 10.74 22.54 10.25 22.12L8.67 20.76C8.51 20.62 8.11 20.48 7.9 20.48H6.18C4.7 20.48 3.5 19.28 3.5 17.8V16.09C3.5 15.88 3.36 15.49 3.22 15.33L1.87 13.74C1.05 12.77 1.05 11.24 1.87 10.27L3.22 8.68C3.36 8.52 3.5 8.13 3.5 7.92V6.2C3.5 4.72 4.7 3.52 6.18 3.52H7.91C8.12 3.52 8.52001 3.37 8.68001 3.24L10.26 1.88C11.24 1.04 12.77 1.04 13.75 1.88L15.33 3.24C15.49 3.38 15.89 3.52 16.1 3.52H17.8C19.28 3.52 20.48 4.72 20.48 6.2V7.9C20.48 8.11 20.63 8.51 20.77 8.67L22.13 10.25C22.97 11.23 22.97 12.76 22.13 13.74L20.77 15.32C20.63 15.48 20.48 15.88 20.48 16.09V17.79C20.48 19.27 19.28 20.47 17.8 20.47H16.1C15.89 20.47 15.49 20.62 15.33 20.75L13.75 22.11C13.26 22.54 12.63 22.75 12 22.75ZM6.18 5.02C5.53 5.02 5 5.55 5 6.2V7.91C5 8.48 4.73 9.21 4.36 9.64L3.01 11.23C2.66 11.64 2.66 12.35 3.01 12.76L4.36 14.35C4.73 14.79 5 15.51 5 16.08V17.79C5 18.44 5.53 18.97 6.18 18.97H7.91C8.49 18.97 9.22 19.24 9.66 19.62L11.24 20.98C11.65 21.33 12.37 21.33 12.78 20.98L14.36 19.62C14.8 19.25 15.53 18.97 16.11 18.97H17.81C18.46 18.97 18.99 18.44 18.99 17.79V16.09C18.99 15.51 19.26 14.78 19.64 14.34L21 12.76C21.35 12.35 21.35 11.63 21 11.22L19.64 9.64C19.26 9.2 18.99 8.47 18.99 7.89V6.2C18.99 5.55 18.46 5.02 17.81 5.02H16.11C15.53 5.02 14.8 4.75 14.36 4.37L12.78 3.01C12.37 2.66 11.65 2.66 11.24 3.01L9.66 4.38C9.22 4.75 8.48 5.02 7.91 5.02H6.18Z"
-                fill="white" />
-            </svg>
+            <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
           </div>
           <h4 class="ready-programs__item-title">
             <?php the_sub_field('point_title'); ?>
@@ -2575,6 +2914,29 @@ function readyPrograms(){
       </div>
       <?php endif; ?>
     </div>
+    <?php if(have_rows('readyPrograms_cards')) :?>
+    <div class="ready-programs__elems">
+      <?php while(have_rows('readyPrograms_cards')) : the_row();?>
+      <div class="ready-programs__elem">
+        <?php if(get_sub_field('card_img')) :
+          $img = get_sub_field('card_img'); ?>
+        <div class="ready-programs__elem-wrapper">
+          <img class="ready-programs__elem-img _img" src="<?php echo $img['url'];?>" alt="<?php echo $img['alt'];?>">
+        </div>
+        <?php endif; ?>
+        <div class="ready-programs__elem-info">
+          <h4 class="ready-programs__elem-title">
+            <?php the_sub_field('card_title'); ?>
+          </h4>
+          <a class="ready-programs__elem-btn _gray-btn" href="<?php the_sub_field('card_link'); ?>">
+            <span>Выбрать программу</span>
+            <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+          </a>
+        </div>
+      </div>
+      <?php endwhile; ?>
+    </div>
+    <?php endif; ?>
   </section>
 
   <?php return ob_get_clean();
@@ -2617,9 +2979,9 @@ function checkUpPrograms(){
               </span>
               <h4 class="checkup-programs__item-title">
                 <?php echo get_field('meta_h1', $post_ids);?>
-                <span class="checkup-programs__item-descr">
+                <!-- <span class="checkup-programs__item-descr">
                   Пакет <span>LIGHT</span>
-                </span>
+                </span> -->
               </h4>
             </div>
             <div class="checkup-programs__item-right">
@@ -2648,6 +3010,1039 @@ function checkUpPrograms(){
   <?php endif; ?>
 
   <?php return ob_get_clean();
+}
+
+// Чекап это
+function checkupIs(){
+  ob_start(); ?>
+
+  <section class="checkup-is">
+    <div class="container">
+      <h2 class="checkup-is__title _title">
+        <?php the_sub_field('checkupIs_title');?>
+      </h2>
+      <p class="checkup-is__subtitle _subtitle">
+        <?php the_sub_field('checkupIs_subtitle'); ?>
+      </p>
+      <?php if(have_rows('checkupIs_cards')) : ?>
+      <div class="checkup-is__items">
+        <?php while(have_rows('checkupIs_cards')) : the_row(); ?>
+        <div class="checkup-is__item">
+          <?php if(get_sub_field('card_img')) :
+            $img = get_sub_field('card_img'); ?>
+          <div class="checkup-is__item-wrapper">
+            <img class="checkup-is__item-img" src="<?php echo esc_url( $img['url'] ); ?>" alt="<?php echo esc_attr( $img['alt'] ); ?>">
+          </div>
+          <?php endif; ?>
+          <div class="checkup-is__item-info">
+            <h5 class="checkup-is__item-title">
+              <?php the_sub_field('card_title'); ?>
+            </h5>
+            <p class="checkup-is__item-text">
+              <?php the_sub_field('card_text'); ?>
+            </p>
+          </div>
+        </div>
+        <?php endwhile; ?>
+      </div>
+      <?php endif; ?>
+
+      <div class="checkup-is__inner">
+        <div class="checkup-is__inner-left">
+          <h3 class="checkup-is__inner-title _title">
+            <?php the_sub_field('checkupIs_textList');?>
+          </h3>
+          <?php if(have_rows('checkupIs_list')) :?>
+          <ul class="checkup-is__inner-list">
+            <?php while(have_rows('checkupIs_list')) : the_row(); ?>
+            <li class="checkup-is__inner-point">
+              <span class="checkup-is__inner-icon">
+                <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
+                    fill="white" />
+                </svg>
+
+              </span>
+              <p class="checkup-is__inner-text">
+                <?php the_sub_field('point'); ?>
+              </p>
+            </li>
+            <?php endwhile; ?>
+          </ul>
+          <?php endif; ?>
+        </div>
+        <?php if(get_sub_field('checkupIs_img')):
+          $img = get_sub_field('checkupIs_img');?>
+        <div class="checkup-is__inner-right">
+          <div class="checkup-is__inner-wrapper relative">
+            <img class="checkup-is__inner-img _img" src="<?php echo esc_url( $card_img['url'] ); ?>" alt="<?php echo esc_attr( $card_img['alt'] ); ?>">
+          </div>
+        </div>
+        <?php endif; ?>
+      </div>
+
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Отзывы блогеров
+function reviewsBloger(){
+  ob_start(); ?>
+
+  <section class="reviews _section-lg">
+    <div class="container">
+      <div class="reviews__top">
+        <h2 class="reviews__title _title">
+          Свое здоровье нам доверяют<br> блогеры и лидеры мнений
+        </h2>
+        <div class="reviews__right swiper-navigation">
+          <div class="swiper-button-prev swiper-navigation__prev">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1.29289 9.05855C0.902369 8.66802 0.902369 8.03486 1.29289 7.64434L7.65685 1.28037C8.04738 0.889849 8.68054 0.889849 9.07107 1.28037C9.46159 1.6709 9.46159 2.30406 9.07107 2.69459L3.41421 8.35144L9.07107 14.0083C9.46159 14.3988 9.46159 15.032 9.07107 15.4225C8.68054 15.813 8.04738 15.813 7.65686 15.4225L1.29289 9.05855ZM21 8.35144L21 9.35144L2 9.35144L2 8.35144L2 7.35144L21 7.35144L21 8.35144Z"
+                fill="white" />
+            </svg>
+
+          </div>
+          <div class="swiper-button-next swiper-navigation__next">
+            <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M1.29289 9.05855C0.902369 8.66802 0.902369 8.03486 1.29289 7.64434L7.65685 1.28037C8.04738 0.889849 8.68054 0.889849 9.07107 1.28037C9.46159 1.6709 9.46159 2.30406 9.07107 2.69459L3.41421 8.35144L9.07107 14.0083C9.46159 14.3988 9.46159 15.032 9.07107 15.4225C8.68054 15.813 8.04738 15.813 7.65686 15.4225L1.29289 9.05855ZM21 8.35144L21 9.35144L2 9.35144L2 8.35144L2 7.35144L21 7.35144L21 8.35144Z"
+                fill="white" />
+            </svg>
+
+          </div>
+        </div>
+      </div>
+      <?php if(have_rows('reviewsBloger_reviews')) : ?>
+      <div class="reviews__swiper swiper">
+        <div class="swiper-wrapper">
+          <?php while(have_rows('reviewsBloger_reviews')) : the_row(); ?>
+          <div class="swiper-slide reviews__slide">
+            <div class="reviews__item">
+              <?php if(get_sub_field('reviews_head')) {
+                $img_head = get_sub_field('reviews_head');?>
+              <img class="reviews__item-img" src="<?php echo esc_url( $img_head['url'] ); ?>" alt="<?php echo esc_attr( $img_head['alt'] ); ?>">
+              <?php } ?>
+              <a class="reviews__item-wrapper" href="#" data-fancybox>
+                <?php if(get_sub_field('reviews_preview')) {
+                  $img_preview = get_sub_field('reviews_preview'); ?>
+                <img class="reviews__item-video _img" src="<?php echo esc_url( $img_preview['url'] ); ?>" alt="<?php echo esc_attr( $img_preview['alt'] ); ?>">
+                <?php }?>
+                <div class="play">
+                  <div class="play__inner">
+                    <svg width="47" height="50" viewBox="0 0 47 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M41.4506 21.5916C43.9927 23.1529 43.9927 26.8471 41.4506 28.4084L17.8435 42.908C15.1783 44.545 11.75 42.6273 11.75 39.4996L11.75 10.5004C11.75 7.37267 15.1783 5.45503 17.8435 7.09199L41.4506 21.5916Z"
+                        fill="white" />
+                    </svg>
+
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <?php endwhile; ?>
+        </div>
+      </div>
+      <?php endif; ?>
+      <?php if(is_front_page()) {?>
+      <a class="reviews__btn _gray-btn" href="#">
+        Посмотреть больше отзывов
+      </a>
+      <?php }?>
+    </div>
+    <p class="reviews__bottom-text">
+      нам доверяют
+    </p>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Каталог направлений
+function catalogDirections(){
+  ob_start(); ?>
+
+  <section class="catalog _section-lg">
+    <div class="container">
+      <h2 class="catalog__title _title">
+        <?php the_sub_field('catalogDirections_title'); ?>
+      </h2>
+      <?php $catalogDirections_cards = get_sub_field( 'catalogDirections_cards' );
+      if($catalogDirections_cards) :
+      $counter = 1; ?>
+      <div class="catalog__items">
+        <?php foreach ( $catalogDirections_cards as $post_ids ) :
+          $num = str_pad($counter, 2, '0', STR_PAD_LEFT);?>
+        <a href="<?php echo get_permalink( $post_ids ); ?>" class="catalog__item">
+          <div class="catalog__item-top">
+            <span class="catalog__item-num"><?php echo $num; ?></span>
+            <div class="catalog__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+          <h4 class="catalog__item-title"><?php echo get_the_title( $post_ids ); ?></h4>
+        </a>
+        <?php $counter++; endforeach; ?>
+      </div>
+      <?php endif; ?>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Комфорт как дома
+function comfort(){
+  ob_start(); ?>
+
+    <section class="comfort">
+      <div class="container">
+        <div class="comfort__top">
+          <div class="comfort__left">
+            <div class="comfort__left-top">
+              <h2 class="comfort__title _title">
+                Комфорт как дома. <br>
+                Забота — на каждом шаге
+              </h2>
+              <p class="comfort__suptitle">
+                Никаких стерильных<br> коридоров, шумных<br> регистратур и очередей
+              </p>
+            </div>
+            <div class="comfort__subtitle _subtitle">
+              С первых секунд, когда вы перешагиваете порог нашей клиники, <br>
+              привычный образ медицинского учреждения растворяется
+            </div>
+          </div>
+          <div class="comfort__right swiper-navigation">
+            <div class="swiper-button-prev swiper-navigation__prev">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+            <div class="swiper-button-next swiper-navigation__next">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+            </div>
+          </div>
+        </div>
+        <div class="comfort__swiper swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide comfort__slide">
+              <div class="comfort__item">
+                <div class="comfort__item-wrapper">
+                  <img class="comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/comfort-1.webp" alt="comfort-1">
+                </div>
+                <div class="comfort__item-info">
+                  <p class="comfort__item-text">
+                    <span>Уютные зоны отдыха, кафе-лаундж<br>
+                      и тишина,</span> где можно восстановиться<br> до или после процедур
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide comfort__slide">
+              <div class="comfort__item">
+                <div class="comfort__item-wrapper">
+                  <img class="comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/comfort-2.webp" alt="comfort-2">
+                </div>
+                <div class="comfort__item-info">
+                  <p class="comfort__item-text">
+                    <span>Доброжелательный персонал,<br></span> который встречает, сопровождает<br> и всегда рядом,
+                    если нужно
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide comfort__slide">
+              <div class="comfort__item">
+                <div class="comfort__item-wrapper">
+                  <img class="comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/comfort-3.webp" alt="comfort-3">
+                </div>
+                <div class="comfort__item-info">
+                  <p class="comfort__item-text">
+                    <span>Тёплый свет, мягкие интерьеры,<br> внимание к деталям</span> — всё, чтобы вы<br> чувствовали
+                    себя не пациентом, а<br> гостем уровня five stars
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide comfort__slide">
+              <div class="comfort__item">
+                <div class="comfort__item-wrapper">
+                  <img class="comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/comfort-4.webp" alt="comfort-4">
+                </div>
+                <div class="comfort__item-info">
+                  <p class="comfort__item-text">
+                    <span>Даже процедуры проходят мягко:<br></span> во время капельниц — LED-маски,<br> массажёры
+                    BORK, VR-очки для<br> снятия тревог
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <?php return ob_get_clean();
+}
+
+// Мы не просто лечим
+function justTreat(){
+  ob_start(); ?>
+
+  <section class="just-treat">
+    <div class="container">
+      <div class="just-treat__top">
+        <div class="just-treat__left">
+          <div class="just-treat__left-top">
+            <h2 class="just-treat__title _title">
+              Мы не просто лечим —
+            </h2>
+          </div>
+          <div class="just-treat__subtitle _subtitle">
+            мы формируем новое представление о том,<br> какой должна быть медицина
+          </div>
+        </div>
+        <div class="just-treat__right swiper-navigation">
+          <div class="swiper-button-prev swiper-navigation__prev">
+            <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+
+          </div>
+          <div class="swiper-button-next swiper-navigation__next">
+            <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+
+          </div>
+        </div>
+      </div>
+      <div class="just-treat__swiper swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide just-treat__slide">
+            <img class="just-treat__item" src="<?php echo get_template_directory_uri(); ?>/assets/images/just-treat-1.webp" alt="just-treat-1">
+          </div>
+          <div class="swiper-slide just-treat__slide">
+            <img class="just-treat__item" src="<?php echo get_template_directory_uri(); ?>/assets/images/just-treat-2.webp" alt="just-treat-2">
+          </div>
+          <div class="swiper-slide just-treat__slide">
+            <img class="just-treat__item" src="<?php echo get_template_directory_uri(); ?>/assets/images/just-treat-3.webp" alt="just-treat-3">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Консилиум
+function сonsilium(){
+  ob_start(); ?>
+
+  <section class="consultation _image-wrapper">
+    <div class="container">
+      <h2 class="consultation__title _title">
+        Консилиум экспертов: когда решает
+        команда, а не один врач
+      </h2>
+      <p class="consultation__subtitle _subtitle">
+        Мы объединяем мнения 27 врачей высшей категории,<br>
+        в том числе кандидатов медицинских наук и их клинический опыт,
+      </p>
+      <p class="consultation__text">
+        чтобы найти наиболее точный диагноз и эффективный путь к восстановлению
+      </p>
+      <a class="consultation__btn _main-btn" href="#">
+        Узнать о врачах подробнее
+      </a>
+      <img class="consultation__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors.webp" alt="doctors">
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Каталог докторов - Посадка
+function catalogDoctors(){
+  ob_clean(); ?>
+
+  <section class="doctors-doctors">
+    <img class="doctors-doctors__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
+    <div class="container relative">
+      <h2 class="doctors-doctors__title _title">
+        Выберите специализацию врача
+      </h2>
+      <div class="doctors-doctors__btn _gray-btn open-form">
+        Открыть фильтр
+      </div>
+      <div class="doctors-doctors__inner relative">
+        <form class="doctors-doctors__form form-submit hidden-form" action="#" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="from" value="Есть вопросы или хотите записаться по телефону?">
+          <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
+          <div class="doctors-doctors__form-labels">
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Все специализации">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Все специализации</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Аллергология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Аллергология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Гастроэнтерология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Гастроэнтерология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Гематология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Гематология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Гинекология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Гинекология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Дерматология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Дерматология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Диетология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Диетология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Кардиология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Кардиология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Косметология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Косметология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Маммология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Маммология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Неврология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Неврология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Онкология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Онкология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Оториноларингология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Оториноларингология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Пульмонология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Пульмонология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Терапия">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Терапия</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="УЗИ">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">УЗИ</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Урология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Урология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Физиотерапия">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Физиотерапия</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Фониатрия">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Фониатрия</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Функциональная диагностика">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Функциональная диагностика</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+            <label class="doctors-doctors__form-label">
+              <input type="radio" name="direction" value="Эндокринология">
+              <span class="doctors-doctors__form-inner">
+                <span class="doctors-doctors__form-text">Эндокринология</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow.svg'); ?>
+              </span>
+            </label>
+          </div>
+        </form>
+        <div class="doctors-doctors__items">
+          <div class="doctors-doctors__item">
+            <a class="doctors-doctors__item-wrapper" href="#">
+              <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-1.webp" alt="doctors-doctors-1">
+            </a>
+            <div class="doctors-doctors__item-info">
+              <h4 class="doctors-doctors__item-title _title">
+                Абакумов<br>
+                Олег Александрович
+              </h4>
+              <p class="doctors-doctors__item-text">
+                Терапевт, пульмонолог, статус «Московский врач»
+              </p>
+              <p class="doctors-doctors__item-exp">
+                Стаж<span>: 12 лет</span>
+              </p>
+              <a class="doctors-doctors__item-link" href="#">
+                Узнать о враче подробнее
+              </a>
+              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+                Записаться к врачу
+              </a>
+            </div>
+          </div>
+          <div class="doctors-doctors__item">
+            <a class="doctors-doctors__item-wrapper" href="#">
+              <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-2.webp" alt="doctors-doctors-2">
+            </a>
+            <div class="doctors-doctors__item-info">
+              <h4 class="doctors-doctors__item-title _title">
+                Ионичевская<br>
+                Ирина Игоревна
+              </h4>
+              <p class="doctors-doctors__item-text">
+                Терапевт, пульмонолог, гастроэнтеролог, кандидат медицинских наук
+              </p>
+              <p class="doctors-doctors__item-exp">
+                Стаж: <span>12 лет</span>
+              </p>
+              <a class="doctors-doctors__item-link" href="#">
+                Узнать о враче подробнее
+              </a>
+              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+                Записаться к врачу
+              </a>
+            </div>
+          </div>
+          <div class="doctors-doctors__item">
+            <a class="doctors-doctors__item-wrapper" href="#">
+              <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-3.webp" alt="doctors-doctors-3">
+            </a>
+            <div class="doctors-doctors__item-info">
+              <h4 class="doctors-doctors__item-title _title">
+                Войнилович<br>
+                Сергей Вячеславович
+              </h4>
+              <p class="doctors-doctors__item-text">
+                Терапевт, Пульмонолог, сомнолог, кандидат медицинских наук
+              </p>
+              <p class="doctors-doctors__item-exp">
+                Стаж: <span>27 лет</span>
+              </p>
+              <a class="doctors-doctors__item-link" href="#">
+                Узнать о враче подробнее
+              </a>
+              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+                Записаться к врачу
+              </a>
+            </div>
+
+          </div>
+          <div class="doctors-doctors__item">
+            <a class="doctors-doctors__item-wrapper" href="#">
+              <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-1.webp" alt="doctors-doctors-1">
+            </a>
+            <div class="doctors-doctors__item-info">
+              <h4 class="doctors-doctors__item-title _title">
+                Абакумов<br>
+                Олег Александрович
+              </h4>
+              <p class="doctors-doctors__item-text">
+                Терапевт, пульмонолог, статус «Московский врач»
+              </p>
+              <p class="doctors-doctors__item-exp">
+                Стаж<span>: 12 лет</span>
+              </p>
+              <a class="doctors-doctors__item-link" href="#">
+                Узнать о враче подробнее
+              </a>
+              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+                Записаться к врачу
+              </a>
+            </div>
+          </div>
+          <div class="doctors-doctors__item">
+            <a class="doctors-doctors__item-wrapper" href="#">
+              <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-2.webp" alt="doctors-doctors-2">
+            </a>
+            <div class="doctors-doctors__item-info">
+              <h4 class="doctors-doctors__item-title _title">
+                Ионичевская<br>
+                Ирина Игоревна
+              </h4>
+              <p class="doctors-doctors__item-text">
+                Терапевт, пульмонолог, гастроэнтеролог, кандидат медицинских наук
+              </p>
+              <p class="doctors-doctors__item-exp">
+                Стаж: <span>12 лет</span>
+              </p>
+              <a class="doctors-doctors__item-link" href="#">
+                Узнать о враче подробнее
+              </a>
+              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+                Записаться к врачу
+              </a>
+            </div>
+          </div>
+          <div class="doctors-doctors__item">
+            <a class="doctors-doctors__item-wrapper" href="#">
+              <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-3.webp" alt="doctors-doctors-3">
+            </a>
+            <div class="doctors-doctors__item-info">
+              <h4 class="doctors-doctors__item-title _title">
+                Войнилович<br>
+                Сергей Вячеславович
+              </h4>
+              <p class="doctors-doctors__item-text">
+                Терапевт, Пульмонолог, сомнолог, кандидат медицинских наук
+              </p>
+              <p class="doctors-doctors__item-exp">
+                Стаж: <span>27 лет</span>
+              </p>
+              <a class="doctors-doctors__item-link" href="#">
+                Узнать о враче подробнее
+              </a>
+              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+                Записаться к врачу
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Специализация врача - Посадка
+function doctorsSpecialization(){
+  ob_start(); ?>
+
+  <section class="doctors-specialization">
+    <div class="container">
+      <div class="doctors-specialization__inner">
+        <h2 class="doctors-specialization__title _title">
+          Основные<br> заболевания,<br>
+          на которых<br> специализируется<br> врач
+        </h2>
+        <div class="doctors-specialization__right">
+          <ul class="doctors-specialization__list">
+
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                аллергические реакции
+              </span>
+            </li>
+
+          </ul>
+          <a class="doctors-specialization__btn _gray-btn" href="#">
+            <span>Узнать о враче подробнее</span>
+            <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Картинка большая
+function blockImg(){
+  ob_start(); ?>
+    <section class="image-block">
+      <img class="image-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
+      <div class="container relative">
+        <h2 class="image-block__title _title">
+          <?php the_sub_field('blockImg_title'); ?>
+        </h2>
+        <?php if(get_sub_field('blockImg_img')) :
+          $img = get_sub_field('blockImg_img');?>
+        <div class="images-block__wrapper">
+          <img class="image-block__img" src="<?php echo $img['url'];?>" alt="<?php echo $img['url'];?>">
+        </div>
+        <?php endif; ?>
+      </div>
+    </section>
+  <?php return ob_get_clean();
+}
+
+// Концепция клиники
+function concept(){
+  ob_start(); ?>
+
+  <section class="clinic-concept">
+    <div class="container">
+      <h2 class="clinic-concept__title _title">
+        Концепция клиники –
+      </h2>
+      <p class="clinic-concept__subtitle _subtitle">
+        медицина, в которую хочется возвращаться
+      </p>
+      <h3 class="clinic-concept__name">
+        При создании Abakumov Clinic мы поставили перед собой несколько принципиально важных задач:
+      </h3>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="clinic-concept__items">
+        <div class="clinic-concept__item">
+          <div class="clinic-concept__item-wrapper">
+            <img class="clinic-concept__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/clinic-concept-1.webp" alt="clinic-concept-1">
+          </div>
+          <div class="clinic-concept__item-info">
+            <h4 class="clinic-concept__item-title">
+              Построить клинику нового поколения
+            </h4>
+            <p class="clinic-concept__item-text">
+              на основе доказательной медицины, экспертной<br> диагностики и технологичной базы
+            </p>
+          </div>
+        </div>
+        <div class="clinic-concept__item">
+          <div class="clinic-concept__item-wrapper">
+            <img class="clinic-concept__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/clinic-concept-2.webp" alt="clinic-concept-2">
+          </div>
+          <div class="clinic-concept__item-info">
+            <h4 class="clinic-concept__item-title">
+              Объединить высокий медицинский<br>
+              стандарт с эстетикой сервиса —
+            </h4>
+            <p class="clinic-concept__item-text">
+              чтобы каждый визит был комфортным, быстрым и результативны
+            </p>
+          </div>
+        </div>
+        <div class="clinic-concept__item">
+          <div class="clinic-concept__item-wrapper">
+            <img class="clinic-concept__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/clinic-concept-3.webp" alt="clinic-concept-3">
+          </div>
+          <div class="clinic-concept__item-info">
+            <h4 class="clinic-concept__item-title">
+              Сместить фокус с «лечения проблем»<br>
+              на осознанное управление здоровьем
+            </h4>
+            <p class="clinic-concept__item-text">
+              через регулярные персональные чек-апы
+            </p>
+          </div>
+        </div>
+        <div class="clinic-concept__item">
+          <div class="clinic-concept__item-wrapper">
+            <img class="clinic-concept__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/clinic-concept-4.webp" alt="clinic-concept-4">
+          </div>
+          <div class="clinic-concept__item-info">
+            <h4 class="clinic-concept__item-title">
+              Превратить медицинские визиты в новый стандарт<br>
+              жизни современного человека —
+            </h4>
+            <p class="clinic-concept__item-text">
+              необходимый, желанный и по-настоящему ценный
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Воплощение опыта
+function doctorExp(){
+  ob_start(); ?>
+
+  <section class="directions-doctor">
+    <img class="directions-doctor__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
+    <div class="container relative">
+      <h2 class="directions-doctor__title _title">
+        Клиника стала воплощением опыта,
+      </h2>
+      <p class="directions-doctor__subtitle _subtitle">
+        ценностей и медицинской философии основателя
+      </p>
+      <div class="directions-doctor__filters">
+        <div class="directions-doctor__filters-items">
+          <div class="directions-doctor__item filters-item">
+            <div class="directions-doctor__left">
+              <div class="directions-doctor__left-wrapper">
+                <img class="directions-doctor__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/directions-doctor-3.webp" alt="">
+              </div>
+            </div>
+            <div class="directions-doctor__right">
+              <h5 class="directions-doctor__right-subtitle _title">
+                Олег Абакумов — врач, который прошёл путь<br> от медбрата скорой помощи до создателя<br> частной клиники нового формата
+              </h5>
+              <ul class="directions-doctor__right-list">
+                <li class="directions-doctor__right-point">
+                  <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                  <span>
+                    Более 10 000 пациентов получили квалифицированную<br> помощь под его руководством.
+                  </span>
+                </li>
+                <li class="directions-doctor__right-point">
+                  <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                  <span>
+                    В клинической практике делает ставку на точность,<br> индивидуальность и доверие.
+                  </span>
+                </li>
+                <li class="directions-doctor__right-point">
+                  <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                  <span>
+                    В основе подхода — проверенные методики и живая<br> забота о человеке, а не просто о диагнозе
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Лечим причину
+function deleteCause(){
+  ob_start(); ?>
+
+  <section class="delete-cause">
+    <div class="container">
+      <h2 class="delete-cause__title _title">
+        Лечим не симптомы —<br>
+        устраняем причину
+      </h2>
+      <div class="delete-cause__inner">
+        <div class="delete-cause__left">
+          <div class="delete-cause__left-wrapper">
+            <img class="delete-cause__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/delete-cause-1.webp" alt=" delete-cause-1">
+          </div>
+        </div>
+        <div class="delete-cause__right">
+          <h4 class="delete-cause__right-title _title">
+            Пациенты часто списывают<br> слабость на стресс, головную<br> боль — на погоду, а проблемы<br>
+            с ЖКТ — на «что-то не то съел»
+          </h4>
+          <p class="delete-cause__right-text">
+            Но настоящее здоровье — это не жизнь между<br> симптомами, а энергия и ресурсность каждый день
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Клиника ментор
+function staticNewLevel(){
+  ob_start(); ?>
+
+  <section class="new-level bg-bottom">
+    <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
+    <div class="container relative">
+      <h2 class="new-level__title _title">
+        Abakumov Clinic —<br>
+        это клиника-ментор
+      </h2>
+      <p class="new-level__subtitle _subtitle">
+        Мы сопровождаем пациента от первого визита до стабилизации состояния,<br>
+        беря на себя всё, что обычно вызывает тревогу и перегрузку
+      </p>
+      <p class="new-level__name">
+        Вам больше не нужно:
+      </p>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="new-level__items">
+        <div class="new-level__item">
+          <span class="new-level__item-icon">
+            <?php include(get_template_directory() . '/assets/images/icons/new-level-1.svg'); ?>
+          </span>
+          <h4 class="new-level__item-title">
+            Разбираться в диагнозах и<br> сложной медицинской<br> терминологии —
+          </h4>
+          <p class="new-level__item-text">
+            мы всё объясняем простым<br> и человеческим языком
+          </p>
+        </div>
+        <div class="new-level__item">
+          <span class="new-level__item-icon">
+            <?php include(get_template_directory() . '/assets/images/icons/new-level-2.svg'); ?>
+          </span>
+          <h4 class="new-level__item-title">
+            Жить по часам, зависеть<br>
+            от таблеток и процедур —
+          </h4>
+          <p class="new-level__item-text">
+            план лечения будет интегрирован в ваш<br> привычный ритм, без стресса и <br>ограничений
+          </p>
+        </div>
+        <div class="new-level__item">
+          <span class="new-level__item-icon">
+            <?php include(get_template_directory() . '/assets/images/icons/new-level-3.svg'); ?>
+
+          </span>
+          <h4 class="new-level__item-title">
+            Проводить свое свободное<br> время в клинике —
+          </h4>
+          <p class="new-level__item-text">
+            часть обследований и процедур<br> вы можете пройти у себя дома<br> или в офисе
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Забота
+function care(){
+  ob_start(); ?>
+
+  <section class="care-comfort">
+    <div class="container">
+      <h2 class="care-comfort__title _title">
+        Abakumov Clinic — это забота
+      </h2>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="care-comfort__items grid-3">
+        <div class="care-comfort__item">
+          <div class="care-comfort__item-wrapper">
+            <img class="care-comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/care-comfort-1.webp" alt="care-comfort-1">
+          </div>
+          <h4 class="care-comfort__item-title">
+            Просторная закрытая<br>
+            парковка за шлагбаумом
+          </h4>
+        </div>
+        <div class="care-comfort__item">
+          <div class="care-comfort__item-wrapper">
+            <img class="care-comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/care-comfort-4.webp" alt="care-comfort-4">
+          </div>
+          <h4 class="care-comfort__item-title">
+            Комфортная зона ожидания
+          </h4>
+        </div>
+        <div class="care-comfort__item">
+          <div class="care-comfort__item-wrapper">
+            <img class="care-comfort__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/care-comfort-5.webp" alt="care-comfort-5">
+          </div>
+          <h4 class="care-comfort__item-title">
+            Абсолютная стерильность
+          </h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Почему выгодно
+function whyWorks(){
+  ob_start(); ?>
+
+  <section class="why-works _section-lg">
+    <div class="container">
+      <h2 class="why-works__title _title">
+        <?php the_sub_field('whyWorks_title'); ?>
+      </h2>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <?php if(have_rows('whyWorks_cards')) :?>
+      <div class="why-works__items">
+        <?php while(have_rows('whyWorks_cards')) : the_row(); ?>
+        <div class="why-works__item">
+          <span class="why-works__item-icon">
+            <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+          </span>
+          <h4 class="why-works__item-title">
+            <?php the_sub_field('title'); ?>
+          </h4>
+          <p class="why-works__item-text">
+            <?php the_sub_field('text'); ?>
+          </p>
+        </div>
+        <?php endwhile; ?>
+      </div>
+      <?php endif; ?>
+    </div>
+  </section>
+
+  <?php ob_get_clean();
 }
 
 // Обертка

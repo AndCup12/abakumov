@@ -1,19 +1,13 @@
-<?php
+<?php get_header(); ?>
 
-/**
- * Template Name: Для бизнеса
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
-get_header();
-?>
-
-<!-- 
+<!--
 страница Для бизнеса
 -->
 
 <main class="main" id="business-page">
+
+<!-- <?php echo renderBlocksSingleCheckup(); ?> -->
+
   <!-- Первый блок (нет картинки докторов) -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
@@ -37,6 +31,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <section class="checkup-is">
     <div class="container">
       <div class="checkup-is__inner">
@@ -85,6 +80,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">
@@ -124,6 +120,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <!-- Здесь есть новый блок -->
   <div class="wrapper-gray _section-lg space-top">
     <!-- Новый блок -->
@@ -206,6 +203,7 @@ get_header();
         </div>
       </div>
     </section>
+
     <section class="examination-reveals">
       <div class="container">
         <h2 class="examination-reveals__title _title">
@@ -271,6 +269,7 @@ get_header();
       </div>
     </section>
   </div>
+
   <div class="wrapper-bg _section-lg">
     <section class="new-level">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
@@ -387,6 +386,7 @@ get_header();
       </div>
     </section>
   </div>
+
   <div class="wrapper-bg _section-lg">
     <section class="rating">
       <span class="rating__top-num">
@@ -587,6 +587,7 @@ get_header();
       </div>
     </section>
   </div>
+
   <section class="care-comfort">
     <div class="container">
       <h2 class="care-comfort__title _title">
@@ -632,6 +633,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <div class="divider"></div>
   <!-- Контакты -->
   <section class="contacts">
@@ -711,6 +713,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <!-- Карта -->
   <section class="map-block">
     <div class="container">
@@ -748,6 +751,7 @@ get_header();
       </div>
     </div>
   </section>
+
 </main>
 
 <?php get_footer(); ?>

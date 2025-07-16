@@ -10,7 +10,9 @@ get_header();
 ?>
 
 <main class="main" id="price-page">
-  <section class="front-block _image-wrapper _section-lg">
+
+  <?php echo renderBlocksSingleCheckup(); ?>
+  <!-- <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
     <div class="container">
       <div class="front-block__inner">
@@ -49,7 +51,8 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Стоимость лечения -->
+
+
   <section class="directions-price">
     <div class="container">
       <h2 class="directions-price__title _title">
@@ -562,8 +565,9 @@ get_header();
       </div>
     </div>
   </section>
+
   <div class="wrapper-bg _section-lg">
-    <!-- Медицина нового уровня -->
+
     <section class="new-level">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
       <div class="container relative">
@@ -583,7 +587,7 @@ get_header();
     </section>
 
   </div>
-  <!-- Контакты -->
+
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -667,6 +671,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -702,7 +707,7 @@ get_header();
 
       </div>
     </div>
-  </section>
+  </section> -->
 
 </main>
 

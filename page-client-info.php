@@ -1,21 +1,13 @@
 <?php
 
-/**
- * Template Name: Информация для пациентов
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
 get_header();
 ?>
 
-<!-- 
-страница Информация для пациентов
-
-
--->
+<!-- страница Информация для пациентов -->
 
 <main class="main" id="client-info">
+
+  <!-- <?php echo renderBlocksSingleCheckup(); ?> -->
 
   <!-- В первом блоке только заголовок -->
   <section class="front-block _image-wrapper _section-lg">

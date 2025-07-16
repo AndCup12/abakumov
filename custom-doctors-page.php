@@ -10,7 +10,9 @@ get_header();
 ?>
 
 <main class="main" id="doctors-single">
-  <!-- Первый блок -->
+
+<?php echo renderBlocksSingleCheckup(); ?>
+<!--
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
     <div class="container">
@@ -128,7 +130,7 @@ get_header();
   </section>
   <div class="wrapper-gray space-top">
 
-    <!-- Симптомы новый-->
+
     <section class="directions-simptom relative">
       <div class="container">
         <h2 class="directions-simptom__title _title">
@@ -192,7 +194,7 @@ get_header();
     </section>
 
   </div>
-  <!-- Форма обратной связи (1 вариант) -->
+
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">
@@ -234,7 +236,7 @@ get_header();
     </div>
   </section>
 
-  <!-- Стоимость лечения -->
+
   <section class="directions-price">
     <div class="container">
       <h2 class="directions-price__title _title">
@@ -348,8 +350,9 @@ get_header();
       </div>
     </div>
   </section>
+
   <div class="wrapper-bg _section-lg">
-    <!-- Медицина нового уровня -->
+
     <section class="new-level">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
       <div class="container relative">
@@ -466,8 +469,9 @@ get_header();
     </section>
 
   </div>
+
   <div class="wrapper-bg _section-lg">
-    <!-- Рейтинг клиники -->
+
     <section class="rating">
       <span class="rating__top-num">
         10
@@ -668,7 +672,8 @@ get_header();
     </section>
 
   </div>
-  <!-- Комфорт -->
+
+
   <section class="care-comfort">
     <div class="container">
       <h2 class="care-comfort__title _title">
@@ -716,7 +721,7 @@ get_header();
   </section>
 
   <div class="divider"></div>
-  <!-- Контакты -->
+
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -794,7 +799,8 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Карта -->
+
+
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -830,7 +836,7 @@ get_header();
 
       </div>
     </div>
-  </section>
+  </section> -->
 
 </main>
 
