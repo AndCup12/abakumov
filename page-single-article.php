@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Новостей 
+ * Template Name: Статьи 
  * http://dontforget.pro
  * @package WordPress
  * @subpackage clean
@@ -10,10 +10,10 @@ get_header();
 ?>
 
 <!-- 
-страница Новостей 
+страница Статьи 
 -->
 
-<main class="main" id="news-page">
+<main class="main" id="articles-page">
   <!-- Первый блок (нет картинки докторов) -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
@@ -24,14 +24,21 @@ get_header();
             <a class="breadcrumbs__link" href="#">Главная</a>
           </li>
           <li class="breadcrumbs__point">
-            <a class="breadcrumbs__link active" href="#">Новости</a>
+            <a class="breadcrumbs__link" href="#">Статьи</a>
+          </li>
+          <li class="breadcrumbs__point">
+            <a class="breadcrumbs__link active" href="#">Почему «лечить по симптомам» больше не работает</a>
           </li>
         </ul>
       </div>
       <div class="front-block__top">
         <h1 class="front-block__title _title">
-          Новости Abakumov Clinic
+          Почему «лечить по симптомам»<br>
+          больше не работает:
         </h1>
+        <p class="front-block__subtitle _subtitle">
+          новый взгляд на персонализированную медицину
+        </p>
       </div>
       <div class="front-block__btns">
         <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
@@ -44,52 +51,63 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Есть изменения в блоке. Добавлена пагинация - она как отдельный блок. И кнопка показать больше. В карточках добавлен класс link-items__service-text - меньше текст. 
-  Добавлен класс left-btn кнопке, чтобы она ровнялась по левому краю.
-  Добавлен класс grid-column на обертку карточек, чтобы карточки не уходили в скролл, а выстраивались в колонку по две
-  -->
-  <section class="link-items">
+  <!-- Новый блок с контентом и формой -->
+  <section class="content-block">
     <div class="container">
-      <div class="link-items__services grid-column">
-        <a class="link-items__service" href="#">
-          <div class="link-items__service-wrapper">
-            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-1.webp" alt="link-items-1">
+      <div class="content-block__inner">
+        <div class="content-block__left">
+          <div class="content-block__left-inner theContent">
+            <p>
+              Многие привыкли обращаться к врачу, только когда что-то явно беспокоит: заболела голова — выпил обезболивающее, появилось вздутие — попил ферменты, не спишь — ищешь «волшебную» таблетку. Но медицина изменилась. А вместе с ней — и подход к здоровью.
+            </p>
+            <p>
+              Симптомы — это всего лишь поверхность. Они не объясняют, почему организм дал сбой. Настоящая причина может лежать глубже: гормональные нарушения, хроническое воспаление, дефицит микроэлементов, нарушение регуляции со стороны нервной системы. И если ограничиться лечением симптомов — можно на время заглушить проявления, но не остановить процесс.
+            </p>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/contacts-1.webp" alt="title">
+            <p>
+              Многие привыкли обращаться к врачу, только когда что-то явно беспокоит: заболела голова — выпил обезболивающее, появилось вздутие — попил ферменты, не спишь — ищешь «волшебную» таблетку. Но медицина изменилась. А вместе с ней — и подход к здоровью.
+            </p>
+            <p>
+              Симптомы — это всего лишь поверхность. Они не объясняют, почему организм дал сбой. Настоящая причина может лежать глубже: гормональные нарушения, хроническое воспаление, дефицит микроэлементов, нарушение регуляции со стороны нервной системы. И если ограничиться лечением симптомов — можно на время заглушить проявления, но не остановить процесс.
+            </p>
           </div>
-          <div class="link-items__service-info">
-            <h4 class="link-items__service-text">
-              Abakumov Clinic запускает корпоративные чекапы нового поколения — персонально под задачи бизнеса
+        </div>
+        <form class="content-block__form form-submit relative" action="#" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="from" value="Есть вопросы или хотите записаться по телефону?">
+          <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
+          <div class="content-block__form-inner">
+            <h4 class="content-block__form-title _title">
+              Заполните форму
             </h4>
-            <div class="link-items__service-btn _gray-btn left-btn">
-              <span>Перейти к прочтению</span>
+            <p class="content-block__form-subtitle">
+              Введите телефон в форме ниже
+            </p>
+            <div class="content-block__form-inputs">
+              <input class="content-block__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+              <button class="content-block__form-btn _gray-btn">
+                Записаться на консультацию
+              </button>
             </div>
+            <p class="content-block__form-politic politic-text">
+              Нажимая на кнопку, вы соглашаетесь с <a href="#politics" data-fancybox>
+                Политикой конфиденциальности
+              </a>
+            </p>
           </div>
-        </a>
-        <a class="link-items__service" href="#">
-          <div class="link-items__service-wrapper">
-            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-2.webp" alt="link-items-2">
-          </div>
-          <div class="link-items__service-info">
-            <h4 class="link-items__service-text">
-              Открыт VIP-дневной стационар: комфорт на уровне пятизвёздочного отеля теперь доступен пациентам
-            </h4>
-            <div class="link-items__service-btn _gray-btn left-btn">
-              <span>Перейти к прочтению</span>
-            </div>
-          </div>
-        </a>
-        <a class="link-items__service" href="#">
-          <div class="link-items__service-wrapper">
-            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-3.webp" alt="link-items-3">
-          </div>
-          <div class="link-items__service-info">
-            <h4 class="link-items__service-text">
-              Abakumov Clinic вошла в топ-10 частных клиник Москвы по уровню сервиса по версии Zdrav.Media
-            </h4>
-            <div class="link-items__service-btn _gray-btn left-btn">
-              <span>Перейти к прочтению</span>
-            </div>
-          </div>
-        </a>
+        </form>
+      </div>
+    </div>
+  </section>
+  <div class="divider"></div>
+  <section class="link-items space-top">
+    <div class="container">
+      <h2 class="link-items__title _title">
+        Рекомендованные статьи
+      </h2>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="link-items__services">
         <a class="link-items__service" href="#">
           <div class="link-items__service-wrapper">
             <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-4.webp" alt="link-items-4">
@@ -130,23 +148,8 @@ get_header();
           </div>
         </a>
       </div>
-      <div class="pagination">
-        <a class="pagination__link" href="#">Назад</a>
-        <div class="pagination__steps">
-          <a class="pagination__step active" href="#">1</a>
-          <a class="pagination__step" href="#">2</a>
-          <a class="pagination__step" href="#">3</a>
-          <a class="pagination__step" href="#">4</a>
-          <a class="pagination__step" href="#">5</a>
-        </div>
-        <a class="pagination__link" href="#">Вперед</a>
-      </div>
-      <a class="more-btn _main-btn" href="#">
-        Открыть больше новостей
-      </a>
     </div>
   </section>
-
   <!-- в блок внутри обертки добавил заголовок. Также добавил новые классы padding-bottom и padding-top - чтобы можно было делать внутренние отступы в блоке -->
   <div class="wrapper-bg _section-lg">
     <section class="link-items padding-bottom padding-top">
@@ -231,12 +234,12 @@ get_header();
             Заполните форму
           </h4>
           <p class="callback__form-subtitle">
-            Введите телефон в форме ниже
+            и получите консультацию специалиста
           </p>
           <div class="callback__form-inputs">
             <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
             <button class="callback__form-btn _gray-btn">
-              Записаться на консультацию
+              Получите консультацию
             </button>
           </div>
           <p class="callback__form-politic politic-text">
