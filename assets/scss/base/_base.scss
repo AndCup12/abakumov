@@ -369,7 +369,7 @@ a {
   background-position: top;
 
   @include mixins.xl {
-      margin-top: 100px;
+    margin-top: 100px;
   }
 
   @include mixins.lg {
@@ -550,9 +550,105 @@ a {
   background-size: auto !important;
 }
 
+.padding-top {
+  padding-top: 120px;
+
+  @include mixins.xl {
+    padding-top: 100px;
+  }
+
+  @include mixins.lg {
+    padding-top: 40px;
+  }
+}
+
+.padding-bottom {
+  padding-bottom: 120px;
+
+  @include mixins.xl {
+    padding-bottom: 100px;
+  }
+
+  @include mixins.lg {
+    padding-bottom: 40px;
+  }
+}
 
 
 
+
+.pagination {
+  margin: 75px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+
+  @include mixins.xl {
+      margin: 40px auto;
+  }
+
+  @include mixins.lg {
+      margin: 20px auto;
+  }
+
+  @include mixins.xs {
+      gap: 15px;
+  }
+
+  &__link {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: calc(28/16*100%);
+    color: var(--accent);
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
+  &__steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__step {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+    background-color: #FAFAFA;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: calc(28/15*100%);
+    color: var(--default-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease-in-out;
+
+    @include mixins.xs {
+            width: 38px;
+              min-width: 38px;
+              height: 38px;
+              min-height: 38px;
+    }
+
+    &:hover, &.active{
+      background-color: var(--accent);
+      color: var(--light-color);
+    }
+  }
+}
+
+.more-btn{
+  margin: 0 auto;
+  max-width: 335px;
+}
 
 
 
