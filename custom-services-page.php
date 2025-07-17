@@ -6,10 +6,12 @@
  * @package WordPress
  * @subpackage clean
  */
-get_header();
-?>
+get_header(); ?>
 
 <main class="main" id="services-single">
+
+  <?php echo renderBlocksSingleCheckup(); ?>
+
   <!-- ЗДЕСЬ ЕСТЬ ИЗМЕНЕНИЯ ДЛЯ СТРАНИЦЫ ТЕЛЕГРАМА. МОИ ИЗМЕНЕНИЯ ЗАКОММЕНЧЕННЫ -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
@@ -1221,7 +1223,7 @@ get_header();
 
       </div>
     </div>
-  </section> -->
+  </section>
 
 </main>
 
