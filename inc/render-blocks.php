@@ -187,6 +187,9 @@ function renderBlocksSingleCheckup() {
         case 'catalogDoctors':
           echo catalogDoctors();
           break;
+        case 'doctorsSpecialization':
+          echo doctorsSpecialization();
+          break;
         case 'blockImg':
           echo blockImg();
           break;
@@ -336,6 +339,9 @@ function firstBlockDirection(){
           <h1 class="front-block__title _title">
             <?php the_field('meta_h1'); ?>
           </h1>
+          <p class="front-block__subtitle _subtitle">
+            Подзаголовок
+          </p>
           <div class="cursor">
             <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
           </div>
@@ -1819,7 +1825,7 @@ function videoRevSlider(){
       <div class="checkup-reviews-after__swiper swiper">
         <div class="swiper-wrapper">
           <?php while(have_rows('videoRevSlider_video')) : the_row();
-          $img = ge_sub_field('preview'); ?>
+          $img = get_sub_field('preview'); ?>
           <div class="swiper-slide checkup-reviews-after__slide">
             <div class="checkup-after__item">
               <a class="checkup-after__item-link" href="<?php echo $link;?>" data-fancybox>
@@ -3018,12 +3024,16 @@ function checkupIs(){
 
   <section class="checkup-is">
     <div class="container">
+      <?php if(get_sub_field('checkupIs_title')):?>
       <h2 class="checkup-is__title _title">
         <?php the_sub_field('checkupIs_title');?>
       </h2>
+      <?php endif; ?>
+      <?php if(get_sub_field('checkupIs_subtitle')) :?>
       <p class="checkup-is__subtitle _subtitle">
         <?php the_sub_field('checkupIs_subtitle'); ?>
       </p>
+      <?php endif; ?>
       <?php if(have_rows('checkupIs_cards')) : ?>
       <div class="checkup-is__items">
         <?php while(have_rows('checkupIs_cards')) : the_row(); ?>
@@ -3076,7 +3086,7 @@ function checkupIs(){
           $img = get_sub_field('checkupIs_img');?>
         <div class="checkup-is__inner-right">
           <div class="checkup-is__inner-wrapper relative">
-            <img class="checkup-is__inner-img _img" src="<?php echo esc_url( $card_img['url'] ); ?>" alt="<?php echo esc_attr( $card_img['alt'] ); ?>">
+            <img class="checkup-is__inner-img _img" src="<?php echo esc_url( $img['url'] ); ?>" alt="<?php echo esc_attr( $img['alt'] ); ?>">
           </div>
         </div>
         <?php endif; ?>
@@ -3690,22 +3700,25 @@ function doctorsSpecialization(){
           Основные<br> заболевания,<br>
           на которых<br> специализируется<br> врач
         </h2>
+        <?php if(have_rows('doctorsSpecialization_list')) :?>
         <div class="doctors-specialization__right">
           <ul class="doctors-specialization__list">
-
+            <?php while(have_rows('doctorsSpecialization_list')) : the_row();?>
             <li class="doctors-specialization__point">
               <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
               <span class="doctors-specialization__text">
-                аллергические реакции
+                <?php the_sub_field('point'); ?>
               </span>
             </li>
-
+            <?php endwhile; ?>
           </ul>
+          <?php endif; ?>
           <a class="doctors-specialization__btn _gray-btn" href="#">
             <span>Узнать о враче подробнее</span>
             <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
           </a>
         </div>
+
       </div>
     </div>
   </section>
@@ -3716,6 +3729,7 @@ function doctorsSpecialization(){
 // Картинка большая
 function blockImg(){
   ob_start(); ?>
+  <?php if(get_sub_field('blockImg_type') != 1) {?>
     <section class="image-block">
       <img class="image-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
       <div class="container relative">
@@ -3730,6 +3744,18 @@ function blockImg(){
         <?php endif; ?>
       </div>
     </section>
+    <?php } else { ?>
+      <section class="image-block space-top-negative relative">
+        <div class="container">
+          <?php if(get_sub_field('blockImg_img')) :
+            $img = get_sub_field('blockImg_img');?>
+          <div class="images-block__wrapper">
+            <img class="image-block__img" src="<?php echo $img['url'];?>" alt="<?php echo $img['url'];?>">
+          </div>
+          <?php endif; ?>
+        </div>
+      </section>
+    <?php } ?>
   <?php return ob_get_clean();
 }
 
