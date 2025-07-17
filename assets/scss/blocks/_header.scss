@@ -91,12 +91,17 @@
     align-items: center;
     gap: 16px;
     padding: 7px 9px;
+    transition: all .3s ease-in-out;
 
     span {
       font-weight: 500;
       font-size: 16px;
       line-height: calc(22/16*100%);
       color: var(--light-color);
+    }
+
+    &:hover {
+      background-color: var(--accent-hover);
     }
   }
 
@@ -242,6 +247,7 @@
   }
 
   &__search {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -249,8 +255,32 @@
     width: 54px;
     height: 54px;
     background-color: var(--light-color);
-    overflow: hidden;
     border-radius: 50%;
+    cursor: pointer;
+
+    &.active {
+      transition: all .3s ease-in-out;
+      background-color: var(--accent);
+
+
+      .header__search-inp {
+        transform: translateX(100%) scaleX(1);
+
+        @include mixins.xxl {
+          transform: translateX(50%) translateY(100%) scaleX(1);
+        }
+
+        @include mixins.lg {
+          transform: none;
+        }
+      }
+
+      svg path {
+        transition: all .3s ease-in-out;
+        fill: var(--light-color);
+      }
+
+    }
 
     @include mixins.xl {
       height: 48px;
@@ -266,12 +296,51 @@
   }
 
   &__search-inp {
-    display: none;
+    position: absolute;
+    max-width: 276px;
+    min-width: 276px;
+    right: 0;
+    transform: translateX(100%) scaleX(0);
+    transform-origin: left;
+    width: 100%;
+    height: 54px;
+    background-color: var(--light-color);
+    border-radius: 100px;
+    border: none;
+    padding: 15px 25px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: calc(24/17*100%);
+    color: var(--default-color);
+    transition: all .3s ease-in-out;
+
+    @media (max-width: 1600px) {
+      min-width: 160px;
+    }
+
+    @include mixins.xxl {
+      right: 50%;
+      bottom: 0;
+      transform: translateX(50%) translateY(100%) scaleX(0);
+      min-width: 276px;
+    }
+
+    @include mixins.xl {
+      min-width: 220px;
+    }
 
     @include mixins.lg {
+      position: static;
+      max-width: none;
+      min-width: none;
+      transform: none;
       display: inline-block;
       height: 30px;
       font-size: 16px;
+    }
+
+    &::placeholder {
+      color: var(--default-color);
     }
   }
 

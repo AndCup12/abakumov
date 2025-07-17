@@ -31,33 +31,20 @@
   // ЗДЕСЬ МОЖНО ПРОПИСЫВАТЬ СВОИ ПЕРЕМЕННЫЕ
 
   --primary: #F56E09;
+  --primary-hover: #FF7C1B;
   --accent: #595C6F;
+  --accent-hover: #717384;
   --whatsapp-color: #75B611;
+  --whatsapp-hover: #83CB13;
   --telegram-color: #339DFF;
+  --telegram-hover: #58AFFF;
   --gray: #F7F7F7;
   --subtitle: #5C677E;
   --icons-bg: #927D76;
-
-
-  --primary-hover: #f77c1e;
   --light-color: #FFFFFF;
-  --accent-hover: #797b88;
-  --whatsapp-hover: #2DE873;
-  --telegram-hover: #54C0F8;
-  --dark: #000000;
-  
 
-  // Отступы для блоков
-  --indent: 120px;
 
-  @media (max-width: 1230px) {
-    --indent: 80px;
   }
-  @media (max-width: 991.8px) {
-    --indent: 40px;
-  }
-
-}
 
 .dark {
   --page-bg: #252526;

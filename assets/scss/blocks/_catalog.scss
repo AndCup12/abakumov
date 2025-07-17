@@ -77,6 +77,16 @@
       border-radius: 6px;
     }
 
+    &:hover {
+      .catalog__item-icon {
+        background-color: var(--accent);
+
+        svg path {
+          fill: var(--light-color);
+        }
+      }
+    }
+
   }
 
   &__item-top {
@@ -105,6 +115,7 @@
     justify-content: center;
     align-items: center;
     padding: 12px;
+    transition: all .3s ease-in-out;
 
     @include mixins.xl {
       transform: translate(5px, -5px);
@@ -114,6 +125,7 @@
       rotate: 180deg;
 
       path {
+        transition: all .3s ease-in-out;
         fill: var(--default-color);
       }
     }
@@ -129,7 +141,7 @@
     }
 
     @include mixins.xs {
-        font-size: 18px;
+      font-size: 18px;
     }
   }
 }

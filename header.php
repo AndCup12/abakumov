@@ -176,11 +176,11 @@
               г. Москва, ул. 1-я Бородинская д.3
             </p>
           </a>
-          <form action="#" method="post" class="header__search">
+          <form action="#" method="post" class="header__search open-search">
             <div class="header__search-icon">
               <?php include(get_template_directory() . '/assets/images/icons/search.svg'); ?>
             </div>
-            <input class="header__search-inp _input" type="text" name="search" placeholder="Поиск..">
+            <input class="header__search-inp open-search-inp" type="text" name="search" placeholder="Поиск..">
           </form>
           <div class="burger">
             <div class="bar"></div>
