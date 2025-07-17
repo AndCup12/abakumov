@@ -60,6 +60,7 @@
 @use 'blocks/checkup-reviews-after';
 @use 'blocks/why-works';
 @use 'blocks/content-block';
+@use 'blocks/vacancies-format';
 
 
 @use 'blocks/quiz';
@@ -87,4 +88,6 @@
 @use 'pages/business-page';
 @use 'pages/news-page';
 @use 'pages/articles-page';
+@use 'pages/vacancies-page';
+@use 'pages/nalog-page';
 
