@@ -337,11 +337,30 @@
     border-radius: 20px;
 
     @include mixins.lg {
-        width: 280px;
+      width: 280px;
     }
 
     @include mixins.md {
-        width: 220px;
+      width: 220px;
+    }
+  }
+
+  &__img-telegram {
+    position: absolute;
+    bottom: 0;
+    right: 4%;
+
+    @include mixins.xxl {
+      width: 47%;
+      right: 0;
+    }
+
+    @include mixins.xl {
+      width: 36%;
+    }
+
+    @include mixins.lg {
+      display: none;
     }
   }
 

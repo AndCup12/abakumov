@@ -10,7 +10,7 @@ get_header();
 ?>
 
 <main class="main" id="services-single">
-  <!-- Первый блок -->
+  <!-- ЗДЕСЬ ЕСТЬ ИЗМЕНЕНИЯ ДЛЯ СТРАНИЦЫ ТЕЛЕГРАМА. МОИ ИЗМЕНЕНИЯ ЗАКОММЕНЧЕННЫ -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
     <div class="container">
@@ -25,6 +25,8 @@ get_header();
           </p>
           <div class="front-block__btns">
             <a class="front-block__btn _main-btn" href="#" data-fancybox>
+              <!-- ДОБАВИЛ ИКОНКУ ТЕЛЕГИ -->
+              <!-- <?php include(get_template_directory() . '/assets/images/icons/telegram.svg'); ?> -->
               <span>Записаться на прием</span>
             </a>
             <a class="front-block__arrow-btn" href="#">
@@ -40,6 +42,8 @@ get_header();
             <img class="front-block__right-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/front-block-16.webp" alt="front-block-16">
           </div>
         </div>
+        <!-- ДОБАВИЛ КАРТИНКУ РУКИ ТЕЛЕГИ -->
+        <!-- <img class="front-block__img-telegram" src="<?php echo get_template_directory_uri(); ?>/assets/images/front-block-telegram.webp" alt="hand-telega"> -->
       </div>
       <div class="front-block__links items-center">
         <a class="front-block__link" href="#">
