@@ -11,7 +11,7 @@ get_header(); ?>
 <main class="main" id="services-single">
 
 
-  <?php echo renderBlocksService(); ?>
+  <?php echo renderBlocksSingleCheckup(); ?>
 
 </main>
 

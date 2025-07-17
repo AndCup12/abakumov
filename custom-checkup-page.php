@@ -10,7 +10,7 @@ get_header();
 ?>
   <main class="main" id="checkup-single">
 
-      <?php renderBlocksCheckup(); ?>
+      <?php echo renderBlocksSingleCheckup(); ?>
 
   </main>
 

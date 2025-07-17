@@ -11,7 +11,7 @@ get_header();
 
 <main class="main" id="directions-single">
 
-  <?php renderBlocksDirection(); ?>
+  <?php echo renderBlocksSingleCheckup(); ?>
 
 </main>
 

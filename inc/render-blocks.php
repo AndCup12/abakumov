@@ -4355,12 +4355,8 @@ function name(){
 
 // Старая функция
 function renderBlocksSingleCheckup() {
-  // checkupFrontBlock : Первый блок - Чекап сингл
-  // checkupFrontBlockMain : Первый блок - Чекап основная
-  // firstBlockDirection : Первый блок - Направления основная
-  // frontBlockMain : Первый блок - Главная
-  // firstBlockService : Первый блок - Услуги главная
-  // firstBlockRev : Первый блок - Отзывы
+
+  // checkupFrontBlock : Первый блок
   // advantages : Преимущества
   // checkupQuestions : Зачем проходить 'направление'
   // doctorWithQuotes : Врач с цитатами
@@ -4375,11 +4371,8 @@ function renderBlocksSingleCheckup() {
   // newLevel : Медицина нового уровня
   // checkupReviews : Блок отзывов (изображения вытянутые)
   // checkupАfter : Видео-отзывы
-  // videoRevSlider : Видео-отзывы (слайдер)
   // rating : Рейтинг клиники
   // careComfort : Комфорт
-  // contacts : Контакты
-  // map : Карта
   // disease : Заболевание/ расшифровка
   // directionsSimptom : Симптомы
   // callback_2 : Форма обратной связи (2 вариант)
@@ -4388,25 +4381,6 @@ function renderBlocksSingleCheckup() {
   // directionsPrice : Стоимость лечения
   // stagesOfTreatment : Этапы лечения
   // checkupResult : Результат
-  // readyPrograms : Комплексные обследования
-  // checkUpPrograms : Программы CheckUp для...
-  // checkupIs : Чекап это
-  // reviewsBloger : Отзывы блогеров
-  // catalogDirections : Каталог направлений
-  // comfort : Комфорт как дома
-  // justTreat : Мы не просто лечим
-  // сonsilium : Консилиум
-  // catalogDoctors : Каталог врачей
-  // doctorsSpecialization : Специализация врача
-  // blockImg : Картинка большая
-  // concept : Концепция клиники
-  // doctorExp : Воплощение опыта
-  // deleteCause : Устраняем причину
-  // staticNewLevel : Клиника ментор
-  // care : Забота
-  // whyWorks : Почему выгодно
-  // vacanciesFormat : Клиника нового формата
-
   // wrapperStart : Начало обертки
   // wrapperEnd : Конец обертки
 
