@@ -94,4 +94,73 @@
       width: 12px;
     }
   }
+
+  &__modal{
+    max-width: 1035px;
+    &.modal{
+      padding: 50px 60px 60px;
+
+      @include mixins.md {
+          padding: 40px;
+      }
+
+      @include mixins.sm {
+          padding: 30px;
+      }
+
+      @include mixins.xs {
+          padding: 20px;
+      }
+    }
+
+    .theContent{
+      h6{
+        margin: 0;
+      }
+
+      p{
+        margin-top: 5px;
+      }
+    }
+  }
+
+  &__modal-content{
+    margin-bottom: 30px;
+
+    @include mixins.lg {
+        margin-bottom: 0;
+    }
+  }
+
+  &__modal-btns{
+    justify-content: start;
+    gap: 40px;
+
+    @include mixins.lg {
+        gap: 20px;
+    }
+
+    @include mixins.md {
+        gap: 15px;
+        flex-direction: column;
+    }
+  }
+
+    &__modal-btn {
+      @include mixins.lg {
+        gap: 10px;
+      }
+    }
+  
+    &__modal-icon {
+      width: 40px;
+      min-width: 40px;
+      height: 40px;
+      min-height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--whatsapp-color);
+    }
 }

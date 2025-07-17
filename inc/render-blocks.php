@@ -965,7 +965,7 @@ function examinationReveals(){
                       endif; ?>
                   </div>
                   <!-- Посадка -->
-                  <div class="examination-reveals__right-btns">
+                  <div class="examination-reveals__right-btns <?php echo get_sub_field('examinationReveals_img') ? '' : 'items-center'; ?>">
                       <a class="examination-reveals__btn _gray-btn change-popup change-popup-from-link" href="#callback-modal" data-fancybox>
                           <span>Записаться на обследование</span>
                           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3487,12 +3487,12 @@ function catalogDoctors(){
           </div>
         </form>
         <div class="doctors-doctors__items">
-          <div class="doctors-doctors__item">
+          <div class="doctors-doctors__item change-popup-item">
             <a class="doctors-doctors__item-wrapper" href="#">
               <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-1.webp" alt="doctors-doctors-1">
             </a>
             <div class="doctors-doctors__item-info">
-              <h4 class="doctors-doctors__item-title _title">
+              <h4 class="doctors-doctors__item-title _title change-popup-name">
                 Абакумов<br>
                 Олег Александрович
               </h4>
@@ -3505,17 +3505,17 @@ function catalogDoctors(){
               <a class="doctors-doctors__item-link" href="#">
                 Узнать о враче подробнее
               </a>
-              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+              <a class="doctors-doctors__item-btn _gray-btn change-popup" href="#callback-modalcallback-modal" data-fancybox="">
                 Записаться к врачу
               </a>
             </div>
           </div>
-          <div class="doctors-doctors__item">
+          <div class="doctors-doctors__item change-popup-item">
             <a class="doctors-doctors__item-wrapper" href="#">
               <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-2.webp" alt="doctors-doctors-2">
             </a>
             <div class="doctors-doctors__item-info">
-              <h4 class="doctors-doctors__item-title _title">
+              <h4 class="doctors-doctors__item-title _title change-popup-name">
                 Ионичевская<br>
                 Ирина Игоревна
               </h4>
@@ -3528,17 +3528,17 @@ function catalogDoctors(){
               <a class="doctors-doctors__item-link" href="#">
                 Узнать о враче подробнее
               </a>
-              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+              <a class="doctors-doctors__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox="">
                 Записаться к врачу
               </a>
             </div>
           </div>
-          <div class="doctors-doctors__item">
+          <div class="doctors-doctors__item change-popup-item">
             <a class="doctors-doctors__item-wrapper" href="#">
               <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-3.webp" alt="doctors-doctors-3">
             </a>
             <div class="doctors-doctors__item-info">
-              <h4 class="doctors-doctors__item-title _title">
+              <h4 class="doctors-doctors__item-title _title change-popup-name">
                 Войнилович<br>
                 Сергей Вячеславович
               </h4>
@@ -3551,18 +3551,18 @@ function catalogDoctors(){
               <a class="doctors-doctors__item-link" href="#">
                 Узнать о враче подробнее
               </a>
-              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+              <a class="doctors-doctors__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox="">
                 Записаться к врачу
               </a>
             </div>
 
           </div>
-          <div class="doctors-doctors__item">
+          <div class="doctors-doctors__item change-popup-item">
             <a class="doctors-doctors__item-wrapper" href="#">
               <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-1.webp" alt="doctors-doctors-1">
             </a>
             <div class="doctors-doctors__item-info">
-              <h4 class="doctors-doctors__item-title _title">
+              <h4 class="doctors-doctors__item-title _title change-popup-name">
                 Абакумов<br>
                 Олег Александрович
               </h4>
@@ -3575,17 +3575,17 @@ function catalogDoctors(){
               <a class="doctors-doctors__item-link" href="#">
                 Узнать о враче подробнее
               </a>
-              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+              <a class="doctors-doctors__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox="">
                 Записаться к врачу
               </a>
             </div>
           </div>
-          <div class="doctors-doctors__item">
+          <div class="doctors-doctors__item change-popup-item">
             <a class="doctors-doctors__item-wrapper" href="#">
               <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-2.webp" alt="doctors-doctors-2">
             </a>
             <div class="doctors-doctors__item-info">
-              <h4 class="doctors-doctors__item-title _title">
+              <h4 class="doctors-doctors__item-title _title change-popup-name">
                 Ионичевская<br>
                 Ирина Игоревна
               </h4>
@@ -3598,17 +3598,17 @@ function catalogDoctors(){
               <a class="doctors-doctors__item-link" href="#">
                 Узнать о враче подробнее
               </a>
-              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+              <a class="doctors-doctors__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox="">
                 Записаться к врачу
               </a>
             </div>
           </div>
-          <div class="doctors-doctors__item">
+          <div class="doctors-doctors__item change-popup-item">
             <a class="doctors-doctors__item-wrapper" href="#">
               <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-3.webp" alt="doctors-doctors-3">
             </a>
             <div class="doctors-doctors__item-info">
-              <h4 class="doctors-doctors__item-title _title">
+              <h4 class="doctors-doctors__item-title _title change-popup-name">
                 Войнилович<br>
                 Сергей Вячеславович
               </h4>
@@ -3621,7 +3621,7 @@ function catalogDoctors(){
               <a class="doctors-doctors__item-link" href="#">
                 Узнать о враче подробнее
               </a>
-              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+              <a class="doctors-doctors__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox="">
                 Записаться к врачу
               </a>
             </div>
@@ -3659,13 +3659,48 @@ function doctorsSpecialization(){
             <?php endwhile; ?>
           </ul>
           <?php endif; ?>
-          <a class="doctors-specialization__btn _gray-btn" href="#">
+          <a class="doctors-specialization__btn _gray-btn" href="#doctor-1" data-fancybox>
             <span>Узнать о враче подробнее</span>
             <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
           </a>
         </div>
 
       </div>
+    </div>
+    <div class="doctors-specialization__modal modal" style="display: none;" id="doctor-1">
+        <div class="doctors-specialization__modal-content theContent">
+          <h6>
+            Образование:
+          </h6>
+          <p>
+            Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (педиатрия), 2015 г.
+            Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (терапия), 2016 г. – повышение квалификации
+            Московский государственный медико-стоматологический университет Евдокимова "180000178363" (пульмонология), 2019 г. – повышение квалификации
+          </p>
+          <h6>
+            Профессиональные достижения и опыт:
+          </h6>
+          <p>
+            Является победителем конкурса народного признания «Спасибо, доктор!», Награждён нагрудным знаком «За мужество и доблесть в борьбе с COVID-19», Статус «Московский врач», Автор медицинского блога по просвещению пациентов «С медицинского на русский», Соавтор пособия по коронавирусной инфекции для пациентов «COVID POSITIVE», Автор бестселлеров «Что делать если» и «Мне только спросить», Снялся в собственном фильме с мировой премьерой «доктор Абакумов. Сторис из красной зоны»
+          </p>
+          <h6>
+            Сертификаты:
+          </h6>
+          <p>
+            Московский государственный медико-стоматологический университет имени А.И. Евдокимова "017780857151" (Пульмонология)
+          </p>
+        </div>
+        <div class="front-block__btns doctors-specialization__modal-btns">
+              <a class="front-block__btn _main-btn change-popup-from-link change-popup-from" href="#callback-modal" data-fancybox="">
+                <span>Записаться на консультацию</span>
+              </a>
+              <a class="front-block__arrow-btn doctors-specialization__modal-btn" href="#">
+                <span class="front-block__btn-icon doctors-specialization__modal-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+                </span>
+                <span>Задать вопросы через WhatsApp</span>
+              </a>
+            </div>
     </div>
   </section>
 
