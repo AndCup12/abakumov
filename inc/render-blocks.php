@@ -248,7 +248,7 @@ function checkupFrontBlock(){
             <div class="front-block__btns">
               <?php if(get_sub_field('checkupFrontBlock_btn1') == 1){?>
               <!-- Записаться на чек-ап -->
-              <a class="front-block__btn _main-btn" href="#" data-fancybox>
+              <a class="front-block__btn _main-btn change-popup change-popup-from-link" href="#callback-modal" data-fancybox>
                 <span>Записаться на чек-ап</span>
               </a>
               <?php } ?>
@@ -379,7 +379,7 @@ function firstBlockDirection(){
           </div>
           <?php endif; ?>
           <div class="front-block__btns">
-            <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
+            <a class="front-block__btn _main-btn change-popup-from-link change-popup" href="#callback-modal" data-fancybox>
               <?php include(get_template_directory() . '/assets/images/icons/mail.svg'); ?>
               <span>Записаться на прием</span>
             </a>
@@ -966,7 +966,7 @@ function examinationReveals(){
                   </div>
                   <!-- Посадка -->
                   <div class="examination-reveals__right-btns">
-                      <a class="examination-reveals__btn _gray-btn" href="#" data-fancybox>
+                      <a class="examination-reveals__btn _gray-btn change-popup change-popup-from-link" href="#callback-modal" data-fancybox>
                           <span>Записаться на обследование</span>
                           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path
@@ -1343,9 +1343,9 @@ function checkupCompound() {
                           <?php endif; ?>
 
                           <?php if(get_sub_field('сompound_price_accord') || get_sub_field('сompound_name_accord')) : ?>
-                              <div class="checkup-compound__item-cost">
+                              <div class="checkup-compound__item-cost change-popup-item">
                                   <?php if(get_sub_field('сompound_name_accord')) : ?>
-                                      <h5 class="checkup-compound__item-name">
+                                      <h5 class="checkup-compound__item-name change-popup-title">
                                           <?php the_sub_field('сompound_name_accord'); ?>
                                       </h5>
                                   <?php endif; ?>
@@ -1356,7 +1356,7 @@ function checkupCompound() {
                                               <?php the_sub_field('сompound_price_accord'); ?> ₽
                                           </span>
                                       <?php endif; ?>
-                                      <a class="checkup-compound__item-btn _gray-btn" href="#">
+                                      <a class="checkup-compound__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox="">
                                           Записаться
                                       </a>
                                   </div>
@@ -2918,12 +2918,12 @@ function checkUpPrograms(){
         <div class="checkup-programs__items">
           <?php foreach ( $programs_list as $post_ids ) :
             $num = str_pad($counter, 2, '0', STR_PAD_LEFT); ?>
-          <div class="checkup-programs__item">
+          <div class="checkup-programs__item change-popup-item">
             <div class="checkup-programs__item-left">
               <span class="checkup-programs__item-step">
                 <?php echo $num; ?>
               </span>
-              <h4 class="checkup-programs__item-title">
+              <h4 class="checkup-programs__item-title change-popup-title">
                 <?php echo get_field('meta_h1', $post_ids);?>
                 <!-- <span class="checkup-programs__item-descr">
                   Пакет <span>LIGHT</span>
@@ -2941,7 +2941,7 @@ function checkUpPrograms(){
                   </svg>
                 </p>
               </a>
-              <a class="checkup-programs__item-btn _gray-btn" href="#">
+              <a class="checkup-programs__item-btn change-popup _gray-btn" href="#callback-modal" data-fancybox>
                 Записаться на Check-Up
               </a>
             </div>
