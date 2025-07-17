@@ -1,93 +1,194 @@
+
 <?php
 
-// Функции генерирующие данные типы блоков
+// ======= Блоки для шаблона custom-directions-page.php =========
+function renderBlocksDirection(){
 
-// checkupFrontBlock : Первый блок - Чекап сингл
-// checkupFrontBlockMain : Первый блок - Чекап основная
-// firstBlockDirection : Первый блок - Направления основная
-// frontBlockMain : Первый блок - Главная
-// firstBlockService : Первый блок - Услуги главная
-// firstBlockRev : Первый блок - Отзывы
-// advantages : Преимущества
-// checkupQuestions : Зачем проходить 'направление'
-// doctorWithQuotes : Врач с цитатами
-// videoBlock : Блок с видео
-// whenExamination : Когда стоит пройти обследование
-// examinationReveals : Что может выявить
-// checkupStages : Этапы прохождения
-// personalPlan : Персональный план
-// callback_1 : Форма обратной связи (1 вариант)
-// checkupSchedule : График прохождения
-// checkupCompound : Состав чекапа
-// newLevel : Медицина нового уровня
-// checkupReviews : Блок отзывов (изображения вытянутые)
-// checkupАfter : Видео-отзывы
-// videoRevSlider : Видео-отзывы (слайдер)
-// rating : Рейтинг клиники
-// careComfort : Комфорт
-// contacts : Контакты
-// map : Карта
-// disease : Заболевание/ расшифровка
-// directionsSimptom : Симптомы
-// callback_2 : Форма обратной связи (2 вариант)
-// directionsMethods : Методы диагностики и лечения
-// directionsDoctor : Врачи клиники
-// directionsPrice : Стоимость лечения
-// stagesOfTreatment : Этапы лечения
-// checkupResult : Результат
-// readyPrograms : Комплексные обследования
-// checkUpPrograms : Программы CheckUp для...
-// checkupIs : Чекап это
-// reviewsBloger : Отзывы блогеров
-// catalogDirections : Каталог направлений
-// comfort : Комфорт как дома
-// justTreat : Мы не просто лечим
-// сonsilium : Консилиум
-// catalogDoctors : Каталог врачей
-// doctorsSpecialization : Специализация врача
-// blockImg : Картинка большая
-// concept : Концепция клиники
-// doctorExp : Воплощение опыта
-// deleteCause : Устраняем причину
-// staticNewLevel : Клиника ментор
-// care : Забота
-// whyWorks : Почему выгодно
-// vacanciesFormat : Клиника нового формата
+  // advantages : Преимущества
+  // callback_1 : Форма обратной связи (1 вариант)
+  // callback_2 : Форма обратной связи (2 вариант)
+  // careComfort : Комфорт
+  // checkupFrontBlock : Первый блок - Чекап основная
+  // checkupReviews : Блок отзывов (изображения вытянутые)
+  // checkupАfter : Видео-отзывы
+  // contacts : Контакты
+  // directionsDoctor : Врачи клиники
+  // directionsMethods : Методы диагностики и лечения
+  // directionsPrice : Стоимость лечения
+  // directionsSimptom : Симптомы
+  // disease : Заболевание/ расшифровка
+  // doctorWithQuotes : Врач с цитатами
+  // examinationReveals : Что может выявить
+  // map : Карта
+  // newLevel : Медицина нового уровня
+  // rating : Рейтинг клиники
+  // stagesOfTreatment : Этапы лечения
+  // videoBlock : Блок с видео
+  // wrapperEnd : Конец обертки
+  // wrapperStart : Начало обертки
 
-// wrapperStart : Начало обертки
-// wrapperEnd : Конец обертки
+  if(have_rows('blocksDirection')) {
+    while(have_rows('blocksDirection')) {
+      the_row();
+        $block_type = get_sub_field('block_type');
+        switch ($block_type){
+          case 'advantages' :
+            echo advantages();
+            break;
+          case 'callback_1' :
+            echo callback_1();
+            break;
+          case 'callback_2' :
+            echo callback_2();
+            break;
+          case 'careComfort' :
+            echo careComfort();
+            break;
+          case 'checkupFrontBlock' :
+            echo checkupFrontBlock();
+            break;
+          case 'checkupReviews' :
+            echo checkupReviews();
+            break;
+          case 'checkupАfter' :
+            echo checkupАfter();
+            break;
+          case 'contacts' :
+            echo contacts();
+            break;
+          case 'directionsDoctor' :
+            echo directionsDoctor();
+            break;
+          case 'directionsMethods' :
+            echo directionsMethods();
+            break;
+          case 'directionsPrice' :
+            echo directionsPrice();
+            break;
+          case 'directionsSimptom' :
+            echo directionsSimptom();
+            break;
+          case 'disease' :
+            echo disease();
+            break;
+          case 'doctorWithQuotes' :
+            echo doctorWithQuotes();
+            break;
+          case 'examinationReveals' :
+            echo examinationReveals();
+            break;
+          case 'map' :
+            echo map();
+            break;
+          case 'newLevel' :
+            echo newLevel();
+            break;
+          case 'rating' :
+            echo rating();
+            break;
+          case 'stagesOfTreatment' :
+            echo stagesOfTreatment();
+            break;
+          case 'videoBlock' :
+            echo videoBlock();
+            break;
+          case 'wrapperEnd' :
+            echo wrapperEnd();
+            break;
+          case 'wrapperStart' :
+            echo wrapperStart();
+            break;
+        }
+    }
+  }
 
-// Генерация блоков для шаблона custom-checkup-page
-function renderBlocksSingleCheckup() {
-  if (have_rows('blocksSingleCheckup')) {
-    while (have_rows('blocksSingleCheckup')) {
+}
+
+
+// ======= Блоки для шаблона custom-checkup-page.php =========
+function renderBlocksCheckup(){
+
+  // advantages : Преимущества
+  // callback_1 : Форма обратной связи (1 вариант)
+  // careComfort : Комфорт
+  // checkupCompound : Состав чекапа
+  // checkupFrontBlock : Первый блок - Чекап сингл
+  // checkupQuestions : Зачем проходить 'направление'
+  // checkupResult : Результат
+  // checkupReviews : Блок отзывов (изображения вытянутые)
+  // checkupSchedule : График прохождения
+  // checkupStages : Этапы прохождения
+  // checkupАfter : Видео-отзывы
+  // contacts : Контакты
+  // doctorWithQuotes : Врач с цитатами
+  // examinationReveals : Что может выявить
+  // map : Карта
+  // newLevel : Медицина нового уровня
+  // personalPlan : Персональный план
+  // rating : Рейтинг клиники
+  // videoBlock : Блок с видео
+  // whenExamination : Когда стоит пройти обследование
+  // wrapperEnd : Конец обертки
+  // wrapperStart : Начало обертки
+
+  if(have_rows('blocksCheckup')) {
+    while(have_rows('blocksCheckup')){
       the_row();
       $block_type = get_sub_field('block_type');
-      // echo $block_type . "\n";
-      switch ($block_type) {
-        case 'checkupFrontBlock':
-          echo checkupFrontBlock();
-          break;
-        case 'checkupFrontBlockMain':
-          echo checkupFrontBlockMain();
-          break;
-        case 'firstBlockDirection':
-          echo firstBlockDirection();
-          break;
-        case 'frontBlockMain';
-          echo frontBlockMain();
-          break;
-        case 'firstBlockService':
-          echo firstBlockService();
-          break;
+      switch($block_type){
         case 'advantages':
           echo advantages();
+          break;
+        case 'callback_1':
+          echo callback_1();
+          break;
+        case 'careComfort':
+          echo careComfort();
+          break;
+        case 'checkupCompound':
+          echo checkupCompound();
+          break;
+        case 'checkupFrontBlock':
+          echo checkupFrontBlock();
           break;
         case 'checkupQuestions':
           echo checkupQuestions();
           break;
+        case 'checkupResult':
+          echo checkupResult();
+          break;
+        case 'checkupReviews':
+          echo checkupReviews();
+          break;
+        case 'checkupSchedule':
+          echo checkupSchedule();
+          break;
+        case 'checkupStages':
+          echo checkupStages();
+          break;
+        case 'checkupАfter':
+          echo checkupАfter();
+          break;
+        case 'contacts':
+          echo contacts();
+          break;
         case 'doctorWithQuotes':
           echo doctorWithQuotes();
+          break;
+        case 'examinationReveals':
+          echo examinationReveals();
+          break;
+        case 'map':
+          echo map();
+          break;
+        case 'newLevel':
+          echo newLevel();
+          break;
+        case 'personalPlan':
+          echo personalPlan();
+          break;
+        case 'rating':
+          echo rating();
           break;
         case 'videoBlock':
           echo videoBlock();
@@ -95,26 +196,63 @@ function renderBlocksSingleCheckup() {
         case 'whenExamination':
           echo whenExamination();
           break;
-        case 'examinationReveals':
-          echo examinationReveals();
+        case 'wrapperEnd':
+          echo wrapperEnd();
           break;
-        case 'checkupStages':
-          echo checkupStages();
+        case 'wrapperStart':
+          echo wrapperStart();
           break;
-        case 'personalPlan':
-          echo personalPlan();
+      }
+    }
+  }
+
+}
+
+
+// ======= Блоки для шаблона custom-services-page.php =========
+
+function renderBlocksService(){
+
+  // advantages : Преимущества
+  // callback_1 : Форма обратной связи (1 вариант)
+  // callback_2 : Форма обратной связи (2 вариант)
+  // careComfort : Комфорт
+  // checkupFrontBlock : Первый блок - Чекап основная
+  // checkupReviews : Блок отзывов (изображения вытянутые)
+  // checkupАfter : Видео-отзывы
+  // contacts : Контакты
+  // directionsPrice : Стоимость лечения
+  // directionsSimptom : Симптомы
+  // disease : Заболевание/ расшифровка
+  // doctorWithQuotes : Врач с цитатами
+  // examinationReveals : Что может выявить
+  // map : Карта
+  // newLevel : Медицина нового уровня
+  // rating : Рейтинг клиники
+  // stagesOfTreatment : Этапы лечения
+  // videoBlock : Блок с видео
+  // wrapperEnd : Конец обертки
+  // wrapperStart : Начало обертки
+
+  if(have_rows('blocksService')) {
+    while(have_rows('blocksService')) {
+      the_row();
+      $block_type = get_sub_field('block_type');
+      switch($block_type){
+        case 'advantages':
+          echo advantages();
           break;
         case 'callback_1':
           echo callback_1();
           break;
-        case 'checkupSchedule':
-          echo checkupSchedule();
+        case 'callback_2':
+          echo callback_2();
           break;
-        case 'checkupCompound':
-          echo checkupCompound();
+        case 'careComfort':
+          echo careComfort();
           break;
-        case 'newLevel':
-          echo newLevel();
+        case 'checkupFrontBlock':
+          echo checkupFrontBlock();
           break;
         case 'checkupReviews':
           echo checkupReviews();
@@ -122,112 +260,253 @@ function renderBlocksSingleCheckup() {
         case 'checkupАfter':
           echo checkupАfter();
           break;
-        case 'videoRevSlider':
-          echo videoRevSlider();
-          break;
-        case 'rating':
-          echo rating();
-          break;
-        case 'careComfort':
-          echo careComfort();
-          break;
         case 'contacts':
           echo contacts();
+          break;
+        case 'directionsPrice':
+          echo directionsPrice();
+          break;
+        case 'directionsSimptom':
+          echo directionsSimptom();
+          break;
+        case 'disease':
+          echo disease();
+          break;
+        case 'doctorWithQuotes':
+          echo doctorWithQuotes();
+          break;
+        case 'examinationReveals':
+          echo examinationReveals();
           break;
         case 'map':
           echo map();
           break;
-        case 'disease' :
-          echo disease();
+        case 'newLevel':
+          echo newLevel();
           break;
-        case 'directionsSimptom' :
-          echo directionsSimptom();
-          break;
-        case 'callback_2' :
-          echo callback_2();
-          break;
-        case 'directionsMethods' :
-          echo directionsMethods();
-          break;
-        case 'directionsDoctor' :
-          echo directionsDoctor();
-          break;
-        case 'directionsPrice' :
-          echo directionsPrice();
+        case 'rating':
+          echo rating();
           break;
         case 'stagesOfTreatment':
           echo stagesOfTreatment();
           break;
-        case 'checkupResult':
-          echo checkupResult();
-          break;
-        case 'readyPrograms':
-          echo readyPrograms();
-          break;
-        case 'checkUpPrograms':
-          echo checkUpPrograms();
-          break;
-        case 'checkupIs':
-          echo checkupIs();
-          break;
-        case 'reviewsBloger':
-          echo reviewsBloger();
-          break;
-        case 'catalogDirections':
-          echo catalogDirections();
-          break;
-        case 'comfort':
-          echo comfort();
-          break;
-        case 'justTreat':
-          echo justTreat();
-          break;
-        case 'сonsilium':
-          echo сonsilium();
-          break;
-        case 'catalogDoctors':
-          echo catalogDoctors();
-          break;
-        case 'doctorsSpecialization':
-          echo doctorsSpecialization();
-          break;
-        case 'blockImg':
-          echo blockImg();
-          break;
-        case 'concept':
-          echo concept();
-          break;
-        case 'doctorExp':
-          echo doctorExp();
-          break;
-        case 'deleteCause':
-          echo deleteCause();
-          break;
-        case 'staticNewLevel':
-          echo staticNewLevel();
-          break;
-        case 'firstBlockRev':
-          echo firstBlockRev();
-          break;
-        case 'whyWorks':
-          echo whyWorks();
-          break;
-        case 'vacanciesFormat':
-          echo vacanciesFormat();
-          break;
-
-
-        case 'wrapperStart':
-          $type = get_sub_field('wrapperStart_variants');
-          echo wrapperStart($type);
+        case 'videoBlock':
+          echo videoBlock();
           break;
         case 'wrapperEnd':
           echo wrapperEnd();
+          break;
+        case 'wrapperStart':
+          echo wrapperStart();
           break;
       }
     }
   }
 }
+
+
+// ======= Блоки для шаблона custom-doctors-page.php =========
+
+function renderBlocksDoctors(){
+
+  // callback_1 : Форма обратной связи (1 вариант)
+  // careComfort : Комфорт
+  // checkupFrontBlock : Первый блок - Чекап сингл
+  // contacts : Контакты
+  // directionsPrice : Стоимость лечения
+  // directionsSimptom : Симптомы
+  // doctorsSpecialization : Специализация врача
+  // map : Карта
+  // newLevel : Медицина нового уровня
+  // rating : Рейтинг клиники
+  // wrapperEnd : Конец обертки
+  // wrapperStart : Начало обертки
+
+  if(have_rows('blocksDoctors')) {
+    while(have_rows('blocksDoctors')){
+      the_row();
+        $block_type = get_sub_field('block_type');
+        switch($block_type){
+          case 'callback_1':
+            echo callback_1();
+            break;
+          case 'careComfort':
+            echo careComfort();
+            break;
+          case 'checkupFrontBlock':
+            echo checkupFrontBlock();
+            break;
+          case 'contacts':
+            echo contacts();
+            break;
+          case 'directionsPrice':
+            echo directionsPrice();
+            break;
+          case 'directionsSimptom':
+            echo directionsSimptom();
+            break;
+          case 'doctorsSpecialization':
+            echo doctorsSpecialization();
+            break;
+          case 'map':
+            echo map();
+            break;
+          case 'newLevel':
+            echo newLevel();
+            break;
+          case 'rating':
+            echo rating();
+            break;
+          case 'wrapperEnd':
+            echo wrapperEnd();
+            break;
+          case 'wrapperStart':
+            echo wrapperStart();
+            break;
+        }
+    }
+  }
+
+}
+
+
+// ======= Блоки для Главной =========
+
+// frontBlockMain
+// comfort
+// justTreat
+// readyPrograms
+// consilium
+// advantages
+// catalogDirections
+// callback_1
+// videoBlock
+// reviewsBloger
+// contacts
+// map
+// wrapperEnd
+// wrapperStart
+
+
+// ======= Блоки для Чекапы (основная) =========
+
+// checkupFrontBlockMain
+// advantages
+// readyPrograms
+// checkUpPrograms
+// checkupIs
+// checkupStages
+// personalPlan
+// callback_1
+// reviewsBloger
+// checkupReviews
+// rating
+// careComfort
+// contacts
+// map
+// wrapperEnd
+// wrapperStart
+
+
+// ======= Блоки для Направления (основная) =========
+
+// firstBlockDirection
+// advantages
+// catalogDirections
+// callback_1
+// stagesOfTreatment
+// newLevel
+// reviewsBloger
+// checkupReviews
+// checkupАfter
+// rating
+// careComfort
+// contacts
+// map
+// wrapperEnd
+// wrapperStart
+
+
+// ======= Блоки для Услуги (основная) =========
+
+// firstBlockService
+// contacts
+// map
+
+
+// ======= Блоки для Врачи (основная) =========
+
+// frontBlockMain
+// examinationReveals
+// callback_1
+// newLevel
+// checkupReviews
+// checkupАfter
+// rating
+// careComfort
+// contacts
+// map
+// wrapperEnd
+// wrapperStart
+
+
+// ======= Блоки для Преимущества =========
+
+// frontBlockMain
+// videoBlock
+// blockImg
+// concept
+// doctorExp
+// deleteCause
+// newLevel
+// care
+// contacts
+// map
+// wrapperEnd
+// wrapperStart
+
+
+// ======= Блоки для Отзывы =========
+
+// firstBlockRev
+// videoRevSlider
+// checkupReviews
+// rating
+// checkupАfter
+// callback_1
+// newLevel
+// contacts
+// map
+// wrapperEnd
+// wrapperStart
+
+
+// ======= Блоки для Бизнеса =========
+
+// firstBlockDirection
+// checkupIs
+// callback_1
+// whyWorks
+// examinationReveals
+// newLevel
+// rating
+// careComfort
+// contacts
+// map
+
+
+// ======= Блоки для Вакансии =========
+
+// firstBlockDirection
+// vacanciesFormat
+// сonsilium
+// checkupIs
+// examinationReveals
+// contacts
+// map
+// wrapperEnd
+// wrapperStart
+
 
 
 // Первый блок - Чекап сингл
@@ -4069,4 +4348,235 @@ function name(){
   ob_start(); ?>
 
   <?php return ob_get_clean();
+}
+
+
+
+
+// Старая функция
+function renderBlocksSingleCheckup() {
+  // checkupFrontBlock : Первый блок - Чекап сингл
+  // checkupFrontBlockMain : Первый блок - Чекап основная
+  // firstBlockDirection : Первый блок - Направления основная
+  // frontBlockMain : Первый блок - Главная
+  // firstBlockService : Первый блок - Услуги главная
+  // firstBlockRev : Первый блок - Отзывы
+  // advantages : Преимущества
+  // checkupQuestions : Зачем проходить 'направление'
+  // doctorWithQuotes : Врач с цитатами
+  // videoBlock : Блок с видео
+  // whenExamination : Когда стоит пройти обследование
+  // examinationReveals : Что может выявить
+  // checkupStages : Этапы прохождения
+  // personalPlan : Персональный план
+  // callback_1 : Форма обратной связи (1 вариант)
+  // checkupSchedule : График прохождения
+  // checkupCompound : Состав чекапа
+  // newLevel : Медицина нового уровня
+  // checkupReviews : Блок отзывов (изображения вытянутые)
+  // checkupАfter : Видео-отзывы
+  // videoRevSlider : Видео-отзывы (слайдер)
+  // rating : Рейтинг клиники
+  // careComfort : Комфорт
+  // contacts : Контакты
+  // map : Карта
+  // disease : Заболевание/ расшифровка
+  // directionsSimptom : Симптомы
+  // callback_2 : Форма обратной связи (2 вариант)
+  // directionsMethods : Методы диагностики и лечения
+  // directionsDoctor : Врачи клиники
+  // directionsPrice : Стоимость лечения
+  // stagesOfTreatment : Этапы лечения
+  // checkupResult : Результат
+  // readyPrograms : Комплексные обследования
+  // checkUpPrograms : Программы CheckUp для...
+  // checkupIs : Чекап это
+  // reviewsBloger : Отзывы блогеров
+  // catalogDirections : Каталог направлений
+  // comfort : Комфорт как дома
+  // justTreat : Мы не просто лечим
+  // сonsilium : Консилиум
+  // catalogDoctors : Каталог врачей
+  // doctorsSpecialization : Специализация врача
+  // blockImg : Картинка большая
+  // concept : Концепция клиники
+  // doctorExp : Воплощение опыта
+  // deleteCause : Устраняем причину
+  // staticNewLevel : Клиника ментор
+  // care : Забота
+  // whyWorks : Почему выгодно
+  // vacanciesFormat : Клиника нового формата
+
+  // wrapperStart : Начало обертки
+  // wrapperEnd : Конец обертки
+
+
+  if (have_rows('blocksSingleCheckup')) {
+    while (have_rows('blocksSingleCheckup')) {
+      the_row();
+      $block_type = get_sub_field('block_type');
+      // echo $block_type . "\n";
+      switch ($block_type) {
+        case 'checkupFrontBlock':
+          echo checkupFrontBlock();
+          break;
+        case 'checkupFrontBlockMain':
+          echo checkupFrontBlockMain();
+          break;
+        case 'firstBlockDirection':
+          echo firstBlockDirection();
+          break;
+        case 'frontBlockMain';
+          echo frontBlockMain();
+          break;
+        case 'firstBlockService':
+          echo firstBlockService();
+          break;
+        case 'advantages':
+          echo advantages();
+          break;
+        case 'checkupQuestions':
+          echo checkupQuestions();
+          break;
+        case 'doctorWithQuotes':
+          echo doctorWithQuotes();
+          break;
+        case 'videoBlock':
+          echo videoBlock();
+          break;
+        case 'whenExamination':
+          echo whenExamination();
+          break;
+        case 'examinationReveals':
+          echo examinationReveals();
+          break;
+        case 'checkupStages':
+          echo checkupStages();
+          break;
+        case 'personalPlan':
+          echo personalPlan();
+          break;
+        case 'callback_1':
+          echo callback_1();
+          break;
+        case 'checkupSchedule':
+          echo checkupSchedule();
+          break;
+        case 'checkupCompound':
+          echo checkupCompound();
+          break;
+        case 'newLevel':
+          echo newLevel();
+          break;
+        case 'checkupReviews':
+          echo checkupReviews();
+          break;
+        case 'checkupАfter':
+          echo checkupАfter();
+          break;
+        case 'videoRevSlider':
+          echo videoRevSlider();
+          break;
+        case 'rating':
+          echo rating();
+          break;
+        case 'careComfort':
+          echo careComfort();
+          break;
+        case 'contacts':
+          echo contacts();
+          break;
+        case 'map':
+          echo map();
+          break;
+        case 'disease' :
+          echo disease();
+          break;
+        case 'directionsSimptom' :
+          echo directionsSimptom();
+          break;
+        case 'callback_2' :
+          echo callback_2();
+          break;
+        case 'directionsMethods' :
+          echo directionsMethods();
+          break;
+        case 'directionsDoctor' :
+          echo directionsDoctor();
+          break;
+        case 'directionsPrice' :
+          echo directionsPrice();
+          break;
+        case 'stagesOfTreatment':
+          echo stagesOfTreatment();
+          break;
+        case 'checkupResult':
+          echo checkupResult();
+          break;
+        case 'readyPrograms':
+          echo readyPrograms();
+          break;
+        case 'checkUpPrograms':
+          echo checkUpPrograms();
+          break;
+        case 'checkupIs':
+          echo checkupIs();
+          break;
+        case 'reviewsBloger':
+          echo reviewsBloger();
+          break;
+        case 'catalogDirections':
+          echo catalogDirections();
+          break;
+        case 'comfort':
+          echo comfort();
+          break;
+        case 'justTreat':
+          echo justTreat();
+          break;
+        case 'сonsilium':
+          echo сonsilium();
+          break;
+        case 'catalogDoctors':
+          echo catalogDoctors();
+          break;
+        case 'doctorsSpecialization':
+          echo doctorsSpecialization();
+          break;
+        case 'blockImg':
+          echo blockImg();
+          break;
+        case 'concept':
+          echo concept();
+          break;
+        case 'doctorExp':
+          echo doctorExp();
+          break;
+        case 'deleteCause':
+          echo deleteCause();
+          break;
+        case 'staticNewLevel':
+          echo staticNewLevel();
+          break;
+        case 'firstBlockRev':
+          echo firstBlockRev();
+          break;
+        case 'whyWorks':
+          echo whyWorks();
+          break;
+        case 'vacanciesFormat':
+          echo vacanciesFormat();
+          break;
+
+
+        case 'wrapperStart':
+          $type = get_sub_field('wrapperStart_variants');
+          echo wrapperStart($type);
+          break;
+        case 'wrapperEnd':
+          echo wrapperEnd();
+          break;
+      }
+    }
+  }
 }
