@@ -254,7 +254,7 @@ function checkupFrontBlock(){
               <?php } ?>
               <?php if(get_sub_field('checkupFrontBlock_btn2') == 1){?>
               <!-- Записаться на прием -->
-              <a class="front-block__btn _main-btn" href="#" data-fancybox>
+              <a class="front-block__btn _main-btn change-popup change-popup-link" href="#callback-modal" data-fancybox>
                 <span>Записаться на прием</span>
               </a>
               <?php } ?>
@@ -943,7 +943,7 @@ function examinationReveals(){
                           </style>
                       </svg>
                   </div>
-                  <div class="examination-reveals__items">
+                  <div class="examination-reveals__items <?php echo get_sub_field('examinationReveals_img') ? '' : 'grid-3'; ?>">
                       <?php if(have_rows('examinationReveals_points')) :
                           while(have_rows('examinationReveals_points')) : the_row(); ?>
                           <div class="examination-reveals__item">
