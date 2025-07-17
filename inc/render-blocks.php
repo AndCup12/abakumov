@@ -399,7 +399,7 @@ function frontBlockMain(){
         <?php endif; ?>
       </div>
       <div class="front-block__btns">
-        <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
+        <a class="front-block__btn _main-btn change-popup" href="#callback-modal" data-fancybox>
           <?php include(get_template_directory() . '/assets/images/icons/mail.svg'); ?>
           <span>Записаться на прием</span>
         </a>
@@ -1182,7 +1182,7 @@ function callback_1(){
             Введите телефон в форме ниже
           </p>
           <div class="callback__form-inputs">
-            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="callback__form-btn _gray-btn">
               Записаться на консультацию
             </button>
@@ -2447,7 +2447,7 @@ function contacts(){
                 </p>
               </a>
             </div>
-            <a class="contacts__info-btn _gray-btn" href="#" data-fancybox>
+            <a class="contacts__info-btn _gray-btn change-popup" href="#questions-modal" data-fancybox>
               Задать вопрос
             </a>
           </div>
@@ -2483,7 +2483,7 @@ function map(){
             чтобы получить подробную <br>схему проезда 
           </p>
           <div class="map-block__form-inner">
-            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="map-block__form-btn _gray-btn" type="submit">
               Получите схемы проезда<br>
               и все контакты в WhatsApp
@@ -2590,7 +2590,7 @@ function callback_2(){
           <input type="hidden" name="from" value="Консультация с терапевтом">
           <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
           <div class="directions-callback__form-inputs">
-            <input class="directions-callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="directions-callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="directions-callback__form-btn _gray-btn">
               Записаться на первичную<br>
               видео-консультацию

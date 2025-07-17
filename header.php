@@ -44,7 +44,7 @@
                 +7 495 843-19-14
               </a>
             </div>
-            <a class="header__btn" href="#callback">
+            <a class="header__btn change-popup" href="#callback-modal" data-fancybox>
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/manager-btn.webp" alt="manager-btn">
               <span>Записаться</span>
             </a>

@@ -6,7 +6,7 @@
 
 <main class="main" id="business-page">
 
-<!-- <?php echo renderBlocksSingleCheckup(); ?> -->
+  <!-- <?php echo renderBlocksSingleCheckup(); ?> -->
 
   <!-- Первый блок (нет картинки докторов) -->
   <section class="front-block _image-wrapper _section-lg">
@@ -106,7 +106,7 @@
             Введите телефон в форме ниже
           </p>
           <div class="callback__form-inputs">
-            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="callback__form-btn _gray-btn">
               Записаться на консультацию
             </button>
@@ -186,7 +186,7 @@
               Налоговые льготы –
             </h4>
             <p class="why-works__item-text">
-             вы получаете право на налоговый<br> вычет до 6% от ФОТ (ст. 255 НК РФ)
+              вы получаете право на налоговый<br> вычет до 6% от ФОТ (ст. 255 НК РФ)
             </p>
           </div>
           <div class="why-works__item">
@@ -735,7 +735,7 @@
             чтобы получить подробную <br>схему проезда 
           </p>
           <div class="map-block__form-inner">
-            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="map-block__form-btn _gray-btn" type="submit">
               Получите схемы проезда<br>
               и все контакты в WhatsApp

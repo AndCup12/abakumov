@@ -68,7 +68,7 @@ get_header();
               Введите телефон в форме ниже
             </p>
             <div class="content-block__form-inputs">
-              <input class="content-block__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+              <input class="content-block__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
               <button class="content-block__form-btn _gray-btn">
                 Записаться на консультацию
               </button>
@@ -218,7 +218,7 @@ get_header();
               Введите телефон в форме ниже
             </p>
             <div class="content-block__form-inputs">
-              <input class="content-block__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+              <input class="content-block__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
               <button class="content-block__form-btn _gray-btn">
                 Записаться на консультацию
               </button>
@@ -233,7 +233,7 @@ get_header();
       </div>
     </div>
   </section>
-  
+
   <div class="wrapper-bg _section-lg">
     <section class="link-items padding-bottom padding-top">
       <img class="link-items__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
@@ -320,7 +320,7 @@ get_header();
             и получите консультацию специалиста
           </p>
           <div class="callback__form-inputs">
-            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="callback__form-btn _gray-btn">
               Получите консультацию
             </button>
@@ -549,7 +549,7 @@ get_header();
             чтобы получить подробную <br>схему проезда 
           </p>
           <div class="map-block__form-inner">
-            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="map-block__form-btn _gray-btn" type="submit">
               Получите схемы проезда<br>
               и все контакты в WhatsApp

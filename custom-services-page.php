@@ -216,7 +216,7 @@ get_header();
           <input type="hidden" name="from" value="Консультация с терапевтом">
           <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
           <div class="directions-callback__form-inputs">
-            <input class="directions-callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="directions-callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="directions-callback__form-btn _gray-btn">
               Записаться на первичную<br>
               видео-консультацию
@@ -468,7 +468,7 @@ get_header();
             Введите телефон в форме ниже
           </p>
           <div class="callback__form-inputs">
-            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="callback__form-btn _gray-btn">
               Получите консультацию
             </button>
@@ -1206,7 +1206,7 @@ get_header();
             чтобы получить подробную <br>схему проезда 
           </p>
           <div class="map-block__form-inner">
-            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="map-block__form-btn _gray-btn" type="submit">
               Получите схемы проезда<br>
               и все контакты в WhatsApp

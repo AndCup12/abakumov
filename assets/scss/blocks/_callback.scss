@@ -216,6 +216,12 @@
     }
   }
 
+  &__form-textarea{
+    min-height: 150px;
+    resize: none;
+    border-radius: 30px;
+  }
+
   &__form-politic {
     margin-top: 21px;
 
