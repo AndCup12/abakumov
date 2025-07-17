@@ -6,10 +6,12 @@
  * @package WordPress
  * @subpackage clean
  */
-get_header();
-?>
+get_header(); ?>
 
 <main class="main" id="services-single">
+
+  <?php echo renderBlocksSingleCheckup(); ?>
+
   <!-- ЗДЕСЬ ЕСТЬ ИЗМЕНЕНИЯ ДЛЯ СТРАНИЦЫ ТЕЛЕГРАМА. МОИ ИЗМЕНЕНИЯ ЗАКОММЕНЧЕННЫ -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
@@ -60,7 +62,7 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Преимущества -->
+
   <section class="services">
     <div class="container">
       <div class="cursor">
@@ -116,7 +118,7 @@ get_header();
   </section>
   <div class="wrapper-gray space-top">
 
-    <!-- Заболевание/расшифровка новый -->
+
     <section class="directions-question">
       <div class="directions-question__bg">
         <?php include(get_template_directory() . '/assets/images/icons/av-bg.svg'); ?>
@@ -141,7 +143,7 @@ get_header();
       </div>
     </section>
 
-    <!-- Симптомы новый-->
+
     <section class="directions-simptom relative">
       <div class="container">
         <h2 class="directions-simptom__title _title">
@@ -199,7 +201,7 @@ get_header();
     </section>
 
   </div>
-  <!-- Форма обратной связи (2 вариант) новый -->
+
   <section class="directions-callback">
     <div class="container">
       <div class="directions-callback__inner _image-wrapper">
@@ -231,7 +233,7 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Врач с цитатами (space-null убирает отступ? --- ДА) -->
+
   <section class="quote-block space-top">
     <div class="container">
       <div class="quote-block__content relative">
@@ -261,7 +263,7 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Блок с видео -->
+
   <section class="video-block">
     <div class="container relative">
       <h2 class="video-block__title _title">
@@ -283,7 +285,7 @@ get_header();
     </div>
   </section>
   <div class="wrapper-gray">
-    <!-- Симптомы (space-null убирает отступ?) -->
+
     <section class="directions-simptom relative space-null">
       <div class="container">
         <h2 class="directions-simptom__title _title">
@@ -339,7 +341,7 @@ get_header();
         </div>
       </div>
     </section>
-    <!-- Врач с цитатами (space-null убирает отступ? --ДА) -->
+
     <section class="quote-block">
       <div class="container">
         <div class="quote-block__content relative">
@@ -369,7 +371,7 @@ get_header();
         </div>
       </div>
     </section>
-    <!-- Что может выявить -->
+
     <section class="examination-reveals">
       <div class="container">
         <h2 class="examination-reveals__title _title">
@@ -441,7 +443,7 @@ get_header();
       </div>
     </section>
   </div>
-  <!-- Форма обратной связи (1 вариант) -->
+
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">
@@ -482,7 +484,7 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Этапы прохождения -->
+
   <section class="checkup-stages _section-lg" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/images/checkup-stages-bg-4.webp);">
     <div class="container">
       <h2 class="checkup-stages__title _title">
@@ -580,7 +582,7 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Стоимость лечения -->
+
   <section class="directions-price">
     <div class="container">
       <h2 class="directions-price__title _title">
@@ -639,7 +641,7 @@ get_header();
     </div>
   </section>
   <div class="wrapper-bg _section-lg">
-    <!-- Медицина нового уровня -->
+
     <section class="new-level">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
       <div class="container relative">
@@ -756,7 +758,7 @@ get_header();
     </section>
 
   </div>
-  <!-- Блок отзывов (изображения вытянутые) -->
+
   <section class="checkup-reviews _section-lg">
     <div class="container">
       <div class="checkup-reviews__top">
@@ -804,7 +806,7 @@ get_header();
     </div>
   </section>
 
-  <!-- Видео-отзывы -->
+
   <section class="checkup-after _section-lg">
     <div class="container">
       <h2 class="checkup-after__title _title">
@@ -856,7 +858,7 @@ get_header();
     </div>
   </section>
   <div class="wrapper-bg _section-lg">
-    <!-- Рейтинг клиники -->
+
     <section class="rating">
       <span class="rating__top-num">
         10
@@ -1059,7 +1061,7 @@ get_header();
   </div>
 
 
-  <!-- Комфорт -->
+
   <section class="care-comfort">
     <div class="container">
       <h2 class="care-comfort__title _title">
@@ -1107,7 +1109,7 @@ get_header();
   </section>
 
   <div class="divider"></div>
-  <!-- Контакты -->
+
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -1185,7 +1187,7 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Карта -->
+
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">

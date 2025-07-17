@@ -1,15 +1,12 @@
 <?php get_header(); ?>
 
-<!--
-страница Для бизнеса
--->
 
 <main class="main" id="business-page">
 
-  <!-- <?php echo renderBlocksSingleCheckup(); ?> -->
+<?php echo renderBlocksSingleCheckup(); ?>
 
-  <!-- Первый блок (нет картинки докторов) -->
-  <section class="front-block _image-wrapper _section-lg">
+
+  <!-- <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
       <div class="front-block__top">
@@ -121,9 +118,9 @@
     </div>
   </section>
 
-  <!-- Здесь есть новый блок -->
+
   <div class="wrapper-gray _section-lg space-top">
-    <!-- Новый блок -->
+
     <section class="why-works _section-lg">
       <div class="container">
         <h2 class="why-works__title _title">
@@ -635,7 +632,7 @@
   </section>
 
   <div class="divider"></div>
-  <!-- Контакты -->
+
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -714,7 +711,7 @@
     </div>
   </section>
 
-  <!-- Карта -->
+
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -750,7 +747,7 @@
 
       </div>
     </div>
-  </section>
+  </section> -->
 
 </main>
 

@@ -1,21 +1,12 @@
-<?php
-
-/**
- * Template Name: Вакансии 
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
-get_header();
-?>
-
-<!-- 
-страница Вакансии 
--->
+<?php get_header(); ?>
 
 <main class="main" id="vacancies-page">
-  <!-- Первый блок (нет картинки докторов) -->
-  <section class="front-block _image-wrapper _section-lg">
+
+
+  <?php echo renderBlocksSingleCheckup(); ?>
+
+
+  <!-- <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
       <div class="front-block__top">
@@ -39,7 +30,7 @@ get_header();
     </div>
   </section>
 
-  <!-- Новый блок есть только на странице вакансий -->
+
   <section class="vacancies-format">
     <div class="container">
       <h2 class="vacancies-format__title _title">
@@ -67,7 +58,7 @@ get_header();
   </section>
 
   <div class="wrapper-bg _section-lg">
-    <!-- Медицина нового уровня -->
+
     <section class="new-level bg-bottom padding-bottom-null">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
       <div class="container relative">
@@ -82,6 +73,7 @@ get_header();
     </section>
 
   </div>
+
   <section class=" checkup-is">
     <div class="container">
       <div class="checkup-is__inner">
@@ -166,9 +158,10 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Здесь есть новый блок -->
+
+
   <div class="wrapper-gray _section-lg space-top">
-    <!-- Новый блок -->
+
     <section class="why-works _section-lg padding-bottom">
       <div class="container">
         <h2 class="why-works__title _title">
@@ -249,6 +242,7 @@ get_header();
       </div>
     </section>
   </div>
+
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -326,7 +320,8 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Карта -->
+
+
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -362,7 +357,8 @@ get_header();
 
       </div>
     </div>
-  </section>
+  </section> -->
+
 </main>
 
 <?php get_footer(); ?>
