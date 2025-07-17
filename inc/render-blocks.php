@@ -2635,8 +2635,8 @@ function directionsDoctor(){
                 <img class="directions-doctor__left-img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
               </div>
             </div>
-            <div class="directions-doctor__right">
-              <h4 class="directions-doctor__right-name _title">
+            <div class="directions-doctor__right change-popup-item">
+              <h4 class="directions-doctor__right-name _title change-popup-name">
                 <?php the_sub_field('doctor_name'); ?>
               </h4>
               <p class="directions-doctor__right-text">
@@ -2662,7 +2662,7 @@ function directionsDoctor(){
               </ul>
               <?php endif; ?>
               <div class="directions-doctor__right-btns">
-                <a class="directions-doctor__btn _gray-btn" href="#" data-fancybox>
+                <a class="directions-doctor__btn _gray-btn change-popup" href="#callback-modal" data-fancybox>
                   <span>Записаться на прием</span>
                   <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
                 </a>
@@ -2718,15 +2718,15 @@ function directionsPrice(){
           <div class="directions-price__item-body accordion-body">
             <div class="directions-price__item-costs">
               <?php while(have_rows('service_points')) : the_row(); ?>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
+              <div class="directions-price__item-cost change-popup-item">
+                <h5 class="directions-price__item-name change-popup-title">
                   <?php the_sub_field('name'); ?>
                 </h5>
                 <div class="directions-price__item-right">
                   <span class="directions-price__item-price">
                     <?php the_sub_field('price'); ?> ₽
                   </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
+                  <a class="directions-price__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox>
                     Записаться
                   </a>
                 </div>
