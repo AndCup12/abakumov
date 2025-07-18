@@ -1,111 +1,11 @@
 
 <?php
 
+
 // ======= Блоки для шаблона custom-directions-page.php =========
-function renderBlocksDirection(){
-
-  // advantages : Преимущества
-  // callback_1 : Форма обратной связи (1 вариант)
-  // callback_2 : Форма обратной связи (2 вариант)
-  // careComfort : Комфорт
-  // checkupFrontBlock : Первый блок - Чекап основная
-  // checkupReviews : Блок отзывов (изображения вытянутые)
-  // checkupАfter : Видео-отзывы
-  // contacts : Контакты
-  // directionsDoctor : Врачи клиники
-  // directionsMethods : Методы диагностики и лечения
-  // directionsPrice : Стоимость лечения
-  // directionsSimptom : Симптомы
-  // disease : Заболевание/ расшифровка
-  // doctorWithQuotes : Врач с цитатами
-  // examinationReveals : Что может выявить
-  // map : Карта
-  // newLevel : Медицина нового уровня
-  // rating : Рейтинг клиники
-  // stagesOfTreatment : Этапы лечения
-  // videoBlock : Блок с видео
-  // wrapperEnd : Конец обертки
-  // wrapperStart : Начало обертки
-
-  if(have_rows('blocksDirection')) {
-    while(have_rows('blocksDirection')) {
-      the_row();
-        $block_type = get_sub_field('block_type');
-        switch ($block_type){
-          case 'advantages' :
-            echo advantages();
-            break;
-          case 'callback_1' :
-            echo callback_1();
-            break;
-          case 'callback_2' :
-            echo callback_2();
-            break;
-          case 'careComfort' :
-            echo careComfort();
-            break;
-          case 'checkupFrontBlock' :
-            echo checkupFrontBlock();
-            break;
-          case 'checkupReviews' :
-            echo checkupReviews();
-            break;
-          case 'checkupАfter' :
-            echo checkupАfter();
-            break;
-          case 'contacts' :
-            echo contacts();
-            break;
-          case 'directionsDoctor' :
-            echo directionsDoctor();
-            break;
-          case 'directionsMethods' :
-            echo directionsMethods();
-            break;
-          case 'directionsPrice' :
-            echo directionsPrice();
-            break;
-          case 'directionsSimptom' :
-            echo directionsSimptom();
-            break;
-          case 'disease' :
-            echo disease();
-            break;
-          case 'doctorWithQuotes' :
-            echo doctorWithQuotes();
-            break;
-          case 'examinationReveals' :
-            echo examinationReveals();
-            break;
-          case 'map' :
-            echo map();
-            break;
-          case 'newLevel' :
-            echo newLevel();
-            break;
-          case 'rating' :
-            echo rating();
-            break;
-          case 'stagesOfTreatment' :
-            echo stagesOfTreatment();
-            break;
-          case 'videoBlock' :
-            echo videoBlock();
-            break;
-          case 'wrapperEnd' :
-            echo wrapperEnd();
-            break;
-          case 'wrapperStart' :
-            echo wrapperStart();
-            break;
-        }
-    }
-  }
-
-}
-
-
 // ======= Блоки для шаблона custom-checkup-page.php =========
+// ======= Блоки для шаблона custom-services-page.php =========
+
 function renderBlocksSingleCheckup() {
 
   // checkupFrontBlock : Первый блок
@@ -231,103 +131,6 @@ function renderBlocksSingleCheckup() {
 }
 
 
-
-// ======= Блоки для шаблона custom-services-page.php =========
-
-function renderBlocksService(){
-
-  // advantages : Преимущества
-  // callback_1 : Форма обратной связи (1 вариант)
-  // callback_2 : Форма обратной связи (2 вариант)
-  // careComfort : Комфорт
-  // checkupFrontBlock : Первый блок - Чекап основная
-  // checkupReviews : Блок отзывов (изображения вытянутые)
-  // checkupАfter : Видео-отзывы
-  // contacts : Контакты
-  // directionsPrice : Стоимость лечения
-  // directionsSimptom : Симптомы
-  // disease : Заболевание/ расшифровка
-  // doctorWithQuotes : Врач с цитатами
-  // examinationReveals : Что может выявить
-  // map : Карта
-  // newLevel : Медицина нового уровня
-  // rating : Рейтинг клиники
-  // stagesOfTreatment : Этапы лечения
-  // videoBlock : Блок с видео
-  // wrapperEnd : Конец обертки
-  // wrapperStart : Начало обертки
-
-  if(have_rows('blocksService')) {
-    while(have_rows('blocksService')) {
-      the_row();
-      $block_type = get_sub_field('block_type');
-      switch($block_type){
-        case 'advantages':
-          echo advantages();
-          break;
-        case 'callback_1':
-          echo callback_1();
-          break;
-        case 'callback_2':
-          echo callback_2();
-          break;
-        case 'careComfort':
-          echo careComfort();
-          break;
-        case 'checkupFrontBlock':
-          echo checkupFrontBlock();
-          break;
-        case 'checkupReviews':
-          echo checkupReviews();
-          break;
-        case 'checkupАfter':
-          echo checkupАfter();
-          break;
-        case 'contacts':
-          echo contacts();
-          break;
-        case 'directionsPrice':
-          echo directionsPrice();
-          break;
-        case 'directionsSimptom':
-          echo directionsSimptom();
-          break;
-        case 'disease':
-          echo disease();
-          break;
-        case 'doctorWithQuotes':
-          echo doctorWithQuotes();
-          break;
-        case 'examinationReveals':
-          echo examinationReveals();
-          break;
-        case 'map':
-          echo map();
-          break;
-        case 'newLevel':
-          echo newLevel();
-          break;
-        case 'rating':
-          echo rating();
-          break;
-        case 'stagesOfTreatment':
-          echo stagesOfTreatment();
-          break;
-        case 'videoBlock':
-          echo videoBlock();
-          break;
-        case 'wrapperEnd':
-          echo wrapperEnd();
-          break;
-        case 'wrapperStart':
-          echo wrapperStart();
-          break;
-      }
-    }
-  }
-}
-
-
 // ======= Блоки для шаблона custom-doctors-page.php =========
 
 function renderBlocksDoctors(){
@@ -335,7 +138,6 @@ function renderBlocksDoctors(){
   // callback_1 : Форма обратной связи (1 вариант)
   // careComfort : Комфорт
   // checkupFrontBlock : Первый блок - Чекап сингл
-  // contacts : Контакты
   // directionsPrice : Стоимость лечения
   // directionsSimptom : Симптомы
   // doctorsSpecialization : Специализация врача
@@ -384,31 +186,82 @@ function renderBlocksDoctors(){
             echo wrapperEnd();
             break;
           case 'wrapperStart':
-            echo wrapperStart();
+            $type = get_sub_field('wrapperStart_variants');
+            echo wrapperStart($type);
+            break;
+        }
+    }
+  }
+}
+
+
+// ======= Блоки для Главной =========
+
+
+function renderBlocksFrontPage(){
+
+  // frontBlockMain : Первый блок - Чекап основная
+  // comfort : Комфорт
+  // justTreat : Мы не просто лечим
+  // readyPrograms : Комплексные обследования
+  // сonsilium : Консилиум
+  // advantages : Преимущества
+  // catalogDirections : Каталог направлений
+  // callback_1 : Форма обратной связи (1 вариант)
+  // videoBlock : Блок с видео
+  // reviewsBloger : Отзывы блогеров
+  // contacts : Контакты
+  // map : Карта
+  // wrapperStart : Начало обертки
+  // wrapperEnd : Конец обертки
+
+  if(have_rows('blocksFrontPage')){
+    while(have_rows('blocksFrontPage')){
+      the_row();
+        $block_type = get_sub_field('block_type');
+        switch($block_type){
+          case 'frontBlockMain':
+            echo frontBlockMain();
+            break;
+          case 'comfort':
+            echo comfort();
+            break;
+          case 'justTreat':
+            echo justTreat();
+            break;
+          case 'readyPrograms':
+            echo readyPrograms();
+            break;
+          case 'сonsilium':
+            echo сonsilium();
+            break;
+          case 'advantages':
+            echo advantages();
+            break;
+          case 'catalogDirections':
+            echo catalogDirections();
+            break;
+          case 'callback_1':
+            echo callback_1();
+            break;
+          case 'videoBlock':
+            echo videoBlock();
+            break;
+          case 'reviewsBloger':
+            echo reviewsBloger();
+            break;
+          case 'wrapperEnd':
+            echo wrapperEnd();
+            break;
+          case 'wrapperStart':
+            $type = get_sub_field('wrapperStart_variants');
+            echo wrapperStart($type);
             break;
         }
     }
   }
 
 }
-
-
-// ======= Блоки для Главной =========
-
-// frontBlockMain
-// comfort
-// justTreat
-// readyPrograms
-// consilium
-// advantages
-// catalogDirections
-// callback_1
-// videoBlock
-// reviewsBloger
-// contacts
-// map
-// wrapperEnd
-// wrapperStart
 
 
 // ======= Блоки для Чекапы (основная) =========
@@ -1489,7 +1342,7 @@ function callback_1(){
             <img class="callback__info-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/callback-manager.webp" alt="callback-manager">
             <!-- Посадка -->
             <p class="callback__info-text">
-              Мы перезвоним вам<br> в течение 7 минут
+              <?php the_sub_field('callback_1_text');?>
             </p>
           </div>
         </div>
@@ -1498,11 +1351,11 @@ function callback_1(){
           <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
           <!-- Посадка -->
           <h4 class="callback__form-title">
-            Заполните форму
+            <?php the_sub_field('callback_1_form_title');?>
           </h4>
           <!-- Посадка -->
           <p class="callback__form-subtitle">
-            Введите телефон в форме ниже
+            <?php the_sub_field('callback_1_form_text');?>
           </p>
           <div class="callback__form-inputs">
             <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
@@ -3424,6 +3277,12 @@ function catalogDirections(){
       <h2 class="catalog__title _title">
         <?php the_sub_field('catalogDirections_title'); ?>
       </h2>
+      <!-- Накинуть стили -->
+      <?php if(get_sub_field('catalogDirections_subtitle')) :?>
+      <p>
+        <?php the_sub_field('catalogDirections_subtitle'); ?>
+      </p>
+      <?php endif; ?>
       <?php $catalogDirections_cards = get_sub_field( 'catalogDirections_cards' );
       if($catalogDirections_cards) :
       $counter = 1; ?>
