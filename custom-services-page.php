@@ -10,6 +10,7 @@ get_header(); ?>
 
 <main class="main" id="services-single">
 
+
   <?php echo renderBlocksSingleCheckup(); ?>
 
   <!-- ЗДЕСЬ ЕСТЬ ИЗМЕНЕНИЯ ДЛЯ СТРАНИЦЫ ТЕЛЕГРАМА. МОИ ИЗМЕНЕНИЯ ЗАКОММЕНЧЕННЫ -->
@@ -1228,3 +1229,5 @@ get_header(); ?>
 </main>
 
 <?php get_footer(); ?>
+
+
