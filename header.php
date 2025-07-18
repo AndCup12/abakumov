@@ -190,121 +190,129 @@
         </nav>
       </div>
     </header>
-    <nav class="popup-menu">
-      <ul class="popup-menu__menu-list">
-        <li class="popup-menu__menu-item">
-          <a class="popup-menu__menu-link" href="#">
-            Чек-апы
-          </a>
-        </li>
-        <li class="popup-menu__menu-item">
-          <a class="popup-menu__menu-link" href="#">
-            Направления
-          </a>
-          <div class="popup-submenu__wrapper">
-            <ul class="popup-submenu">
-              <li class="popup-submenu__item">
-                <a class="popup-submenu__link" href="#">
-                  Аллергология
-                </a>
-                <ul class="popup-submenu">
-                  <li class="popup-submenu__item third-level">
-                    <a class="popup-submenu__link" href="#">
-                      Чекап пациентов<br>
-                      18-30+ (мужчины)
-                    </a>
-                  </li>
-                  <li class="popup-submenu__item third-level">
-                    <a class="popup-submenu__link" href="#">
-                      Чекап пациентов после<br>
-                      40 лет (мужчины)
-                    </a>
-                  </li>
-                  <li class="popup-submenu__item third-level">
-                    <a class="popup-submenu__link" href="#">
-                      Чекап пациентов<br>
-                      после 60 лет (мужчины)
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="popup-submenu__item">
-                <a class="popup-submenu__link" href="#">
-                  Гастроэнтерология
-                </a>
-                <ul class="popup-submenu">
-                  <li class="popup-submenu__item third-level">
-                    <a class="popup-submenu__link" href="#">
-                      Чекап пациентов<br>
-                      18-30+ (мужчины)
-                    </a>
-                  </li>
-                  <li class="popup-submenu__item third-level">
-                    <a class="popup-submenu__link" href="#">
-                      Чекап пациентов после<br>
-                      40 лет (мужчины)
-                    </a>
-                  </li>
-                  <li class="popup-submenu__item third-level">
-                    <a class="popup-submenu__link" href="#">
-                      Чекап пациентов<br>
-                      после 60 лет (мужчины)
-                    </a>
-                  </li>
-                  <li class="popup-submenu__item third-level">
-                    <a class="popup-submenu__link" href="#">
-                      Гематология
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="popup-submenu__item">
-                <a class="popup-submenu__link" href="#">
-                  Гематология
-                </a>
-              </li>
-              <li class="popup-submenu__item">
-                <a class="popup-submenu__link" href="#">
-                  Гинекология
-                </a>
-              </li>
-              <li class="popup-submenu__item">
-                <a class="popup-submenu__link" href="#">
-                  Функциональная диагностика
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="popup-menu__menu-item">
-          <a class="popup-menu__menu-link" href="#">
-            Услуги
-          </a>
-        </li>
-        <li class="popup-menu__menu-item">
-          <a class="popup-menu__menu-link" href="#">
-            Врачи
-          </a>
-        </li>
-        <li class="popup-menu__menu-item">
-          <a class="popup-menu__menu-link" href="#">
-            Цены
-          </a>
-        </li>
-        <li class="popup-menu__menu-item">
-          <a class="popup-menu__menu-link" href="#">
-            О клинике
-          </a>
-        </li>
-        <li class="popup-menu__menu-item">
-          <a class="popup-menu__menu-link" href="#">
-            Пациентам
-          </a>
-        </li>
-        <li class="popup-menu__menu-item">
-          <a class="popup-menu__menu-link" href="#">
-            Контакты
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <div class="popup-menu">
+      <a class="logo popup-menu__logo" href="/">
+        <?php include(get_template_directory() . '/assets/images/icons/logo.svg'); ?>
+      </a>
+      <div class="popup-menu__close">
+        x
+      </div>
+      <nav class="popup-menu__menu">
+        <ul class="popup-menu__menu-list">
+          <li class="popup-menu__menu-item">
+            <a class="popup-menu__menu-link" href="#">
+              Чек-апы
+            </a>
+          </li>
+          <li class="popup-menu__menu-item">
+            <a class="popup-menu__menu-link" href="#">
+              Направления
+            </a>
+            <div class="popup-submenu__wrapper">
+              <ul class="popup-submenu">
+                <li class="popup-submenu__item">
+                  <a class="popup-submenu__link" href="#">
+                    Аллергология
+                  </a>
+                  <ul class="popup-submenu">
+                    <li class="popup-submenu__item third-level">
+                      <a class="popup-submenu__link" href="#">
+                        Чекап пациентов<br>
+                        18-30+ (мужчины)
+                      </a>
+                    </li>
+                    <li class="popup-submenu__item third-level">
+                      <a class="popup-submenu__link" href="#">
+                        Чекап пациентов после<br>
+                        40 лет (мужчины)
+                      </a>
+                    </li>
+                    <li class="popup-submenu__item third-level">
+                      <a class="popup-submenu__link" href="#">
+                        Чекап пациентов<br>
+                        после 60 лет (мужчины)
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="popup-submenu__item">
+                  <a class="popup-submenu__link" href="#">
+                    Гастроэнтерология
+                  </a>
+                  <ul class="popup-submenu">
+                    <li class="popup-submenu__item third-level">
+                      <a class="popup-submenu__link" href="#">
+                        Чекап пациентов<br>
+                        18-30+ (мужчины)
+                      </a>
+                    </li>
+                    <li class="popup-submenu__item third-level">
+                      <a class="popup-submenu__link" href="#">
+                        Чекап пациентов после<br>
+                        40 лет (мужчины)
+                      </a>
+                    </li>
+                    <li class="popup-submenu__item third-level">
+                      <a class="popup-submenu__link" href="#">
+                        Чекап пациентов<br>
+                        после 60 лет (мужчины)
+                      </a>
+                    </li>
+                    <li class="popup-submenu__item third-level">
+                      <a class="popup-submenu__link" href="#">
+                        Гематология
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="popup-submenu__item">
+                  <a class="popup-submenu__link" href="#">
+                    Гематология
+                  </a>
+                </li>
+                <li class="popup-submenu__item">
+                  <a class="popup-submenu__link" href="#">
+                    Гинекология
+                  </a>
+                </li>
+                <li class="popup-submenu__item">
+                  <a class="popup-submenu__link" href="#">
+                    Функциональная диагностика
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="popup-menu__menu-item">
+            <a class="popup-menu__menu-link" href="#">
+              Услуги
+            </a>
+          </li>
+          <li class="popup-menu__menu-item">
+            <a class="popup-menu__menu-link" href="#">
+              Врачи
+            </a>
+          </li>
+          <li class="popup-menu__menu-item">
+            <a class="popup-menu__menu-link" href="#">
+              Цены
+            </a>
+          </li>
+          <li class="popup-menu__menu-item">
+            <a class="popup-menu__menu-link" href="#">
+              О клинике
+            </a>
+          </li>
+          <li class="popup-menu__menu-item">
+            <a class="popup-menu__menu-link" href="#">
+              Пациентам
+            </a>
+          </li>
+          <li class="popup-menu__menu-item">
+            <a class="popup-menu__menu-link" href="#">
+              Контакты
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>

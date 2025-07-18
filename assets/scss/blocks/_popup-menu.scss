@@ -4,11 +4,69 @@
   height: 100vh;
   overflow-y: scroll;
   left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
   z-index: 1;
   top: 0;
   background-color: var(--light-color);
-  padding: 20px 40px 20px 20px;
-  display: none;
+  padding: 20px 30px 20px 20px;
+  transition: all .3s ease-in-out;
+  z-index: 1000;
+
+  &.active{
+  transform: scaleX(1);
+  }
+
+  &__logo{
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  &__close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__menu-item{
+    padding: 5px;
+    &:hover{
+      a{color: var(--default-color);}
+  
+      &>a{
+        color: var(--primary);
+      }
+    }
+  }
+
+  &__menu-link{
+    color: var(--accent);
+  }
+  
+  .popup-submenu{
+    padding-left: 10px;
+
+    &__item:hover{
+          &>a {
+              color: var(--primary);
+            }
+    }
+
+    &__link{
+      font-size: 16px;
+      display: block;
+      color: var(--accent);
+    }
+  }
 }
 
 .burger {
@@ -23,6 +81,7 @@
   justify-content: center;
   align-items: center;
   gap: 6px;
+  cursor: pointer;
   border-radius: 45px;
 
   .bar {
