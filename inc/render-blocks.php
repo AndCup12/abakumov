@@ -840,20 +840,33 @@ function checkupFrontBlock(){
 
             </div>
           </div>
-          <?php if(is_page('tgbot')) { ?>
-            <img class="front-block__img-telegram" src="<?php echo get_template_directory_uri(); ?>/assets/images/front-block-telegram.webp" alt="hand-telega">
-            <?php } elseif(get_sub_field('checkupFrontBlock_img')) {
-            $img = get_sub_field('checkupFrontBlock_img');
-            $img_url = isset($img['url']) ? $img['url'] : '';
-            $img_alt = isset($img['alt']) ? $img['alt'] : '';
-            ?>
-          <div class="front-block__right-item">
-            <!-- Сделать через повторитель Посадка -->
-            <div class="front-block__right-wrapper">
-              <img class="front-block__right-img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
-            </div>
-          </div>
-          <?php } ?>
+          <?php
+            if(is_page('tgbot')) { ?>
+                <img class="front-block__img-telegram" src="<?php echo get_template_directory_uri(); ?>/assets/images/front-block-telegram.webp" alt="hand-telega">
+            <?php }
+            elseif(have_rows('checkupFrontBlock_imgs')) { ?>
+                <div class="front-block__right-item">
+                    <?php while(have_rows('checkupFrontBlock_imgs')) : the_row();
+                        $img = get_sub_field('img');
+                        $img_url = isset($img['url']) ? $img['url'] : '';
+                        $img_alt = isset($img['alt']) ? $img['alt'] : '';
+                        ?>
+                        <div class="front-block__right-wrapper">
+                            <img class="front-block__right-img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+            <?php }
+            elseif(get_sub_field('checkupFrontBlock_img')) {
+                $img = get_sub_field('checkupFrontBlock_img');
+                $img_url = isset($img['url']) ? $img['url'] : '';
+                $img_alt = isset($img['alt']) ? $img['alt'] : ''; ?>
+                <div class="front-block__right-item">
+                    <div class="front-block__right-wrapper">
+                        <img class="front-block__right-img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
+                    </div>
+                </div>
+            <?php } ?>
         </div>
         <?php $links = get_sub_field('checkupFrontBlock_links');
         if($links) :?>
