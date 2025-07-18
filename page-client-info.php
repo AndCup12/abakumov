@@ -1,16 +1,16 @@
-<?php
+<?php get_header(); ?>
 
-get_header();
-?>
-
-<!-- страница Информация для пациентов -->
 
 <main class="main" id="client-info">
 
-  <!-- <?php echo renderBlocksSingleCheckup(); ?> -->
+  <?php echo renderBlocksClinicInfo(); ?>
 
-  <!-- В первом блоке только заголовок -->
-  <section class="front-block _image-wrapper _section-lg">
+  <?php echo contacts();?>
+
+  <?php echo map();?>
+
+
+  <!-- <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
     <div class="container relative">
       <h1 class="front-block__title _title">
@@ -19,7 +19,7 @@ get_header();
     </div>
   </section>
 
-  <!-- новый блок с карточками -->
+
   <section class="link-items">
     <div class="container">
       <div class="cursor">
@@ -101,7 +101,8 @@ get_header();
     </div>
   </section>
 
-  <!-- Контакты -->
+  <div class="divider"></div>
+
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -179,7 +180,7 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Карта -->
+
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -215,7 +216,7 @@ get_header();
 
       </div>
     </div>
-  </section>
+  </section> -->
 </main>
 
 <?php get_footer(); ?>

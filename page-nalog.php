@@ -1,17 +1,5 @@
-<?php
+<?php get_header(); ?>
 
-/**
- * Template Name: Оформление налогового вычета 
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
-get_header();
-?>
-
-<!-- 
-страница Оформление налогового вычета 
--->
 
 <main class="main" id="nalog-page">
   <!-- Первый блок (нет картинки докторов) -->
@@ -294,6 +282,7 @@ get_header();
       </div>
     </section>
   </div>
+
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">

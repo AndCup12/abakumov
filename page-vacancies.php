@@ -5,6 +5,8 @@
 
   <?php echo renderBlocksRevBizVac(); ?>
 
+  <div class="divider"></div>
+
   <?php echo contacts(); ?>
 
   <?php echo map(); ?>

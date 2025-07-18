@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Новостей 
+ * Template Name: Новостей
  * http://dontforget.pro
  * @package WordPress
  * @subpackage clean
@@ -9,8 +9,8 @@
 get_header();
 ?>
 
-<!-- 
-страница Новостей 
+<!--
+страница Новостей
 -->
 
 <main class="main" id="news-page">
@@ -44,7 +44,7 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Есть изменения в блоке. Добавлена пагинация - она как отдельный блок. И кнопка показать больше. В карточках добавлен класс link-items__service-text - меньше текст. 
+  <!-- Есть изменения в блоке. Добавлена пагинация - она как отдельный блок. И кнопка показать больше. В карточках добавлен класс link-items__service-text - меньше текст.
   Добавлен класс left-btn кнопке, чтобы она ровнялась по левому краю.
   Добавлен класс grid-column на обертку карточек, чтобы карточки не уходили в скролл, а выстраивались в колонку по две
   -->
@@ -208,6 +208,7 @@ get_header();
       </div>
     </section>
   </div>
+
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">
@@ -248,6 +249,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <div class="wrapper-bg _section-lg">
     <section class="new-level">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
@@ -363,6 +365,7 @@ get_header();
       </div>
     </section>
   </div>
+
   <div class="divider"></div>
   <!-- Контакты -->
   <section class="contacts">
@@ -442,6 +445,7 @@ get_header();
       </div>
     </div>
   </section>
+
   <!-- Карта -->
   <section class="map-block">
     <div class="container">
@@ -479,6 +483,7 @@ get_header();
       </div>
     </div>
   </section>
+
 </main>
 
 <?php get_footer(); ?>

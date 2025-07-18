@@ -6,6 +6,8 @@ get_header();
 
   <?php echo renderServiceMain();?>
 
+  <div class="divider"></div>
+
   <?php echo contacts(); ?>
 
   <?php echo map(); ?>

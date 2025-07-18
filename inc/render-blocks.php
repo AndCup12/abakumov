@@ -9,6 +9,7 @@
 // frontBlockMain : Первый блок - Главная
 // firstBlockService : Первый блок - Услуги главная
 // firstBlockRev : Первый блок - Отзывы
+// firstBlockPageInfo : первый блок (Информация для клиентов)
 // advantages : Преимущества
 // checkupQuestions : Зачем проходить 'направление'
 // doctorWithQuotes : Врач с цитатами
@@ -54,6 +55,9 @@
 // care : Забота
 // whyWorks : Почему выгодно
 // vacanciesFormat : Клиника нового формата
+// linkItems : Карточки страниц (Информация для пациентов)
+// contentBlockForm : Блок контента с формой и аккордионом
+// clinicInfo : Узнайте больше о клинике
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
 
@@ -727,6 +731,65 @@ function renderBlocksPagePrice(){
 }
 
 
+// ======= Блоки для Информация для пациентов и дочерних страниц =========
+
+function renderBlocksClinicInfo(){
+
+  // firstBlockPageInfo : первый блок (Информация для клиентов)
+  // linkItems : Карточки страниц (Информация для пациентов)
+  // contentBlockForm : Блок контента с формой и аккордионом
+  // callback_1 : Форма обратной связи (1 вариант)
+  // clinicInfo : Узнайте больше о клинике
+  // newLevel : Медицина нового уровня
+
+  if(have_rows('blocksClientInfo')){
+    while(have_rows('blocksClientInfo')){
+      the_row();
+      $block_type = get_sub_field('block_type');
+      switch($block_type){
+        case 'firstBlockPageInfo':
+          echo firstBlockPageInfo();
+          break;
+        case 'linkItems':
+          echo linkItems();
+          break;
+        case 'contentBlockForm':
+          echo contentBlockForm();
+          break;
+        case 'callback_1':
+          echo callback_1();
+          break;
+        case 'cliniсInfo':
+          echo cliniсInfo();
+          break;
+        case 'newLevel':
+          echo newLevel();
+          break;
+        case 'wrapperStart':
+          $type = get_sub_field('wrapperStart_variants');
+          echo wrapperStart($type);
+          break;
+        case 'wrapperEnd':
+          echo wrapperEnd();
+          break;
+      }
+    }
+  }
+
+}
+// firstBlockPageInfo : первый блок (Информация для клиентов)
+// linkItems : Карточки страниц (Информация для пациентов)
+// contentBlockForm : Блок контента с формой и аккордионом
+// callback_1 : Форма обратной связи (1 вариант)
+// clinicInfo : Узнайте больше о клинике
+// newLevel : Медицина нового уровня
+
+
+
+
+
+
+
 
 // ======= Генерация блоков =========
 
@@ -1019,6 +1082,38 @@ function firstBlockRev(){
 
   <?php return ob_get_clean();
 }
+
+// первый блок (Информация для клиентов)
+function firstBlockPageInfo(){
+  ob_start(); ?>
+
+  <section class="front-block _image-wrapper _section-lg">
+    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
+    <div class="container relative">
+      <?php if(is_page_template('custom-client-info.php')):?>
+        <div class="breadcrumbs">
+          <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__point">
+              <a class="breadcrumbs__link" href="#">Главная</a>
+            </li>
+            <li class="breadcrumbs__point">
+              <a class="breadcrumbs__link" href="#">Статьи</a>
+            </li>
+            <li class="breadcrumbs__point">
+              <a class="breadcrumbs__link active" href="#">Оформление налогового вычета</a>
+            </li>
+          </ul>
+        </div>
+      <?php endif; ?>
+      <h1 class="front-block__title _title">
+        <?php the_field('meta_h1');?>
+      </h1>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
 
 // Преимущества
 function advantages() {
@@ -1681,22 +1776,28 @@ function callback_1(){
           <div class="callback__info">
             <img class="callback__info-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/callback-manager.webp" alt="callback-manager">
             <!-- Посадка -->
+            <?php if(get_sub_field('callback_1_text')):?>
             <p class="callback__info-text">
               <?php the_sub_field('callback_1_text');?>
             </p>
+            <?php endif; ?>
           </div>
         </div>
         <form class="callback__form form-submit relative" action="#" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="from" value="Есть вопросы или хотите записаться по телефону?">
           <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
           <!-- Посадка -->
+           <?php if(get_sub_field('callback_1_form_title')) : ?>
           <h4 class="callback__form-title">
             <?php the_sub_field('callback_1_form_title');?>
           </h4>
+          <?php endif; ?>
           <!-- Посадка -->
+          <?php if(get_sub_field('callback_1_form_text')) :?>
           <p class="callback__form-subtitle">
             <?php the_sub_field('callback_1_form_text');?>
           </p>
+          <?php endif; ?>
           <div class="callback__form-inputs">
             <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="callback__form-btn _gray-btn">
@@ -4584,6 +4685,184 @@ function vacanciesFormat(){
           <div class="vacancies-format__item">
             <img class="vacancies-format__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/vacancies-format-3.webp"" alt=" vacancies-format-3">
           </div>
+        </div>
+      </div>
+    </section>
+
+  <?php return ob_get_clean();
+}
+
+// Карточки страниц (Информация для пациентов)
+function linkItems(){
+  ob_start(); ?>
+
+  <?php $linkItems = get_sub_field('linkItems');
+    if($linkItems) :?>
+    <section class="link-items">
+      <div class="container">
+        <div class="cursor">
+          <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+        </div>
+        <div class="link-items__services">
+          <?php foreach ( $linkItems as $post_id ) :
+            $post = get_post($post_id);
+            $image = get_the_post_thumbnail_url($post_id) ?: get_template_directory_uri() . '/assets/images/link-items-1.webp';
+          ?>
+          <a class="link-items__service" href="<?php echo get_permalink($post_id); ?>">
+            <div class="link-items__service-wrapper">
+              <img class="link-items__service-img _img" src="<?php echo $image; ?>" alt="<?php echo esc_attr($post->post_title); ?>">
+            </div>
+            <div class="link-items__service-info">
+              <h4 class="link-items__service-title">
+                <?php echo $post->post_title; ?>
+              </h4>
+              <div class="link-items__service-btn _gray-btn">
+                <span>Перейти к прочтению</span>
+              </div>
+            </div>
+          </a>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </section>
+  <?php endif; ?>
+
+  <?php return ob_get_clean();
+}
+
+// Блок контента с формой и аккордионом
+function contentBlockForm(){
+  ob_start(); ?>
+
+  <section class="content-block">
+    <div class="container">
+      <div class="content-block__inner">
+        <div class="content-block__left">
+
+          <!-- Контент -->
+          <div class="content-block__left-inner theContent">
+            <?php the_content(); ?>
+          </div>
+          <!-- Аккордион -->
+          <?php if(have_rows('contentBlockForm_accord')) : $counter = 1; ?>
+          <div class="content-block__left-inner checkup-compound__left accordion">
+            <?php while(have_rows('contentBlockForm_accord')) : the_row();
+            $num = str_pad($counter, 2, '0', STR_PAD_LEFT);?>
+            <div class="checkup-compound__item accordion-item">
+              <div class="checkup-compound__item-header accordion-header">
+                <div class="checkup-compound__item-left">
+                  <span class="checkup-compound__item-step">
+                    <?php echo $num; ?>
+                  </span>
+                  <h4 class="checkup-compound__item-title">
+                    <?php the_sub_field('quest'); ?>
+                  </h4>
+                </div>
+                <div class="open-item checkup-compound__item-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+                </div>
+              </div>
+              <div class="checkup-compound__item-body accordion-body">
+                <ul class="checkup-compound__item-list">
+                  <li class="checkup-compound__item-point">
+                    <span><?php the_sub_field('ask');?></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <?php $counter++; endwhile; ?>
+          </div>
+          <?php endif; ?>
+        </div>
+        <form class="content-block__form form-submit relative" action="#" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="from" value="Есть вопросы или хотите записаться по телефону?">
+          <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
+          <div class="content-block__form-inner">
+            <h4 class="content-block__form-title _title">
+              Заполните форму
+            </h4>
+            <p class="content-block__form-subtitle">
+              Введите телефон в форме ниже
+            </p>
+            <div class="content-block__form-inputs">
+              <input class="content-block__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
+              <button class="content-block__form-btn _gray-btn">
+                Записаться на консультацию
+              </button>
+            </div>
+            <p class="content-block__form-politic politic-text">
+              Нажимая на кнопку, вы соглашаетесь с <a href="#politics" data-fancybox>
+                Политикой конфиденциальности
+              </a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Узнайте больше о клинике
+function cliniсInfo(){
+  ob_start(); ?>
+
+  <section class="link-items padding-bottom padding-top">
+      <img class="link-items__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
+      <div class="container relative">
+        <h2 class="link-items__title _title">
+          Узнайте больше о клинике
+        </h2>
+        <div class="cursor">
+          <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+        </div>
+        <div class="link-items__services">
+          <a class="link-items__service white-bg" href="#">
+            <div class="link-items__service-wrapper">
+              <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-6.webp" alt="link-items-6">
+            </div>
+            <div class="link-items__service-info">
+              <h4 class="link-items__service-title">
+                Преимущества клиники
+              </h4>
+              <div class="link-items__service-btn _gray-btn">
+                <span>Узнать подробнее</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+
+              </div>
+            </div>
+          </a>
+          <a class="link-items__service white-bg" href="#">
+            <div class="link-items__service-wrapper">
+              <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-7.webp" alt="link-items-7">
+            </div>
+            <div class="link-items__service-info">
+              <h4 class="link-items__service-title">
+                Отзывы
+              </h4>
+              <div class="link-items__service-btn _gray-btn">
+                <span>Узнать подробнее</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+
+              </div>
+            </div>
+          </a>
+          <a class="link-items__service white-bg" href="#">
+            <div class="link-items__service-wrapper">
+              <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-8.webp" alt="link-items-8">
+            </div>
+            <div class="link-items__service-info">
+              <h4 class="link-items__service-title">
+                Чек-апы
+              </h4>
+              <div class="link-items__service-btn _gray-btn">
+                <span>Узнать подробнее</span>
+                <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
