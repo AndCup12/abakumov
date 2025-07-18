@@ -13,6 +13,10 @@ get_header(); ?>
 
   <?php echo renderBlocksSingleCheckup(); ?>
 
+  <?php echo contacts(); ?>
+
+  <?php echo map(); ?>
+
 </main>
 
 <?php get_footer(); ?>

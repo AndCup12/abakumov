@@ -471,9 +471,24 @@ function renderDirectionMain(){
 
 // ======= Блоки для Услуги (основная) =========
 
-// firstBlockService
-// contacts
-// map
+function renderServiceMain(){
+
+  // firstBlockService : Первый блок - Услуги главная
+
+  if(have_rows('blocksServiceMain')){
+    while(have_rows('blocksServiceMain')){
+      the_row();
+      $block_type = get_sub_field('block_type');
+      switch($block_type){
+        case 'firstBlockService':
+          echo firstBlockService();
+          break;
+      }
+    }
+  }
+
+}
+
 
 
 // ======= Блоки для Врачи (основная) =========
