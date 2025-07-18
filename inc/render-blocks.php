@@ -10,6 +10,7 @@
 // firstBlockService : Первый блок - Услуги главная
 // firstBlockRev : Первый блок - Отзывы
 // firstBlockPageInfo : первый блок (Информация для клиентов)
+// firstBlockArchive : Первый блок Архива
 // advantages : Преимущества
 // checkupQuestions : Зачем проходить 'направление'
 // doctorWithQuotes : Врач с цитатами
@@ -57,9 +58,14 @@
 // vacanciesFormat : Клиника нового формата
 // linkItems : Карточки страниц (Информация для пациентов)
 // contentBlockForm : Блок контента с формой и аккордионом
-// clinicInfo : Узнайте больше о клинике
+// cliniсInfo : Узнайте больше о клинике
+// archiveCatalog : Каталог постов
+// recommendedArticles : Рекомендованные статьи
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
+
+
+
 
 
 
@@ -733,13 +739,13 @@ function renderBlocksPagePrice(){
 
 // ======= Блоки для Информация для пациентов и дочерних страниц =========
 
-function renderBlocksClinicInfo(){
+function renderBlockscliniсInfo(){
 
   // firstBlockPageInfo : первый блок (Информация для клиентов)
   // linkItems : Карточки страниц (Информация для пациентов)
   // contentBlockForm : Блок контента с формой и аккордионом
   // callback_1 : Форма обратной связи (1 вариант)
-  // clinicInfo : Узнайте больше о клинике
+  // cliniсInfo : Узнайте больше о клинике
   // newLevel : Медицина нового уровня
 
   if(have_rows('blocksClientInfo')){
@@ -777,12 +783,99 @@ function renderBlocksClinicInfo(){
   }
 
 }
-// firstBlockPageInfo : первый блок (Информация для клиентов)
-// linkItems : Карточки страниц (Информация для пациентов)
-// contentBlockForm : Блок контента с формой и аккордионом
-// callback_1 : Форма обратной связи (1 вариант)
-// clinicInfo : Узнайте больше о клинике
-// newLevel : Медицина нового уровня
+
+
+// ======= Блоки для Категорий =========
+
+function renderArchiveBlocks($term_id, $term_id_prefixed){
+
+  // firstBlockArchive : Первый блок Архива
+  // archiveCatalog : Каталог постов
+  // cliniсInfo : Узнайте больше о клинике
+  // callback_1 : Форма обратной связи (1 вариант)
+  // newLevel : Медицина нового уровня
+  // wrapperStart : Начало обертки
+  // wrapperEnd : Конец обертки
+
+  if(have_rows('archiveBlocks', $term_id_prefixed)){
+    while(have_rows('archiveBlocks', $term_id_prefixed)){
+      the_row();
+      $block_type = get_sub_field('block_type', $term_id_prefixed);
+      switch($block_type){
+        case 'firstBlockArchive':
+          echo firstBlockArchive();
+          break;
+        case 'archiveCatalog':
+          echo archiveCatalog($term_id);
+          break;
+        case 'cliniсInfo':
+          echo cliniсInfo();
+          break;
+        case 'callback_1':
+          echo callback_1();
+          break;
+        case 'newLevel':
+          echo newLevel();
+          break;
+        case 'wrapperStart':
+          $type = get_sub_field('wrapperStart_variants', $term_id_prefixed);
+          echo wrapperStart($type);
+          break;
+        case 'wrapperEnd':
+          echo wrapperEnd();
+          break;
+      }
+    }
+  }
+
+}
+
+
+// ======= Блоки для Статей, Новостей =========
+
+function renderBlocksArticles(){
+
+  // frontBlockMain : Первый блок - Главная
+  // contentBlockForm : Блок контента с формой и аккордионом
+  // recommendedArticles : Рекомендованные статьи
+  // cliniсInfo : Узнайте больше о клинике
+  // callback_1 : Форма обратной связи (1 вариант)
+  // newLevel : Медицина нового уровня
+  // wrapperStart : Начало обертки
+  // wrapperEnd : Конец обертки
+
+  if(have_rows('blocksArticles')){
+    while(have_rows('blocksArticles')){
+      the_row();
+      $block_type = get_sub_field('block_type');
+      switch($block_type){
+        case 'frontBlockMain':
+          echo frontBlockMain();
+          break;
+        case 'contentBlockForm':
+          echo contentBlockForm();
+          break;
+        case 'recommendedArticles':
+          echo recommendedArticles();
+          break;
+        case 'cliniсInfo':
+          echo cliniсInfo();
+          break;
+        case 'newLevel':
+          echo newLevel();
+          break;
+        case 'wrapperStart':
+          $type = get_sub_field('wrapperStart_variants');
+          echo wrapperStart($type);
+          break;
+        case 'wrapperEnd':
+          echo wrapperEnd();
+          break;
+      }
+    }
+  }
+
+}
 
 
 
@@ -981,6 +1074,22 @@ function frontBlockMain(){
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
+      <?php if (get_post_type() === 'post'): ?>
+      <div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+          <li class="breadcrumbs__point">
+            <a class="breadcrumbs__link" href="#">Главная</a>
+          </li>
+          <li class="breadcrumbs__point">
+            <a class="breadcrumbs__link" href="#">Статьи</a>
+          </li>
+          <li class="breadcrumbs__point">
+            <a class="breadcrumbs__link active" href="#">Почему «лечить по симптомам» больше не работает</a>
+          </li>
+        </ul>
+      </div>
+      <?php endif; ?>
+
       <div class="front-block__top">
         <h1 class="front-block__title _title">
           <?php the_field('meta_h1'); ?>
@@ -1096,7 +1205,7 @@ function firstBlockRev(){
   <?php return ob_get_clean();
 }
 
-// первый блок (Информация для клиентов)
+// Первый блок (Информация для клиентов)
 function firstBlockPageInfo(){
   ob_start(); ?>
 
@@ -1121,6 +1230,43 @@ function firstBlockPageInfo(){
       <h1 class="front-block__title _title">
         <?php the_field('meta_h1');?>
       </h1>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+// Первый блок Архива
+function firstBlockArchive(){
+  ob_start(); ?>
+
+  <section class="front-block _image-wrapper _section-lg">
+    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
+    <div class="container">
+      <div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+          <li class="breadcrumbs__point">
+            <a class="breadcrumbs__link" href="#">Главная</a>
+          </li>
+          <li class="breadcrumbs__point">
+            <a class="breadcrumbs__link active" href="#">Новости</a>
+          </li>
+        </ul>
+      </div>
+      <div class="front-block__top">
+        <h1 class="front-block__title _title">
+          Новости Abakumov Clinic
+        </h1>
+      </div>
+      <div class="front-block__btns">
+        <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
+          <span>Записаться на прием</span>
+        </a>
+        <a class="front-block__btn _whatsapp-btn" href="https://wa.me/+79031003195" target="_blank">
+          <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+          <span>Записаться через WhatsApp</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -4751,7 +4897,6 @@ function contentBlockForm(){
     <div class="container">
       <div class="content-block__inner">
         <div class="content-block__left">
-
           <!-- Контент -->
           <div class="content-block__left-inner theContent">
             <?php the_content(); ?>
@@ -4822,57 +4967,242 @@ function cliniсInfo(){
   ob_start(); ?>
 
   <section class="link-items padding-bottom padding-top">
-      <img class="link-items__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
-      <div class="container relative">
+    <img class="link-items__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
+    <div class="container relative">
+      <h2 class="link-items__title _title">
+        Узнайте больше о клинике
+      </h2>
+      <div class="cursor">
+        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+      </div>
+      <div class="link-items__services">
+        <a class="link-items__service white-bg" href="#">
+          <div class="link-items__service-wrapper">
+            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-6.webp" alt="link-items-6">
+          </div>
+          <div class="link-items__service-info">
+            <h4 class="link-items__service-title">
+              Преимущества клиники
+            </h4>
+            <div class="link-items__service-btn _gray-btn">
+              <span>Узнать подробнее</span>
+              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+
+            </div>
+          </div>
+        </a>
+        <a class="link-items__service white-bg" href="#">
+          <div class="link-items__service-wrapper">
+            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-7.webp" alt="link-items-7">
+          </div>
+          <div class="link-items__service-info">
+            <h4 class="link-items__service-title">
+              Отзывы
+            </h4>
+            <div class="link-items__service-btn _gray-btn">
+              <span>Узнать подробнее</span>
+              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+
+            </div>
+          </div>
+        </a>
+        <a class="link-items__service white-bg" href="#">
+          <div class="link-items__service-wrapper">
+            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-8.webp" alt="link-items-8">
+          </div>
+          <div class="link-items__service-info">
+            <h4 class="link-items__service-title">
+              Чек-апы
+            </h4>
+            <div class="link-items__service-btn _gray-btn">
+              <span>Узнать подробнее</span>
+              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <?php return ob_get_clean();
+}
+
+
+// Каталог постов
+function archiveCatalog($term_id) {
+    $current_page = max(1, get_query_var('paged'));
+    $posts_per_page = 6; // Количество постов на странице
+
+    ob_start(); ?>
+
+    <section class="link-items" id="archive-catalog">
+        <div class="container">
+            <div class="link-items__services grid-column" id="posts-container">
+                <?php
+                $args = [
+                    'cat'            => $term_id,
+                    'posts_per_page' => $posts_per_page,
+                    'paged'          => $current_page,
+                    'post_status'    => 'publish'
+                ];
+
+                $query = new WP_Query($args);
+
+                if ($query->have_posts()) :
+                    while ($query->have_posts()) : $query->the_post();
+                        get_template_part('template-parts/archive-card');
+                    endwhile;
+                    wp_reset_postdata();
+                else :
+                    echo '<p>Нет записей в этой категории</p>';
+                endif;
+                ?>
+            </div>
+
+            <!-- <div class="pagination" id="pagination-container">
+                <?php
+                $total_pages = $query->max_num_pages;
+
+                if ($total_pages > 1) :
+                    $current_page = max(1, get_query_var('paged'));
+
+                    // Кнопка "Назад"
+                    echo '<a class="pagination__link" href="' . get_pagenum_link($current_page - 1) . '" ' . ($current_page == 1 ? 'style="visibility:hidden;"' : '') . '>Назад</a>';
+
+                    // Нумерация страниц
+                    echo '<div class="pagination__steps">';
+                    for ($i = 1; $i <= $total_pages; $i++) :
+                        echo '<a class="pagination__step ' . ($i == $current_page ? 'active' : '') . '" href="' . get_pagenum_link($i) . '">' . $i . '</a>';
+                    endfor;
+                    echo '</div>';
+
+                    // Кнопка "Вперед"
+                    echo '<a class="pagination__link" href="' . get_pagenum_link($current_page + 1) . '" ' . ($current_page == $total_pages ? 'style="visibility:hidden;"' : '') . '>Вперед</a>';
+                endif;
+                ?>
+            </div> -->
+
+            <?php if ($total_pages > 1) : ?>
+                <button style="margin-top:30px;"
+                    id="load-more"
+                    class="more-btn _main-btn"
+                    data-term="<?php echo $term_id; ?>"
+                    data-page="1"
+                    data-max-pages="<?php echo $total_pages; ?>">
+                    <span>Показать еще</span>
+                </button>
+            <?php endif; ?>
+        </div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loadMoreBtn = document.getElementById('load-more');
+        if (!loadMoreBtn) return;
+
+        // Подгрузка постов
+        loadMoreBtn.addEventListener('click', function() {
+            const termId = this.dataset.term;
+            const nextPage = parseInt(this.dataset.page) + 1;
+            const maxPages = parseInt(this.dataset.maxPages);
+
+            this.disabled = true;
+            this.querySelector('span').textContent = 'Загрузка...';
+
+            fetch(`<?php echo admin_url('admin-ajax.php'); ?>?action=load_more_posts&term=${termId}&page=${nextPage}`)
+                .then(response => response.text())
+                .then(html => {
+                    if (html) {
+                        document.getElementById('posts-container').insertAdjacentHTML('beforeend', html);
+                        this.dataset.page = nextPage;
+
+                        if (nextPage >= maxPages) {
+                            this.style.display = 'none';
+                        }
+                    }
+                    this.disabled = false;
+                    this.querySelector('span').textContent = 'Показать еще';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    this.disabled = false;
+                    this.querySelector('span').textContent = 'Ошибка загрузки';
+                });
+        });
+
+        // AJAX пагинация
+        document.querySelectorAll('.pagination__link, .pagination__step').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = new URL(this.href);
+                const page = url.searchParams.get('paged') || 1;
+
+                fetch(`<?php echo admin_url('admin-ajax.php'); ?>?action=archive_pagination&term=<?php echo $term_id; ?>&page=${page}`)
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('archive-catalog').innerHTML = html;
+                        window.history.pushState({}, '', url.href);
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+    });
+    </script>
+
+    <?php return ob_get_clean();
+}
+
+
+// Рекомендованные статьи
+function recommendedArticles(){
+  ob_start(); ?>
+
+    <section class="link-items space-top">
+      <div class="container">
         <h2 class="link-items__title _title">
-          Узнайте больше о клинике
+          Рекомендованные статьи
         </h2>
         <div class="cursor">
           <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
         </div>
         <div class="link-items__services">
-          <a class="link-items__service white-bg" href="#">
+          <a class="link-items__service" href="#">
+            <div class="link-items__service-wrapper">
+              <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-4.webp" alt="link-items-4">
+            </div>
+            <div class="link-items__service-info">
+              <h4 class="link-items__service-text">
+                Abakumov Clinic запускает корпоративные чекапы нового поколения — персонально под задачи бизнеса
+              </h4>
+              <div class="link-items__service-btn _gray-btn left-btn">
+                <span>Перейти к прочтению</span>
+              </div>
+            </div>
+          </a>
+          <a class="link-items__service" href="#">
+            <div class="link-items__service-wrapper">
+              <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-5.webp" alt="link-items-5">
+            </div>
+            <div class="link-items__service-info">
+              <h4 class="link-items__service-text">
+                Открыт VIP-дневной стационар: комфорт на уровне пятизвёздочного отеля теперь доступен пациентам
+              </h4>
+              <div class="link-items__service-btn _gray-btn left-btn">
+                <span>Перейти к прочтению</span>
+              </div>
+            </div>
+          </a>
+          <a class="link-items__service" href="#">
             <div class="link-items__service-wrapper">
               <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-6.webp" alt="link-items-6">
             </div>
             <div class="link-items__service-info">
-              <h4 class="link-items__service-title">
-                Преимущества клиники
+              <h4 class="link-items__service-text">
+                Abakumov Clinic вошла в топ-10 частных клиник Москвы по уровню сервиса по версии Zdrav.Media
               </h4>
-              <div class="link-items__service-btn _gray-btn">
-                <span>Узнать подробнее</span>
-                <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-
-              </div>
-            </div>
-          </a>
-          <a class="link-items__service white-bg" href="#">
-            <div class="link-items__service-wrapper">
-              <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-7.webp" alt="link-items-7">
-            </div>
-            <div class="link-items__service-info">
-              <h4 class="link-items__service-title">
-                Отзывы
-              </h4>
-              <div class="link-items__service-btn _gray-btn">
-                <span>Узнать подробнее</span>
-                <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-
-              </div>
-            </div>
-          </a>
-          <a class="link-items__service white-bg" href="#">
-            <div class="link-items__service-wrapper">
-              <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-8.webp" alt="link-items-8">
-            </div>
-            <div class="link-items__service-info">
-              <h4 class="link-items__service-title">
-                Чек-апы
-              </h4>
-              <div class="link-items__service-btn _gray-btn">
-                <span>Узнать подробнее</span>
-                <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-
+              <div class="link-items__service-btn _gray-btn left-btn">
+                <span>Перейти к прочтению</span>
               </div>
             </div>
           </a>
@@ -4882,7 +5212,6 @@ function cliniсInfo(){
 
   <?php return ob_get_clean();
 }
-
 
 // Обертка
 function wrapperStart ($type){

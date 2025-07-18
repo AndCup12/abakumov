@@ -240,3 +240,47 @@ function gulp_files() {
   }
 }
 add_action('wp_enqueue_scripts', 'gulp_files');
+
+
+
+// Подгрузка постов
+add_action('wp_ajax_load_more_posts', 'load_more_posts');
+add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+
+function load_more_posts() {
+    $term_id = intval($_GET['term']);
+    $page = intval($_GET['page']);
+
+    $args = [
+        'cat' => $term_id,
+        'posts_per_page' => 6,
+        'paged' => $page,
+        'post_status' => 'publish'
+    ];
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
+            get_template_part('template-parts/archive-card');
+        endwhile;
+        wp_reset_postdata();
+    endif;
+
+    wp_die();
+}
+
+// AJAX пагинация
+add_action('wp_ajax_archive_pagination', 'archive_pagination');
+add_action('wp_ajax_nopriv_archive_pagination', 'archive_pagination');
+
+function archive_pagination() {
+    $term_id = intval($_GET['term']);
+    $page = intval($_GET['page']);
+
+    ob_start();
+    archiveCatalog($term_id);
+    echo ob_get_clean();
+
+    wp_die();
+}

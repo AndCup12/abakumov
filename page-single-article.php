@@ -1,13 +1,4 @@
-<?php
-
-/**
- * Template Name: Статьи
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
-get_header();
-?>
+<?php get_header(); ?>
 
 <!--
 страница Статьи
