@@ -4,7 +4,11 @@ get_header();
 
 <main class="main" id="directions-main">
 
-  <?php echo renderBlocksSingleCheckup(); ?>
+  <?php echo renderDirectionMain(); ?>
+
+  <?php echo contacts(); ?>
+
+  <?php echo map(); ?>
 
 </main>
 

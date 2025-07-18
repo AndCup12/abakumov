@@ -343,7 +343,6 @@ function renderCheckupMain(){
     while(have_rows('blocksCheckupMain')){
       the_row();
       $block_type = get_sub_field('block_type');
-      echo $block_type;
       switch($block_type){
         case 'checkupFrontBlockMain':
           echo checkupFrontBlockMain();
@@ -402,28 +401,67 @@ function renderCheckupMain(){
 
 function renderDirectionMain(){
 
-  // firstBlockDirection
-  // advantages
-  // catalogDirections
-  // callback_1
-  // stagesOfTreatment
-  // newLevel
-  // reviewsBloger
-  // checkupReviews
-  // checkupАfter
-  // rating
-  // careComfort
-  // wrapperEnd
-  // wrapperStart
+  // firstBlockDirection : Первый блок - Направления основная
+  // advantages : Преимущества
+  // catalogDirections : Каталог направлений
+  // callback_1 : Форма обратной связи (1 вариант)
+  // stagesOfTreatment : Этапы лечения
+  // newLevel : Медицина нового уровня
+  // reviewsBloger : Отзывы блогеров
+  // checkupReviews : Блок отзывов (изображения вытянутые)
+  // checkupАfter : Видео-отзывы
+  // rating : Рейтинг клиники
+  // careComfort : Комфорт
+  // wrapperStart : Начало обертки
+  // wrapperEnd : Конец обертки
 
-  if(have_rows('')){
-    while(have_rows('')){
+  if(have_rows('blocksDirectionMain')){
+    while(have_rows('blocksDirectionMain')){
+      the_row();
       $block_type = get_sub_field('block_type');
       switch($block_type){
+        case 'firstBlockDirection':
+          echo firstBlockDirection();
+          break;
+        case 'advantages':
+          echo advantages();
+          break;
+        case 'catalogDirections':
+          echo catalogDirections();
+          break;
+        case 'callback_1':
+          echo callback_1();
+          break;
+        case 'stagesOfTreatment':
+          echo stagesOfTreatment();
+          break;
+        case 'newLevel':
+          echo newLevel();
+          break;
+        case 'reviewsBloger':
+          echo reviewsBloger();
+          break;
+        case 'checkupReviews':
+          echo checkupReviews();
+          break;
+        case 'checkupАfter':
+          echo checkupАfter();
+          break;
+        case 'rating':
+          echo rating();
+          break;
+        case 'careComfort':
+          echo careComfort();
+          break;
+        case 'wrapperStart':
+          $type = get_sub_field('wrapperStart_variants');
+          echo wrapperStart($type);
+          break;
+        case 'wrapperEnd':
+          echo wrapperEnd();
+          break;
 
       }
-      the_row();
-
     }
   }
 }
@@ -643,9 +681,11 @@ function firstBlockDirection(){
           <h1 class="front-block__title _title">
             <?php the_field('meta_h1'); ?>
           </h1>
+          <?php if(get_sub_field('firstblockdirection_subtitle')) :?>
           <p class="front-block__subtitle _subtitle">
-            Подзаголовок
+            <?php the_sub_field('firstblockdirection_subtitle'); ?>
           </p>
+          <?php endif; ?>
           <div class="cursor">
             <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
           </div>
