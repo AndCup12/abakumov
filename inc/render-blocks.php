@@ -106,89 +106,54 @@ function renderBlocksDirection(){
 
 
 // ======= Блоки для шаблона custom-checkup-page.php =========
-function renderBlocksCheckup(){
+function renderBlocksSingleCheckup() {
 
+  // checkupFrontBlock : Первый блок
   // advantages : Преимущества
-  // callback_1 : Форма обратной связи (1 вариант)
-  // careComfort : Комфорт
-  // checkupCompound : Состав чекапа
-  // checkupFrontBlock : Первый блок - Чекап сингл
   // checkupQuestions : Зачем проходить 'направление'
-  // checkupResult : Результат
-  // checkupReviews : Блок отзывов (изображения вытянутые)
-  // checkupSchedule : График прохождения
-  // checkupStages : Этапы прохождения
-  // checkupАfter : Видео-отзывы
-  // contacts : Контакты
   // doctorWithQuotes : Врач с цитатами
-  // examinationReveals : Что может выявить
-  // map : Карта
-  // newLevel : Медицина нового уровня
-  // personalPlan : Персональный план
-  // rating : Рейтинг клиники
   // videoBlock : Блок с видео
   // whenExamination : Когда стоит пройти обследование
-  // wrapperEnd : Конец обертки
+  // examinationReveals : Что может выявить
+  // checkupStages : Этапы прохождения
+  // personalPlan : Персональный план
+  // callback_1 : Форма обратной связи (1 вариант)
+  // checkupSchedule : График прохождения
+  // checkupCompound : Состав чекапа
+  // newLevel : Медицина нового уровня
+  // checkupReviews : Блок отзывов (изображения вытянутые)
+  // checkupАfter : Видео-отзывы
+  // rating : Рейтинг клиники
+  // careComfort : Комфорт
+  // disease : Заболевание/ расшифровка
+  // directionsSimptom : Симптомы
+  // callback_2 : Форма обратной связи (2 вариант)
+  // directionsMethods : Методы диагностики и лечения
+  // directionsDoctor : Врачи клиники
+  // directionsPrice : Стоимость лечения
+  // stagesOfTreatment : Этапы лечения
+  // checkupResult : Результат
   // wrapperStart : Начало обертки
+  // wrapperEnd : Конец обертки
 
-  if(have_rows('blocksCheckup')) {
-    while(have_rows('blocksCheckup')){
+
+  if (have_rows('blocksSingleCheckup')) {
+    while (have_rows('blocksSingleCheckup')) {
       the_row();
       $block_type = get_sub_field('block_type');
-      switch($block_type){
-        case 'advantages':
-          echo advantages();
-          break;
-        case 'callback_1':
-          echo callback_1();
-          break;
-        case 'careComfort':
-          echo careComfort();
-          break;
-        case 'checkupCompound':
-          echo checkupCompound();
-          break;
+      // echo $block_type . "\n";
+      switch ($block_type) {
         case 'checkupFrontBlock':
           echo checkupFrontBlock();
+          break;
+        case 'advantages':
+          echo advantages();
           break;
         case 'checkupQuestions':
           echo checkupQuestions();
           break;
-        case 'checkupResult':
-          echo checkupResult();
-          break;
-        case 'checkupReviews':
-          echo checkupReviews();
-          break;
-        case 'checkupSchedule':
-          echo checkupSchedule();
-          break;
-        case 'checkupStages':
-          echo checkupStages();
-          break;
-        case 'checkupАfter':
-          echo checkupАfter();
-          break;
-        case 'contacts':
-          echo contacts();
-          break;
         case 'doctorWithQuotes':
           echo doctorWithQuotes();
-          break;
-        case 'examinationReveals':
-          echo examinationReveals();
-          break;
-        case 'map':
-          echo map();
-          break;
-        case 'newLevel':
-          echo newLevel();
-          break;
-        case 'personalPlan':
-          echo personalPlan();
-          break;
-        case 'rating':
-          echo rating();
           break;
         case 'videoBlock':
           echo videoBlock();
@@ -196,17 +161,75 @@ function renderBlocksCheckup(){
         case 'whenExamination':
           echo whenExamination();
           break;
-        case 'wrapperEnd':
-          echo wrapperEnd();
+        case 'examinationReveals':
+          echo examinationReveals();
+          break;
+        case 'checkupStages':
+          echo checkupStages();
+          break;
+        case 'personalPlan':
+          echo personalPlan();
+          break;
+        case 'callback_1':
+          echo callback_1();
+          break;
+        case 'checkupSchedule':
+          echo checkupSchedule();
+          break;
+        case 'checkupCompound':
+          echo checkupCompound();
+          break;
+        case 'newLevel':
+          echo newLevel();
+          break;
+        case 'checkupReviews':
+          echo checkupReviews();
+          break;
+        case 'checkupАfter':
+          echo checkupАfter();
+          break;
+        case 'rating':
+          echo rating();
+          break;
+        case 'careComfort':
+          echo careComfort();
+          break;
+        case 'disease':
+          echo disease();
+          break;
+        case 'directionsSimptom':
+          echo directionsSimptom();
+          break;
+        case 'callback_2':
+          echo callback_2();
+          break;
+        case 'directionsMethods':
+          echo directionsMethods();
+          break;
+        case 'directionsDoctor':
+          echo directionsDoctor();
+          break;
+        case 'directionsPrice':
+          echo directionsPrice();
+          break;
+        case 'stagesOfTreatment':
+          echo stagesOfTreatment();
+          break;
+        case 'checkupResult':
+          echo checkupResult();
           break;
         case 'wrapperStart':
-          echo wrapperStart();
+          $type = get_sub_field('wrapperStart_variants');
+          echo wrapperStart($type);
+          break;
+        case 'wrapperEnd':
+          echo wrapperEnd();
           break;
       }
     }
   }
-
 }
+
 
 
 // ======= Блоки для шаблона custom-services-page.php =========
@@ -4348,209 +4371,4 @@ function name(){
   ob_start(); ?>
 
   <?php return ob_get_clean();
-}
-
-
-
-
-// Старая функция
-function renderBlocksSingleCheckup() {
-
-  // checkupFrontBlock : Первый блок
-  // advantages : Преимущества
-  // checkupQuestions : Зачем проходить 'направление'
-  // doctorWithQuotes : Врач с цитатами
-  // videoBlock : Блок с видео
-  // whenExamination : Когда стоит пройти обследование
-  // examinationReveals : Что может выявить
-  // checkupStages : Этапы прохождения
-  // personalPlan : Персональный план
-  // callback_1 : Форма обратной связи (1 вариант)
-  // checkupSchedule : График прохождения
-  // checkupCompound : Состав чекапа
-  // newLevel : Медицина нового уровня
-  // checkupReviews : Блок отзывов (изображения вытянутые)
-  // checkupАfter : Видео-отзывы
-  // rating : Рейтинг клиники
-  // careComfort : Комфорт
-  // disease : Заболевание/ расшифровка
-  // directionsSimptom : Симптомы
-  // callback_2 : Форма обратной связи (2 вариант)
-  // directionsMethods : Методы диагностики и лечения
-  // directionsDoctor : Врачи клиники
-  // directionsPrice : Стоимость лечения
-  // stagesOfTreatment : Этапы лечения
-  // checkupResult : Результат
-  // wrapperStart : Начало обертки
-  // wrapperEnd : Конец обертки
-
-
-  if (have_rows('blocksSingleCheckup')) {
-    while (have_rows('blocksSingleCheckup')) {
-      the_row();
-      $block_type = get_sub_field('block_type');
-      // echo $block_type . "\n";
-      switch ($block_type) {
-        case 'checkupFrontBlock':
-          echo checkupFrontBlock();
-          break;
-        case 'checkupFrontBlockMain':
-          echo checkupFrontBlockMain();
-          break;
-        case 'firstBlockDirection':
-          echo firstBlockDirection();
-          break;
-        case 'frontBlockMain';
-          echo frontBlockMain();
-          break;
-        case 'firstBlockService':
-          echo firstBlockService();
-          break;
-        case 'advantages':
-          echo advantages();
-          break;
-        case 'checkupQuestions':
-          echo checkupQuestions();
-          break;
-        case 'doctorWithQuotes':
-          echo doctorWithQuotes();
-          break;
-        case 'videoBlock':
-          echo videoBlock();
-          break;
-        case 'whenExamination':
-          echo whenExamination();
-          break;
-        case 'examinationReveals':
-          echo examinationReveals();
-          break;
-        case 'checkupStages':
-          echo checkupStages();
-          break;
-        case 'personalPlan':
-          echo personalPlan();
-          break;
-        case 'callback_1':
-          echo callback_1();
-          break;
-        case 'checkupSchedule':
-          echo checkupSchedule();
-          break;
-        case 'checkupCompound':
-          echo checkupCompound();
-          break;
-        case 'newLevel':
-          echo newLevel();
-          break;
-        case 'checkupReviews':
-          echo checkupReviews();
-          break;
-        case 'checkupАfter':
-          echo checkupАfter();
-          break;
-        case 'videoRevSlider':
-          echo videoRevSlider();
-          break;
-        case 'rating':
-          echo rating();
-          break;
-        case 'careComfort':
-          echo careComfort();
-          break;
-        case 'contacts':
-          echo contacts();
-          break;
-        case 'map':
-          echo map();
-          break;
-        case 'disease' :
-          echo disease();
-          break;
-        case 'directionsSimptom' :
-          echo directionsSimptom();
-          break;
-        case 'callback_2' :
-          echo callback_2();
-          break;
-        case 'directionsMethods' :
-          echo directionsMethods();
-          break;
-        case 'directionsDoctor' :
-          echo directionsDoctor();
-          break;
-        case 'directionsPrice' :
-          echo directionsPrice();
-          break;
-        case 'stagesOfTreatment':
-          echo stagesOfTreatment();
-          break;
-        case 'checkupResult':
-          echo checkupResult();
-          break;
-        case 'readyPrograms':
-          echo readyPrograms();
-          break;
-        case 'checkUpPrograms':
-          echo checkUpPrograms();
-          break;
-        case 'checkupIs':
-          echo checkupIs();
-          break;
-        case 'reviewsBloger':
-          echo reviewsBloger();
-          break;
-        case 'catalogDirections':
-          echo catalogDirections();
-          break;
-        case 'comfort':
-          echo comfort();
-          break;
-        case 'justTreat':
-          echo justTreat();
-          break;
-        case 'сonsilium':
-          echo сonsilium();
-          break;
-        case 'catalogDoctors':
-          echo catalogDoctors();
-          break;
-        case 'doctorsSpecialization':
-          echo doctorsSpecialization();
-          break;
-        case 'blockImg':
-          echo blockImg();
-          break;
-        case 'concept':
-          echo concept();
-          break;
-        case 'doctorExp':
-          echo doctorExp();
-          break;
-        case 'deleteCause':
-          echo deleteCause();
-          break;
-        case 'staticNewLevel':
-          echo staticNewLevel();
-          break;
-        case 'firstBlockRev':
-          echo firstBlockRev();
-          break;
-        case 'whyWorks':
-          echo whyWorks();
-          break;
-        case 'vacanciesFormat':
-          echo vacanciesFormat();
-          break;
-
-
-        case 'wrapperStart':
-          $type = get_sub_field('wrapperStart_variants');
-          echo wrapperStart($type);
-          break;
-        case 'wrapperEnd':
-          echo wrapperEnd();
-          break;
-      }
-    }
-  }
 }
