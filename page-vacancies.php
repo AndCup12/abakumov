@@ -3,7 +3,11 @@
 <main class="main" id="vacancies-page">
 
 
-  <?php echo renderBlocksSingleCheckup(); ?>
+  <?php echo renderBlocksRevBizVac(); ?>
+
+  <?php echo contacts(); ?>
+
+  <?php echo map(); ?>
 
 
   <!-- <section class="front-block _image-wrapper _section-lg">
@@ -74,7 +78,7 @@
 
   </div>
 
-  <section class=" checkup-is">
+  <section class="checkup-is">
     <div class="container">
       <div class="checkup-is__inner">
         <div class="checkup-is__inner-left">
@@ -241,6 +245,7 @@
         </div>
       </div>
     </section>
+
   </div>
 
   <section class="contacts">

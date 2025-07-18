@@ -2,17 +2,17 @@
 get_header();
 ?>
 
-<!--
-страница Отзывы
-
--->
 
 <main class="main" id="reviews-page">
 
-  <!-- <?php echo renderBlocksSingleCheckup(); ?> -->
+    <?php echo renderBlocksRevBizVac(); ?>
 
-  <!-- Первый блок c картинками отзывов -->
-  <section class="front-block _image-wrapper _section-lg">
+    <?php echo contacts(); ?>
+
+    <?php echo map(); ?>
+
+
+  <!-- <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
       <h1 class="front-block__title _title">
@@ -40,7 +40,7 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Новый блок - слайдер с отзывами  -->
+
   <section class="checkup-reviews-after _section-lg">
     <div class="container">
       <div class="checkup-reviews-after__top">
@@ -175,7 +175,7 @@ get_header();
   </section>
 
   <div class="wrapper-bg _section-lg">
-    <!-- Рейтинг клиники -->
+
     <section class="rating">
       <span class="rating__top-num">
         10
@@ -377,7 +377,7 @@ get_header();
 
   </div>
 
-  <!-- Видео-отзывы -->
+
   <section class="checkup-after _section-lg">
     <div class="container">
       <h2 class="checkup-after__title _title">
@@ -429,7 +429,7 @@ get_header();
     </div>
   </section>
 
-  <!-- Форма обратной связи (1 вариант) -->
+
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">
@@ -472,7 +472,7 @@ get_header();
   </section>
 
   <div class="wrapper-bg _section-lg">
-    <!-- Медицина нового уровня -->
+
     <section class="new-level">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
       <div class="container relative">
@@ -590,7 +590,7 @@ get_header();
 
   </div>
 
-  <!-- Контакты -->
+
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -668,7 +668,7 @@ get_header();
       </div>
     </div>
   </section>
-  <!-- Карта -->
+
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -704,7 +704,8 @@ get_header();
 
       </div>
     </div>
-  </section>
+  </section> -->
+
 </main>
 
 <?php get_footer(); ?>

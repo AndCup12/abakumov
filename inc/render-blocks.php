@@ -53,6 +53,7 @@
 // staticNewLevel : Клиника ментор
 // care : Забота
 // whyWorks : Почему выгодно
+// vacanciesFormat : Клиника нового формата
 // wrapperStart : Начало обертки
 // wrapperEnd : Конец обертки
 
@@ -188,6 +189,68 @@ function renderBlocksSingleCheckup() {
 }
 
 
+// ======= Блоки для Врачи (основная) =========
+
+function renderBlocksDoctorsMain(){
+
+  // frontBlockMain : Первый блок - Главная
+  // examinationReveals : Что может выявить
+  // callback_1 : Форма обратной связи (1 вариант)
+  // catalogDoctors : Каталог врачей
+  // newLevel : Медицина нового уровня
+  // checkupReviews : Блок отзывов (изображения вытянутые)
+  // checkupАfter : Видео-отзывы
+  // rating : Рейтинг клиники
+  // careComfort : Комфорт
+  // wrapperStart : Начало обертки
+  // wrapperEnd : Конец обертки
+
+  if(have_rows('blocksDoctorsMain')){
+    while(have_rows('blocksDoctorsMain')){
+      the_row();
+      $block_type = get_sub_field('block_type');
+      switch($block_type){
+        case 'frontBlockMain':
+          echo frontBlockMain();
+          break;
+        case 'examinationReveals':
+          echo examinationReveals();
+          break;
+        case 'callback_1':
+          echo callback_1();
+          break;
+        case 'catalogDoctors':
+          echo catalogDoctors();
+          break;
+        case 'newLevel':
+          echo newLevel();
+          break;
+        case 'checkupReviews':
+          echo checkupReviews();
+          break;
+        case 'checkupАfter':
+          echo checkupАfter();
+          break;
+        case 'rating':
+          echo rating();
+          break;
+        case 'careComfort':
+          echo careComfort();
+          break;
+        case 'wrapperStart':
+          $type = get_sub_field('wrapperStart_variants');
+          echo wrapperStart($type);
+          break;
+        case 'wrapperEnd':
+          echo wrapperEnd();
+          break;
+      }
+    }
+  }
+
+}
+
+
 // ======= Блоки для шаблона custom-doctors-page.php =========
 
 function renderBlocksDoctors(){
@@ -198,7 +261,6 @@ function renderBlocksDoctors(){
   // directionsPrice : Стоимость лечения
   // directionsSimptom : Симптомы
   // doctorsSpecialization : Специализация врача
-  // map : Карта
   // newLevel : Медицина нового уровня
   // rating : Рейтинг клиники
   // wrapperEnd : Конец обертки
@@ -229,9 +291,6 @@ function renderBlocksDoctors(){
             break;
           case 'doctorsSpecialization':
             echo doctorsSpecialization();
-            break;
-          case 'map':
-            echo map();
             break;
           case 'newLevel':
             echo newLevel();
@@ -467,8 +526,6 @@ function renderDirectionMain(){
 }
 
 
-
-
 // ======= Блоки для Услуги (основная) =========
 
 function renderServiceMain(){
@@ -491,22 +548,6 @@ function renderServiceMain(){
 
 
 
-// ======= Блоки для Врачи (основная) =========
-
-// frontBlockMain
-// examinationReveals
-// callback_1
-// newLevel
-// checkupReviews
-// checkupАfter
-// rating
-// careComfort
-// contacts
-// map
-// wrapperEnd
-// wrapperStart
-
-
 // ======= Блоки для Преимущества =========
 
 // frontBlockMain
@@ -515,54 +556,96 @@ function renderServiceMain(){
 // concept
 // doctorExp
 // deleteCause
-// newLevel
+// staticNewLevel
 // care
-// contacts
-// map
 // wrapperEnd
 // wrapperStart
 
 
 // ======= Блоки для Отзывы =========
-
-// firstBlockRev
-// videoRevSlider
-// checkupReviews
-// rating
-// checkupАfter
-// callback_1
-// newLevel
-// contacts
-// map
-// wrapperEnd
-// wrapperStart
-
-
 // ======= Блоки для Бизнеса =========
-
-// firstBlockDirection
-// checkupIs
-// callback_1
-// whyWorks
-// examinationReveals
-// newLevel
-// rating
-// careComfort
-// contacts
-// map
-
-
 // ======= Блоки для Вакансии =========
 
-// firstBlockDirection
-// vacanciesFormat
-// сonsilium
-// checkupIs
-// examinationReveals
-// contacts
-// map
-// wrapperEnd
-// wrapperStart
+function renderBlocksRevBizVac(){
+
+  // firstBlockRev : Первый блок - Отзывы
+  // frontBlockMain : Первый блок - Главная
+  // videoRevSlider : Видео-отзывы (слайдер)
+  // checkupReviews : Блок отзывов (изображения вытянутые)
+  // checkupIs : Чекап это
+  // rating : Рейтинг клиники
+  // checkupАfter : Видео-отзывы
+  // callback_1 : Форма обратной связи (1 вариант)
+  // newLevel : Медицина нового уровня
+  // whyWorks : Почему выгодно
+  // examinationReveals : Что может выявить
+  // careComfort : Комфорт
+  // vacanciesFormat : Клиника нового формата
+  // сonsilium : Консилиум
+  // wrapperStart : Начало обертки
+  // wrapperEnd : Конец обертки
+
+  if(have_rows('blocksRevBizVac')){
+    while(have_rows('blocksRevBizVac')){
+      the_row();
+      $block_type = get_sub_field('block_type');
+      switch ($block_type) {
+        case 'firstBlockRev':
+          echo firstBlockRev();
+          break;
+        case 'frontBlockMain':
+          echo frontBlockMain();
+          break;
+        case 'videoRevSlider':
+          echo videoRevSlider();
+          break;
+        case 'checkupReviews':
+          echo checkupReviews();
+          break;
+        case 'checkupIs':
+          echo checkupIs();
+          break;
+        case 'rating':
+          echo rating();
+          break;
+        case 'checkupАfter':
+          echo checkupАfter();
+          break;
+        case 'callback_1':
+          echo callback_1();
+          break;
+        case 'newLevel':
+          echo newLevel();
+          break;
+        case 'whyWorks':
+          echo whyWorks();
+          break;
+        case 'examinationReveals':
+          echo examinationReveals();
+          break;
+        case 'careComfort':
+          echo careComfort();
+          break;
+        case 'vacanciesFormat':
+          echo vacanciesFormat();
+          break;
+        case 'сonsilium':
+          echo сonsilium();
+          break;
+        case 'wrapperStart':
+          $type = get_sub_field('wrapperStart_variants');
+          echo wrapperStart($type);
+          break;
+        case 'wrapperEnd':
+          echo wrapperEnd();
+          break;
+      }
+    }
+  }
+
+}
+
+
 
 
 
@@ -1204,20 +1287,20 @@ function examinationReveals(){
             <?php if (get_sub_field('examinationReveals_img')) : ?>
               <div class="examination-reveals__left">
                   <div class="examination-reveals__left-wrapper">
-                      <?php $img = get_sub_field('examinationReveals_img'); ?>
-                          <img class="examination-reveals__left-img _img"
-                              src="<?php echo esc_url($img['url']); ?>"
-                              alt="<?php echo esc_attr($img['alt']); ?>">
-
+                    <?php $img = get_sub_field('examinationReveals_img'); ?>
+                      <img class="examination-reveals__left-img _img"
+                        src="<?php echo esc_url($img['url']); ?>"
+                        alt="<?php echo esc_attr($img['alt']); ?>">
                   </div>
               </div>
               <?php endif; ?>
               <div class="examination-reveals__right">
                 <!-- Посадка -->
+                <?php if(get_sub_field('examinationReveals_text_list')):?>
                 <h3 class="examination-reveals__right-title _title">
-                  Что объединяет всех врачей<br>
-                  нашей клиники?
+                  <?php the_sub_field('examinationReveals_text_list');?>
                 </h3>
+                <?php endif; ?>
                   <div class="cursor @@class">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" height="42" width="42">
                           <rect class="tooltip-horizontal-scroll-icon_card" x="480" width="200" height="200" rx="5"
@@ -1303,26 +1386,28 @@ function examinationReveals(){
                       endif; ?>
                   </div>
                   <!-- Посадка -->
-                  <div class="examination-reveals__right-btns">
-                      <a class="examination-reveals__btn _gray-btn" href="#" data-fancybox>
-                          <span>Записаться на обследование</span>
-                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path
-                                  d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z"
-                                  fill="white" />
-                          </svg>
-                      </a>
-                      <a class="examination-reveals__arrow-btn" href="#">
-                          <span class="examination-reveals__btn-icon">
-                              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <path
-                                      d="M11.9512 2.04167C10.6341 0.729166 8.87805 0 7.02439 0C3.17073 0 0.0487797 3.11111 0.0487797 6.95139C0.0487797 8.16667 0.390244 9.38194 0.97561 10.4028L0 14L3.70732 13.0278C4.73171 13.5625 5.85366 13.8542 7.02439 13.8542C10.878 13.8542 14 10.7431 14 6.90278C13.9512 5.10417 13.2683 3.35417 11.9512 2.04167ZM10.3902 9.43056C10.2439 9.81944 9.56097 10.2083 9.21951 10.2569C8.92683 10.3056 8.53659 10.3056 8.14634 10.2083C7.90244 10.1111 7.56098 10.0139 7.17073 9.81945C5.41463 9.09028 4.29268 7.34028 4.19512 7.19444C4.09756 7.09722 3.46342 6.27083 3.46342 5.39583C3.46342 4.52083 3.90244 4.13194 4.04878 3.9375C4.19512 3.74306 4.39024 3.74306 4.53658 3.74306C4.63415 3.74306 4.78049 3.74306 4.87805 3.74306C4.97561 3.74306 5.12195 3.69444 5.26829 4.03472C5.41463 4.375 5.7561 5.25 5.80488 5.29861C5.85366 5.39583 5.85366 5.49306 5.80488 5.59028C5.7561 5.6875 5.70731 5.78472 5.60975 5.88194C5.51219 5.97917 5.41463 6.125 5.36585 6.17361C5.26829 6.27083 5.17073 6.36805 5.26829 6.51389C5.36585 6.70833 5.70732 7.24305 6.2439 7.72917C6.92683 8.3125 7.46341 8.50695 7.65854 8.60417C7.85366 8.70139 7.95122 8.65278 8.04878 8.55556C8.14634 8.45833 8.48781 8.06945 8.58537 7.875C8.68293 7.68056 8.82927 7.72917 8.97561 7.77778C9.12195 7.82639 10 8.26389 10.1463 8.36111C10.3415 8.45833 10.439 8.50694 10.4878 8.55556C10.5366 8.70139 10.5366 9.04167 10.3902 9.43056Z"
-                                      fill="white" />
-                              </svg>
-                          </span>
-                          <span>Записаться через WhatsApp</span>
-                      </a>
-                  </div>
+                  <?php if(get_sub_field('examinationReveals_btn') == 1):?>
+                    <div class="examination-reveals__right-btns">
+                        <a class="examination-reveals__btn _gray-btn" href="#" data-fancybox>
+                            <span>Записаться на обследование</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.75 2C10.75 1.58579 10.4142 1.25 10 1.25L3.25 1.25C2.83578 1.25 2.5 1.58579 2.5 2C2.5 2.41421 2.83578 2.75 3.25 2.75L9.25 2.75L9.25 8.75C9.25 9.16421 9.58579 9.5 10 9.5C10.4142 9.5 10.75 9.16421 10.75 8.75L10.75 2ZM2 10L2.53033 10.5303L10.5303 2.53033L10 2L9.46967 1.46967L1.46967 9.46967L2 10Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        <a class="examination-reveals__arrow-btn" href="#">
+                            <span class="examination-reveals__btn-icon">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.9512 2.04167C10.6341 0.729166 8.87805 0 7.02439 0C3.17073 0 0.0487797 3.11111 0.0487797 6.95139C0.0487797 8.16667 0.390244 9.38194 0.97561 10.4028L0 14L3.70732 13.0278C4.73171 13.5625 5.85366 13.8542 7.02439 13.8542C10.878 13.8542 14 10.7431 14 6.90278C13.9512 5.10417 13.2683 3.35417 11.9512 2.04167ZM10.3902 9.43056C10.2439 9.81944 9.56097 10.2083 9.21951 10.2569C8.92683 10.3056 8.53659 10.3056 8.14634 10.2083C7.90244 10.1111 7.56098 10.0139 7.17073 9.81945C5.41463 9.09028 4.29268 7.34028 4.19512 7.19444C4.09756 7.09722 3.46342 6.27083 3.46342 5.39583C3.46342 4.52083 3.90244 4.13194 4.04878 3.9375C4.19512 3.74306 4.39024 3.74306 4.53658 3.74306C4.63415 3.74306 4.78049 3.74306 4.87805 3.74306C4.97561 3.74306 5.12195 3.69444 5.26829 4.03472C5.41463 4.375 5.7561 5.25 5.80488 5.29861C5.85366 5.39583 5.85366 5.49306 5.80488 5.59028C5.7561 5.6875 5.70731 5.78472 5.60975 5.88194C5.51219 5.97917 5.41463 6.125 5.36585 6.17361C5.26829 6.27083 5.17073 6.36805 5.26829 6.51389C5.36585 6.70833 5.70732 7.24305 6.2439 7.72917C6.92683 8.3125 7.46341 8.50695 7.65854 8.60417C7.85366 8.70139 7.95122 8.65278 8.04878 8.55556C8.14634 8.45833 8.48781 8.06945 8.58537 7.875C8.68293 7.68056 8.82927 7.72917 8.97561 7.77778C9.12195 7.82639 10 8.26389 10.1463 8.36111C10.3415 8.45833 10.439 8.50694 10.4878 8.55556C10.5366 8.70139 10.5366 9.04167 10.3902 9.43056Z"
+                                        fill="white" />
+                                </svg>
+                            </span>
+                            <span>Записаться через WhatsApp</span>
+                        </a>
+                    </div>
+                  <?php endif; ?>
               </div>
           </div>
       </div>
@@ -3331,6 +3416,11 @@ function checkupIs(){
           <h3 class="checkup-is__inner-title _title">
             <?php the_sub_field('checkupIs_textList');?>
           </h3>
+          <?php if(get_sub_field('checkupIs_small_text')):?>
+            <p class="checkup-is__inner-subtitle">
+              <?php the_sub_field('checkupIs_small_text');?>
+            </p>
+          <?php endif; ?>
           <?php if(have_rows('checkupIs_list')) :?>
           <ul class="checkup-is__inner-list">
             <?php while(have_rows('checkupIs_list')) : the_row(); ?>
@@ -4349,7 +4439,7 @@ function whyWorks(){
     </div>
   </section>
 
-  <?php ob_get_clean();
+  <?php return ob_get_clean();
 }
 
 // Клиника нового формата
