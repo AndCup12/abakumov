@@ -1,16 +1,21 @@
-<?php get_header(); ?>
+<?php
 
+/**
+ * Template Name: Для бизнеса
+ * http://dontforget.pro
+ * @package WordPress
+ * @subpackage clean
+ */
+get_header();
+?>
+
+<!-- 
+страница Для бизнеса
+-->
 
 <main class="main" id="business-page">
-
-  <?php echo renderBlocksRevBizVac(); ?>
-
-  <?php echo contacts(); ?>
-
-  <?php echo map(); ?>
-
-
-  <!-- <section class="front-block _image-wrapper _section-lg">
+  <!-- Первый блок (нет картинки докторов) -->
+  <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
       <div class="front-block__top">
@@ -32,7 +37,6 @@
       </div>
     </div>
   </section>
-
   <section class="checkup-is">
     <div class="container">
       <div class="checkup-is__inner">
@@ -46,7 +50,11 @@
           <ul class="checkup-is__inner-list">
             <li class="checkup-is__inner-point">
               <span class="checkup-is__inner-icon">
-                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
+                    fill="white" />
+                </svg>
 
               </span>
               <p class="checkup-is__inner-text">
@@ -55,7 +63,11 @@
             </li>
             <li class="checkup-is__inner-point">
               <span class="checkup-is__inner-icon">
-                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
+                    fill="white" />
+                </svg>
 
               </span>
               <p class="checkup-is__inner-text">
@@ -64,7 +76,11 @@
             </li>
             <li class="checkup-is__inner-point">
               <span class="checkup-is__inner-icon">
-                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+                <svg width="8" height="6" viewBox="0 0 8 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M2.86343 6C2.70335 6 2.55128 5.93303 2.43922 5.81583L0.174087 3.44681C-0.058029 3.20405 -0.058029 2.80223 0.174087 2.55947C0.406203 2.31671 0.790395 2.31671 1.02251 2.55947L2.86343 4.48483L6.97749 0.182072C7.2096 -0.0606906 7.5938 -0.0606906 7.82591 0.182072C8.05803 0.424834 8.05803 0.826648 7.82591 1.06941L3.28764 5.81583C3.17559 5.93303 3.02351 6 2.86343 6Z"
+                    fill="white" />
+                </svg>
 
               </span>
               <p class="checkup-is__inner-text">
@@ -81,7 +97,6 @@
       </div>
     </div>
   </section>
-
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">
@@ -107,7 +122,7 @@
             Введите телефон в форме ниже
           </p>
           <div class="callback__form-inputs">
-            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
+            <input class="callback__form-inp _input" type="tel" name="phone" required placeholder="Введите номер телефона">
             <button class="callback__form-btn _gray-btn">
               Записаться на консультацию
             </button>
@@ -121,10 +136,9 @@
       </div>
     </div>
   </section>
-
-
+  <!-- Здесь есть новый блок -->
   <div class="wrapper-gray _section-lg space-top">
-
+    <!-- Новый блок -->
     <section class="why-works _section-lg">
       <div class="container">
         <h2 class="why-works__title _title">
@@ -187,7 +201,7 @@
               Налоговые льготы –
             </h4>
             <p class="why-works__item-text">
-              вы получаете право на налоговый<br> вычет до 6% от ФОТ (ст. 255 НК РФ)
+             вы получаете право на налоговый<br> вычет до 6% от ФОТ (ст. 255 НК РФ)
             </p>
           </div>
           <div class="why-works__item">
@@ -204,7 +218,6 @@
         </div>
       </div>
     </section>
-
     <section class="examination-reveals">
       <div class="container">
         <h2 class="examination-reveals__title _title">
@@ -270,7 +283,6 @@
       </div>
     </section>
   </div>
-
   <div class="wrapper-bg _section-lg">
     <section class="new-level">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
@@ -387,7 +399,6 @@
       </div>
     </section>
   </div>
-
   <div class="wrapper-bg _section-lg">
     <section class="rating">
       <span class="rating__top-num">
@@ -588,7 +599,6 @@
       </div>
     </section>
   </div>
-
   <section class="care-comfort">
     <div class="container">
       <h2 class="care-comfort__title _title">
@@ -634,9 +644,8 @@
       </div>
     </div>
   </section>
-
   <div class="divider"></div>
-
+  <!-- Контакты -->
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -714,8 +723,7 @@
       </div>
     </div>
   </section>
-
-
+  <!-- Карта -->
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -736,7 +744,7 @@
             чтобы получить подробную <br>схему проезда 
           </p>
           <div class="map-block__form-inner">
-            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона" required>
+            <input class="_input map-block__form-inp" type="tel" name="phone" required placeholder="Введите номер телефона">
             <button class="map-block__form-btn _gray-btn" type="submit">
               Получите схемы проезда<br>
               и все контакты в WhatsApp
@@ -751,8 +759,7 @@
 
       </div>
     </div>
-  </section> -->
-
+  </section>
 </main>
 
 <?php get_footer(); ?>

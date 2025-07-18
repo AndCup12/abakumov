@@ -1,94 +1,241 @@
-<?php get_header(); ?>
+<?php
 
+/**
+ * Template Name: Доктора-single
+ * http://dontforget.pro
+ * @package WordPress
+ * @subpackage clean
+ */
+get_header();
+?>
 
-<main class="main" id="business-page">
-
-  <?php echo renderBlocksRevBizVac(); ?>
-
-  <?php echo contacts(); ?>
-
-  <?php echo map(); ?>
-
-
-  <!-- <section class="front-block _image-wrapper _section-lg">
-    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
+<main class="main" id="doctors-single">
+  <!-- Первый блок -->
+  <section class="front-block _image-wrapper _section-lg">
+    <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
     <div class="container">
-      <div class="front-block__top">
-        <h1 class="front-block__title _title">
-          Abakumov Clinic для бизнеса
-        </h1>
-        <p class="front-block__subtitle _subtitle">
-          Корпоративная медицина нового уровня: забота о здоровье сотрудников<br> без посредников и формальностей
-        </p>
-      </div>
-      <div class="front-block__btns">
-        <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
-          <span>Получить консультацию</span>
-        </a>
-        <a class="front-block__btn _whatsapp-btn" href="https://wa.me/+79031003195" target="_blank">
-          <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
-          <span>Задать вопросы через WhatsApp</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="checkup-is">
-    <div class="container">
-      <div class="checkup-is__inner">
-        <div class="checkup-is__inner-left">
-          <h3 class="checkup-is__inner-title _title">
-            Что мы предлагаем<br> корпоративным<br> клиентам?
-          </h3>
-          <p class="checkup-is__inner-subtitle">
-            Мы создаём индивидуальные<br> программы медицинского<br> сопровождения, которые помогают:
+      <div class="front-block__inner">
+        <div class="front-block__left">
+          <h1 class="front-block__title _title">
+            Абакумов Олег<br> Александрович
+          </h1>
+          <p class="front-block__subtitle _subtitle">
+            Терапевт, пульмонолог, статус<br> «Московский врач»
           </p>
-          <ul class="checkup-is__inner-list">
-            <li class="checkup-is__inner-point">
-              <span class="checkup-is__inner-icon">
-                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-
+          <div class="front-block__btns">
+            <a class="front-block__btn _main-btn" href="#" data-fancybox>
+              <span>Записаться на прием</span>
+            </a>
+            <a class="front-block__arrow-btn" href="#">
+              <span class="front-block__btn-icon">
+                <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
               </span>
-              <p class="checkup-is__inner-text">
-                выявить скрытые риски у сотрудников
-              </p>
-            </li>
-            <li class="checkup-is__inner-point">
-              <span class="checkup-is__inner-icon">
-                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-
-              </span>
-              <p class="checkup-is__inner-text">
-                поддерживать высокий уровень энергии и<br> работоспособности в коллективе
-              </p>
-            </li>
-            <li class="checkup-is__inner-point">
-              <span class="checkup-is__inner-icon">
-                <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
-
-              </span>
-              <p class="checkup-is__inner-text">
-                минимизировать затраты компании на лечение,<br> больничные и текучку
-              </p>
-            </li>
-          </ul>
+              <span>Записаться через WhatsApp</span>
+            </a>
+          </div>
         </div>
-        <div class="checkup-is__inner-right">
-          <div class="checkup-is__inner-wrapper relative">
-            <img class="checkup-is__inner-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/checkup-is-5.webp" alt="checkup-is-5">
+        <div class="front-block__right-item">
+          <div class="front-block__right-wrapper">
+            <img class="front-block__right-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/front-block-17.webp" alt="front-block-17">
           </div>
         </div>
       </div>
     </div>
   </section>
+  <section class="doctors-specialization">
+    <div class="container">
+      <div class="doctors-specialization__inner">
+        <h2 class="doctors-specialization__title _title">
+          Основные<br> заболевания,<br>
+          на которых<br> специализируется<br> врач
+        </h2>
+        <div class="doctors-specialization__right">
+          <ul class="doctors-specialization__list">
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                аллергические реакции
+              </span>
+            </li>
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                бронхиальная астма
+              </span>
+            </li>
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                новообразования в легких
+              </span>
+            </li>
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                саркоидоз
+              </span>
+            </li>
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                бронхоэктатическая болезнь
+              </span>
+            </li>
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                острый и хронический бронхит
+              </span>
+            </li>
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                пневмония или состояние после перенесенной пневмонии
+              </span>
+            </li>
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                кашель неясного генеза
+              </span>
+            </li>
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                хроническая обструктивная болезнь легких
+              </span>
+            </li>
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                дефициты
+              </span>
+            </li>
+            <li class="doctors-specialization__point">
+              <?php include(get_template_directory() . '/assets/images/icons/check.svg'); ?>
+              <span class="doctors-specialization__text">
+                сердечно-сосудистой системы
+              </span>
+            </li>
+          </ul>
+          <a class="doctors-specialization__btn _gray-btn" href="#doctor-1" data-fancybox>
+            <span>Узнать о враче подробнее</span>
+            <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="doctors-specialization__modal modal" style="display: none;" id="doctor-1">
+      <div class="doctors-specialization__modal-content theContent">
+        <h6>
+          Образование:
+        </h6>
+        <p>
+          Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (педиатрия), 2015 г.
+          Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (терапия), 2016 г. – повышение квалификации
+          Московский государственный медико-стоматологический университет Евдокимова "180000178363" (пульмонология), 2019 г. – повышение квалификации
+        </p>
+        <h6>
+          Профессиональные достижения и опыт:
+        </h6>
+        <p>
+          Является победителем конкурса народного признания «Спасибо, доктор!», Награждён нагрудным знаком «За мужество и доблесть в борьбе с COVID-19», Статус «Московский врач», Автор медицинского блога по просвещению пациентов «С медицинского на русский», Соавтор пособия по коронавирусной инфекции для пациентов «COVID POSITIVE», Автор бестселлеров «Что делать если» и «Мне только спросить», Снялся в собственном фильме с мировой премьерой «доктор Абакумов. Сторис из красной зоны»
+        </p>
+        <h6>
+          Сертификаты:
+        </h6>
+        <p>
+          Московский государственный медико-стоматологический университет имени А.И. Евдокимова "017780857151" (Пульмонология)
+        </p>
+      </div>
+      <div class="front-block__btns doctors-specialization__modal-btns">
+        <a class="front-block__btn _main-btn change-popup-from-link change-popup" href="#callback-modal" data-fancybox="">
+          <span>Записаться на консультацию</span>
+        </a>
+        <a class="front-block__arrow-btn doctors-specialization__modal-btn" href="#">
+          <span class="front-block__btn-icon doctors-specialization__modal-icon">
+            <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+          </span>
+          <span>Задать вопросы через WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <div class="wrapper-gray space-top">
 
+    <!-- Симптомы новый-->
+    <section class="directions-simptom relative">
+      <div class="container">
+        <h2 class="directions-simptom__title _title">
+          Вы можете записаться<br>
+          по направлениям
+        </h2>
+        <div class="cursor">
+          <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+        </div>
+        <div class="directions-simptom__items items-center d-flex">
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Аллергические реакции
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Бронхиальная астма
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Бронхит
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Пневмония
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Сердечно- <br>сосудистой системы​
+            </h4>
+          </div>
+          <div class="directions-simptom__item">
+            <div class="directions-simptom__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+            </div>
+            <h4 class="directions-simptom__item-title">
+              Дефициты
+            </h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <!-- Форма обратной связи (1 вариант) -->
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">
         <div class="overlay"></div>
         <div class="callback__left relative">
           <h2 class="callback__title _title">
-            Есть вопросы<br> корпоративным<br> программам?
+            Есть вопросы<br> или хотите<br> записаться<br>
+            по телефону?
           </h2>
           <div class="callback__info">
             <img class="callback__info-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/callback-manager.webp" alt="callback-manager">
@@ -107,9 +254,9 @@
             Введите телефон в форме ниже
           </p>
           <div class="callback__form-inputs">
-            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
+            <input class="callback__form-inp _input" type="tel" name="phone" required placeholder="Введите номер телефона">
             <button class="callback__form-btn _gray-btn">
-              Записаться на консультацию
+              Получите консультацию
             </button>
           </div>
           <p class="callback__form-politic politic-text">
@@ -122,156 +269,122 @@
     </div>
   </section>
 
-
-  <div class="wrapper-gray _section-lg space-top">
-
-    <section class="why-works _section-lg">
-      <div class="container">
-        <h2 class="why-works__title _title">
-          Почему выгодно работать<br> напрямую с клиникой,<br>
-          а не через страховую?
-        </h2>
-        <div class="cursor">
-          <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
-        </div>
-        <div class="why-works__items">
-          <div class="why-works__item">
-            <span class="why-works__item-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-            </span>
-            <h4 class="why-works__item-title">
-              Программы подбираются<br> под задачи вашей компании:
-            </h4>
-            <p class="why-works__item-text">
-              с учётом профессии, должности и<br> даже стресс-факторов в работе
-            </p>
-          </div>
-          <div class="why-works__item">
-            <span class="why-works__item-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-            </span>
-            <h4 class="why-works__item-title">
-              Стоимость обслуживания ниже,<br> чем при работе со страховыми —
-            </h4>
-            <p class="why-works__item-text">
-              за счёт отсутствия посредников и<br> применения гибких тарифов. Чем больше<br> сотрудников, тем выгоднее цена за одного
-            </p>
-          </div>
-          <div class="why-works__item">
-            <span class="why-works__item-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-            </span>
-            <h4 class="why-works__item-title">
-              Все обследования, анализы<br> и лечение —
-            </h4>
-            <p class="why-works__item-text">
-              в одной клинике без беготни и<br> бумажной волокиты. От УЗИ до<br> капельниц и ЭКГ — в одном визите
-            </p>
-          </div>
-          <div class="why-works__item">
-            <span class="why-works__item-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-            </span>
-            <h4 class="why-works__item-title">
-              Мы не ограничены рамками<br> страхового договора
-            </h4>
-            <p class="why-works__item-text">
-              и оказываем помощь в сложных<br> ситуациях
-            </p>
-          </div>
-          <div class="why-works__item">
-            <span class="why-works__item-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-            </span>
-            <h4 class="why-works__item-title">
-              Налоговые льготы –
-            </h4>
-            <p class="why-works__item-text">
-              вы получаете право на налоговый<br> вычет до 6% от ФОТ (ст. 255 НК РФ)
-            </p>
-          </div>
-          <div class="why-works__item">
-            <span class="why-works__item-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-            </span>
-            <h4 class="why-works__item-title">
-              Можно прикрепить не только<br> сотрудников, но и их близких
-            </h4>
-            <p class="why-works__item-text">
-              в рамках расширенного<br> корпоративного пакета
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="examination-reveals">
-      <div class="container">
-        <h2 class="examination-reveals__title _title">
-          Преимущества корпоративной<br>
-          медицины на практике
-        </h2>
-        <div class="examination-reveals__inner">
-          <div class="examination-reveals__left">
-            <div class="examination-reveals__left-wrapper">
-              <img class="examination-reveals__left-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/examination-reveals-4.webp"
-                alt="examination-reveals-4">
+  <!-- Стоимость лечения -->
+  <section class="directions-price">
+    <div class="container">
+      <h2 class="directions-price__title _title">
+        Стоимость<br>
+        диагностики и лечения
+      </h2>
+      <div class="directions-price__accordion accordion">
+        <div class="directions-price__item accordion-item">
+          <div class="directions-price__item-header accordion-header">
+            <div class="directions-price__item-left">
+              <span class="directions-price__item-step">
+                01
+              </span>
+              <h4 class="directions-price__item-title">
+                Общие манипуляции и процедуры
+              </h4>
+            </div>
+            <div class="open-item directions-price__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
             </div>
           </div>
-          <div class="examination-reveals__right">
-            <div class="cursor">
-              <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
+          <div class="directions-price__item-body accordion-body">
+            <div class="directions-price__item-costs">
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Ботулинотерапия при бруксизме/дисфункции височно-нижнечелюстного сустава 
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    25 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Лечение мигрени с применением моноклональных антител (Фреманезумаб (Аджови))
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    35 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Ботулинотерапия мигрени
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    43 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="examination-reveals__items">
-              <div class="examination-reveals__item">
-                <div class="examination-reveals__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+          </div>
+        </div>
+        <div class="directions-price__item accordion-item">
+          <div class="directions-price__item-header accordion-header">
+            <div class="directions-price__item-left">
+              <span class="directions-price__item-step">
+                02
+              </span>
+              <h4 class="directions-price__item-title">
+                Консультации
+              </h4>
+            </div>
+            <div class="open-item directions-price__item-icon">
+              <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
+            </div>
+          </div>
+          <div class="directions-price__item-body accordion-body">
+            <div class="directions-price__item-costs">
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Прием (осмотр, консультация) врача- невролога, первичный
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    8 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
                 </div>
-                <h4 class="examination-reveals__item-title">
-                  До 30% меньше
-                  больничных листов
-                </h4>
               </div>
-              <div class="examination-reveals__item">
-                <div class="examination-reveals__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
+              <div class="directions-price__item-cost">
+                <h5 class="directions-price__item-name">
+                  Прием (осмотр, консультация) врача-невролога, повторный
+                </h5>
+                <div class="directions-price__item-right">
+                  <span class="directions-price__item-price">
+                    7 000 ₽
+                  </span>
+                  <a class="directions-price__item-btn _gray-btn" href="#">
+                    Записаться
+                  </a>
                 </div>
-                <h4 class="examination-reveals__item-title">
-                  Снижение текучести сотрудников
-                </h4>
-              </div>
-              <div class="examination-reveals__item">
-                <div class="examination-reveals__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-                </div>
-                <h4 class="examination-reveals__item-title">
-                  Повышение лояльности и вовлечённости команды
-                </h4>
-              </div>
-              <div class="examination-reveals__item">
-                <div class="examination-reveals__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-                </div>
-                <h4 class="examination-reveals__item-title">
-                  Имиджевая ценность для HR-бренда
-                </h4>
-              </div>
-              <div class="examination-reveals__item">
-                <div class="examination-reveals__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/check-star.svg'); ?>
-                </div>
-                <h4 class="examination-reveals__item-title">
-                  Увеличение прибыли<br> компании за счёт здорового<br> и стабильного коллектива
-                </h4>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </div>
-
+    </div>
+  </section>
   <div class="wrapper-bg _section-lg">
+    <!-- Медицина нового уровня -->
     <section class="new-level">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
       <div class="container relative">
@@ -386,9 +499,10 @@
         </div>
       </div>
     </section>
-  </div>
 
+  </div>
   <div class="wrapper-bg _section-lg">
+    <!-- Рейтинг клиники -->
     <section class="rating">
       <span class="rating__top-num">
         10
@@ -587,8 +701,9 @@
         </div>
       </div>
     </section>
-  </div>
 
+  </div>
+  <!-- Комфорт -->
   <section class="care-comfort">
     <div class="container">
       <h2 class="care-comfort__title _title">
@@ -636,7 +751,7 @@
   </section>
 
   <div class="divider"></div>
-
+  <!-- Контакты -->
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -714,8 +829,7 @@
       </div>
     </div>
   </section>
-
-
+  <!-- Карта -->
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -736,7 +850,7 @@
             чтобы получить подробную <br>схему проезда 
           </p>
           <div class="map-block__form-inner">
-            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона" required>
+            <input class="_input map-block__form-inp" type="tel" name="phone" required placeholder="Введите номер телефона">
             <button class="map-block__form-btn _gray-btn" type="submit">
               Получите схемы проезда<br>
               и все контакты в WhatsApp
@@ -751,7 +865,7 @@
 
       </div>
     </div>
-  </section> -->
+  </section>
 
 </main>
 

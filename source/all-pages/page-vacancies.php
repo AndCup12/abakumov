@@ -1,16 +1,21 @@
-<?php get_header(); ?>
+<?php
+
+/**
+ * Template Name: Вакансии 
+ * http://dontforget.pro
+ * @package WordPress
+ * @subpackage clean
+ */
+get_header();
+?>
+
+<!-- 
+страница Вакансии 
+-->
 
 <main class="main" id="vacancies-page">
-
-
-  <?php echo renderBlocksRevBizVac(); ?>
-
-  <?php echo contacts(); ?>
-
-  <?php echo map(); ?>
-
-
-  <!-- <section class="front-block _image-wrapper _section-lg">
+  <!-- Первый блок (нет картинки докторов) -->
+  <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
       <div class="front-block__top">
@@ -34,7 +39,7 @@
     </div>
   </section>
 
-
+  <!-- Новый блок есть только на странице вакансий -->
   <section class="vacancies-format">
     <div class="container">
       <h2 class="vacancies-format__title _title">
@@ -62,7 +67,7 @@
   </section>
 
   <div class="wrapper-bg _section-lg">
-
+    <!-- Медицина нового уровня -->
     <section class="new-level bg-bottom padding-bottom-null">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
       <div class="container relative">
@@ -77,8 +82,7 @@
     </section>
 
   </div>
-
-  <section class="checkup-is">
+  <section class=" checkup-is">
     <div class="container">
       <div class="checkup-is__inner">
         <div class="checkup-is__inner-left">
@@ -162,10 +166,9 @@
       </div>
     </div>
   </section>
-
-
+  <!-- Здесь есть новый блок -->
   <div class="wrapper-gray _section-lg space-top">
-
+    <!-- Новый блок -->
     <section class="why-works _section-lg padding-bottom">
       <div class="container">
         <h2 class="why-works__title _title">
@@ -245,9 +248,7 @@
         </div>
       </div>
     </section>
-
   </div>
-
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -325,8 +326,7 @@
       </div>
     </div>
   </section>
-
-
+  <!-- Карта -->
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -347,7 +347,7 @@
             чтобы получить подробную <br>схему проезда 
           </p>
           <div class="map-block__form-inner">
-            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона" required>
+            <input class="_input map-block__form-inp" type="tel" name="phone" required placeholder="Введите номер телефона">
             <button class="map-block__form-btn _gray-btn" type="submit">
               Получите схемы проезда<br>
               и все контакты в WhatsApp
@@ -362,8 +362,7 @@
 
       </div>
     </div>
-  </section> -->
-
+  </section>
 </main>
 
 <?php get_footer(); ?>

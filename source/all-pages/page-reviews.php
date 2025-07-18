@@ -1,18 +1,22 @@
 <?php
+
+/**
+ * Template Name: Отзывы
+ * http://dontforget.pro
+ * @package WordPress
+ * @subpackage clean
+ */
 get_header();
 ?>
 
+<!-- 
+страница Отзывы
+
+-->
 
 <main class="main" id="reviews-page">
-
-    <?php echo renderBlocksRevBizVac(); ?>
-
-    <?php echo contacts(); ?>
-
-    <?php echo map(); ?>
-
-
-  <!-- <section class="front-block _image-wrapper _section-lg">
+  <!-- Первый блок c картинками отзывов -->
+  <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
     <div class="container">
       <h1 class="front-block__title _title">
@@ -40,7 +44,7 @@ get_header();
       </div>
     </div>
   </section>
-
+  <!-- Новый блок - слайдер с отзывами  -->
   <section class="checkup-reviews-after _section-lg">
     <div class="container">
       <div class="checkup-reviews-after__top">
@@ -125,7 +129,6 @@ get_header();
       </div>
     </div>
   </section>
-
   <section class="checkup-reviews _section-lg">
     <div class="container">
       <div class="checkup-reviews__top">
@@ -173,9 +176,8 @@ get_header();
       </div>
     </div>
   </section>
-
   <div class="wrapper-bg _section-lg">
-
+    <!-- Рейтинг клиники -->
     <section class="rating">
       <span class="rating__top-num">
         10
@@ -376,8 +378,7 @@ get_header();
     </section>
 
   </div>
-
-
+  <!-- Видео-отзывы -->
   <section class="checkup-after _section-lg">
     <div class="container">
       <h2 class="checkup-after__title _title">
@@ -428,8 +429,7 @@ get_header();
       </div>
     </div>
   </section>
-
-
+  <!-- Форма обратной связи (1 вариант) -->
   <section class="callback ">
     <div class="container">
       <div class="callback__inner _image-wrapper relative">
@@ -456,7 +456,7 @@ get_header();
             Введите телефон в форме ниже
           </p>
           <div class="callback__form-inputs">
-            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
+            <input class="callback__form-inp _input" type="tel" name="phone" required placeholder="Введите номер телефона">
             <button class="callback__form-btn _gray-btn">
               Получите консультацию
             </button>
@@ -470,9 +470,8 @@ get_header();
       </div>
     </div>
   </section>
-
   <div class="wrapper-bg _section-lg">
-
+    <!-- Медицина нового уровня -->
     <section class="new-level">
       <img class="new-level__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
       <div class="container relative">
@@ -589,8 +588,7 @@ get_header();
     </section>
 
   </div>
-
-
+  <!-- Контакты -->
   <section class="contacts">
     <div class="container">
       <h2 class="contacts__title _title">
@@ -668,7 +666,7 @@ get_header();
       </div>
     </div>
   </section>
-
+  <!-- Карта -->
   <section class="map-block">
     <div class="container">
       <h2 class="map-block__title _title">
@@ -689,7 +687,7 @@ get_header();
             чтобы получить подробную <br>схему проезда 
           </p>
           <div class="map-block__form-inner">
-            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона" required>
+            <input class="_input map-block__form-inp" type="tel" name="phone" required placeholder="Введите номер телефона">
             <button class="map-block__form-btn _gray-btn" type="submit">
               Получите схемы проезда<br>
               и все контакты в WhatsApp
@@ -704,8 +702,7 @@ get_header();
 
       </div>
     </div>
-  </section> -->
-
+  </section>
 </main>
 
 <?php get_footer(); ?>

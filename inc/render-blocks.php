@@ -667,13 +667,13 @@ function checkupFrontBlock(){
             <div class="front-block__btns">
               <?php if(get_sub_field('checkupFrontBlock_btn1') == 1){?>
               <!-- Записаться на чек-ап -->
-              <a class="front-block__btn _main-btn" href="#" data-fancybox>
+              <a class="front-block__btn _main-btn change-popup change-popup-from-link" href="#callback-modal" data-fancybox>
                 <span>Записаться на чек-ап</span>
               </a>
               <?php } ?>
               <?php if(get_sub_field('checkupFrontBlock_btn2') == 1){?>
               <!-- Записаться на прием -->
-              <a class="front-block__btn _main-btn" href="#" data-fancybox>
+              <a class="front-block__btn _main-btn change-popup change-popup-link" href="#callback-modal" data-fancybox>
                 <span>Записаться на прием</span>
               </a>
               <?php } ?>
@@ -800,7 +800,7 @@ function firstBlockDirection(){
           </div>
           <?php endif; ?>
           <div class="front-block__btns">
-            <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
+            <a class="front-block__btn _main-btn change-popup-from-link change-popup" href="#callback-modal" data-fancybox>
               <?php include(get_template_directory() . '/assets/images/icons/mail.svg'); ?>
               <span>Записаться на прием</span>
             </a>
@@ -841,7 +841,7 @@ function frontBlockMain(){
         <?php endif; ?>
       </div>
       <div class="front-block__btns">
-        <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
+        <a class="front-block__btn _main-btn change-popup" href="#callback-modal" data-fancybox>
           <?php include(get_template_directory() . '/assets/images/icons/mail.svg'); ?>
           <span>Записаться на прием</span>
         </a>
@@ -1364,7 +1364,7 @@ function examinationReveals(){
                           </style>
                       </svg>
                   </div>
-                  <div class="examination-reveals__items">
+                  <div class="examination-reveals__items <?php echo get_sub_field('examinationReveals_img') ? '' : 'grid-3'; ?>">
                       <?php if(have_rows('examinationReveals_points')) :
                           while(have_rows('examinationReveals_points')) : the_row(); ?>
                           <div class="examination-reveals__item">
@@ -1387,8 +1387,8 @@ function examinationReveals(){
                   </div>
                   <!-- Посадка -->
                   <?php if(get_sub_field('examinationReveals_btn') == 1):?>
-                    <div class="examination-reveals__right-btns">
-                        <a class="examination-reveals__btn _gray-btn" href="#" data-fancybox>
+                    <div class="examination-reveals__right-btns <?php echo get_sub_field('examinationReveals_img') ? '' : 'items-center'; ?>">
+                        <a class="examination-reveals__btn _gray-btn change-popup change-popup-from-link" href="#callback-modal" data-fancybox>
                             <span>Записаться на обследование</span>
                             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -1617,7 +1617,7 @@ function callback_1(){
             <?php the_sub_field('callback_1_form_text');?>
           </p>
           <div class="callback__form-inputs">
-            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="callback__form-btn _gray-btn">
               Записаться на консультацию
             </button>
@@ -1757,9 +1757,9 @@ function checkupCompound() {
                           <?php endif; ?>
 
                           <?php if(get_sub_field('сompound_price_accord') || get_sub_field('сompound_name_accord')) : ?>
-                              <div class="checkup-compound__item-cost">
+                              <div class="checkup-compound__item-cost change-popup-item">
                                   <?php if(get_sub_field('сompound_name_accord')) : ?>
-                                      <h5 class="checkup-compound__item-name">
+                                      <h5 class="checkup-compound__item-name change-popup-title">
                                           <?php the_sub_field('сompound_name_accord'); ?>
                                       </h5>
                                   <?php endif; ?>
@@ -1770,7 +1770,7 @@ function checkupCompound() {
                                               <?php the_sub_field('сompound_price_accord'); ?> ₽
                                           </span>
                                       <?php endif; ?>
-                                      <a class="checkup-compound__item-btn _gray-btn" href="#">
+                                      <a class="checkup-compound__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox="">
                                           Записаться
                                       </a>
                                   </div>
@@ -2801,7 +2801,7 @@ function contacts(){
                 </p>
               </a>
             </div>
-            <a class="contacts__info-btn _gray-btn" href="#" data-fancybox>
+            <a class="contacts__info-btn _gray-btn change-popup" href="#questions-modal" data-fancybox>
               Задать вопрос
             </a>
           </div>
@@ -2837,7 +2837,7 @@ function map(){
             чтобы получить подробную <br>схему проезда 
           </p>
           <div class="map-block__form-inner">
-            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="map-block__form-btn _gray-btn" type="submit">
               Получите схемы проезда<br>
               и все контакты в WhatsApp
@@ -2944,7 +2944,7 @@ function callback_2(){
           <input type="hidden" name="from" value="Консультация с терапевтом">
           <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
           <div class="directions-callback__form-inputs">
-            <input class="directions-callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона">
+            <input class="directions-callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
             <button class="directions-callback__form-btn _gray-btn">
               Записаться на первичную<br>
               видео-консультацию
@@ -3049,8 +3049,8 @@ function directionsDoctor(){
                 <img class="directions-doctor__left-img _img" src="<?php echo $img_url; ?>" alt="<?php echo $img_alt; ?>">
               </div>
             </div>
-            <div class="directions-doctor__right">
-              <h4 class="directions-doctor__right-name _title">
+            <div class="directions-doctor__right change-popup-item">
+              <h4 class="directions-doctor__right-name _title change-popup-name">
                 <?php the_sub_field('doctor_name'); ?>
               </h4>
               <p class="directions-doctor__right-text">
@@ -3076,7 +3076,7 @@ function directionsDoctor(){
               </ul>
               <?php endif; ?>
               <div class="directions-doctor__right-btns">
-                <a class="directions-doctor__btn _gray-btn" href="#" data-fancybox>
+                <a class="directions-doctor__btn _gray-btn change-popup" href="#callback-modal" data-fancybox>
                   <span>Записаться на прием</span>
                   <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
                 </a>
@@ -3132,15 +3132,15 @@ function directionsPrice(){
           <div class="directions-price__item-body accordion-body">
             <div class="directions-price__item-costs">
               <?php while(have_rows('service_points')) : the_row(); ?>
-              <div class="directions-price__item-cost">
-                <h5 class="directions-price__item-name">
+              <div class="directions-price__item-cost change-popup-item">
+                <h5 class="directions-price__item-name change-popup-title">
                   <?php the_sub_field('name'); ?>
                 </h5>
                 <div class="directions-price__item-right">
                   <span class="directions-price__item-price">
                     <?php the_sub_field('price'); ?> ₽
                   </span>
-                  <a class="directions-price__item-btn _gray-btn" href="#">
+                  <a class="directions-price__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox>
                     Записаться
                   </a>
                 </div>
@@ -3332,12 +3332,12 @@ function checkUpPrograms(){
         <div class="checkup-programs__items">
           <?php foreach ( $programs_list as $post_ids ) :
             $num = str_pad($counter, 2, '0', STR_PAD_LEFT); ?>
-          <div class="checkup-programs__item">
+          <div class="checkup-programs__item change-popup-item">
             <div class="checkup-programs__item-left">
               <span class="checkup-programs__item-step">
                 <?php echo $num; ?>
               </span>
-              <h4 class="checkup-programs__item-title">
+              <h4 class="checkup-programs__item-title change-popup-title">
                 <?php echo get_field('meta_h1', $post_ids);?>
                 <!-- <span class="checkup-programs__item-descr">
                   Пакет <span>LIGHT</span>
@@ -3355,7 +3355,7 @@ function checkUpPrograms(){
                   </svg>
                 </p>
               </a>
-              <a class="checkup-programs__item-btn _gray-btn" href="#">
+              <a class="checkup-programs__item-btn change-popup _gray-btn" href="#callback-modal" data-fancybox>
                 Записаться на Check-Up
               </a>
             </div>
@@ -3912,12 +3912,12 @@ function catalogDoctors(){
           </div>
         </form>
         <div class="doctors-doctors__items">
-          <div class="doctors-doctors__item">
+          <div class="doctors-doctors__item change-popup-item">
             <a class="doctors-doctors__item-wrapper" href="#">
               <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-1.webp" alt="doctors-doctors-1">
             </a>
             <div class="doctors-doctors__item-info">
-              <h4 class="doctors-doctors__item-title _title">
+              <h4 class="doctors-doctors__item-title _title change-popup-name">
                 Абакумов<br>
                 Олег Александрович
               </h4>
@@ -3930,17 +3930,17 @@ function catalogDoctors(){
               <a class="doctors-doctors__item-link" href="#">
                 Узнать о враче подробнее
               </a>
-              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+              <a class="doctors-doctors__item-btn _gray-btn change-popup" href="#callback-modalcallback-modal" data-fancybox="">
                 Записаться к врачу
               </a>
             </div>
           </div>
-          <div class="doctors-doctors__item">
+          <div class="doctors-doctors__item change-popup-item">
             <a class="doctors-doctors__item-wrapper" href="#">
               <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-2.webp" alt="doctors-doctors-2">
             </a>
             <div class="doctors-doctors__item-info">
-              <h4 class="doctors-doctors__item-title _title">
+              <h4 class="doctors-doctors__item-title _title change-popup-name">
                 Ионичевская<br>
                 Ирина Игоревна
               </h4>
@@ -3953,17 +3953,17 @@ function catalogDoctors(){
               <a class="doctors-doctors__item-link" href="#">
                 Узнать о враче подробнее
               </a>
-              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+              <a class="doctors-doctors__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox="">
                 Записаться к врачу
               </a>
             </div>
           </div>
-          <div class="doctors-doctors__item">
+          <div class="doctors-doctors__item change-popup-item">
             <a class="doctors-doctors__item-wrapper" href="#">
               <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-3.webp" alt="doctors-doctors-3">
             </a>
             <div class="doctors-doctors__item-info">
-              <h4 class="doctors-doctors__item-title _title">
+              <h4 class="doctors-doctors__item-title _title change-popup-name">
                 Войнилович<br>
                 Сергей Вячеславович
               </h4>
@@ -3976,18 +3976,18 @@ function catalogDoctors(){
               <a class="doctors-doctors__item-link" href="#">
                 Узнать о враче подробнее
               </a>
-              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+              <a class="doctors-doctors__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox="">
                 Записаться к врачу
               </a>
             </div>
 
           </div>
-          <div class="doctors-doctors__item">
+          <div class="doctors-doctors__item change-popup-item">
             <a class="doctors-doctors__item-wrapper" href="#">
               <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-1.webp" alt="doctors-doctors-1">
             </a>
             <div class="doctors-doctors__item-info">
-              <h4 class="doctors-doctors__item-title _title">
+              <h4 class="doctors-doctors__item-title _title change-popup-name">
                 Абакумов<br>
                 Олег Александрович
               </h4>
@@ -4000,17 +4000,17 @@ function catalogDoctors(){
               <a class="doctors-doctors__item-link" href="#">
                 Узнать о враче подробнее
               </a>
-              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+              <a class="doctors-doctors__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox="">
                 Записаться к врачу
               </a>
             </div>
           </div>
-          <div class="doctors-doctors__item">
+          <div class="doctors-doctors__item change-popup-item">
             <a class="doctors-doctors__item-wrapper" href="#">
               <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-2.webp" alt="doctors-doctors-2">
             </a>
             <div class="doctors-doctors__item-info">
-              <h4 class="doctors-doctors__item-title _title">
+              <h4 class="doctors-doctors__item-title _title change-popup-name">
                 Ионичевская<br>
                 Ирина Игоревна
               </h4>
@@ -4023,17 +4023,17 @@ function catalogDoctors(){
               <a class="doctors-doctors__item-link" href="#">
                 Узнать о враче подробнее
               </a>
-              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+              <a class="doctors-doctors__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox="">
                 Записаться к врачу
               </a>
             </div>
           </div>
-          <div class="doctors-doctors__item">
+          <div class="doctors-doctors__item change-popup-item">
             <a class="doctors-doctors__item-wrapper" href="#">
               <img class="doctors-doctors__item-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/doctors-doctors-3.webp" alt="doctors-doctors-3">
             </a>
             <div class="doctors-doctors__item-info">
-              <h4 class="doctors-doctors__item-title _title">
+              <h4 class="doctors-doctors__item-title _title change-popup-name">
                 Войнилович<br>
                 Сергей Вячеславович
               </h4>
@@ -4046,7 +4046,7 @@ function catalogDoctors(){
               <a class="doctors-doctors__item-link" href="#">
                 Узнать о враче подробнее
               </a>
-              <a class="doctors-doctors__item-btn _gray-btn" href="#" data-fancybox="">
+              <a class="doctors-doctors__item-btn _gray-btn change-popup" href="#callback-modal" data-fancybox="">
                 Записаться к врачу
               </a>
             </div>
@@ -4084,13 +4084,48 @@ function doctorsSpecialization(){
             <?php endwhile; ?>
           </ul>
           <?php endif; ?>
-          <a class="doctors-specialization__btn _gray-btn" href="#">
+          <a class="doctors-specialization__btn _gray-btn" href="#doctor-1" data-fancybox>
             <span>Узнать о враче подробнее</span>
             <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
           </a>
         </div>
 
       </div>
+    </div>
+    <div class="doctors-specialization__modal modal" style="display: none;" id="doctor-1">
+        <div class="doctors-specialization__modal-content theContent">
+          <h6>
+            Образование:
+          </h6>
+          <p>
+            Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (педиатрия), 2015 г.
+            Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (терапия), 2016 г. – повышение квалификации
+            Московский государственный медико-стоматологический университет Евдокимова "180000178363" (пульмонология), 2019 г. – повышение квалификации
+          </p>
+          <h6>
+            Профессиональные достижения и опыт:
+          </h6>
+          <p>
+            Является победителем конкурса народного признания «Спасибо, доктор!», Награждён нагрудным знаком «За мужество и доблесть в борьбе с COVID-19», Статус «Московский врач», Автор медицинского блога по просвещению пациентов «С медицинского на русский», Соавтор пособия по коронавирусной инфекции для пациентов «COVID POSITIVE», Автор бестселлеров «Что делать если» и «Мне только спросить», Снялся в собственном фильме с мировой премьерой «доктор Абакумов. Сторис из красной зоны»
+          </p>
+          <h6>
+            Сертификаты:
+          </h6>
+          <p>
+            Московский государственный медико-стоматологический университет имени А.И. Евдокимова "017780857151" (Пульмонология)
+          </p>
+        </div>
+        <div class="front-block__btns doctors-specialization__modal-btns">
+              <a class="front-block__btn _main-btn change-popup-from-link change-popup-from" href="#callback-modal" data-fancybox="">
+                <span>Записаться на консультацию</span>
+              </a>
+              <a class="front-block__arrow-btn doctors-specialization__modal-btn" href="#">
+                <span class="front-block__btn-icon doctors-specialization__modal-icon">
+                  <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+                </span>
+                <span>Задать вопросы через WhatsApp</span>
+              </a>
+            </div>
     </div>
   </section>
 

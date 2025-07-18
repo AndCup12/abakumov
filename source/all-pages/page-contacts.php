@@ -1,102 +1,37 @@
 <?php
 
+/**
+ * Template Name: Контакты
+ * http://dontforget.pro
+ * @package WordPress
+ * @subpackage clean
+ */
 get_header();
 ?>
 
-<!-- страница Информация для пациентов -->
+<!-- 
+страница Контакты
 
-<main class="main" id="client-info">
 
-  <!-- <?php echo renderBlocksSingleCheckup(); ?> -->
+-->
+
+<main class="main" id="contacts-page">
 
   <!-- В первом блоке только заголовок -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
     <div class="container relative">
       <h1 class="front-block__title _title">
-        Информация для пациентов
+        Контакты Abakumov Clinic
       </h1>
     </div>
   </section>
 
-  <!-- новый блок с карточками -->
-  <section class="link-items">
+  <!-- блок с картинкой -->
+  <section class="image-block space-top-negative relative">
     <div class="container">
-      <div class="cursor">
-        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
-      </div>
-      <div class="link-items__services">
-        <a class="link-items__service" href="#">
-          <div class="link-items__service-wrapper">
-            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-1.webp" alt="link-items-1">
-          </div>
-          <div class="link-items__service-info">
-            <h4 class="link-items__service-title">
-              Оформление<br>
-              налогового вычета
-            </h4>
-            <div class="link-items__service-btn _gray-btn">
-              <span>Перейти к прочтению</span>
-            </div>
-          </div>
-        </a>
-        <a class="link-items__service" href="#">
-          <div class="link-items__service-wrapper">
-            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-2.webp" alt="link-items-2">
-          </div>
-          <div class="link-items__service-info">
-            <h4 class="link-items__service-title">
-              Ответы на часто<br>
-              задаваемые вопросы
-            </h4>
-            <div class="link-items__service-btn _gray-btn">
-              <span>Перейти к прочтению</span>
-            </div>
-          </div>
-        </a>
-        <a class="link-items__service" href="#">
-          <div class="link-items__service-wrapper">
-            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-3.webp" alt="link-items-3">
-          </div>
-          <div class="link-items__service-info">
-            <h4 class="link-items__service-title">
-              Подготовка<br>
-              к визиту
-            </h4>
-            <div class="link-items__service-btn _gray-btn">
-              <span>Перейти к прочтению</span>
-            </div>
-          </div>
-        </a>
-        <a class="link-items__service" href="#">
-          <div class="link-items__service-wrapper">
-            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-4.webp" alt="link-items-4">
-          </div>
-          <div class="link-items__service-info">
-            <h4 class="link-items__service-title">
-              Заключение договора<br>
-              с ООО «ДИ-МЕД»
-            </h4>
-            <div class="link-items__service-btn _gray-btn">
-              <span>Перейти к прочтению</span>
-            </div>
-          </div>
-        </a>
-        <a class="link-items__service" href="#">
-          <div class="link-items__service-wrapper">
-            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-5.webp" alt="link-items-5">
-          </div>
-          <div class="link-items__service-info">
-            <h4 class="link-items__service-title">
-              Порядок проведения<br>
-              взаиморасчетов за оказание<br>
-              медицинских услуг
-            </h4>
-            <div class="link-items__service-btn _gray-btn">
-              <span>Перейти к прочтению</span>
-            </div>
-          </div>
-        </a>
+      <div class="images-block__wrapper">
+        <img class="image-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/image-block-1.webp" alt="image-block-1">
       </div>
     </div>
   </section>
@@ -200,7 +135,7 @@ get_header();
             чтобы получить подробную <br>схему проезда 
           </p>
           <div class="map-block__form-inner">
-            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона" required>
+            <input class="_input map-block__form-inp" type="tel" name="phone" required placeholder="Введите номер телефона">
             <button class="map-block__form-btn _gray-btn" type="submit">
               Получите схемы проезда<br>
               и все контакты в WhatsApp

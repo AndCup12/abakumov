@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Оформление налогового вычета 
+ * Template Name: Новостей 
  * http://dontforget.pro
  * @package WordPress
  * @subpackage clean
@@ -10,10 +10,10 @@ get_header();
 ?>
 
 <!-- 
-страница Оформление налогового вычета 
+страница Новостей 
 -->
 
-<main class="main" id="nalog-page">
+<main class="main" id="news-page">
   <!-- Первый блок (нет картинки докторов) -->
   <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-fff.svg" alt="abacumov">
@@ -24,216 +24,130 @@ get_header();
             <a class="breadcrumbs__link" href="#">Главная</a>
           </li>
           <li class="breadcrumbs__point">
-            <a class="breadcrumbs__link" href="#">Статьи</a>
-          </li>
-          <li class="breadcrumbs__point">
-            <a class="breadcrumbs__link active" href="#">Оформление налогового вычета</a>
+            <a class="breadcrumbs__link active" href="#">Новости</a>
           </li>
         </ul>
       </div>
-      <h1 class="front-block__title _title">
-        Оформление налогового вычета
-      </h1>
-    </div>
-  </section>
-  <!-- Новый блок с контентом и формой -->
-  <section class="content-block">
-    <div class="container">
-      <div class="content-block__inner">
-        <div class="content-block__left">
-          <div class="content-block__left-inner theContent">
-            <p>
-              При оплате медицинских услуг и приобретении медикаментов можно вернуть часть затраченных денежных средств с помощью социального налогового вычета по НДФЛ.
-            </p>
-            <h6>
-              Социальный налоговый вычет на лечение может получить физлицо, оплатившее:
-            </h6>
-            <h2>Как правильно организовать свое первое обращение?</h2>
-            <ul>
-              <li>медицинские услуги, в том числе дорогостоящие, оказанные ему самому, его супругу (супруге), родителям, а также детям (в том числе усыновленным) в возрасте до 18 лет (до 24 лет, если дети (в том числе усыновленные) являются обучающимися по очной форме обучения в организациях, осуществляющих образовательную деятельность), подопечным в возрасте до 18 лет (далее — члены семьи);</li>
-              <li>назначенные врачом лекарства, в том числе для членов семьи;</li>
-              <li>страховые взносы по договору ДМС, заключенному в целях своего лечения или лечения членов семьи.</li>
-            </ul>
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/contacts-1.webp" alt="title">
-          </div>
-        </div>
-        <form class="content-block__form form-submit relative" action="#" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="from" value="Есть вопросы или хотите записаться по телефону?">
-          <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
-          <div class="content-block__form-inner">
-            <h4 class="content-block__form-title _title">
-              Заполните форму
-            </h4>
-            <p class="content-block__form-subtitle">
-              Введите телефон в форме ниже
-            </p>
-            <div class="content-block__form-inputs">
-              <input class="content-block__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
-              <button class="content-block__form-btn _gray-btn">
-                Записаться на консультацию
-              </button>
-            </div>
-            <p class="content-block__form-politic politic-text">
-              Нажимая на кнопку, вы соглашаетесь с <a href="#politics" data-fancybox>
-                Политикой конфиденциальности
-              </a>
-            </p>
-          </div>
-        </form>
+      <div class="front-block__top">
+        <h1 class="front-block__title _title">
+          Новости Abakumov Clinic
+        </h1>
+      </div>
+      <div class="front-block__btns">
+        <a class="front-block__btn _main-btn" href="#quiz" data-fancybox>
+          <span>Записаться на прием</span>
+        </a>
+        <a class="front-block__btn _whatsapp-btn" href="https://wa.me/+79031003195" target="_blank">
+          <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+          <span>Записаться через WhatsApp</span>
+        </a>
       </div>
     </div>
   </section>
-
-  <!-- Новый блок с аккордионом -->
-  <section class="content-block">
+  <!-- Есть изменения в блоке. Добавлена пагинация - она как отдельный блок. И кнопка показать больше. В карточках добавлен класс link-items__service-text - меньше текст. 
+  Добавлен класс left-btn кнопке, чтобы она ровнялась по левому краю.
+  Добавлен класс grid-column на обертку карточек, чтобы карточки не уходили в скролл, а выстраивались в колонку по две
+  -->
+  <section class="link-items">
     <div class="container">
-      <div class="content-block__inner">
-        <div class="content-block__left">
-          <div class="content-block__left-inner checkup-compound__left accordion">
-            <div class="checkup-compound__item accordion-item">
-              <div class="checkup-compound__item-header accordion-header">
-                <div class="checkup-compound__item-left">
-                  <span class="checkup-compound__item-step">
-                    01
-                  </span>
-                  <h4 class="checkup-compound__item-title">
-                    Какие документы взять на первый прием?
-                  </h4>
-                </div>
-                <div class="open-item checkup-compound__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-
-                </div>
-              </div>
-              <div class="checkup-compound__item-body accordion-body">
-                <ul class="checkup-compound__item-list">
-                  <li class="checkup-compound__item-point">
-                    <span>Врачебная деятельность регулируется регламентами ФЗ №323 «Об основах охраны здоровья граждан Российской Федерации». Для постановки диагноза и назначения лечения недостаточно жалоб пациента. Все заключения врачи делают только после специализированных обследований и на основании указанного выше федерального закона, который включает стандарты оказания медпомощи.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="checkup-compound__item accordion-item">
-              <div class="checkup-compound__item-header accordion-header">
-                <div class="checkup-compound__item-left">
-                  <span class="checkup-compound__item-step">
-                    02
-                  </span>
-                  <h4 class="checkup-compound__item-title">
-                    Оказание медицинской помощи по стандарта
-                  </h4>
-                </div>
-                <div class="open-item checkup-compound__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-
-                </div>
-              </div>
-              <div class="checkup-compound__item-body accordion-body">
-                <ul class="checkup-compound__item-list">
-                  <li class="checkup-compound__item-point">
-                    <span>Врачебная деятельность регулируется регламентами ФЗ №323 «Об основах охраны здоровья граждан Российской Федерации». Для постановки диагноза и назначения лечения недостаточно жалоб пациента. Все заключения врачи делают только после специализированных обследований и на основании указанного выше федерального закона, который включает стандарты оказания медпомощи.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="checkup-compound__item accordion-item">
-              <div class="checkup-compound__item-header accordion-header">
-                <div class="checkup-compound__item-left">
-                  <span class="checkup-compound__item-step">
-                    03
-                  </span>
-                  <h4 class="checkup-compound__item-title">
-                    Можно ли опаздывать на прием
-                  </h4>
-                </div>
-                <div class="open-item checkup-compound__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-
-                </div>
-              </div>
-              <div class="checkup-compound__item-body accordion-body">
-                <ul class="checkup-compound__item-list">
-                  <li class="checkup-compound__item-point">
-                    <span>Врачебная деятельность регулируется регламентами ФЗ №323 «Об основах охраны здоровья граждан Российской Федерации». Для постановки диагноза и назначения лечения недостаточно жалоб пациента. Все заключения врачи делают только после специализированных обследований и на основании указанного выше федерального закона, который включает стандарты оказания медпомощи.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="checkup-compound__item accordion-item">
-              <div class="checkup-compound__item-header accordion-header">
-                <div class="checkup-compound__item-left">
-                  <span class="checkup-compound__item-step">
-                    04
-                  </span>
-                  <h4 class="checkup-compound__item-title">
-                    Как получить медицинскую помощь на дому?
-                  </h4>
-                </div>
-                <div class="open-item checkup-compound__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-
-                </div>
-              </div>
-              <div class="checkup-compound__item-body accordion-body">
-                <ul class="checkup-compound__item-list">
-                  <li class="checkup-compound__item-point">
-                    <span>Врачебная деятельность регулируется регламентами ФЗ №323 «Об основах охраны здоровья граждан Российской Федерации». Для постановки диагноза и назначения лечения недостаточно жалоб пациента. Все заключения врачи делают только после специализированных обследований и на основании указанного выше федерального закона, который включает стандарты оказания медпомощи.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="checkup-compound__item accordion-item">
-              <div class="checkup-compound__item-header accordion-header">
-                <div class="checkup-compound__item-left">
-                  <span class="checkup-compound__item-step">
-                    05
-                  </span>
-                  <h4 class="checkup-compound__item-title">
-                    Как получить результаты моих анализов и обследований?
-                  </h4>
-                </div>
-                <div class="open-item checkup-compound__item-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/arrow-link.svg'); ?>
-
-                </div>
-              </div>
-              <div class="checkup-compound__item-body accordion-body">
-                <ul class="checkup-compound__item-list">
-                  <li class="checkup-compound__item-point">
-                    <span>Врачебная деятельность регулируется регламентами ФЗ №323 «Об основах охраны здоровья граждан Российской Федерации». Для постановки диагноза и назначения лечения недостаточно жалоб пациента. Все заключения врачи делают только после специализированных обследований и на основании указанного выше федерального закона, который включает стандарты оказания медпомощи.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+      <div class="link-items__services grid-column">
+        <a class="link-items__service" href="#">
+          <div class="link-items__service-wrapper">
+            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-1.webp" alt="link-items-1">
           </div>
-        </div>
-        <form class="content-block__form form-submit relative" action="#" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="from" value="Есть вопросы или хотите записаться по телефону?">
-          <input type="hidden" name="newToken" value="<?php echo (rand(10000, 99999)) ?>">
-          <div class="content-block__form-inner">
-            <h4 class="content-block__form-title _title">
-              Заполните форму
+          <div class="link-items__service-info">
+            <h4 class="link-items__service-text">
+              Abakumov Clinic запускает корпоративные чекапы нового поколения — персонально под задачи бизнеса
             </h4>
-            <p class="content-block__form-subtitle">
-              Введите телефон в форме ниже
-            </p>
-            <div class="content-block__form-inputs">
-              <input class="content-block__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
-              <button class="content-block__form-btn _gray-btn">
-                Записаться на консультацию
-              </button>
+            <div class="link-items__service-btn _gray-btn left-btn">
+              <span>Перейти к прочтению</span>
             </div>
-            <p class="content-block__form-politic politic-text">
-              Нажимая на кнопку, вы соглашаетесь с <a href="#politics" data-fancybox>
-                Политикой конфиденциальности
-              </a>
-            </p>
           </div>
-        </form>
+        </a>
+        <a class="link-items__service" href="#">
+          <div class="link-items__service-wrapper">
+            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-2.webp" alt="link-items-2">
+          </div>
+          <div class="link-items__service-info">
+            <h4 class="link-items__service-text">
+              Открыт VIP-дневной стационар: комфорт на уровне пятизвёздочного отеля теперь доступен пациентам
+            </h4>
+            <div class="link-items__service-btn _gray-btn left-btn">
+              <span>Перейти к прочтению</span>
+            </div>
+          </div>
+        </a>
+        <a class="link-items__service" href="#">
+          <div class="link-items__service-wrapper">
+            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-3.webp" alt="link-items-3">
+          </div>
+          <div class="link-items__service-info">
+            <h4 class="link-items__service-text">
+              Abakumov Clinic вошла в топ-10 частных клиник Москвы по уровню сервиса по версии Zdrav.Media
+            </h4>
+            <div class="link-items__service-btn _gray-btn left-btn">
+              <span>Перейти к прочтению</span>
+            </div>
+          </div>
+        </a>
+        <a class="link-items__service" href="#">
+          <div class="link-items__service-wrapper">
+            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-4.webp" alt="link-items-4">
+          </div>
+          <div class="link-items__service-info">
+            <h4 class="link-items__service-text">
+              Abakumov Clinic запускает корпоративные чекапы нового поколения — персонально под задачи бизнеса
+            </h4>
+            <div class="link-items__service-btn _gray-btn left-btn">
+              <span>Перейти к прочтению</span>
+            </div>
+          </div>
+        </a>
+        <a class="link-items__service" href="#">
+          <div class="link-items__service-wrapper">
+            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-5.webp" alt="link-items-5">
+          </div>
+          <div class="link-items__service-info">
+            <h4 class="link-items__service-text">
+              Открыт VIP-дневной стационар: комфорт на уровне пятизвёздочного отеля теперь доступен пациентам
+            </h4>
+            <div class="link-items__service-btn _gray-btn left-btn">
+              <span>Перейти к прочтению</span>
+            </div>
+          </div>
+        </a>
+        <a class="link-items__service" href="#">
+          <div class="link-items__service-wrapper">
+            <img class="link-items__service-img _img" src="<?php echo get_template_directory_uri(); ?>/assets/images/link-items-6.webp" alt="link-items-6">
+          </div>
+          <div class="link-items__service-info">
+            <h4 class="link-items__service-text">
+              Abakumov Clinic вошла в топ-10 частных клиник Москвы по уровню сервиса по версии Zdrav.Media
+            </h4>
+            <div class="link-items__service-btn _gray-btn left-btn">
+              <span>Перейти к прочтению</span>
+            </div>
+          </div>
+        </a>
       </div>
+      <div class="pagination">
+        <a class="pagination__link" href="#">Назад</a>
+        <div class="pagination__steps">
+          <a class="pagination__step active" href="#">1</a>
+          <a class="pagination__step" href="#">2</a>
+          <a class="pagination__step" href="#">3</a>
+          <a class="pagination__step" href="#">4</a>
+          <a class="pagination__step" href="#">5</a>
+        </div>
+        <a class="pagination__link" href="#">Вперед</a>
+      </div>
+      <a class="more-btn _main-btn" href="#">
+        Открыть больше новостей
+      </a>
     </div>
   </section>
 
+  <!-- в блок внутри обертки добавил заголовок. Также добавил новые классы padding-bottom и padding-top - чтобы можно было делать внутренние отступы в блоке -->
   <div class="wrapper-bg _section-lg">
     <section class="link-items padding-bottom padding-top">
       <img class="link-items__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-1.svg" alt="abacumov">
@@ -317,12 +231,12 @@ get_header();
             Заполните форму
           </h4>
           <p class="callback__form-subtitle">
-            и получите консультацию специалиста
+            Введите телефон в форме ниже
           </p>
           <div class="callback__form-inputs">
-            <input class="callback__form-inp _input" type="tel" name="phone" placeholder="Введите номер телефона" required>
+            <input class="callback__form-inp _input" type="tel" name="phone" required placeholder="Введите номер телефона">
             <button class="callback__form-btn _gray-btn">
-              Получите консультацию
+              Записаться на консультацию
             </button>
           </div>
           <p class="callback__form-politic politic-text">
@@ -549,7 +463,7 @@ get_header();
             чтобы получить подробную <br>схему проезда 
           </p>
           <div class="map-block__form-inner">
-            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона" required>
+            <input class="_input map-block__form-inp" type="tel" name="phone" required placeholder="Введите номер телефона">
             <button class="map-block__form-btn _gray-btn" type="submit">
               Получите схемы проезда<br>
               и все контакты в WhatsApp

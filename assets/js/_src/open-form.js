@@ -20,4 +20,4 @@ function openForm() {
   }))
 }
 
-openForm();
+document.addEventListener("DOMContentLoaded", () => openForm());

@@ -1,13 +1,21 @@
 <?php
 
+/**
+ * Template Name: Информация для пациентов
+ * http://dontforget.pro
+ * @package WordPress
+ * @subpackage clean
+ */
 get_header();
 ?>
 
-<!-- страница Информация для пациентов -->
+<!-- 
+страница Информация для пациентов
+
+
+-->
 
 <main class="main" id="client-info">
-
-  <!-- <?php echo renderBlocksSingleCheckup(); ?> -->
 
   <!-- В первом блоке только заголовок -->
   <section class="front-block _image-wrapper _section-lg">
@@ -22,9 +30,6 @@ get_header();
   <!-- новый блок с карточками -->
   <section class="link-items">
     <div class="container">
-      <div class="cursor">
-        <?php include(get_template_directory() . '/assets/images/icons/cursor.svg'); ?>
-      </div>
       <div class="link-items__services">
         <a class="link-items__service" href="#">
           <div class="link-items__service-wrapper">
@@ -200,7 +205,7 @@ get_header();
             чтобы получить подробную <br>схему проезда 
           </p>
           <div class="map-block__form-inner">
-            <input class="_input map-block__form-inp" type="tel" name="phone" placeholder="Введите номер телефона" required>
+            <input class="_input map-block__form-inp" type="tel" name="phone" required placeholder="Введите номер телефона">
             <button class="map-block__form-btn _gray-btn" type="submit">
               Получите схемы проезда<br>
               и все контакты в WhatsApp

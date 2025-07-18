@@ -1,4 +1,4 @@
-document.querySelectorAll(".anchor").forEach((anchor) => {
+document.querySelectorAll(".anchor, .popup-menu a").forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     if (this.getAttribute("href").includes("https")) return;
     e.preventDefault();

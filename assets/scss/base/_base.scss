@@ -111,9 +111,6 @@ a {
     border-radius: 10px;
     transition: all .3s ease-in-out;
 
-    &:hover {
-      scale: 1.1;
-    }
   }
 
   &__whatsapp {
@@ -184,11 +181,9 @@ a {
 
   &:hover {
     background-color: var(--primary-hover);
-    box-shadow: 0px 15px 30px rgba(245, 45, 58, 0.15), inset 0px 5px 30px rgba(255, 255, 255, 0.2);
   }
 
   &:active {
-    box-shadow: 0 0 0 0 transparent;
     background: var(--primary);
   }
 }
@@ -235,11 +230,9 @@ a {
 
   &:hover {
     background-color: var(--accent-hover);
-    box-shadow: 0px 15px 30px rgba(187, 187, 187, 0.15), inset 0px 5px 30px rgba(255, 255, 255, 0.2);
   }
 
   &:active {
-    box-shadow: 0 0 0 0 transparent;
     background: var(--accent);
   }
 }
@@ -286,11 +279,9 @@ a {
 
   &:hover {
     background-color: var(--whatsapp-hover);
-    box-shadow: 0px 15px 30px rgba(245, 45, 58, 0.15), inset 0px 5px 30px rgba(255, 255, 255, 0.2);
   }
 
   &:active {
-    box-shadow: 0 0 0 0 transparent;
     background: var(--whatsapp-color);
   }
 }
@@ -342,7 +333,7 @@ a {
     }
 
     &:hover {
-      background-color: var(--primary);
+      background-color: var(--accent-hover);
     }
   }
 
@@ -468,14 +459,12 @@ a {
     .play__inner {
       scale: 1.25;
       background-color: var(--primary-hover);
-      box-shadow: 0px 15px 30px rgba(255, 0, 10, 0.15), inset 0px 10px 15px rgba(255, 255, 255, 0.15);
     }
   }
 
   &:active {
     .play__inner {
       background-color: var(--primary);
-      box-shadow: 0px 0px 0px transparent;
     }
   }
 
@@ -488,7 +477,6 @@ a {
     justify-content: center;
     align-items: center;
     transition: all .3s ease-in-out;
-    box-shadow: 0px 15px 30px rgba(190, 238, 98, 0.15), inset 0px 10px 15px rgba(255, 255, 255, 0.15);
   }
 }
 
