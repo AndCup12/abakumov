@@ -11,7 +11,12 @@ get_header();
 
 <main class="main" id="price-page">
 
-  <?php echo renderBlocksSingleCheckup(); ?>
+  <?php echo renderBlocksPagePrice(); ?>
+
+  <?php echo contacts(); ?>
+
+  <?php echo map(); ?>
+
   <!-- <section class="front-block _image-wrapper _section-lg">
     <img class="front-block__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/abacumov-front.svg" alt="abacumov">
     <div class="container">

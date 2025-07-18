@@ -547,19 +547,63 @@ function renderServiceMain(){
 }
 
 
-
 // ======= Блоки для Преимущества =========
 
-// frontBlockMain
-// videoBlock
-// blockImg
-// concept
-// doctorExp
-// deleteCause
-// staticNewLevel
-// care
-// wrapperEnd
-// wrapperStart
+function renderBlocksPageAdv(){
+
+  // frontBlockMain : Первый блок - Главная
+  // videoBlock : Блок с видео
+  // blockImg : Картинка большая
+  // concept : Концепция клиники
+  // doctorExp : Воплощение опыта
+  // deleteCause : Устраняем причину
+  // staticNewLevel : Клиника ментор
+  // care : Забота
+  // wrapperStart : Начало обертки
+  // wrapperEnd : Конец обертки
+
+  if(have_rows('blocksPageAdv')){
+    while(have_rows('blocksPageAdv')){
+      the_row();
+      $block_type = get_sub_field('block_type');
+      // echo $block_type . "\n";
+      switch ($block_type) {
+        case 'frontBlockMain':
+          echo frontBlockMain();
+          break;
+        case 'videoBlock':
+          echo videoBlock();
+          break;
+        case 'blockImg':
+          echo blockImg();
+          break;
+        case 'concept':
+          echo concept();
+          break;
+        case 'doctorExp':
+          echo doctorExp();
+          break;
+        case 'deleteCause':
+          echo deleteCause();
+          break;
+        case 'staticNewLevel':
+          echo staticNewLevel();
+          break;
+        case 'care':
+          echo care();
+          break;
+        case 'wrapperEnd':
+          echo wrapperEnd();
+          break;
+        case 'wrapperStart':
+          $type = get_sub_field('wrapperStart_variants');
+          echo wrapperStart($type);
+          break;
+      }
+    }
+  }
+
+}
 
 
 // ======= Блоки для Отзывы =========
@@ -646,8 +690,45 @@ function renderBlocksRevBizVac(){
 }
 
 
+// ======= Блоки для Цен =========
+
+function renderBlocksPagePrice(){
+
+  // firstBlockDirection : Первый блок - Направления основная
+  // directionsPrice : Стоимость лечения
+  // сonsilium : Консилиум
+  // wrapperStart : Начало обертки
+  // wrapperEnd : Конец обертки
+
+  if(have_rows('blocksPagePrice')){
+    while(have_rows('blocksPagePrice')){
+      the_row();
+      $block_type = get_sub_field('block_type');
+      switch ($block_type) {
+        case 'firstBlockDirection':
+          echo firstBlockDirection();
+          break;
+        case 'directionsPrice':
+          echo directionsPrice();
+          break;
+        case 'сonsilium':
+          echo сonsilium();
+          break;
+        case 'wrapperStart':
+          $type = get_sub_field('wrapperStart_variants');
+          echo wrapperStart($type);
+          break;
+        case 'wrapperEnd':
+          echo wrapperEnd();
+          break;
+      }
+    }
+  }
+}
 
 
+
+// ======= Генерация блоков =========
 
 // Первый блок - Чекап сингл
 function checkupFrontBlock(){
@@ -837,7 +918,7 @@ function frontBlockMain(){
         <?php endif; ?>
         <?php if(get_sub_field('frontBlockMain_imgs')):
           $imgs = get_sub_field('frontBlockMain_imgs'); ?>
-        <img class="front-block__right" src="<?php $imgs['url'];?>" alt="<?php echo $imgs['alt'];?>">
+        <img class="front-block__right" src="<?php echo $imgs['url'];?>" alt="<?php echo $imgs['alt'];?>">
         <?php endif; ?>
       </div>
       <div class="front-block__btns">
@@ -4093,39 +4174,39 @@ function doctorsSpecialization(){
       </div>
     </div>
     <div class="doctors-specialization__modal modal" style="display: none;" id="doctor-1">
-        <div class="doctors-specialization__modal-content theContent">
-          <h6>
-            Образование:
-          </h6>
-          <p>
-            Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (педиатрия), 2015 г.
-            Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (терапия), 2016 г. – повышение квалификации
-            Московский государственный медико-стоматологический университет Евдокимова "180000178363" (пульмонология), 2019 г. – повышение квалификации
-          </p>
-          <h6>
-            Профессиональные достижения и опыт:
-          </h6>
-          <p>
-            Является победителем конкурса народного признания «Спасибо, доктор!», Награждён нагрудным знаком «За мужество и доблесть в борьбе с COVID-19», Статус «Московский врач», Автор медицинского блога по просвещению пациентов «С медицинского на русский», Соавтор пособия по коронавирусной инфекции для пациентов «COVID POSITIVE», Автор бестселлеров «Что делать если» и «Мне только спросить», Снялся в собственном фильме с мировой премьерой «доктор Абакумов. Сторис из красной зоны»
-          </p>
-          <h6>
-            Сертификаты:
-          </h6>
-          <p>
-            Московский государственный медико-стоматологический университет имени А.И. Евдокимова "017780857151" (Пульмонология)
-          </p>
-        </div>
-        <div class="front-block__btns doctors-specialization__modal-btns">
-              <a class="front-block__btn _main-btn change-popup-from-link change-popup-from" href="#callback-modal" data-fancybox="">
-                <span>Записаться на консультацию</span>
-              </a>
-              <a class="front-block__arrow-btn doctors-specialization__modal-btn" href="#">
-                <span class="front-block__btn-icon doctors-specialization__modal-icon">
-                  <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
-                </span>
-                <span>Задать вопросы через WhatsApp</span>
-              </a>
-            </div>
+      <div class="doctors-specialization__modal-content theContent">
+        <h6>
+          Образование:
+        </h6>
+        <p>
+          Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (педиатрия), 2015 г.
+          Воронежский Государственный Медицинский Университет им. Н.Н. Бурденко (терапия), 2016 г. – повышение квалификации
+          Московский государственный медико-стоматологический университет Евдокимова "180000178363" (пульмонология), 2019 г. – повышение квалификации
+        </p>
+        <h6>
+          Профессиональные достижения и опыт:
+        </h6>
+        <p>
+          Является победителем конкурса народного признания «Спасибо, доктор!», Награждён нагрудным знаком «За мужество и доблесть в борьбе с COVID-19», Статус «Московский врач», Автор медицинского блога по просвещению пациентов «С медицинского на русский», Соавтор пособия по коронавирусной инфекции для пациентов «COVID POSITIVE», Автор бестселлеров «Что делать если» и «Мне только спросить», Снялся в собственном фильме с мировой премьерой «доктор Абакумов. Сторис из красной зоны»
+        </p>
+        <h6>
+          Сертификаты:
+        </h6>
+        <p>
+          Московский государственный медико-стоматологический университет имени А.И. Евдокимова "017780857151" (Пульмонология)
+        </p>
+      </div>
+      <div class="front-block__btns doctors-specialization__modal-btns">
+        <a class="front-block__btn _main-btn change-popup-from-link change-popup-from" href="#callback-modal" data-fancybox="">
+          <span>Записаться на консультацию</span>
+        </a>
+        <a class="front-block__arrow-btn doctors-specialization__modal-btn" href="#">
+          <span class="front-block__btn-icon doctors-specialization__modal-icon">
+            <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+          </span>
+          <span>Задать вопросы через WhatsApp</span>
+        </a>
+      </div>
     </div>
   </section>
 
