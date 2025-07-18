@@ -2,7 +2,11 @@
 
     <main class="main" id="checkup-main">
 
-      <?php echo renderBlocksSingleCheckup();?>
+      <?php echo renderCheckupMain();?>
+
+      <?php echo contacts(); ?>
+
+      <?php echo map();?>
 
     </main>
 
