@@ -10,23 +10,15 @@
                   Чек-апы
                 </a>
               </h4>
-              <ul class="footer__item-list">
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Чек-апы для женщин
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Чек-апы для мужчин
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Спец. программы
-                  </a>
-                </li>
-              </ul>
+              <?php
+                wp_nav_menu(array(
+                    'menu' => 'check-up',
+                    'container'      => false,
+                    'menu_class'     => 'footer__item-list',
+                    'walker'         => new Footer_Menu_Walker(),
+                    'depth'         => 1
+                ));
+              ?>
             </div>
             <div class="footer__item">
               <h4 class="footer__item-title">
@@ -34,43 +26,15 @@
                   Услуги
                 </a>
               </h4>
-              <ul class="footer__item-list">
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Дневной стационар
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Лабораторная диагностика
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Медицинские услуги на дому
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Онлайн-консультация
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Мед-бот диагностики
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Удалённая поддержка врача
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Услуги на дому
-                  </a>
-                </li>
-              </ul>
+              <?php
+                wp_nav_menu(array(
+                    'menu' => 'service',
+                    'container'      => false,
+                    'menu_class'     => 'footer__item-list',
+                    'walker'         => new Footer_Menu_Walker(),
+                    'depth'         => 1
+                ));
+              ?>
             </div>
           </div>
         </div>
@@ -81,112 +45,26 @@
                 Направления
               </a>
             </h4>
-            <ul class="footer__item-list">
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Аллергология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Гастроэнтерология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Гематология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Гинекология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Диетология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Кардиология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Дерматология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Косметология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Маммология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Неврология
-                </a>
-              </li>
-            </ul>
+            <?php
+              wp_nav_menu(array(
+                  'menu' => 'directions_1',
+                  'container'      => false,
+                  'menu_class'     => 'footer__item-list',
+                  'walker'         => new Footer_Menu_Walker(),
+                  'depth'         => 1
+              ));
+            ?>
           </div>
           <div class="footer__item footer-item-list">
-            <ul class="footer__item-list">
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Онкология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Оториноларингология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Пульмонология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Терапия
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  УЗИ
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Урология
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Физиотерапия
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Фониатрия
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Функциональная диагностика
-                </a>
-              </li>
-              <li class="footer__item-point">
-                <a class="footer__item-link" href="#">
-                  Эндокринология
-                </a>
-              </li>
-            </ul>
+            <?php
+              wp_nav_menu(array(
+                  'menu' => 'directions_2',
+                  'container'      => false,
+                  'menu_class'     => 'footer__item-list',
+                  'walker'         => new Footer_Menu_Walker(),
+                  'depth'         => 1
+              ));
+            ?>
           </div>
         </div>
         <div class="footer__menu-col">
@@ -197,43 +75,15 @@
                   О клинике
                 </a>
               </h4>
-              <ul class="footer__item-list">
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Преимущества клиники
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Наши пациенты
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Медиа о нас
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Корпоративным клиентам
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Новости
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Блог
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Вакансии
-                  </a>
-                </li>
-              </ul>
+              <?php
+                wp_nav_menu(array(
+                    'menu' => 'clinic',
+                    'container'      => false,
+                    'menu_class'     => 'footer__item-list',
+                    'walker'         => new Footer_Menu_Walker(),
+                    'depth'         => 1
+                ));
+              ?>
             </div>
             <div class="footer__item">
               <h4 class="footer__item-title">
@@ -241,33 +91,15 @@
                   Документация
                 </a>
               </h4>
-              <ul class="footer__item-list">
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Лицензии и сертификаты
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Контакты контролирующих органов
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Правовые документы
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Информация о медицинских работниках
-                  </a>
-                </li>
-                <li class="footer__item-point">
-                  <a class="footer__item-link" href="#">
-                    Политика конфиденциальности
-                  </a>
-                </li>
-              </ul>
+              <?php
+                wp_nav_menu(array(
+                    'menu' => 'doc',
+                    'container'      => false,
+                    'menu_class'     => 'footer__item-list',
+                    'walker'         => new Footer_Menu_Walker(),
+                    'depth'         => 1
+                ));
+              ?>
             </div>
           </div>
         </div>

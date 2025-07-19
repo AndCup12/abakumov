@@ -1,19 +1,6 @@
-<?php
-
-/**
- * Template Name: Контакты
- * http://dontforget.pro
- * @package WordPress
- * @subpackage clean
- */
-get_header();
+<?php get_header();
 ?>
 
-<!-- 
-страница Контакты
-
-
--->
 
 <main class="main" id="contacts-page">
 
