@@ -53,140 +53,35 @@
       </div>
       <div class="container">
         <nav class="header__menu center">
-          <ul class="header__menu-list">
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#">
-                Чек-апы
-              </a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#">
-                Направления
-              </a>
-              <div class="submenu__wrapper">
-                <ul class="submenu">
-                  <li class="submenu__item">
-                    <a class="submenu__link" href="#">
-                      Аллергология
-                    </a>
-                    <ul class="submenu">
-                      <li class="submenu__item third-level">
-                        <a class="submenu__link" href="#">
-                          Чекап пациентов<br>
-                          18-30+ (мужчины)
-                        </a>
-                      </li>
-                      <li class="submenu__item third-level">
-                        <a class="submenu__link" href="#">
-                          Чекап пациентов после<br>
-                          40 лет (мужчины)
-                        </a>
-                      </li>
-                      <li class="submenu__item third-level">
-                        <a class="submenu__link" href="#">
-                          Чекап пациентов<br>
-                          после 60 лет (мужчины)
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="submenu__item">
-                    <a class="submenu__link" href="#">
-                      Гастроэнтерология
-                    </a>
-                    <ul class="submenu">
-                      <li class="submenu__item third-level">
-                        <a class="submenu__link" href="#">
-                          Чекап пациентов<br>
-                          18-30+ (мужчины)
-                        </a>
-                      </li>
-                      <li class="submenu__item third-level">
-                        <a class="submenu__link" href="#">
-                          Чекап пациентов после<br>
-                          40 лет (мужчины)
-                        </a>
-                      </li>
-                      <li class="submenu__item third-level">
-                        <a class="submenu__link" href="#">
-                          Чекап пациентов<br>
-                          после 60 лет (мужчины)
-                        </a>
-                      </li>
-                      <li class="submenu__item third-level">
-                        <a class="submenu__link" href="#">
-                          Гематология
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="submenu__item">
-                    <a class="submenu__link" href="#">
-                      Гематология
-                    </a>
-                  </li>
-                  <li class="submenu__item">
-                    <a class="submenu__link" href="#">
-                      Гинекология
-                    </a>
-                  </li>
-                  <li class="submenu__item">
-                    <a class="submenu__link" href="#">
-                      Функциональная диагностика
-                    </a>
-                  </li>
-                </ul>
+            <?php
+            wp_nav_menu(array(
+                'menu' => 'main_menu',
+                'container'      => false,
+                'menu_class'     => 'header__menu-list',
+                'walker'         => new Custom_Nav_Walker(),
+                'depth'          => 3
+            ));
+            ?>
+
+            <a class="header__map header__menu-map" href="https://yandex.ru/maps/-/CHcs6XPF" target="_blank">
+              <img class="header__map-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/map-point.webp" alt="map-point">
+              <p class="header__map-text">
+                <span>Адрес клиники:</span>
+                г. Москва, ул. 1-я Бородинская д.3
+              </p>
+            </a>
+            <form action="#" method="post" class="header__search open-search">
+              <div class="header__search-icon">
+                <?php include(get_template_directory() . '/assets/images/icons/search.svg'); ?>
               </div>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#">
-                Услуги
-              </a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#">
-                Врачи
-              </a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#">
-                Цены
-              </a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#">
-                О клинике
-              </a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#">
-                Пациентам
-              </a>
-            </li>
-            <li class="header__menu-item">
-              <a class="header__menu-link" href="#">
-                Контакты
-              </a>
-            </li>
-          </ul>
-          <a class="header__map header__menu-map" href="https://yandex.ru/maps/-/CHcs6XPF" target="_blank">
-            <img class="header__map-img" src="<?php echo get_template_directory_uri(); ?>/assets/images/map-point.webp" alt="map-point">
-            <p class="header__map-text">
-              <span>Адрес клиники:</span>
-              г. Москва, ул. 1-я Бородинская д.3
-            </p>
-          </a>
-          <form action="#" method="post" class="header__search open-search">
-            <div class="header__search-icon">
-              <?php include(get_template_directory() . '/assets/images/icons/search.svg'); ?>
+              <input class="header__search-inp open-search-inp" type="text" name="search" placeholder="Поиск..">
+            </form>
+            <div class="burger">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
             </div>
-            <input class="header__search-inp open-search-inp" type="text" name="search" placeholder="Поиск..">
-          </form>
-          <div class="burger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-          </div>
+
         </nav>
       </div>
     </header>
@@ -198,121 +93,14 @@
         x
       </div>
       <nav class="popup-menu__menu">
-        <ul class="popup-menu__menu-list">
-          <li class="popup-menu__menu-item">
-            <a class="popup-menu__menu-link" href="#">
-              Чек-апы
-            </a>
-          </li>
-          <li class="popup-menu__menu-item">
-            <a class="popup-menu__menu-link" href="#">
-              Направления
-            </a>
-            <div class="popup-submenu__wrapper">
-              <ul class="popup-submenu">
-                <li class="popup-submenu__item">
-                  <a class="popup-submenu__link" href="#">
-                    Аллергология
-                  </a>
-                  <ul class="popup-submenu">
-                    <li class="popup-submenu__item third-level">
-                      <a class="popup-submenu__link" href="#">
-                        Чекап пациентов<br>
-                        18-30+ (мужчины)
-                      </a>
-                    </li>
-                    <li class="popup-submenu__item third-level">
-                      <a class="popup-submenu__link" href="#">
-                        Чекап пациентов после<br>
-                        40 лет (мужчины)
-                      </a>
-                    </li>
-                    <li class="popup-submenu__item third-level">
-                      <a class="popup-submenu__link" href="#">
-                        Чекап пациентов<br>
-                        после 60 лет (мужчины)
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="popup-submenu__item">
-                  <a class="popup-submenu__link" href="#">
-                    Гастроэнтерология
-                  </a>
-                  <ul class="popup-submenu">
-                    <li class="popup-submenu__item third-level">
-                      <a class="popup-submenu__link" href="#">
-                        Чекап пациентов<br>
-                        18-30+ (мужчины)
-                      </a>
-                    </li>
-                    <li class="popup-submenu__item third-level">
-                      <a class="popup-submenu__link" href="#">
-                        Чекап пациентов после<br>
-                        40 лет (мужчины)
-                      </a>
-                    </li>
-                    <li class="popup-submenu__item third-level">
-                      <a class="popup-submenu__link" href="#">
-                        Чекап пациентов<br>
-                        после 60 лет (мужчины)
-                      </a>
-                    </li>
-                    <li class="popup-submenu__item third-level">
-                      <a class="popup-submenu__link" href="#">
-                        Гематология
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="popup-submenu__item">
-                  <a class="popup-submenu__link" href="#">
-                    Гематология
-                  </a>
-                </li>
-                <li class="popup-submenu__item">
-                  <a class="popup-submenu__link" href="#">
-                    Гинекология
-                  </a>
-                </li>
-                <li class="popup-submenu__item">
-                  <a class="popup-submenu__link" href="#">
-                    Функциональная диагностика
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="popup-menu__menu-item">
-            <a class="popup-menu__menu-link" href="#">
-              Услуги
-            </a>
-          </li>
-          <li class="popup-menu__menu-item">
-            <a class="popup-menu__menu-link" href="#">
-              Врачи
-            </a>
-          </li>
-          <li class="popup-menu__menu-item">
-            <a class="popup-menu__menu-link" href="#">
-              Цены
-            </a>
-          </li>
-          <li class="popup-menu__menu-item">
-            <a class="popup-menu__menu-link" href="#">
-              О клинике
-            </a>
-          </li>
-          <li class="popup-menu__menu-item">
-            <a class="popup-menu__menu-link" href="#">
-              Пациентам
-            </a>
-          </li>
-          <li class="popup-menu__menu-item">
-            <a class="popup-menu__menu-link" href="#">
-              Контакты
-            </a>
-          </li>
-        </ul>
+        <?php
+        wp_nav_menu(array(
+            'menu'           => 'main_menu',
+            'container'      => false,
+            'menu_class'     => 'popup-menu__menu-list',
+            'walker'         => new Popup_Menu_Walker(),
+            'depth'          => 3
+        ));
+        ?>
       </nav>
     </div>
