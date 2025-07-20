@@ -177,6 +177,17 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 
+if (function_exists('acf_add_options_page')) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Опции',
+		'menu_title'	=> 'Опции',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+}
+
 // Разрешаем загрузку WebP и DOCX
 add_filter('upload_mimes', 'allow_webp_docx_upload_mimes');
 function allow_webp_docx_upload_mimes($mimes) {
@@ -284,3 +295,5 @@ function archive_pagination() {
 
     wp_die();
 }
+
+

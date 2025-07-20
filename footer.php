@@ -110,15 +110,21 @@
         </a>
         <div class="social-block footer__social-block">
           <div class="social-block__left">
-            <a class="social-block__link social-block__whatsapp" href="https://wa.me/+74958431914">
-              <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
-            </a>
-            <a class="social-block__link social-block__telegram" href="https://wa.me/+74958431914">
-              <?php include(get_template_directory() . '/assets/images/icons/telegram.svg'); ?>
-            </a>
+            <?php if(get_field('whatsapp', 'option')):?>
+              <a class="social-block__link social-block__whatsapp" href="<?php the_field('whatsapp', 'option');?>">
+                <?php include(get_template_directory() . '/assets/images/icons/whatsapp.svg'); ?>
+              </a>
+            <?php endif; ?>
+            <?php if(get_field('telegram', 'option')):?>
+              <a class="social-block__link social-block__telegram" href="<?php the_field('telegram', 'option');?>">
+                <?php include(get_template_directory() . '/assets/images/icons/telegram.svg'); ?>
+              </a>
+            <?php endif; ?>
           </div>
-          <a class="social-block__phone" href="tel:+74958431914">
-            +7 495 843-19-14
+          <?php $phone = get_field('phone', 'option');
+            $clean_phone = str_replace([' ', '(', ')', '-'], '', $phone);?>
+          <a class="social-block__phone" href="tel:<?php echo $clean_phone; ?>">
+            <?php echo $phone; ?>
           </a>
         </div>
         <a class="header__btn footer__callback change-popup" href="#callback-modal" data-fancybox>

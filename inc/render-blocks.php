@@ -1474,6 +1474,9 @@ function videoBlock(){
 
     <section class="video-block">
         <div class="container relative">
+          <div class="video-block__icon">
+            <?php include(get_template_directory() . '/assets/images/icons/av.svg'); ?>
+          </div>
             <h2 class="video-block__title _title">
                 <?php the_sub_field('videoBlock_title'); ?>
             </h2>
@@ -1498,7 +1501,11 @@ function videoBlock(){
                         </div>
                     </div>
                 </a>
-
+              <?php if(is_front_page()):?>
+                <a class="video-block__btn _gray-btn" href="<?php echo get_home_url();?>/advantages/">
+                  Узнать о клинике больше
+                </a>
+              <?php endif; ?>
             <img class="video-block__img" src="<?php echo get_template_directory_uri(); ?>/assets/images/video-block-2.webp" alt="video-block-2">
             <?php endif; ?>
         </div>
@@ -3109,11 +3116,14 @@ function contacts(){
             <p class="contacts__info-title">
               Запись на прием:
             </p>
-            <a class="contacts__info-link" href=tel:+74958431914">
-              +7 (495) 843-19-14
+            <?php $phone = get_field('phone', 'option');
+            $clean_phone = str_replace([' ', '(', ')', '-'], '', $phone);?>
+            <a class="contacts__info-link" href=tel:<?php echo $clean_phone; ?>">
+              <?php echo $phone; ?>
             </a>
             <div class="contacts__info-socials">
-              <a class="contacts__info-social" href="#">
+              <?php if(get_field('whatsapp','option')) :?>
+              <a class="contacts__info-social" href="<?php the_field('whatsapp','option'); ?>">
                 <div class="contacts__info-icon contacts__info-icon--whatsapp">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -3127,7 +3137,9 @@ function contacts(){
                   WhatsApp
                 </p>
               </a>
-              <a class="contacts__info-social" href="#">
+              <?php endif; ?>
+              <?php if(get_field('telegram','option')) :?>
+              <a class="contacts__info-social" href="<?php the_field('telegram','option'); ?>">
                 <div class="contacts__info-icon contacts__info-icon--telegram">
                   <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -3141,6 +3153,7 @@ function contacts(){
                   Telegram
                 </p>
               </a>
+              <?php endif; ?>
             </div>
             <a class="contacts__info-btn _gray-btn change-popup" href="#questions-modal" data-fancybox>
               Задать вопрос
