@@ -961,16 +961,26 @@ function checkupFrontBlock(){
                 </div>
             <?php } ?>
         </div>
-        <?php $links = get_sub_field('checkupFrontBlock_links');
-        if($links) :?>
-        <div class="front-block__links">
-          <?php foreach($links as $post) :
-            setup_postdata($post); ?>
-          <a class="front-block__link" href="<?php the_permalink(); ?>">
-            <span><?php the_title(); ?></span>
-          </a>
-          <?php endforeach; wp_reset_postdata(); ?>
-        </div>
+        <?php
+        $current_page_id = get_the_ID();
+        $child_query = new WP_Query([
+            'post_type'      => 'page',
+            'post_parent'    => $current_page_id,
+            'orderby'        => 'menu_order',
+            'order'          => 'ASC',
+            'posts_per_page' => -1,
+        ]);
+
+        if ($child_query->have_posts()) : ?>
+            <div class="front-block__links">
+                <?php while ($child_query->have_posts()) :
+                    $child_query->the_post(); ?>
+                    <a class="front-block__link" href="<?php the_permalink(); ?>">
+                        <span><?php the_title(); ?></span>
+                    </a>
+                <?php endwhile; ?>
+            </div>
+            <?php wp_reset_postdata(); ?>
         <?php endif; ?>
       </div>
     </section>
